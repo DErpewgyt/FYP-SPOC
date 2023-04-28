@@ -17,4 +17,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/FYP Project/Scenes/OptionScene.unity
     guid: 5d059d764149c824a92a2d81dbdddd23
+  - enabled: 1
+    path: Assets/FYP Project/Scenes/JEREMYMainMenuScene 1.unity
+    guid: 291083ba70333d3488962337c99934ca
   m_configObjects: {}

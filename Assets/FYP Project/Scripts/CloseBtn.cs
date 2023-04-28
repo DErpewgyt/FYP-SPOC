@@ -6,8 +6,8 @@ using UnityEngine.SceneManagement;
 
 public class CloseBtn : MonoBehaviour
 {
-    public void OnClick()
+    public void OnClick(string GameScene)
     {
-        SceneManager.LoadScene("MainMenuScene");
+        SceneManager.LoadScene(GameScene);
     }
 }
