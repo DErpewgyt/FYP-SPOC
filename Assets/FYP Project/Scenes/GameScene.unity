@@ -2174,7 +2174,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 95640230}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 27.477133, y: 0.65, z: -7.95}
+  m_LocalPosition: {x: 27.477133, y: 0.65, z: -7.829}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -21250,8 +21250,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cam: {fileID: 1806205922}
-  zoomSpeed: 1
   targetFOV: 15
+  zoomSpeed: 1
 --- !u!1001 &982766542
 PrefabInstance:
   m_ObjectHideFlags: 0
