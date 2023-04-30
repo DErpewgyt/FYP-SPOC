@@ -1,15 +1,19 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
 using Cinemachine;
+using System.Collections;
+using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class ZoomOnInstrument : MonoBehaviour
 {
     [SerializeField] private CinemachineVirtualCamera cam;
     public float targetFOV;
     public float zoomSpeed;
-
+    public float raycastDistance = 10f;
     private float currentFOV;
+    public GameObject background;// black screen to allow for smooth transition
+    public CanvasGroup canvasGroup;
+    public float fadeTime = 3f;// how long to wait before fading
+    public int levelToLoad;// scene to transition to
 
     private void Start()
     {
@@ -20,8 +24,21 @@ public class ZoomOnInstrument : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0))
         {
-            Debug.Log("clicked");
-            StartCoroutine(ZoomIn());
+            {
+                RaycastHit hit; // Create a RaycastHit variable to store information about the hit object
+                Ray ray = Camera.main.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0f)); // Cast a ray from the center of the camera's viewport
+
+                if (Physics.Raycast(ray, out hit, raycastDistance)) // Check if the raycast hits any object within a certain distance
+                {
+                    Debug.Log("Hit object: " + hit.transform.name); // Print the name of the object hit by the raycast
+                    if (hit.transform.name == "newkeratometer")
+                    {
+                        Debug.Log("clicked");
+                        StartCoroutine(ZoomIn());
+                        FadeToLevel(levelToLoad);
+                    }
+                }
+            }
         }
     }
 
@@ -34,5 +51,15 @@ public class ZoomOnInstrument : MonoBehaviour
             yield return null;
         }
     }
-}
+    public void FadeToLevel(int levelIndex)// fade to next level function
+    {
+        levelToLoad = levelIndex;
+        LeanTween.alphaCanvas(canvasGroup, to: 1, fadeTime).setOnComplete(OnFadeComplete);
+    }
 
+    public void OnFadeComplete() // go to next scene
+    {
+        //SceneManager.LoadScene(levelToLoad);
+        Debug.Log("Scene change");
+    }
+}
