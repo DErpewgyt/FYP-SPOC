@@ -3,84 +3,81 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class ObjectClicker : MonoBehaviour
-
-
 {
+    public Texture2D linkCursorTexture;
     public GameObject parent;
     private Animator anim;
+    private bool zoomedIn = false;
+    private bool isOverObject = false;
+    private float multiplier = 0.25f;
 
     void Start()
     {
         anim = parent.GetComponentInParent<Animator>();
     }
 
-    // Update is called once per frame
     private void Update()
     {
-        if (Input.GetMouseButtonDown(0))
-        {
-            RaycastHit hit;
-            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        RaycastHit hit;
+        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 
-            if (Physics.Raycast(ray, out hit, 100.0f))
+        if (Physics.Raycast(ray, out hit, 100.0f))
+        {
+            if (hit.transform != null)
             {
-                if (hit.transform != null)
+                if (!isOverObject)
+                {
+                    isOverObject = true;
+                    Cursor.SetCursor(linkCursorTexture, new Vector2(linkCursorTexture.width * multiplier, linkCursorTexture.height * multiplier), CursorMode.Auto);
+                }
+
+                if (Input.GetMouseButtonDown(0))
                 {
                     PrintName(hit.transform.gameObject);
-                    anim.Play("keratometerviewer");
+                    ZoomIn();
+                }
+            }
+            else
+            {
+                if (isOverObject)
+                {
+                    isOverObject = false;
+                    Cursor.SetCursor(null, Vector2.zero, CursorMode.Auto);
                 }
             }
         }
+        else
+        {
+            if (isOverObject)
+            {
+                isOverObject = false;
+                Cursor.SetCursor(null, Vector2.zero, CursorMode.Auto);
+            }
+        }
+
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            ZoomOut();
+        }
     }
 
-    private void PrintName(GameObject go)
+    private void PrintName(GameObject target)
     {
-        print(go.name);
+        print(target.name);
+    }
+
+    private void ZoomIn()
+    {
         anim.Play("keratometerviewer");
-    }
-}
-
-
-
-
-/*using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
-public class ObjectClicker : MonoBehaviour
-
-
-{
-    private Animator anim;
-
-    void Start()
-    {
-        anim = gameObject.GetComponent<Animator>();
+        zoomedIn = true;
     }
 
-    // Update is called once per frame
-    private void Update()
+    private void ZoomOut()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (zoomedIn)
         {
-            RaycastHit hit;
-            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-
-            if (Physics.Raycast(ray, out hit, 100.0f))
-            {
-                if (hit.transform != null)
-                {
-                    PrintName(hit.transform.gameObject);
-                    anim.Play("keratometerzoom");
-                }
-            }
+            anim.Play("keratometerunviewer");
+            zoomedIn = false;
         }
     }
-
-    private void PrintName(GameObject go)
-    {
-        print(go.name);
-        anim.Play("keratometerzoom");
-    }
 }
-*/
