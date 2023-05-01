@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class ObjectClicker : MonoBehaviour
@@ -34,7 +35,9 @@ public class ObjectClicker : MonoBehaviour
                 if (Input.GetMouseButtonDown(0))
                 {
                     PrintName(hit.transform.gameObject);
+                    print(hit.transform.tag);
                     ZoomIn();
+                    IdentifyInteractable(hit.transform.tag);
                 }
             }
             else
@@ -64,6 +67,54 @@ public class ObjectClicker : MonoBehaviour
     private void PrintName(GameObject target)
     {
         print(target.name);
+    }
+
+    private void IdentifyInteractable(string tag)
+    {
+        switch (tag)
+        {
+            case "EyePiece":
+                {
+                    print("EyePiece Chosen");
+                }
+                break;
+
+            case "JoyStick":
+                {
+                    print("JoyStick Chosen");
+                }
+                break;
+
+            case "Gripper":
+                {
+                    print("Gripper Chosen");
+                }
+                break;
+
+            case "LeftKnob":
+                {
+                    print("LeftKnob Chosen");
+                }
+                break;
+                 
+            case "RightKnob":
+                {
+                    print("RightKnob Chosen");
+                }
+                break;
+
+            case "Untagged":
+                {
+                    print("Untagged Chosen");
+                }
+                break;
+
+            default:
+                {
+
+                }
+                break;
+        }
     }
 
     private void ZoomIn()

@@ -5,6 +5,11 @@ TagManager:
   serializedVersion: 2
   tags:
   - CinemachineTarget
+  - EyePiece
+  - JoyStick
+  - Gripper
+  - LeftKnob
+  - RightKnob
   layers:
   - Default
   - TransparentFX
