@@ -37,7 +37,7 @@ public class ObjectClicker : MonoBehaviour
                     PrintName(hit.transform.gameObject);
                     print(hit.transform.tag);
                     ZoomIn();
-                    IdentifyInteractable(hit.transform.tag);
+                    IdentifyInteractable(hit.transform.tag); //call functions
                 }
             }
             else
@@ -70,46 +70,46 @@ public class ObjectClicker : MonoBehaviour
     }
 
     private void IdentifyInteractable(string tag)
-    {
-        switch (tag)
+    { 
+        switch (tag) //switch statement for identifying the tags  
         {
-            case "EyePiece":
+            case "EyePiece": //tag 1
                 {
                     print("EyePiece Chosen");
                 }
                 break;
 
-            case "JoyStick":
+            case "JoyStick": //tag 2
                 {
                     print("JoyStick Chosen");
                 }
                 break;
 
-            case "Gripper":
+            case "Gripper": //tag 3
                 {
                     print("Gripper Chosen");
                 }
                 break;
 
-            case "LeftKnob":
+            case "LeftKnob": //tag 4
                 {
                     print("LeftKnob Chosen");
                 }
                 break;
                  
-            case "RightKnob":
+            case "RightKnob"://tag 5
                 {
                     print("RightKnob Chosen");
                 }
                 break;
 
-            case "Untagged":
+            case "Untagged": //Untagged (similar ot default)
                 {
                     print("Untagged Chosen");
                 }
                 break;
 
-            default:
+            default: //default tag
                 {
 
                 }
