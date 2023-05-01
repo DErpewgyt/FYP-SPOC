@@ -14,6 +14,7 @@ public class ZoomOnInstrument : MonoBehaviour
     public CanvasGroup canvasGroup;
     public float fadeTime = 3f;// how long to wait before fading
     public int levelToLoad;// scene to transition to
+    public GameObject controls;
 
     private void Start()
     {
@@ -34,6 +35,7 @@ public class ZoomOnInstrument : MonoBehaviour
                     if (hit.transform.name == "newkeratometer")
                     {
                         Debug.Log("clicked");
+                        controls.SetActive(false);
                         StartCoroutine(ZoomIn());
                         FadeToLevel(levelToLoad);
                     }
@@ -60,6 +62,6 @@ public class ZoomOnInstrument : MonoBehaviour
     public void OnFadeComplete() // go to next scene
     {
         //SceneManager.LoadScene(levelToLoad);
-        Debug.Log("Scene change");
+        //Debug.Log("Scene change");
     }
 }
