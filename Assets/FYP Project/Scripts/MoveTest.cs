@@ -8,6 +8,12 @@ public class MoveTest : MonoBehaviour
 
     public float speed = .25f;
 
+    public bool VerticalCircle;
+    public bool HorizontalCircle;
+    public bool CircleMovement;
+
+    public GameObject LeftCircle;
+    public GameObject TopCircle;
 
     public float maxDistX = .3f;
     public float maxDistZ = .25f;
@@ -21,53 +27,74 @@ public class MoveTest : MonoBehaviour
 
     void Update()
     {
-        Vector3 moveDir = new Vector3(0, 0, 0);
-
-        if (Input.GetKey(KeyCode.W))
+        if (CircleMovement)
         {
-            moveDir.z = 1f;
-            print(moveDir.z);
+            Vector3 moveDir = new Vector3(0, 0, 0);
+
+            if (Input.GetKey(KeyCode.W))
+            {
+                moveDir.z = 1f;
+                print(moveDir.z);
+            }
+
+            if (Input.GetKey(KeyCode.S))
+            {
+                moveDir.z = -1f;
+                print(moveDir.z);
+            }
+
+            if (Input.GetKey(KeyCode.A))
+            {
+                moveDir.x = -1f;
+                print(moveDir.x);
+            }
+
+            if (Input.GetKey(KeyCode.D))
+            {
+                moveDir.x = 1f;
+                print(moveDir.x);
+            }
+
+            if (Input.GetKey(KeyCode.Q))
+            {
+                moveDir.y = -1f;
+                print(moveDir.y);
+            }
+
+            if (Input.GetKey(KeyCode.E))
+            {
+                moveDir.y = 1f;
+                print(moveDir.y);
+            }
+
+            // calculate the target position based on move direction and distance limit
+            Vector3 targetPos = transform.position + moveDir * speed * Time.deltaTime;
+            targetPos = new Vector3(
+                Mathf.Clamp(targetPos.x, startingPos.x - maxDistX, startingPos.x + maxDistX),
+                Mathf.Clamp(targetPos.y, startingPos.y - maxDistY, startingPos.y + maxDistY),
+                Mathf.Clamp(targetPos.z, startingPos.z - maxDistZ, startingPos.z + maxDistZ)
+            );
+
+            transform.position = targetPos; // set the new position of the object
         }
 
-        if (Input.GetKey(KeyCode.S))
+
+        if (HorizontalCircle)
         {
-            moveDir.z = -1f;
-            print(moveDir.z);
-        }
+            float xDirection = Input.GetAxis("Mouse ScrollWheel");
 
-        if (Input.GetKey(KeyCode.A))
+            Vector3 moveDirectionX = new Vector3(xDirection, 0.0f, 0.0f);
+
+            LeftCircle.transform.position += moveDirectionX * speed;
+        }
+        else if (VerticalCircle)
         {
-            moveDir.x = -1f;
-            print(moveDir.x);
+            float yDirection = Input.GetAxis("Mouse ScrollWheel");
+
+            Vector3 moveDirectionY = new Vector3(0.0f, yDirection, 0.0f);
+
+            TopCircle.transform.position += moveDirectionY * speed;
         }
-
-        if (Input.GetKey(KeyCode.D))
-        {
-            moveDir.x = 1f;
-            print(moveDir.x);
-        }
-
-        if (Input.GetKey(KeyCode.Q))
-        {
-            moveDir.y = -1f;
-            print(moveDir.y);
-        }
-
-        if (Input.GetKey(KeyCode.E))
-        {
-            moveDir.y = 1f;
-            print(moveDir.y);
-        }
-
-        // calculate the target position based on move direction and distance limit
-        Vector3 targetPos = transform.position + moveDir * speed * Time.deltaTime;
-        targetPos = new Vector3(
-            Mathf.Clamp(targetPos.x, startingPos.x - maxDistX, startingPos.x + maxDistX),
-            Mathf.Clamp(targetPos.y, startingPos.y - maxDistY, startingPos.y + maxDistY),
-            Mathf.Clamp(targetPos.z, startingPos.z - maxDistZ, startingPos.z + maxDistZ)
-        );
-
-        transform.position = targetPos; // set the new position of the object
     }
 
     /**

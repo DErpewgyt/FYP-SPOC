@@ -12,9 +12,12 @@ public class ObjectClicker : MonoBehaviour
     private bool isOverObject = false;
     private float multiplier = 0.25f;
 
+    public MoveTest KeratometerMovement; //Call my other script
+
     void Start()
     {
         anim = parent.GetComponentInParent<Animator>();
+        DisableMovements();
     }
 
     private void Update()
@@ -61,6 +64,7 @@ public class ObjectClicker : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space))
         {
             ZoomOut();
+            DisableMovements();
         }
     }
 
@@ -82,6 +86,7 @@ public class ObjectClicker : MonoBehaviour
             case "JoyStick": //tag 2
                 {
                     print("JoyStick Chosen");
+                    KeratometerMovement.CircleMovement = true;
                 }
                 break;
 
@@ -94,12 +99,14 @@ public class ObjectClicker : MonoBehaviour
             case "LeftKnob": //tag 4
                 {
                     print("LeftKnob Chosen");
+                    KeratometerMovement.HorizontalCircle= true;
                 }
                 break;
                  
             case "RightKnob"://tag 5
                 {
                     print("RightKnob Chosen");
+                    KeratometerMovement.VerticalCircle = true;
                 }
                 break;
 
@@ -121,6 +128,13 @@ public class ObjectClicker : MonoBehaviour
     {
         anim.Play("keratometerviewer");
         zoomedIn = true;
+    }
+
+    private void DisableMovements() //Prevents objects from moving
+    {
+        KeratometerMovement.CircleMovement = false;
+        KeratometerMovement.HorizontalCircle = false;
+        KeratometerMovement.VerticalCircle = false;
     }
 
     private void ZoomOut()
