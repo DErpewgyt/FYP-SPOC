@@ -14258,7 +14258,7 @@ MonoBehaviour:
   background: {fileID: 243890157}
   canvasGroup: {fileID: 375946058}
   fadeTime: 3
-  levelToLoad: 0
+  levelToLoad: 3
   controls: {fileID: 1640128203}
 --- !u!1001 &982766542
 PrefabInstance:
