@@ -12,12 +12,15 @@ public class ObjectClicker : MonoBehaviour
     private bool isOverObject = false;
     private float multiplier = 0.25f;
 
+    public GameObject Blur;
+
     public MoveTest KeratometerMovement; //Call my other script
 
     void Start()
     {
         anim = parent.GetComponentInParent<Animator>();
         DisableMovements();
+        Blur.SetActive(false);
     }
 
     private void Update()
@@ -80,6 +83,7 @@ public class ObjectClicker : MonoBehaviour
             case "EyePiece": //tag 1
                 {
                     print("EyePiece Chosen");
+                    KeratometerMovement.BlurCircle = true;
                 }
                 break;
 
@@ -128,6 +132,7 @@ public class ObjectClicker : MonoBehaviour
     {
         anim.Play("keratometerviewer");
         zoomedIn = true;
+        Blur.SetActive(true);
     }
 
     private void DisableMovements() //Prevents objects from moving
@@ -135,6 +140,7 @@ public class ObjectClicker : MonoBehaviour
         KeratometerMovement.CircleMovement = false;
         KeratometerMovement.HorizontalCircle = false;
         KeratometerMovement.VerticalCircle = false;
+        KeratometerMovement.BlurCircle = false;
     }
 
     private void ZoomOut()
@@ -143,6 +149,7 @@ public class ObjectClicker : MonoBehaviour
         {
             anim.Play("keratometerunviewer");
             zoomedIn = false;
+            Blur.SetActive(false);
         }
     }
 }
