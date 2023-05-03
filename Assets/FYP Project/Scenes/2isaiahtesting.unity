@@ -395,9 +395,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6fa9c3411984571438ad7c04ce9955c9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  highlightMaterial: {fileID: 0}
   linkCursorTexture: {fileID: 2800000, guid: 9b06c0d8b4e8fa6448f481781b52a3ba, type: 3}
   parent: {fileID: 1158797494}
   KeratometerMovement: {fileID: 0}
+  Blur: {fileID: 0}
 --- !u!1 &273807258
 GameObject:
   m_ObjectHideFlags: 0
@@ -478,9 +480,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 0.5
+  BlurCircle: 0
   VerticalCircle: 0
   HorizontalCircle: 0
   CircleMovement: 0
+  BlurryCircle: {fileID: 0}
   LeftCircle: {fileID: 0}
   TopCircle: {fileID: 0}
   maxDistX: 0.35
@@ -1286,7 +1290,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3586109886936671287, guid: 698c90553f07f4a4e962a948141912ad, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3586109886936671288, guid: 698c90553f07f4a4e962a948141912ad, type: 3}
       propertyPath: m_Alpha
@@ -1861,9 +1865,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 10
+  BlurCircle: 0
   VerticalCircle: 0
   HorizontalCircle: 0
   CircleMovement: 0
+  BlurryCircle: {fileID: 0}
   LeftCircle: {fileID: 0}
   TopCircle: {fileID: 0}
   maxDistX: 0.25

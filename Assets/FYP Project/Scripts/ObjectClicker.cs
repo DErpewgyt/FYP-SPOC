@@ -21,9 +21,9 @@ public class ObjectClicker : MonoBehaviour
 
     void Start()
     {
+        Blur.SetActive(false);
         anim = parent.GetComponentInParent<Animator>();
         DisableMovements();
-        Blur.SetActive(false);
     }
 
     void Update()
