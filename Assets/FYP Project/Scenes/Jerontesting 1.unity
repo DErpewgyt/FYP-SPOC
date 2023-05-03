@@ -515,9 +515,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 0.5
+  BlurCircle: 0
   VerticalCircle: 0
   HorizontalCircle: 0
   CircleMovement: 0
+  BlurryCircle: {fileID: 0}
   LeftCircle: {fileID: 0}
   TopCircle: {fileID: 0}
   maxDistX: 0.35
@@ -1304,9 +1306,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 0.1
+  BlurCircle: 0
   VerticalCircle: 0
   HorizontalCircle: 0
   CircleMovement: 0
+  BlurryCircle: {fileID: 1336227096}
   LeftCircle: {fileID: 100898043}
   TopCircle: {fileID: 491175045}
   maxDistX: 0.3
@@ -1824,6 +1828,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   linkCursorTexture: {fileID: 2800000, guid: 9b06c0d8b4e8fa6448f481781b52a3ba, type: 3}
   parent: {fileID: 1158797494}
+  Blur: {fileID: 1340249985}
   KeratometerMovement: {fileID: 885399595}
 --- !u!1 &1484818485
 GameObject:
@@ -1975,9 +1980,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 10
+  BlurCircle: 0
   VerticalCircle: 0
   HorizontalCircle: 0
   CircleMovement: 0
+  BlurryCircle: {fileID: 0}
   LeftCircle: {fileID: 0}
   TopCircle: {fileID: 0}
   maxDistX: 0.25
