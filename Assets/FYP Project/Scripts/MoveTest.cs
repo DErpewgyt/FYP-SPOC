@@ -8,10 +8,12 @@ public class MoveTest : MonoBehaviour
 
     public float speed = .25f;
 
+    public bool BlurCircle;
     public bool VerticalCircle;
     public bool HorizontalCircle;
     public bool CircleMovement;
 
+    public GameObject BlurryCircle;
     public GameObject LeftCircle;
     public GameObject TopCircle;
 
@@ -31,18 +33,6 @@ public class MoveTest : MonoBehaviour
         {
             Vector3 moveDir = new Vector3(0, 0, 0);
 
-            if (Input.GetKey(KeyCode.W))
-            {
-                moveDir.z = 1f;
-                print(moveDir.z);
-            }
-
-            if (Input.GetKey(KeyCode.S))
-            {
-                moveDir.z = -1f;
-                print(moveDir.z);
-            }
-
             if (Input.GetKey(KeyCode.A))
             {
                 moveDir.x = -1f;
@@ -55,13 +45,13 @@ public class MoveTest : MonoBehaviour
                 print(moveDir.x);
             }
 
-            if (Input.GetKey(KeyCode.Q))
+            if (Input.GetKey(KeyCode.S))
             {
                 moveDir.y = -1f;
                 print(moveDir.y);
             }
 
-            if (Input.GetKey(KeyCode.E))
+            if (Input.GetKey(KeyCode.W))
             {
                 moveDir.y = 1f;
                 print(moveDir.y);
@@ -94,6 +84,14 @@ public class MoveTest : MonoBehaviour
             Vector3 moveDirectionY = new Vector3(0.0f, yDirection, 0.0f);
 
             TopCircle.transform.position += moveDirectionY * speed;
+        }
+        else if (BlurCircle)
+        {
+            float zDirection = Input.GetAxis("Mouse ScrollWheel");
+
+            Vector3 moveDirectionZ = new Vector3(0.0f, 0.0f, zDirection);
+
+            BlurryCircle.transform.position += moveDirectionZ * speed;
         }
     }
 

@@ -17,9 +17,13 @@ public class ObjectClicker : MonoBehaviour
     private bool isOverObject = false;
     private float multiplier = 0.25f;
 
+    public GameObject Blur;
+
     void Start()
     {
         anim = parent.GetComponentInParent<Animator>();
+        DisableMovements();
+        Blur.SetActive(false);
     }
 
     void Update()
@@ -87,6 +91,7 @@ public class ObjectClicker : MonoBehaviour
             case "EyePiece": //tag 1
                 {
                     print("EyePiece Chosen");
+                    KeratometerMovement.BlurCircle = true;
                 }
                 break;
 
@@ -138,6 +143,7 @@ public class ObjectClicker : MonoBehaviour
 
         // Hide the cursor during the animation
         Cursor.visible = false;
+        Blur.SetActive(true);
     }
 
     private void DisableMovements()
@@ -145,6 +151,7 @@ public class ObjectClicker : MonoBehaviour
         KeratometerMovement.CircleMovement = false;
         KeratometerMovement.HorizontalCircle = false;
         KeratometerMovement.VerticalCircle = false;
+        KeratometerMovement.BlurCircle = false;
     }
 
     private void ZoomOut()
@@ -156,6 +163,7 @@ public class ObjectClicker : MonoBehaviour
 
             // Show the cursor when the animation is finished
             StartCoroutine(ShowCursorAfterDelay(anim.GetCurrentAnimatorStateInfo(0).length));
+            Blur.SetActive(false);
         }
     }
 
