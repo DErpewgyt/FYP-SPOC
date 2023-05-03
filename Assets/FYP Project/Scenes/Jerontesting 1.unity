@@ -1826,10 +1826,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6fa9c3411984571438ad7c04ce9955c9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  highlightMaterial: {fileID: 2100000, guid: 13733c3dbd182fa4ca488880c244e428, type: 2}
   linkCursorTexture: {fileID: 2800000, guid: 9b06c0d8b4e8fa6448f481781b52a3ba, type: 3}
   parent: {fileID: 1158797494}
-  Blur: {fileID: 1340249985}
   KeratometerMovement: {fileID: 885399595}
+  Blur: {fileID: 1340249985}
 --- !u!1 &1484818485
 GameObject:
   m_ObjectHideFlags: 0
