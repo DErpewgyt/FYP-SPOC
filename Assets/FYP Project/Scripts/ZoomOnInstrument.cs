@@ -13,7 +13,7 @@ public class ZoomOnInstrument : MonoBehaviour
     public GameObject background;// black screen to allow for smooth transition
     public CanvasGroup canvasGroup;
     public float fadeTime = 3f;// how long to wait before fading
-    public int levelToLoad;// scene to transition to
+    public string sceneToLoad;// scene to transition to
     public GameObject controls;
 
     private void Start()
@@ -37,7 +37,7 @@ public class ZoomOnInstrument : MonoBehaviour
                         Debug.Log("clicked");
                         controls.SetActive(false);
                         StartCoroutine(ZoomIn());
-                        FadeToLevel(levelToLoad);
+                        FadeToLevel(sceneToLoad);
                     }
                 }
             }
@@ -53,15 +53,15 @@ public class ZoomOnInstrument : MonoBehaviour
             yield return null;
         }
     }
-    public void FadeToLevel(int levelIndex)// fade to next level function
+    public void FadeToLevel(string sceneName)// fade to next level function
     {
-        levelToLoad = levelIndex;
+        sceneToLoad = sceneName;
         LeanTween.alphaCanvas(canvasGroup, to: 1, fadeTime).setOnComplete(OnFadeComplete);
     }
 
     public void OnFadeComplete() // go to next scene
     {
-        SceneManager.LoadScene(levelToLoad);
+        SceneManager.LoadScene(sceneToLoad);
         //Debug.Log("Scene change");
     }
 }
