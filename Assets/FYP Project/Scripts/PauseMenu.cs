@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEditor;
 
 public class PauseMenu : MonoBehaviour
 {
@@ -9,10 +10,16 @@ public class PauseMenu : MonoBehaviour
     public static bool GameIsPaused = false;
 
     public GameObject pauseMenuUI;
+    public GameObject pauseMenuBtn;
     public GameObject quitPromptPanel;
     public GameObject menuPromptPanel;
 
-    // Update is called once per frame
+    void Awake()
+    {
+        Cursor.visible = false;
+        Resume();
+    }
+
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Backspace))
@@ -31,6 +38,7 @@ public class PauseMenu : MonoBehaviour
     public void Resume()
     {
         pauseMenuUI.SetActive(false);
+        pauseMenuBtn.SetActive(false);
         quitPromptPanel.SetActive(false);
         menuPromptPanel.SetActive(false);
         Time.timeScale = 1f;
@@ -42,7 +50,9 @@ public class PauseMenu : MonoBehaviour
     void Pause()
     {
         pauseMenuUI.SetActive(true);
+        pauseMenuBtn.SetActive(true);
         quitPromptPanel.SetActive(false);
+        menuPromptPanel.SetActive(false);
         Time.timeScale = 0f;
         GameIsPaused = true;
         Cursor.lockState = CursorLockMode.None; // Unlock the mouse cursor
@@ -66,9 +76,9 @@ public class PauseMenu : MonoBehaviour
         menuPromptPanel.SetActive(true);
     }
 
-    public void ConfirmMainMenu()
+    public void ConfirmMainMenu(string JEREMYMainMenuScene)
     {
-        Debug.Log("Loading Main Menu...");
+        SceneManager.LoadScene(JEREMYMainMenuScene);
     }
 
     public void CancelMainMenu()
@@ -85,7 +95,8 @@ public class PauseMenu : MonoBehaviour
 
     public void ConfirmQuitGame()
     {
-        Debug.Log("Quitting Game...");
+        UnityEditor.EditorApplication.isPlaying = false;
+        Application.Quit();
     }
 
     public void CancelQuitGame()
