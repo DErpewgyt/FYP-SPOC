@@ -35,7 +35,7 @@ public class ObjectClicker : MonoBehaviour
             highlight = null;
         }
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-        if (!EventSystem.current.IsPointerOverGameObject() && Physics.Raycast(ray, out raycastHit))
+        if (Cursor.visible && !EventSystem.current.IsPointerOverGameObject() && Physics.Raycast(ray, out raycastHit))
         {
             highlight = raycastHit.transform;
             if (highlight.CompareTag("Selectable") || highlight.CompareTag("EyePiece") || highlight.CompareTag("Gripper") || highlight.CompareTag("JoyStick") || highlight.CompareTag("LeftKnob") || highlight.CompareTag("RightKnob"))
@@ -143,7 +143,9 @@ public class ObjectClicker : MonoBehaviour
 
         // Hide the cursor during the animation
         Cursor.visible = false;
-        Blur.SetActive(true);
+
+        // Activate the blur effect after the animation is finished
+        StartCoroutine(ActivateBlurAfterDelay(anim.GetCurrentAnimatorStateInfo(0).length));
     }
 
     private void DisableMovements()
@@ -158,12 +160,14 @@ public class ObjectClicker : MonoBehaviour
     {
         if (zoomedIn)
         {
+            // Deactivate the blur effect before starting the zoom out animation
+            Blur.SetActive(false);
+
             anim.Play("keratometerunviewer");
             zoomedIn = false;
 
             // Show the cursor when the animation is finished
             StartCoroutine(ShowCursorAfterDelay(anim.GetCurrentAnimatorStateInfo(0).length));
-            Blur.SetActive(false);
         }
     }
 
@@ -171,5 +175,11 @@ public class ObjectClicker : MonoBehaviour
     {
         yield return new WaitForSeconds(delay);
         Cursor.visible = true;
+    }
+
+    private IEnumerator ActivateBlurAfterDelay(float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        Blur.SetActive(true);
     }
 }
