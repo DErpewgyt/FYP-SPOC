@@ -61,7 +61,7 @@ public class ZoomOnInstrument : MonoBehaviour
 
     public void OnFadeComplete() // go to next scene
     {
-        //SceneManager.LoadScene(levelToLoad);
+        SceneManager.LoadScene(levelToLoad);
         //Debug.Log("Scene change");
     }
 }
