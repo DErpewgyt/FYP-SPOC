@@ -4,4 +4,5 @@
 public class SaveData
 {
     public int scene;
+    public float black_circle_z;
 }

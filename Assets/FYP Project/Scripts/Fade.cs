@@ -8,6 +8,7 @@ public class Fade : MonoBehaviour
     public CanvasGroup canvasGroup;
     public float fadeTime = 3f;// how long to wait before fading
     public GameObject clicker;
+    public GameObject fader;
 
     // Start is called before the first frame update
     void Start()
@@ -23,5 +24,6 @@ public class Fade : MonoBehaviour
     public void OnFadeComplete()
     {
         clicker.SetActive(true);
+        fader.SetActive(false);
     }
 }
