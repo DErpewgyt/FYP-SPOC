@@ -11,6 +11,7 @@ public class PauseMenu : MonoBehaviour
 
     public GameObject pauseMenuUI;
     public GameObject pauseMenuBtn;
+    public GameObject optionMenuUI;
     public GameObject quitPromptPanel;
     public GameObject menuPromptPanel;
 
@@ -39,6 +40,7 @@ public class PauseMenu : MonoBehaviour
     {
         pauseMenuUI.SetActive(false);
         pauseMenuBtn.SetActive(false);
+        optionMenuUI.SetActive(false);
         quitPromptPanel.SetActive(false);
         menuPromptPanel.SetActive(false);
         Time.timeScale = 1f;
@@ -51,6 +53,7 @@ public class PauseMenu : MonoBehaviour
     {
         pauseMenuUI.SetActive(true);
         pauseMenuBtn.SetActive(true);
+        optionMenuUI.SetActive(false);
         quitPromptPanel.SetActive(false);
         menuPromptPanel.SetActive(false);
         Time.timeScale = 0f;
@@ -59,6 +62,22 @@ public class PauseMenu : MonoBehaviour
         Cursor.visible = true; // Show the mouse cursor
     }
 
+
+    // --------------------------------------------------- Option Menu Controller------------------------------------------------
+    public void OptionBtn()
+    {
+        optionMenuUI.SetActive(true);
+        pauseMenuBtn.SetActive(false);
+    }
+
+    public void OptionClose()
+    {
+        optionMenuUI.SetActive(false);
+        pauseMenuBtn.SetActive(true);
+    }
+
+
+    // --------------------------------------------------- Save/Load Controller-------------------------------------------------
     public void SaveBtn()
     {
         Debug.Log("Saving");
@@ -70,10 +89,11 @@ public class PauseMenu : MonoBehaviour
     }
 
 
-    // --------------------------------------------------- Main Menu Controller------------------------------------------------
+    // --------------------------------------------------- Main Menu Controller-------------------------------------------------
     public void MainMenu()
     {
         menuPromptPanel.SetActive(true);
+        pauseMenuBtn.SetActive(false);
     }
 
     public void ConfirmMainMenu(string JEREMYMainMenuScene)
@@ -84,6 +104,7 @@ public class PauseMenu : MonoBehaviour
     public void CancelMainMenu()
     {
         menuPromptPanel.SetActive(false);
+        pauseMenuBtn.SetActive(true);
     }
 
 
@@ -91,6 +112,7 @@ public class PauseMenu : MonoBehaviour
     public void QuitGame()
     {
         quitPromptPanel.SetActive(true);
+        pauseMenuBtn.SetActive(false);
     }
 
     public void ConfirmQuitGame()
@@ -102,5 +124,6 @@ public class PauseMenu : MonoBehaviour
     public void CancelQuitGame()
     {
         quitPromptPanel.SetActive(false);
+        pauseMenuBtn.SetActive(true);
     }
 }
