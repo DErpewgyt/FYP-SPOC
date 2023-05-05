@@ -79,13 +79,59 @@ public class ObjectClicker : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Space))
         {
+            print("YCMA");
             ZoomOut();
             DisableMovements();
         }
+
+
+        if (Input.GetKeyDown(KeyCode.Alpha1))
+        {
+            print("YCMA");
+            ZoomIn();
+            IdentifyInteractable("EyePiece");
+        }
+
+        if (Input.GetKeyDown(KeyCode.Alpha2))
+        {
+            print("YCMA");
+            ZoomIn();
+            IdentifyInteractable("JoyStick");
+        }
+
+        if (Input.GetKeyDown(KeyCode.Alpha3))
+        {
+            print("YCMA");
+            ZoomIn();
+            IdentifyInteractable("LeftKnob");
+        }
+
+        if (Input.GetKeyDown(KeyCode.Alpha4))
+        {
+            print("YCMA");
+            ZoomIn();
+            IdentifyInteractable("Gripper");
+        }
+
+        if (Input.GetKeyDown(KeyCode.Alpha5))
+        {
+            print("YCMA");
+            ZoomIn();
+            IdentifyInteractable("RightKnob");
+        }
+
+
+
+
+
+
+
+
     }
 
     private void IdentifyInteractable(string tag)
     {
+        DisableMovements();
         switch (tag) //switch statement for identifying the tags  
         {
             case "EyePiece": //tag 1
@@ -138,15 +184,17 @@ public class ObjectClicker : MonoBehaviour
 
     private void ZoomIn()
     {
-        anim.Play("keratometerviewer");
-        zoomedIn = true;
+        if (!zoomedIn) { 
+            anim.Play("keratometerviewer");
+            zoomedIn = true;
 
-        // Hide the cursor during the animation
-        Cursor.visible = false;
+            // Hide the cursor during the animation
+            Cursor.visible = false;
 
-        // Activate the blur effect after the animation is finished
-        StartCoroutine(ActivateBlurAfterDelay(anim.GetCurrentAnimatorStateInfo(0).length));
-    }
+            // Activate the blur effect after the animation is finished
+            StartCoroutine(ActivateBlurAfterDelay(anim.GetCurrentAnimatorStateInfo(0).length));
+        }
+}
 
     private void DisableMovements()
     {
