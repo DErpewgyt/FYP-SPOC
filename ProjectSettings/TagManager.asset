@@ -12,6 +12,7 @@ TagManager:
   - RightKnob
   - Selectable
   - BlackCircle
+  - allCircles
   layers:
   - Default
   - TransparentFX
