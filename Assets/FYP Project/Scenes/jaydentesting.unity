@@ -777,7 +777,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3586109886936671287, guid: 698c90553f07f4a4e962a948141912ad, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3586109886936671288, guid: 698c90553f07f4a4e962a948141912ad, type: 3}
       propertyPath: m_Alpha
@@ -979,7 +979,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1158797494}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -1.749543, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1253,7 +1253,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 870b505f0d9b030459a3717a51bfd8db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  blackCircle: {fileID: 1774367361}
 --- !u!1 &1416337060
 GameObject:
   m_ObjectHideFlags: 0
@@ -1521,7 +1520,7 @@ GameObject:
   - component: {fileID: 1476088112}
   m_Layer: 0
   m_Name: Cubes
-  m_TagString: Untagged
+  m_TagString: allCircles
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

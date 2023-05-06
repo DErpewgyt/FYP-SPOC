@@ -3,13 +3,15 @@ using UnityEngine;
 
 public class AutoSave : MonoBehaviour
 {
-    public GameObject blackCircle;
+    private GameObject blackCircle;
+    private GameObject allCircles;
     private float lastZPosition = float.PositiveInfinity;
 
     // Start is called before the first frame update
     private void Start()
     {
-        /*blackCircle = GameObject.FindWithTag("BlackCircle");*/
+        blackCircle = GameObject.FindWithTag("BlackCircle");
+        allCircles = GameObject.FindWithTag("allCircles");
     }
 
     // Update is called once per frame
@@ -63,6 +65,20 @@ public class AutoSave : MonoBehaviour
             }
             lastZPosition = currentZPosition;
         }
+
+        if (allCircles != null)
+        {
+            Vector3 currentPosition = allCircles.transform.position;
+            Debug.Log("X: " + currentPosition.x + " Y: " + currentPosition.y);
+            if (currentPosition.x >= 0.07 && currentPosition.x <= 0.013 && currentPosition.y >= 1.2 && currentPosition.y <= 6.5)
+            {
+                SaveData data = new SaveData();
+                data.all_circles_position = currentPosition;
+                string json = JsonUtility.ToJson(data, true);
+                File.WriteAllText(Application.dataPath + "/SaveDataFile.json", json);
+                Debug.Log("Saved: " + allCircles.name + " Position: " + data.all_circles_position);
+            }
+        }
     }
 
     public void Load()
@@ -73,7 +89,7 @@ public class AutoSave : MonoBehaviour
         /*current_scene = data.scene;*/
         /*SceneManager.LoadScene(current_scene, LoadSceneMode.Single);*/
 
-        GameObject blackCircle = GameObject.FindWithTag("BlackCircle");
+        /*GameObject blackCircle = GameObject.FindWithTag("BlackCircle");*/
         if (blackCircle != null)
         {
             Vector3 position = blackCircle.transform.position;
