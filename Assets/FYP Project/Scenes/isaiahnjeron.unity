@@ -1558,6 +1558,7 @@ MonoBehaviour:
   canvasGroup: {fileID: 793013046}
   fadeTime: 2
   clicker: {fileID: 257056099}
+  fader: {fileID: 0}
 --- !u!1 &1453971702
 GameObject:
   m_ObjectHideFlags: 0
