@@ -13,6 +13,11 @@ TagManager:
   - Selectable
   - BlackCircle
   - allCircles
+  - EyePieceImage
+  - LeftKnobImage
+  - RightKnobImage
+  - GripperImage
+  - JoyStickImage
   layers:
   - Default
   - TransparentFX

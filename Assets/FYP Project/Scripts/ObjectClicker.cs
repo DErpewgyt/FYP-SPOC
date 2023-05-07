@@ -17,6 +17,7 @@ public class ObjectClicker : MonoBehaviour
     private bool isOverObject = false;
     private bool animationInProgress = false;
     private float multiplier = 0.25f;
+    public Dictionary<string, GameObject> imageDictionary;
 
     public GameObject Blur;
 
@@ -25,6 +26,22 @@ public class ObjectClicker : MonoBehaviour
         Blur.SetActive(false);
         anim = parent.GetComponentInParent<Animator>();
         DisableMovements();
+
+        // Initialize the image dictionary and add the corresponding images for each component
+        imageDictionary = new Dictionary<string, GameObject>()
+        {
+            { "EyePiece", GameObject.FindWithTag("EyePieceImage") },
+            { "LeftKnob", GameObject.FindWithTag("LeftKnobImage") },
+            { "RightKnob", GameObject.FindWithTag("RightKnobImage") },
+            { "Gripper", GameObject.FindWithTag("GripperImage") },
+            { "JoyStick", GameObject.FindWithTag("JoyStickImage") }
+        };
+
+        // Set all images to inactive initially
+        foreach (GameObject image in imageDictionary.Values)
+        {
+            image.SetActive(false);
+        }
     }
 
     void Update()
@@ -135,6 +152,18 @@ public class ObjectClicker : MonoBehaviour
 
     private void IdentifyInteractable(string tag)
     {
+        // Set all images to inactive before activating the specific image
+        foreach (GameObject image in imageDictionary.Values)
+        {
+            image.SetActive(false);
+        }
+
+        // Activate the specific image corresponding to the clicked component
+        if (imageDictionary.ContainsKey(tag))
+        {
+            imageDictionary[tag].SetActive(true);
+        }
+
         DisableMovements();
         switch (tag) //switch statement for identifying the tags  
         {
