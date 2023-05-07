@@ -265,9 +265,9 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 156760095}
   m_LocalRotation: {x: -0.7071068, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 3.02, z: 3.82}
-  m_LocalScale: {x: 0.28675, y: 0.28675, z: 0.28675}
-  m_ConstrainProportionsScale: 0
+  m_LocalPosition: {x: 0, y: 3.02, z: 4}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 1576790447}
   - {fileID: 1476088111}
@@ -1534,7 +1534,7 @@ Transform:
   m_GameObject: {fileID: 1476088110}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.4, y: 0.4, z: 0.4}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 167856809}
@@ -4733,6 +4733,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pauseMenuUI: {fileID: 215927465251323829}
+  pauseMenuBtn: {fileID: 0}
   quitPromptPanel: {fileID: 215927464726329221}
   menuPromptPanel: {fileID: 215927464843715429}
 --- !u!224 &215927465114277083
