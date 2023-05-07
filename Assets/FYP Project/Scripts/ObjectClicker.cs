@@ -15,6 +15,7 @@ public class ObjectClicker : MonoBehaviour
     private Animator anim;
     private bool zoomedIn = false;
     private bool isOverObject = false;
+    private bool animationInProgress = false;
     private float multiplier = 0.25f;
 
     public GameObject Blur;
@@ -79,9 +80,12 @@ public class ObjectClicker : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            print("YCMA");
-            ZoomOut();
-            DisableMovements();
+            if (!animationInProgress)
+            {
+                print("YCMA");
+                ZoomOut();
+                DisableMovements();
+            }
         }
 
 
@@ -184,7 +188,8 @@ public class ObjectClicker : MonoBehaviour
 
     private void ZoomIn()
     {
-        if (!zoomedIn) { 
+        if (!zoomedIn && !animationInProgress) {
+            animationInProgress = true;
             anim.Play("keratometerviewer");
             zoomedIn = true;
 
@@ -206,8 +211,9 @@ public class ObjectClicker : MonoBehaviour
 
     private void ZoomOut()
     {
-        if (zoomedIn)
+        if (zoomedIn && !animationInProgress)
         {
+            animationInProgress = true;
             // Deactivate the blur effect before starting the zoom out animation
             Blur.SetActive(false);
 
@@ -223,11 +229,13 @@ public class ObjectClicker : MonoBehaviour
     {
         yield return new WaitForSeconds(delay);
         Cursor.visible = true;
+        animationInProgress = false;
     }
 
     private IEnumerator ActivateBlurAfterDelay(float delay)
     {
         yield return new WaitForSeconds(delay);
         Blur.SetActive(true);
+        animationInProgress = false;
     }
 }
