@@ -52,7 +52,7 @@ public class AutoSave : MonoBehaviour
 
     private void Update()
     {
-        if (blackCircle != null)
+        /*if (blackCircle != null)
         {
             float currentZPosition = blackCircle.transform.position.z;
             if (currentZPosition <= -6 && lastZPosition > -6)
@@ -64,20 +64,20 @@ public class AutoSave : MonoBehaviour
                 Debug.Log("Saved: " + blackCircle.name + " Z Position: " + data.black_circle_z);
             }
             lastZPosition = currentZPosition;
-        }
+        }*/
 
         if (allCircles != null)
         {
             Vector3 currentPosition = allCircles.transform.position;
             Debug.Log("X: " + currentPosition.x + " Y: " + currentPosition.y);
-            if (currentPosition.x >= 0.07 && currentPosition.x <= 0.013 && currentPosition.y >= 1.2 && currentPosition.y <= 6.5)
+            /*if (currentPosition.x >= 0.07 && currentPosition.x <= 0.013 && currentPosition.y >= 1.2 && currentPosition.y <= 6.5)
             {
                 SaveData data = new SaveData();
                 data.all_circles_position = currentPosition;
                 string json = JsonUtility.ToJson(data, true);
                 File.WriteAllText(Application.dataPath + "/SaveDataFile.json", json);
                 Debug.Log("Saved: " + allCircles.name + " Position: " + data.all_circles_position);
-            }
+            }*/
         }
     }
 
