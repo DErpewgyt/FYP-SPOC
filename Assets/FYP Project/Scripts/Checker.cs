@@ -57,7 +57,7 @@ public class Checker : MonoBehaviour
             BlurCircleWin.SetActive(false);
         }
         CircleGrpDist = Vector3.Distance(ViewPortMiddle.transform.position, ViewPortCircles.transform.position);
-        //print(CircleGrpDist);
+        print(CircleGrpDist);
         if (CircleGrpDist < GrpCirlceDist)
         {
             GroupCircleWin.SetActive(true);
