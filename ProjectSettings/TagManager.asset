@@ -18,6 +18,7 @@ TagManager:
   - RightKnobImage
   - GripperImage
   - JoyStickImage
+  - Door
   layers:
   - Default
   - TransparentFX
