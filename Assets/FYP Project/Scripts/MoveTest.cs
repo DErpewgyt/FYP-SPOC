@@ -9,6 +9,7 @@ public class MoveTest : MonoBehaviour
     public bool HorizontalCircle;
     public bool CircleMovement;
 
+    public GameObject ThreeCirclesIdealTransform;
     public GameObject parentObject;
     public GameObject BlurryCircle;
     public GameObject MiddleCircle;
@@ -32,7 +33,7 @@ public class MoveTest : MonoBehaviour
 
     private void Start()
     {
-        startingPos = transform.position;
+        startingPos = ThreeCirclesIdealTransform.transform.position;
         BlurStartingPos = BlurryCircle.transform.position;
     }
 
@@ -160,19 +161,31 @@ public class MoveTest : MonoBehaviour
         }
 
         float zDirection = Input.GetAxis("Mouse ScrollWheel");
-        if (BlurCircle && Mathf.Abs(zDirection) > 0.05f)
+        if (BlurCircle)
         {
-            Vector3 moveDirectionZ = new Vector3(0.0f, 0.0f, zDirection);
+            MiddleCircle.SetActive(false);
+            TopCircle.SetActive(false);
+            LeftCircle.SetActive(false);
+            if (Mathf.Abs(zDirection) > 0.05f)
+            {
+                Vector3 moveDirectionZ = new Vector3(0.0f, 0.0f, zDirection);
 
-            // Calculate the target position
-            Vector3 targetPosz = BlurryCircle.transform.position + moveDirectionZ * speed;
+                // Calculate the target position
+                Vector3 targetPosz = BlurryCircle.transform.position + moveDirectionZ * speed;
 
-            // Clamp the target position within the maximum distance
-            targetPosz.z = Mathf.Clamp(targetPosz.z, BlurStartingPos.z - maxDistZScroll, BlurStartingPos.z + maxDistZScroll);
+                // Clamp the target position within the maximum distance
+                targetPosz.z = Mathf.Clamp(targetPosz.z, BlurStartingPos.z - maxDistZScroll, BlurStartingPos.z + maxDistZScroll);
 
-            // Move the circle to the target position
-            BlurryCircle.transform.position = targetPosz;
+                // Move the circle to the target position
+                BlurryCircle.transform.position = targetPosz;
+            }
+        } else
+        {
+            MiddleCircle.SetActive(true);
+            TopCircle.SetActive(true);
+            LeftCircle.SetActive(true);
         }
+
 
         /**
          if (HorizontalCircle)
