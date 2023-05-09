@@ -98,6 +98,7 @@ public class PauseMenu : MonoBehaviour
 
     public void ConfirmMainMenu(string JEREMYMainMenuScene)
     {
+        Time.timeScale = 1f;
         SceneManager.LoadScene(JEREMYMainMenuScene);
     }
 
