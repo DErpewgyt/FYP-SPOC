@@ -2785,7 +2785,7 @@ MonoBehaviour:
   maxDistY: 0.1
   maxValue: 0.2
   minValue: 0.075
-  maxDistZScroll: 0.1
+  maxDistZScroll: 0.2
   speed: 0.1
 --- !u!1 &1576790446
 GameObject:
@@ -3151,7 +3151,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1774367361}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.02, z: -13.16}
+  m_LocalPosition: {x: 0, y: 1.02, z: -12.95}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
