@@ -65476,6 +65476,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7933218583688813204, guid: b2241f51310e0444f83b70310b3d1a22, type: 3}
+      propertyPath: m_Antialiasing
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7933218583688813204, guid: b2241f51310e0444f83b70310b3d1a22, type: 3}
       propertyPath: m_RenderPostProcessing
       value: 1
       objectReference: {fileID: 0}
