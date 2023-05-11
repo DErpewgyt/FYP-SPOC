@@ -22,10 +22,12 @@ public class ObjectClicker : MonoBehaviour
     private GameObject currentSelectedObject = null;
     private float timer = 0f;
     private const float TIMER_RESET_VALUE = 1f; // The duration for which the image will stay visible after scrolling. Adjust this value as needed.
+    public GameObject Blur2;
 
     void Start()
     {
         Blur.SetActive(false);
+        Blur2.SetActive(false);
         anim = parent.GetComponentInParent<Animator>();
         DisableMovements();
 
@@ -283,6 +285,7 @@ public class ObjectClicker : MonoBehaviour
             animationInProgress = true;
             // Deactivate the blur effect before starting the zoom out animation
             Blur.SetActive(false);
+            Blur2.SetActive(false);
 
             anim.Play("keratometerunviewer");
             zoomedIn = false;
@@ -303,6 +306,7 @@ public class ObjectClicker : MonoBehaviour
     {
         yield return new WaitForSeconds(delay);
         Blur.SetActive(true);
+        Blur2.SetActive(true);
         animationInProgress = false;
     }
 }
