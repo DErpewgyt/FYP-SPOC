@@ -18,8 +18,10 @@ public class ObjectClicker : MonoBehaviour
     private bool animationInProgress = false;
     private float multiplier = 0.25f;
     public Dictionary<string, GameObject> imageDictionary;
-
     public GameObject Blur;
+    private GameObject currentSelectedObject = null;
+    private float timer = 0f;
+    private const float TIMER_RESET_VALUE = 1f; // The duration for which the image will stay visible after scrolling. Adjust this value as needed.
 
     void Start()
     {
@@ -141,11 +143,7 @@ public class ObjectClicker : MonoBehaviour
             IdentifyInteractable("RightKnob");
         }
 
-
-
-
-
-
+        CheckScrollWheelInput();
 
 
     }
@@ -170,6 +168,7 @@ public class ObjectClicker : MonoBehaviour
             case "EyePiece": //tag 1
                 {
                     print("EyePiece Chosen");
+                    currentSelectedObject = GameObject.FindWithTag("EyePiece");
                     KeratometerMovement.BlurCircle = true;
                 }
                 break;
@@ -215,9 +214,48 @@ public class ObjectClicker : MonoBehaviour
         }
     }
 
+    private void CheckScrollWheelInput()
+    {
+        if (currentSelectedObject != null)
+        {
+            float scrollWheelInput = Input.GetAxis("Mouse ScrollWheel");
+
+            if (currentSelectedObject.tag == "EyePiece")
+            {
+                if (scrollWheelInput > 0f)
+                {
+                    // Scroll up: add anti-clockwise arrow
+                    imageDictionary["EyePiece"].transform.GetChild(0).gameObject.SetActive(false);
+                    imageDictionary["EyePiece"].transform.GetChild(1).gameObject.SetActive(true);
+                    timer = TIMER_RESET_VALUE;
+                }
+                else if (scrollWheelInput < 0f)
+                {
+                    // Scroll down: add clockwise arrow
+                    imageDictionary["EyePiece"].transform.GetChild(0).gameObject.SetActive(true);
+                    imageDictionary["EyePiece"].transform.GetChild(1).gameObject.SetActive(false);
+                    timer = TIMER_RESET_VALUE;
+                }
+
+                // Decrease the timer every frame
+                if (timer > 0f)
+                {
+                    timer -= Time.deltaTime;
+                }
+                else
+                {
+                    // Timer expired: show default image
+                    imageDictionary["EyePiece"].transform.GetChild(0).gameObject.SetActive(false);
+                    imageDictionary["EyePiece"].transform.GetChild(1).gameObject.SetActive(false);
+                }
+            }
+        }
+    }
+
     private void ZoomIn()
     {
-        if (!zoomedIn && !animationInProgress) {
+        if (!zoomedIn && !animationInProgress)
+        {
             animationInProgress = true;
             anim.Play("keratometerviewer");
             zoomedIn = true;
@@ -228,7 +266,7 @@ public class ObjectClicker : MonoBehaviour
             // Activate the blur effect after the animation is finished
             StartCoroutine(ActivateBlurAfterDelay(anim.GetCurrentAnimatorStateInfo(0).length));
         }
-}
+    }
 
     private void DisableMovements()
     {
