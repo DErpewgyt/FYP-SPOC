@@ -21,7 +21,8 @@ public class ObjectClicker : MonoBehaviour
     public GameObject Blur;
     private GameObject currentSelectedObject = null;
     private float timer = 0f;
-    private const float TIMER_RESET_VALUE = 1f; // The duration for which the image will stay visible after scrolling. Adjust this value as needed.
+    private const float TIMER_RESET_VALUE = 1f;
+    private GameObject eyePieceObject;
 
     void Start()
     {
@@ -44,6 +45,9 @@ public class ObjectClicker : MonoBehaviour
         {
             image.SetActive(false);
         }
+
+        eyePieceObject = GameObject.FindWithTag("EyePiece");
+
     }
 
     void Update()
@@ -145,6 +149,8 @@ public class ObjectClicker : MonoBehaviour
 
         CheckScrollWheelInput();
 
+        print(currentSelectedObject);
+
 
     }
 
@@ -154,6 +160,28 @@ public class ObjectClicker : MonoBehaviour
         foreach (GameObject image in imageDictionary.Values)
         {
             image.SetActive(false);
+        }
+
+        // Reset the timer when switching to a new component
+        if (currentSelectedObject != null && currentSelectedObject.tag != tag)
+        {
+            timer = 0f;
+
+            // If the previously selected object was "EyePiece", reset its image to the default state
+            if (currentSelectedObject.tag == "EyePiece" && imageDictionary.ContainsKey("EyePiece"))
+            {
+                imageDictionary["EyePiece"].transform.GetChild(0).gameObject.SetActive(false);
+                imageDictionary["EyePiece"].transform.GetChild(1).gameObject.SetActive(false);
+            }
+        }
+
+        if (tag == "EyePiece")
+        {
+            currentSelectedObject = eyePieceObject;
+        }
+        else
+        {
+            currentSelectedObject = GameObject.FindWithTag(tag);
         }
 
         // Activate the specific image corresponding to the clicked component
@@ -168,7 +196,6 @@ public class ObjectClicker : MonoBehaviour
             case "EyePiece": //tag 1
                 {
                     print("EyePiece Chosen");
-                    currentSelectedObject = GameObject.FindWithTag("EyePiece");
                     KeratometerMovement.BlurCircle = true;
                 }
                 break;
@@ -224,14 +251,14 @@ public class ObjectClicker : MonoBehaviour
             {
                 if (scrollWheelInput > 0f)
                 {
-                    // Scroll up: add anti-clockwise arrow
+                    // Scroll up anti-clockwise arrow
                     imageDictionary["EyePiece"].transform.GetChild(0).gameObject.SetActive(false);
                     imageDictionary["EyePiece"].transform.GetChild(1).gameObject.SetActive(true);
                     timer = TIMER_RESET_VALUE;
                 }
                 else if (scrollWheelInput < 0f)
                 {
-                    // Scroll down: add clockwise arrow
+                    // Scroll up clockwise arrow
                     imageDictionary["EyePiece"].transform.GetChild(0).gameObject.SetActive(true);
                     imageDictionary["EyePiece"].transform.GetChild(1).gameObject.SetActive(false);
                     timer = TIMER_RESET_VALUE;
@@ -244,7 +271,7 @@ public class ObjectClicker : MonoBehaviour
                 }
                 else
                 {
-                    // Timer expired: show default image
+                    //back to default image
                     imageDictionary["EyePiece"].transform.GetChild(0).gameObject.SetActive(false);
                     imageDictionary["EyePiece"].transform.GetChild(1).gameObject.SetActive(false);
                 }
