@@ -731,8 +731,10 @@ MonoBehaviour:
   maxDistX: 0.35
   maxDistZ: 0.25
   maxDistY: 0.15
-  maxValue: 0.2
-  minValue: 0.025
+  maxValueLeft: 0.2
+  minValueLeft: 0.075
+  maxValueTop: 0.2
+  minValueTop: 0.075
   maxDistZScroll: 0.1
   speed: 0.5
 --- !u!1 &295061905
@@ -2887,8 +2889,10 @@ MonoBehaviour:
   maxDistX: 0.2
   maxDistZ: 0.2
   maxDistY: 0.1
-  maxValue: 0.2
-  minValue: 0.075
+  maxValueLeft: 0.068
+  minValueLeft: 0.013
+  maxValueTop: 0.066
+  minValueTop: 0.016
   maxDistZScroll: 0.2
   speed: 0.05
 --- !u!1 &1576790446
@@ -3099,8 +3103,10 @@ MonoBehaviour:
   maxDistX: 0.25
   maxDistZ: 0.25
   maxDistY: 0.5
-  maxValue: 0.2
-  minValue: 0.025
+  maxValueLeft: 0.2
+  minValueLeft: 0.075
+  maxValueTop: 0.2
+  minValueTop: 0.075
   maxDistZScroll: 0.1
   speed: 10
 --- !u!114 &1652618052

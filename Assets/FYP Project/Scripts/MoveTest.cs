@@ -22,8 +22,10 @@ public class MoveTest : MonoBehaviour
     public float maxDistZ = .2f;
     public float maxDistY = .1f;
 
-    public float maxValue = .2f;
-    public float minValue = 0.075f;
+    public float maxValueLeft = .2f;
+    public float minValueLeft = 0.075f;
+    public float maxValueTop = .2f;
+    public float minValueTop = 0.075f;
     public float maxDistZScroll = .1f;
     // Define the starting position variable as a static variable
     private static Vector3 startingPos;
@@ -171,7 +173,7 @@ public class MoveTest : MonoBehaviour
             Vector3 targetPosx = LeftCircle.transform.position + moveDirectionX * speed;
 
             // Clamp the target position within the maximum distance
-            targetPosx.x = Mathf.Clamp(targetPosx.x, MiddleCircle.transform.position.x - maxValue, MiddleCircle.transform.position.x - minValue);
+            targetPosx.x = Mathf.Clamp(targetPosx.x, MiddleCircle.transform.position.x - maxValueLeft, MiddleCircle.transform.position.x - minValueLeft);
 
             // Move the circle to the target position
             LeftCircle.transform.position = targetPosx;
@@ -186,7 +188,7 @@ public class MoveTest : MonoBehaviour
             Vector3 targetPosy = TopCircle.transform.position + moveDirectionY * speed;
 
             // Clamp the target position within the maximum distance
-            targetPosy.y = Mathf.Clamp(targetPosy.y, MiddleCircle.transform.position.y + minValue, MiddleCircle.transform.position.y + maxValue);
+            targetPosy.y = Mathf.Clamp(targetPosy.y, MiddleCircle.transform.position.y + minValueTop, MiddleCircle.transform.position.y + maxValueTop);
 
             // Move the circle to the target position
             TopCircle.transform.position = targetPosy;
@@ -213,7 +215,8 @@ public class MoveTest : MonoBehaviour
                 // Move the circle to the target position
                 BlurryCircle.transform.position = targetPosz;
             }
-        } else
+        }
+        else
         {
             MiddleCircle.SetActive(true);
             TopCircle.SetActive(true);
