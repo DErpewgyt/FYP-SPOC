@@ -1,5 +1,6 @@
 using System.IO;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Checker : MonoBehaviour
 {
@@ -23,6 +24,11 @@ public class Checker : MonoBehaviour
     public GameObject LeftCircleWin;
     public GameObject TopCircleWin;
 
+    public Toggle FocusBlackCircle;
+    public Toggle Center3Circles;
+    public Toggle AlignLeftCircle;
+    public Toggle AlignTopCircle;
+
     public float BlackCirlceDist;
     public float GrpCirlceDist;
     public float LeftCircleMin;
@@ -36,16 +42,23 @@ public class Checker : MonoBehaviour
         GroupCircleWin.SetActive(false);
         LeftCircleWin.SetActive(false);
         TopCircleWin.SetActive(false);
+
+        FocusBlackCircle.isOn = false;
+        Center3Circles.isOn = false;
+        AlignLeftCircle.isOn = false;
+        AlignTopCircle.isOn = false;
     }
 
     // Update is called once per frame
     private void Update()
     {
         BlackCircleBlur = Vector3.Distance(BlackCircle.transform.position, BlackCircleOptimalDist.transform.position);
-        //print(BlackCircleBlur);
+        print(BlackCircleBlur);
         if (BlackCircleBlur < BlackCirlceDist)
         {
+            FocusBlackCircle.isOn = true;
             BlurCircleWin.SetActive(true);
+
             SaveData data = new SaveData();
             data.black_circle_z = BlackCircle.transform.position.z;
             string json = JsonUtility.ToJson(data, true);
@@ -54,36 +67,43 @@ public class Checker : MonoBehaviour
         }
         else
         {
+            FocusBlackCircle.isOn = false;
             BlurCircleWin.SetActive(false);
         }
         CircleGrpDist = Vector3.Distance(ViewPortMiddle.transform.position, ViewPortCircles.transform.position);
         //print(CircleGrpDist);
         if (CircleGrpDist < GrpCirlceDist)
         {
+            Center3Circles.isOn = true;
             GroupCircleWin.SetActive(true);
         }
         else
         {
+            Center3Circles.isOn = false;
             GroupCircleWin.SetActive(false);
         }
         LeftAndMiddleCircleDist = Vector3.Distance(MiddleCircle.transform.position, LeftCircle.transform.position);
         /*print(LeftAndMiddleCircleDist);*/
         if (LeftAndMiddleCircleDist < LeftCircleMax && LeftAndMiddleCircleDist > LeftCircleMin)
         {
+            AlignLeftCircle.isOn = true;
             LeftCircleWin.SetActive(true);
         }
         else
         {
+            AlignLeftCircle.isOn = false;
             LeftCircleWin.SetActive(false);
         }
         TopAndMiddleCircleDist = Vector3.Distance(MiddleCircle.transform.position, TopCircle.transform.position);
         //print(TopAndMiddleCircleDist);
         if (TopAndMiddleCircleDist < TopCircleMax && TopAndMiddleCircleDist > TopCircleMin)
         {
+            AlignTopCircle.isOn = true;
             TopCircleWin.SetActive(true);
         }
         else
         {
+            AlignTopCircle.isOn = false;
             TopCircleWin.SetActive(false);
         }
     }

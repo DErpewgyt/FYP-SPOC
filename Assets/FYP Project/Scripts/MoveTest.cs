@@ -9,6 +9,8 @@ public class MoveTest : MonoBehaviour
     public bool HorizontalCircle;
     public bool CircleMovement;
 
+    public ObjectClicker objectClicker;
+
     public GameObject ThreeCirclesIdealTransform;
     public GameObject parentObject;
     public GameObject BlurryCircle;
@@ -17,6 +19,7 @@ public class MoveTest : MonoBehaviour
     public GameObject TopCircle;
 
     public GameObject CircleGroupBlur;
+    public GameObject BoxVolumeCircleGroupBlur;
 
     public float maxDistX = .2f;
     public float maxDistZ = .2f;
@@ -41,13 +44,19 @@ public class MoveTest : MonoBehaviour
         startingPos = ThreeCirclesIdealTransform.transform.position;
         BlurStartingPos = BlurryCircle.transform.position;
         BlurStartingPosCircles = CircleGroupBlur.transform.position;
+        CircleGroupBlur.SetActive(false);
+        BoxVolumeCircleGroupBlur.SetActive(false);
     }
 
     private void Update()
     {
+        if (!objectClicker.zoomedIn)
+        {
+            BoxVolumeCircleGroupBlur.SetActive(false);
+        }
         if (CircleMovement)
         {
-
+            BoxVolumeCircleGroupBlur.SetActive(true);
             Vector3 moveDir = new Vector3(0, 0, 0);
             Vector3 moveDir2 = new Vector3(0, 0, 0);
 
@@ -167,6 +176,7 @@ public class MoveTest : MonoBehaviour
         float xDirection = Input.GetAxisRaw("Mouse ScrollWheel");
         if (HorizontalCircle && Mathf.Abs(xDirection) > 0.05f)
         {
+            BoxVolumeCircleGroupBlur.SetActive(true);
             Vector3 moveDirectionX = new Vector3(xDirection, 0.0f, 0.0f);
 
             // Calculate the target position
@@ -182,6 +192,7 @@ public class MoveTest : MonoBehaviour
         float yDirection = Input.GetAxisRaw("Mouse ScrollWheel");
         if (VerticalCircle && Mathf.Abs(yDirection) > 0.05f)
         {
+            BoxVolumeCircleGroupBlur.SetActive(true);
             Vector3 moveDirectionY = new Vector3(0.0f, yDirection, 0.0f);
 
             // Calculate the target position
@@ -197,6 +208,7 @@ public class MoveTest : MonoBehaviour
         float zDirection = Input.GetAxis("Mouse ScrollWheel");
         if (BlurCircle)
         {
+            BoxVolumeCircleGroupBlur.SetActive(false);
             MiddleCircle.SetActive(false);
             TopCircle.SetActive(false);
             LeftCircle.SetActive(false);

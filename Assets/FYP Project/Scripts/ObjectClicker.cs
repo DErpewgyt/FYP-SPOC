@@ -13,7 +13,7 @@ public class ObjectClicker : MonoBehaviour
     private Transform highlight;
     private RaycastHit raycastHit;
     private Animator anim;
-    private bool zoomedIn = false;
+    public bool zoomedIn = false;
     private bool isOverObject = false;
     private bool animationInProgress = false;
     private float multiplier = 0.25f;
