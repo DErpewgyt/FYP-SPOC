@@ -2015,6 +2015,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5068752500766037529, guid: d7821204c30d9ac48b32f0e74f3ab9db, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: f02fe0a80d801604da74c32973654929, type: 2}
+    - target: {fileID: 5068752500766037529, guid: d7821204c30d9ac48b32f0e74f3ab9db, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 8554351414307161554, guid: f02fe0a80d801604da74c32973654929, type: 2}
     - target: {fileID: 5068752500787871361, guid: d7821204c30d9ac48b32f0e74f3ab9db, type: 3}
       propertyPath: m_text
       value: Movement Controls
@@ -2035,6 +2043,14 @@ PrefabInstance:
       propertyPath: clickEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 969396137}
+    - target: {fileID: 5068752501362353909, guid: d7821204c30d9ac48b32f0e74f3ab9db, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: f02fe0a80d801604da74c32973654929, type: 2}
+    - target: {fileID: 5068752501362353909, guid: d7821204c30d9ac48b32f0e74f3ab9db, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 8554351414307161554, guid: f02fe0a80d801604da74c32973654929, type: 2}
     - target: {fileID: 5068752501517310991, guid: d7821204c30d9ac48b32f0e74f3ab9db, type: 3}
       propertyPath: m_Pivot.x
       value: 0.45225206
