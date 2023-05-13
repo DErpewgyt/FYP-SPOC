@@ -36,6 +36,11 @@ public class Checker : MonoBehaviour
     public float TopCircleMin;
     public float TopCircleMax;
 
+    public bool objextive1 = false;
+    public bool objextive2 = false;
+    public bool objextive3 = false;
+    public bool objextive4 = false;
+
     private void Start()
     {
         BlurCircleWin.SetActive(false);
@@ -53,7 +58,7 @@ public class Checker : MonoBehaviour
     private void Update()
     {
         BlackCircleBlur = Vector3.Distance(BlackCircle.transform.position, BlackCircleOptimalDist.transform.position);
-        print(BlackCircleBlur);
+        //print(BlackCircleBlur);
         if (BlackCircleBlur < BlackCirlceDist)
         {
             FocusBlackCircle.isOn = true;
@@ -64,47 +69,61 @@ public class Checker : MonoBehaviour
             string json = JsonUtility.ToJson(data, true);
             File.WriteAllText(Application.dataPath + "/SaveDataFile.json", json);
             Debug.Log("saved" + BlackCircle.transform.position.z);
+            objextive1 = true;
         }
         else
         {
             FocusBlackCircle.isOn = false;
             BlurCircleWin.SetActive(false);
-        }
+            objextive1 = false;
+}
+
+
         CircleGrpDist = Vector3.Distance(ViewPortMiddle.transform.position, ViewPortCircles.transform.position);
         //print(CircleGrpDist);
         if (CircleGrpDist < GrpCirlceDist)
         {
             Center3Circles.isOn = true;
             GroupCircleWin.SetActive(true);
+            objextive2 = true;
         }
         else
         {
             Center3Circles.isOn = false;
             GroupCircleWin.SetActive(false);
+            objextive2 = false;
         }
+
+
         LeftAndMiddleCircleDist = Vector3.Distance(MiddleCircle.transform.position, LeftCircle.transform.position);
-        /*print(LeftAndMiddleCircleDist);*/
+        //print(LeftAndMiddleCircleDist);
         if (LeftAndMiddleCircleDist < LeftCircleMax && LeftAndMiddleCircleDist > LeftCircleMin)
         {
             AlignLeftCircle.isOn = true;
             LeftCircleWin.SetActive(true);
+            objextive3 = true;
         }
         else
         {
             AlignLeftCircle.isOn = false;
             LeftCircleWin.SetActive(false);
+            objextive3 = false;
         }
+
+
         TopAndMiddleCircleDist = Vector3.Distance(MiddleCircle.transform.position, TopCircle.transform.position);
-        //print(TopAndMiddleCircleDist);
+        print(TopAndMiddleCircleDist);
         if (TopAndMiddleCircleDist < TopCircleMax && TopAndMiddleCircleDist > TopCircleMin)
         {
             AlignTopCircle.isOn = true;
             TopCircleWin.SetActive(true);
+            objextive4 = true;
         }
         else
         {
             AlignTopCircle.isOn = false;
             TopCircleWin.SetActive(false);
+            objextive4 = false;
         }
     }
 

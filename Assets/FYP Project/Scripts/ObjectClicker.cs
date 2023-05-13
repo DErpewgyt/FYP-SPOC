@@ -19,6 +19,7 @@ public class ObjectClicker : MonoBehaviour
     private float multiplier = 0.25f;
     public Dictionary<string, GameObject> imageDictionary;
     public GameObject Blur;
+    public GameObject Blur2;
     private GameObject currentSelectedObject = null;
     private float timer = 0f;
     private const float TIMER_RESET_VALUE = 1f;
@@ -27,6 +28,7 @@ public class ObjectClicker : MonoBehaviour
     void Start()
     {
         Blur.SetActive(false);
+        Blur2.SetActive(false);
         anim = parent.GetComponentInParent<Animator>();
         DisableMovements();
 
@@ -310,6 +312,7 @@ public class ObjectClicker : MonoBehaviour
             animationInProgress = true;
             // Deactivate the blur effect before starting the zoom out animation
             Blur.SetActive(false);
+            Blur2.SetActive(false);
 
             anim.Play("keratometerunviewer");
             zoomedIn = false;
@@ -330,6 +333,7 @@ public class ObjectClicker : MonoBehaviour
     {
         yield return new WaitForSeconds(delay);
         Blur.SetActive(true);
+        Blur2.SetActive(true);
         animationInProgress = false;
     }
 }

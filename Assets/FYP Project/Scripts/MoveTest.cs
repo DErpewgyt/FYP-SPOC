@@ -14,6 +14,7 @@ public class MoveTest : MonoBehaviour
     public GameObject ThreeCirclesIdealTransform;
     public GameObject parentObject;
     public GameObject BlurryCircle;
+    public GameObject BoxVolumeBlurryCircle;
     public GameObject MiddleCircle;
     public GameObject LeftCircle;
     public GameObject TopCircle;
@@ -44,7 +45,6 @@ public class MoveTest : MonoBehaviour
         startingPos = ThreeCirclesIdealTransform.transform.position;
         BlurStartingPos = BlurryCircle.transform.position;
         BlurStartingPosCircles = CircleGroupBlur.transform.position;
-        CircleGroupBlur.SetActive(false);
         BoxVolumeCircleGroupBlur.SetActive(false);
     }
 
@@ -56,6 +56,7 @@ public class MoveTest : MonoBehaviour
         }
         if (CircleMovement)
         {
+            BoxVolumeBlurryCircle.SetActive(false);
             BoxVolumeCircleGroupBlur.SetActive(true);
             Vector3 moveDir = new Vector3(0, 0, 0);
             Vector3 moveDir2 = new Vector3(0, 0, 0);
@@ -176,6 +177,7 @@ public class MoveTest : MonoBehaviour
         float xDirection = Input.GetAxisRaw("Mouse ScrollWheel");
         if (HorizontalCircle && Mathf.Abs(xDirection) > 0.05f)
         {
+            BoxVolumeBlurryCircle.SetActive(false);
             BoxVolumeCircleGroupBlur.SetActive(true);
             Vector3 moveDirectionX = new Vector3(xDirection, 0.0f, 0.0f);
 
@@ -192,6 +194,7 @@ public class MoveTest : MonoBehaviour
         float yDirection = Input.GetAxisRaw("Mouse ScrollWheel");
         if (VerticalCircle && Mathf.Abs(yDirection) > 0.05f)
         {
+            BoxVolumeBlurryCircle.SetActive(false);
             BoxVolumeCircleGroupBlur.SetActive(true);
             Vector3 moveDirectionY = new Vector3(0.0f, yDirection, 0.0f);
 
@@ -208,11 +211,11 @@ public class MoveTest : MonoBehaviour
         float zDirection = Input.GetAxis("Mouse ScrollWheel");
         if (BlurCircle)
         {
+            BoxVolumeBlurryCircle.SetActive(true);
             BoxVolumeCircleGroupBlur.SetActive(false);
             MiddleCircle.SetActive(false);
             TopCircle.SetActive(false);
             LeftCircle.SetActive(false);
-            CircleGroupBlur.SetActive(false);
 
             if (Mathf.Abs(zDirection) > 0.05f)
             {
@@ -230,10 +233,10 @@ public class MoveTest : MonoBehaviour
         }
         else
         {
+            BoxVolumeBlurryCircle.SetActive(false);
             MiddleCircle.SetActive(true);
             TopCircle.SetActive(true);
             LeftCircle.SetActive(true);
-            CircleGroupBlur.SetActive(true);
         }
 
 

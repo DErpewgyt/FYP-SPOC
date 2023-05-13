@@ -189,10 +189,14 @@ MonoBehaviour:
   AlignTopCircle: {fileID: 775010351}
   BlackCirlceDist: 0.01
   GrpCirlceDist: 0.002
-  LeftCircleMin: 0
-  LeftCircleMax: 0
-  TopCircleMin: 0
-  TopCircleMax: 0
+  LeftCircleMin: 0.03
+  LeftCircleMax: 0.035
+  TopCircleMin: 0.035
+  TopCircleMax: 0.04
+  objextive1: 0
+  objextive2: 0
+  objextive3: 0
+  objextive4: 0
 --- !u!1 &34321375
 GameObject:
   m_ObjectHideFlags: 0
@@ -832,6 +836,7 @@ MonoBehaviour:
   KeratometerMovement: {fileID: 1476088112}
   zoomedIn: 0
   Blur: {fileID: 1468389654}
+  Blur2: {fileID: 430333947}
 --- !u!1 &273807258
 GameObject:
   m_ObjectHideFlags: 0
@@ -919,6 +924,7 @@ MonoBehaviour:
   ThreeCirclesIdealTransform: {fileID: 0}
   parentObject: {fileID: 0}
   BlurryCircle: {fileID: 0}
+  BoxVolumeBlurryCircle: {fileID: 0}
   MiddleCircle: {fileID: 0}
   LeftCircle: {fileID: 0}
   TopCircle: {fileID: 0}
@@ -1580,7 +1586,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &430333948
 Transform:
   m_ObjectHideFlags: 0
@@ -3830,7 +3836,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1205795995
 Transform:
   m_ObjectHideFlags: 0
@@ -4706,6 +4712,7 @@ MonoBehaviour:
   ThreeCirclesIdealTransform: {fileID: 2143346262}
   parentObject: {fileID: 1476088110}
   BlurryCircle: {fileID: 1774367361}
+  BoxVolumeBlurryCircle: {fileID: 1468389654}
   MiddleCircle: {fileID: 167856808}
   LeftCircle: {fileID: 686785260}
   TopCircle: {fileID: 1846313159}
@@ -5141,6 +5148,7 @@ MonoBehaviour:
   ThreeCirclesIdealTransform: {fileID: 0}
   parentObject: {fileID: 0}
   BlurryCircle: {fileID: 0}
+  BoxVolumeBlurryCircle: {fileID: 0}
   MiddleCircle: {fileID: 0}
   LeftCircle: {fileID: 0}
   TopCircle: {fileID: 0}
@@ -6857,7 +6865,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 836766086574530398}
   m_LocalRotation: {x: 0.32788795, y: 0.7125796, z: -0.538389, w: 0.3079889}
-  m_LocalPosition: {x: -0.935, y: 1.047, z: -10.961}
+  m_LocalPosition: {x: -0.933, y: 1.027, z: -10.966}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
