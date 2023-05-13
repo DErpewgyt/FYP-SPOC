@@ -13,17 +13,22 @@ public class ObjectClicker : MonoBehaviour
     private Transform highlight;
     private RaycastHit raycastHit;
     private Animator anim;
-    private bool zoomedIn = false;
+    public bool zoomedIn = false;
     private bool isOverObject = false;
     private bool animationInProgress = false;
     private float multiplier = 0.25f;
     public Dictionary<string, GameObject> imageDictionary;
-
     public GameObject Blur;
+    public GameObject Blur2;
+    private GameObject currentSelectedObject = null;
+    private float timer = 0f;
+    private const float TIMER_RESET_VALUE = 1f;
+    private GameObject eyePieceObject;
 
-    void Start()
+    private void Start()
     {
         Blur.SetActive(false);
+        Blur2.SetActive(false);
         anim = parent.GetComponentInParent<Animator>();
         DisableMovements();
 
@@ -42,9 +47,12 @@ public class ObjectClicker : MonoBehaviour
         {
             image.SetActive(false);
         }
+
+        eyePieceObject = GameObject.FindWithTag("EyePiece");
+
     }
 
-    void Update()
+    private void Update()
     {
         // Highlight
         if (highlight != null)
@@ -105,7 +113,6 @@ public class ObjectClicker : MonoBehaviour
             }
         }
 
-
         if (Input.GetKeyDown(KeyCode.Alpha1))
         {
             print("YCMA");
@@ -141,11 +148,9 @@ public class ObjectClicker : MonoBehaviour
             IdentifyInteractable("RightKnob");
         }
 
+        CheckScrollWheelInput();
 
-
-
-
-
+        print(currentSelectedObject);
 
 
     }
@@ -158,6 +163,28 @@ public class ObjectClicker : MonoBehaviour
             image.SetActive(false);
         }
 
+        // Reset the timer when switching to a new component
+        if (currentSelectedObject != null && currentSelectedObject.tag != tag)
+        {
+            timer = 0f;
+
+            // If the previously selected object was "EyePiece", reset its image to the default state
+            if (currentSelectedObject.tag == "EyePiece" && imageDictionary.ContainsKey("EyePiece"))
+            {
+                imageDictionary["EyePiece"].transform.GetChild(0).gameObject.SetActive(false);
+                imageDictionary["EyePiece"].transform.GetChild(1).gameObject.SetActive(false);
+            }
+        }
+
+        if (tag == "EyePiece")
+        {
+            currentSelectedObject = eyePieceObject;
+        }
+        else
+        {
+            currentSelectedObject = GameObject.FindWithTag(tag);
+        }
+
         // Activate the specific image corresponding to the clicked component
         if (imageDictionary.ContainsKey(tag))
         {
@@ -165,7 +192,7 @@ public class ObjectClicker : MonoBehaviour
         }
 
         DisableMovements();
-        switch (tag) //switch statement for identifying the tags  
+        switch (tag) //switch statement for identifying the tags
         {
             case "EyePiece": //tag 1
                 {
@@ -209,15 +236,53 @@ public class ObjectClicker : MonoBehaviour
 
             default: //default tag
                 {
-
                 }
                 break;
         }
     }
 
+    private void CheckScrollWheelInput()
+    {
+        if (currentSelectedObject != null)
+        {
+            float scrollWheelInput = Input.GetAxis("Mouse ScrollWheel");
+
+            if (currentSelectedObject.tag == "EyePiece")
+            {
+                if (scrollWheelInput > 0f)
+                {
+                    // Scroll up anti-clockwise arrow
+                    imageDictionary["EyePiece"].transform.GetChild(0).gameObject.SetActive(false);
+                    imageDictionary["EyePiece"].transform.GetChild(1).gameObject.SetActive(true);
+                    timer = TIMER_RESET_VALUE;
+                }
+                else if (scrollWheelInput < 0f)
+                {
+                    // Scroll up clockwise arrow
+                    imageDictionary["EyePiece"].transform.GetChild(0).gameObject.SetActive(true);
+                    imageDictionary["EyePiece"].transform.GetChild(1).gameObject.SetActive(false);
+                    timer = TIMER_RESET_VALUE;
+                }
+
+                // Decrease the timer every frame
+                if (timer > 0f)
+                {
+                    timer -= Time.deltaTime;
+                }
+                else
+                {
+                    //back to default image
+                    imageDictionary["EyePiece"].transform.GetChild(0).gameObject.SetActive(false);
+                    imageDictionary["EyePiece"].transform.GetChild(1).gameObject.SetActive(false);
+                }
+            }
+        }
+    }
+
     private void ZoomIn()
     {
-        if (!zoomedIn && !animationInProgress) {
+        if (!zoomedIn && !animationInProgress)
+        {
             animationInProgress = true;
             anim.Play("keratometerviewer");
             zoomedIn = true;
@@ -225,10 +290,15 @@ public class ObjectClicker : MonoBehaviour
             // Hide the cursor during the animation
             Cursor.visible = false;
 
+            // Start timer
+            GameObject timer = GameObject.Find("Script manager");
+            Stopwatch timerScript = timer.GetComponent<Stopwatch>();
+            timerScript.timerRunning = true;
+
             // Activate the blur effect after the animation is finished
             StartCoroutine(ActivateBlurAfterDelay(anim.GetCurrentAnimatorStateInfo(0).length));
         }
-}
+    }
 
     private void DisableMovements()
     {
@@ -245,6 +315,7 @@ public class ObjectClicker : MonoBehaviour
             animationInProgress = true;
             // Deactivate the blur effect before starting the zoom out animation
             Blur.SetActive(false);
+            Blur2.SetActive(false);
 
             anim.Play("keratometerunviewer");
             zoomedIn = false;
@@ -265,6 +336,7 @@ public class ObjectClicker : MonoBehaviour
     {
         yield return new WaitForSeconds(delay);
         Blur.SetActive(true);
+        Blur2.SetActive(true);
         animationInProgress = false;
     }
 }

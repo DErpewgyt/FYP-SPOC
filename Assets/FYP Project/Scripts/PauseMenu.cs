@@ -21,6 +21,11 @@ public class PauseMenu : MonoBehaviour
         Resume();
     }
 
+    void Start()
+    {
+        Cursor.visible = false;
+    }
+
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Backspace))
@@ -60,6 +65,7 @@ public class PauseMenu : MonoBehaviour
         GameIsPaused = true;
         Cursor.lockState = CursorLockMode.None; // Unlock the mouse cursor
         Cursor.visible = true; // Show the mouse cursor
+
     }
 
 

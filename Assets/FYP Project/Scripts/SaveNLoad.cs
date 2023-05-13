@@ -1,4 +1,4 @@
-using System.IO;
+/*using System.IO;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -32,7 +32,7 @@ public class SaveNLoad : MonoBehaviour
         SaveData data = JsonUtility.FromJson<SaveData>(json);
 
         current_scene = data.scene;
-        /*SceneManager.LoadScene(current_scene, LoadSceneMode.Single);*/
+        *//*SceneManager.LoadScene(current_scene, LoadSceneMode.Single);*//*
 
         GameObject blackCircle = GameObject.FindWithTag("BlackCircle");
         if (blackCircle != null)
@@ -42,4 +42,4 @@ public class SaveNLoad : MonoBehaviour
             blackCircle.transform.position = position;
         }
     }
-}
+}*/
