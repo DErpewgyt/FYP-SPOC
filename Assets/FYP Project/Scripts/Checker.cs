@@ -65,7 +65,6 @@ public class Checker : MonoBehaviour
             BlurCircleWin.SetActive(true);
 
             SaveData data = new SaveData();
-            data.black_circle_z = BlackCircle.transform.position.z;
             string json = JsonUtility.ToJson(data, true);
             File.WriteAllText(Application.dataPath + "/SaveDataFile.json", json);
             Debug.Log("saved" + BlackCircle.transform.position.z);

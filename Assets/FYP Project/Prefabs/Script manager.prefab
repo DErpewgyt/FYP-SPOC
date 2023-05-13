@@ -9,8 +9,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1263083503968197723}
-  - component: {fileID: 1263083503968197720}
-  - component: {fileID: 1263083503968197721}
   m_Layer: 0
   m_Name: Script manager
   m_TagString: Untagged
@@ -33,32 +31,3 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1263083503968197720
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1263083503968197725}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dcd23e9a88ce6144688012f3ee767d42, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  background: {fileID: 0}
-  canvasGroup: {fileID: 0}
-  fadeTime: 3
-  clicker: {fileID: 0}
-  fader: {fileID: 0}
---- !u!114 &1263083503968197721
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1263083503968197725}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 870b505f0d9b030459a3717a51bfd8db, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 

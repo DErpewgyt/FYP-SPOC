@@ -25,7 +25,7 @@ public class ObjectClicker : MonoBehaviour
     private const float TIMER_RESET_VALUE = 1f;
     private GameObject eyePieceObject;
 
-    void Start()
+    private void Start()
     {
         Blur.SetActive(false);
         Blur2.SetActive(false);
@@ -52,7 +52,7 @@ public class ObjectClicker : MonoBehaviour
 
     }
 
-    void Update()
+    private void Update()
     {
         // Highlight
         if (highlight != null)
@@ -112,7 +112,6 @@ public class ObjectClicker : MonoBehaviour
                 DisableMovements();
             }
         }
-
 
         if (Input.GetKeyDown(KeyCode.Alpha1))
         {
@@ -193,7 +192,7 @@ public class ObjectClicker : MonoBehaviour
         }
 
         DisableMovements();
-        switch (tag) //switch statement for identifying the tags  
+        switch (tag) //switch statement for identifying the tags
         {
             case "EyePiece": //tag 1
                 {
@@ -237,7 +236,6 @@ public class ObjectClicker : MonoBehaviour
 
             default: //default tag
                 {
-
                 }
                 break;
         }
@@ -291,6 +289,11 @@ public class ObjectClicker : MonoBehaviour
 
             // Hide the cursor during the animation
             Cursor.visible = false;
+
+            // Start timer
+            GameObject timer = GameObject.Find("Script manager");
+            Stopwatch timerScript = timer.GetComponent<Stopwatch>();
+            timerScript.timerRunning = true;
 
             // Activate the blur effect after the animation is finished
             StartCoroutine(ActivateBlurAfterDelay(anim.GetCurrentAnimatorStateInfo(0).length));
