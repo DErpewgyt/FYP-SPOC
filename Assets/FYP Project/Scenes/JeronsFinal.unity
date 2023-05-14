@@ -154,7 +154,7 @@ Transform:
   m_Children:
   - {fileID: 1151207492}
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &27897319
 MonoBehaviour:
@@ -170,6 +170,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ViewPortMiddle: {fileID: 2143346262}
   ViewPortCircles: {fileID: 1476088110}
+  ViewPortBlurOptimal: {fileID: 920058071}
+  ViewPortBlur: {fileID: 1205795994}
   BlackCircle: {fileID: 1774367361}
   BlackCircleOptimalDist: {fileID: 1716468939}
   MiddleCircle: {fileID: 167856808}
@@ -177,6 +179,7 @@ MonoBehaviour:
   TopCircle: {fileID: 1846313159}
   BlackCircleBlur: 0
   CircleGrpDist: 0
+  CircleGrpDistBlur: 0
   LeftAndMiddleCircleDist: 0
   TopAndMiddleCircleDist: 0
   BlurCircleWin: {fileID: 1941652187}
@@ -1521,7 +1524,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1263083503968197723, guid: abd6b35fe403bbb46b6edcd6dad39833, type: 3}
       propertyPath: m_RootOrder
-      value: 9
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 1263083503968197723, guid: abd6b35fe403bbb46b6edcd6dad39833, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2825,6 +2828,37 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &920058071
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 920058072}
+  m_Layer: 0
+  m_Name: OptimalBoxVolumeLocation3circle
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &920058072
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 920058071}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 1.02, z: -13.35}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 8
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &965954892
 GameObject:
   m_ObjectHideFlags: 0
@@ -3831,7 +3865,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1205795995}
   m_Layer: 0
-  m_Name: BoxVolumeTransformValue
+  m_Name: BoxVolumeTransformValue3Circles
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5300,7 +5334,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1716468940}
   m_Layer: 0
-  m_Name: OptimalBoxVolumeLocation
+  m_Name: OptimalBoxVolumeLocationBlack
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5415,7 +5449,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1774367362}
   m_Layer: 0
-  m_Name: BoxVolumeTransformValue
+  m_Name: BoxVolumeTransformValueBlackBlur
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6872,7 +6906,7 @@ Transform:
   - {fileID: 836766086574228348}
   - {fileID: 836766086574228344}
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 75.757, y: 159.572, z: 33.462}
 --- !u!1 &836766086574530392
 GameObject:

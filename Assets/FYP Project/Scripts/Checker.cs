@@ -7,6 +7,9 @@ public class Checker : MonoBehaviour
     public GameObject ViewPortMiddle;
     public GameObject ViewPortCircles;
 
+    public GameObject ViewPortBlurOptimal;
+    public GameObject ViewPortBlur;
+
     public GameObject BlackCircle;
     public GameObject BlackCircleOptimalDist;
 
@@ -16,6 +19,7 @@ public class Checker : MonoBehaviour
 
     public float BlackCircleBlur;
     public float CircleGrpDist;
+    public float CircleGrpDistBlur;
     public float LeftAndMiddleCircleDist;
     public float TopAndMiddleCircleDist;
 
@@ -31,6 +35,7 @@ public class Checker : MonoBehaviour
 
     public float BlackCirlceDist;
     public float GrpCirlceDist;
+    public float GrpCirlceDistBlur;
     public float LeftCircleMin;
     public float LeftCircleMax;
     public float TopCircleMin;
@@ -79,8 +84,10 @@ public class Checker : MonoBehaviour
 
 
         CircleGrpDist = Vector3.Distance(ViewPortMiddle.transform.position, ViewPortCircles.transform.position);
+        CircleGrpDistBlur = Vector3.Distance(ViewPortBlur.transform.position, ViewPortBlurOptimal.transform.position);
         //print(CircleGrpDist);
-        if (CircleGrpDist < GrpCirlceDist)
+        print(CircleGrpDistBlur);
+        if (CircleGrpDist < GrpCirlceDist && CircleGrpDistBlur < GrpCirlceDistBlur)
         {
             Center3Circles.isOn = true;
             GroupCircleWin.SetActive(true);
@@ -111,7 +118,7 @@ public class Checker : MonoBehaviour
 
 
         TopAndMiddleCircleDist = Vector3.Distance(MiddleCircle.transform.position, TopCircle.transform.position);
-        print(TopAndMiddleCircleDist);
+        //print(TopAndMiddleCircleDist);
         if (TopAndMiddleCircleDist < TopCircleMax && TopAndMiddleCircleDist > TopCircleMin)
         {
             AlignTopCircle.isOn = true;
