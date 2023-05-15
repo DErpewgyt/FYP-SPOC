@@ -154,7 +154,7 @@ Transform:
   m_Children:
   - {fileID: 1151207492}
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &27897319
 MonoBehaviour:
@@ -170,6 +170,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ViewPortMiddle: {fileID: 2143346262}
   ViewPortCircles: {fileID: 1476088110}
+  ViewPortBlurOptimal: {fileID: 0}
+  ViewPortBlur: {fileID: 0}
   BlackCircle: {fileID: 1774367361}
   BlackCircleOptimalDist: {fileID: 1716468939}
   MiddleCircle: {fileID: 167856808}
@@ -177,18 +179,30 @@ MonoBehaviour:
   TopCircle: {fileID: 1846313159}
   BlackCircleBlur: 0
   CircleGrpDist: 0
+  CircleGrpDistBlur: 0
   LeftAndMiddleCircleDist: 0
   TopAndMiddleCircleDist: 0
   BlurCircleWin: {fileID: 1941652187}
   GroupCircleWin: {fileID: 1110676388}
   LeftCircleWin: {fileID: 219400984}
   TopCircleWin: {fileID: 296823400}
+  FocusBlackCircle: {fileID: 0}
+  Center3Circles: {fileID: 0}
+  AlignLeftCircle: {fileID: 0}
+  AlignTopCircle: {fileID: 0}
   BlackCirlceDist: 0.01
   GrpCirlceDist: 0.002
+  GrpCirlceDistBlur: 0
   LeftCircleMin: 0
   LeftCircleMax: 0
   TopCircleMin: 0
   TopCircleMax: 0
+  objextive1: 0
+  objextive2: 0
+  objextive3: 0
+  objextive4: 0
+  timerScript: {fileID: 0}
+  saved: 0
 --- !u!1 &45856033
 GameObject:
   m_ObjectHideFlags: 0
@@ -517,7 +531,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
 --- !u!114 &148847154
 MonoBehaviour:
@@ -871,7 +885,9 @@ MonoBehaviour:
   linkCursorTexture: {fileID: 2800000, guid: 9b06c0d8b4e8fa6448f481781b52a3ba, type: 3}
   parent: {fileID: 1158797494}
   KeratometerMovement: {fileID: 1476088112}
+  zoomedIn: 0
   Blur: {fileID: 1468389654}
+  Blur2: {fileID: 0}
   helpController: {fileID: 0}
 --- !u!1 &273807258
 GameObject:
@@ -956,13 +972,16 @@ MonoBehaviour:
   VerticalCircle: 0
   HorizontalCircle: 0
   CircleMovement: 0
+  objectClicker: {fileID: 0}
   ThreeCirclesIdealTransform: {fileID: 0}
   parentObject: {fileID: 0}
   BlurryCircle: {fileID: 0}
+  BoxVolumeBlurryCircle: {fileID: 0}
   MiddleCircle: {fileID: 0}
   LeftCircle: {fileID: 0}
   TopCircle: {fileID: 0}
   CircleGroupBlur: {fileID: 0}
+  BoxVolumeCircleGroupBlur: {fileID: 0}
   maxDistX: 0.35
   maxDistZ: 0.25
   maxDistY: 0.15
@@ -1316,7 +1335,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &374385990
 GameObject:
@@ -1367,7 +1386,7 @@ PrefabInstance:
     - target: {fileID: 1263083503968197720, guid: abd6b35fe403bbb46b6edcd6dad39833, type: 3}
       propertyPath: fader
       value: 
-      objectReference: {fileID: 1961064874}
+      objectReference: {fileID: 0}
     - target: {fileID: 1263083503968197720, guid: abd6b35fe403bbb46b6edcd6dad39833, type: 3}
       propertyPath: clicker
       value: 
@@ -1375,11 +1394,11 @@ PrefabInstance:
     - target: {fileID: 1263083503968197720, guid: abd6b35fe403bbb46b6edcd6dad39833, type: 3}
       propertyPath: background
       value: 
-      objectReference: {fileID: 793013047}
+      objectReference: {fileID: 0}
     - target: {fileID: 1263083503968197720, guid: abd6b35fe403bbb46b6edcd6dad39833, type: 3}
       propertyPath: canvasGroup
       value: 
-      objectReference: {fileID: 793013046}
+      objectReference: {fileID: 0}
     - target: {fileID: 1263083503968197721, guid: abd6b35fe403bbb46b6edcd6dad39833, type: 3}
       propertyPath: m_Enabled
       value: 0
@@ -1431,6 +1450,10 @@ PrefabInstance:
     - target: {fileID: 1263083503968197725, guid: abd6b35fe403bbb46b6edcd6dad39833, type: 3}
       propertyPath: m_Name
       value: Script manager
+      objectReference: {fileID: 0}
+    - target: {fileID: 1929470583073255215, guid: abd6b35fe403bbb46b6edcd6dad39833, type: 3}
+      propertyPath: m_RootOrder
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: abd6b35fe403bbb46b6edcd6dad39833, type: 3}
@@ -2139,16 +2162,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 698c90553f07f4a4e962a948141912ad, type: 3}
---- !u!225 &793013046 stripped
-CanvasGroup:
-  m_CorrespondingSourceObject: {fileID: 3586109886936671288, guid: 698c90553f07f4a4e962a948141912ad, type: 3}
-  m_PrefabInstance: {fileID: 793013045}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &793013047 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3586109886804617375, guid: 698c90553f07f4a4e962a948141912ad, type: 3}
-  m_PrefabInstance: {fileID: 793013045}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &807183536
 GameObject:
   m_ObjectHideFlags: 0
@@ -2398,7 +2411,7 @@ Transform:
   - {fileID: 731404338}
   - {fileID: 3973494114644932755}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1049388411
 GameObject:
@@ -2724,7 +2737,7 @@ Transform:
   - {fileID: 4049054878861195570}
   - {fileID: 156760096}
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!95 &1158797496
 Animator:
@@ -3141,7 +3154,6 @@ GameObject:
   - component: {fileID: 1416337064}
   - component: {fileID: 1416337066}
   - component: {fileID: 1416337067}
-  - component: {fileID: 1416337068}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -3261,11 +3273,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dcd23e9a88ce6144688012f3ee767d42, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  background: {fileID: 793013047}
-  canvasGroup: {fileID: 793013046}
+  background: {fileID: 0}
+  canvasGroup: {fileID: 0}
   fadeTime: 2
   clicker: {fileID: 257056099}
-  fader: {fileID: 1961064874}
+  fader: {fileID: 0}
 --- !u!114 &1416337067
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3276,21 +3288,6 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4cf51bb63b714d143981bde96e7d6b7d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  helpImage: {fileID: 1833719981}
-  blur: {fileID: 54760146}
-  helpButton: {fileID: 507431742}
---- !u!114 &1416337068
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1416337060}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6474726ecee870e4394364b639c2d72a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   helpImage: {fileID: 1833719981}
@@ -3487,13 +3484,16 @@ MonoBehaviour:
   VerticalCircle: 0
   HorizontalCircle: 0
   CircleMovement: 0
+  objectClicker: {fileID: 0}
   ThreeCirclesIdealTransform: {fileID: 2143346262}
   parentObject: {fileID: 1476088110}
   BlurryCircle: {fileID: 1774367361}
+  BoxVolumeBlurryCircle: {fileID: 0}
   MiddleCircle: {fileID: 167856808}
   LeftCircle: {fileID: 686785260}
   TopCircle: {fileID: 1846313159}
   CircleGroupBlur: {fileID: 0}
+  BoxVolumeCircleGroupBlur: {fileID: 0}
   maxDistX: 0.2
   maxDistZ: 0.1
   maxDistY: 0.1
@@ -3785,13 +3785,16 @@ MonoBehaviour:
   VerticalCircle: 0
   HorizontalCircle: 0
   CircleMovement: 0
+  objectClicker: {fileID: 0}
   ThreeCirclesIdealTransform: {fileID: 0}
   parentObject: {fileID: 0}
   BlurryCircle: {fileID: 0}
+  BoxVolumeBlurryCircle: {fileID: 0}
   MiddleCircle: {fileID: 0}
   LeftCircle: {fileID: 0}
   TopCircle: {fileID: 0}
   CircleGroupBlur: {fileID: 0}
+  BoxVolumeCircleGroupBlur: {fileID: 0}
   maxDistX: 0.25
   maxDistZ: 0.25
   maxDistY: 0.5
@@ -3845,7 +3848,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1756768252
 GameObject:
@@ -3961,7 +3964,7 @@ Transform:
   m_Children:
   - {fileID: 1468389655}
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1833719981
 GameObject:
@@ -4242,11 +4245,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1941652187}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!1 &1961064874 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3586109886936671287, guid: 698c90553f07f4a4e962a948141912ad, type: 3}
-  m_PrefabInstance: {fileID: 793013045}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2068976093
 GameObject:
   m_ObjectHideFlags: 0
