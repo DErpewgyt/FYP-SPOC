@@ -28790,7 +28790,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -359, y: -60}
+  m_AnchoredPosition: {x: -359, y: -240}
   m_SizeDelta: {x: 400, y: 55}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!95 &1493226655
@@ -28932,7 +28932,7 @@ MonoBehaviour:
   itemPaddingLeft: 8
   itemPaddingRight: 25
   itemSpacing: 8
-  selectedItemIndex: 5
+  selectedItemIndex: 4
   animationType: 0
   transitionSmoothness: 10
   sizeSmoothness: 15
@@ -28981,9 +28981,9 @@ MonoBehaviour:
   dropdownEvent:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2069755309}
-        m_TargetAssemblyTypeName: VideoSettings, Assembly-CSharp
-        m_MethodName: 
+      - m_Target: {fileID: 2069755317}
+        m_TargetAssemblyTypeName: VideoSettingsP2, Assembly-CSharp
+        m_MethodName: ChangeQuality
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -30581,7 +30581,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -520, y: -275}
+  m_AnchoredPosition: {x: -520, y: -139}
   m_SizeDelta: {x: 160, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1594105123
@@ -30990,7 +30990,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -520, y: -168}
+  m_AnchoredPosition: {x: -520, y: -32}
   m_SizeDelta: {x: 160, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1608392931
@@ -40134,6 +40134,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fullscreenToggle: {fileID: 1608392931}
   vsyncToggle: {fileID: 1594105123}
+--- !u!114 &2069755317
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2069755309}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 45df186c47a10884ebc782efc7d23eec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2071490956
 GameObject:
   m_ObjectHideFlags: 0

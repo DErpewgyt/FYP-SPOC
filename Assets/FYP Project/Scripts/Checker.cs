@@ -46,6 +46,8 @@ public class Checker : MonoBehaviour
     public bool objextive3 = false;
     public bool objextive4 = false;
 
+    public Stopwatch timerScript;
+    public bool saved = false;
     private void Start()
     {
         BlurCircleWin.SetActive(false);
@@ -62,18 +64,19 @@ public class Checker : MonoBehaviour
     // Update is called once per frame
     private void Update()
     {
+        if (objextive1 && objextive2 && objextive3 && objextive4 && !saved)
+        {
+            timerScript.CompleteConditions();
+            saved = true;
+        }
+
         BlackCircleBlur = Vector3.Distance(BlackCircle.transform.position, BlackCircleOptimalDist.transform.position);
         //print(BlackCircleBlur);
         if (BlackCircleBlur < BlackCirlceDist)
         {
+            objextive1 = true;
             FocusBlackCircle.isOn = true;
             BlurCircleWin.SetActive(true);
-
-            SaveData data = new SaveData();
-            string json = JsonUtility.ToJson(data, true);
-            File.WriteAllText(Application.dataPath + "/SaveDataFile.json", json);
-            Debug.Log("saved" + BlackCircle.transform.position.z);
-            objextive1 = true;
         }
         else
         {
@@ -132,7 +135,6 @@ public class Checker : MonoBehaviour
             objextive4 = false;
         }
     }
-
     private void DistanceChecker()
     {
         //CircleGrpDist = Vector3.Distance(ViewPortMiddle.transform.position, ViewPortCircles.transform.position);

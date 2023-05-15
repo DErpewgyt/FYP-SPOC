@@ -11,9 +11,10 @@ public class Stopwatch : MonoBehaviour
     public bool conditionsCompleted = false; // Flag to indicate whether all conditions have been completed
     private string filePath; // Path to the JSON file to save the times to
     private List<float> bestTimes; // List of the user's 5 best times
-    public bool resetData; // Bool to check to trgigger the reset of saved data
+    //public bool resetData; // Bool to check to trgigger the reset of saved data
     public GameObject LevelCompleteScreen;
     public GameObject EndBtn;
+    private bool timeSaved = false;
 
     private void Start()
     {
@@ -39,33 +40,21 @@ public class Stopwatch : MonoBehaviour
             int minutes = Mathf.FloorToInt(timeElapsed / 60f); // Calculate minutes
             int seconds = Mathf.FloorToInt(timeElapsed % 60f); // Calculate seconds
             timeText.text = string.Format("{0:00}:{1:00}", minutes, seconds); // Format text in "mm:ss"
-            if (conditionsCompleted) // To be changed to check if all the checklist are checked
+            if (conditionsCompleted && timeSaved == false) // To be changed to check if all the checklist are checked
             {
                 SaveTime(); // Save time taken to the JSON
+                timeSaved = true;
+                levelComplete(); // Call the levelComplete method here
             }
         }
-
-        if (resetData) // To be replaced
-        {
-            // Clear the bestTimes list
-            bestTimes.Clear();
-
-            // Create a new SaveData object with the cleared bestTimes list
-            SaveData saveData = new SaveData();
-            saveData.bestTimes = bestTimes;
-
-            // Convert the SaveData object to JSON
-            string json = JsonUtility.ToJson(saveData);
-
-            // Write the JSON string to the file
-            File.WriteAllText(filePath, json);
-        }
     }
 
-    public void CompleteConditions() // To be changed to check if all the checklist are checked
+    public void CompleteConditions()
     {
         conditionsCompleted = true;
+        print("conditions completed:" + conditionsCompleted);
     }
+
 
     private void SaveBestTimes()
     {
@@ -85,7 +74,7 @@ public class Stopwatch : MonoBehaviour
     {
         if (bestTimes.Count < 5)
         {
-            bestTimes.Add(timeElapsed); // If there are less than 5 best times just add the time to list
+            bestTimes.Add(timeElapsed); // If there are less than 5 best times just add the time to lists
         }
         else
         {
