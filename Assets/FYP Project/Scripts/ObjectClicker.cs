@@ -23,6 +23,7 @@ public class ObjectClicker : MonoBehaviour
     private float timer = 0f;
     private const float TIMER_RESET_VALUE = 1f;
     private GameObject eyePieceObject;
+    public KeratometerHelpController helpController;
 
     void Start()
     {
@@ -52,6 +53,11 @@ public class ObjectClicker : MonoBehaviour
 
     void Update()
     {
+/*        if (!helpController.helpImage.activeInHierarchy)
+        {
+            return;
+        }*/
+
         // Highlight
         if (highlight != null)
         {
