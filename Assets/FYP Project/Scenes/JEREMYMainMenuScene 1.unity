@@ -326,6 +326,105 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 233846804}
   m_CullTransparentMesh: 0
+--- !u!1001 &304704658
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 491828247894866884, guid: dd7d5adb8dbe7cf43965564d8969b64b, type: 3}
+      propertyPath: m_Name
+      value: Fader Screen
+      objectReference: {fileID: 0}
+    - target: {fileID: 491828247894866884, guid: dd7d5adb8dbe7cf43965564d8969b64b, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 491828247894866885, guid: dd7d5adb8dbe7cf43965564d8969b64b, type: 3}
+      propertyPath: m_RootOrder
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 491828247894866885, guid: dd7d5adb8dbe7cf43965564d8969b64b, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 456.01913
+      objectReference: {fileID: 0}
+    - target: {fileID: 491828247894866885, guid: dd7d5adb8dbe7cf43965564d8969b64b, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 456.01913
+      objectReference: {fileID: 0}
+    - target: {fileID: 491828247894866885, guid: dd7d5adb8dbe7cf43965564d8969b64b, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 456.01913
+      objectReference: {fileID: 0}
+    - target: {fileID: 491828247894866885, guid: dd7d5adb8dbe7cf43965564d8969b64b, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 960
+      objectReference: {fileID: 0}
+    - target: {fileID: 491828247894866885, guid: dd7d5adb8dbe7cf43965564d8969b64b, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 505.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 491828247894866885, guid: dd7d5adb8dbe7cf43965564d8969b64b, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -27.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 491828247894866885, guid: dd7d5adb8dbe7cf43965564d8969b64b, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 491828247894866885, guid: dd7d5adb8dbe7cf43965564d8969b64b, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 491828247894866885, guid: dd7d5adb8dbe7cf43965564d8969b64b, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 491828247894866885, guid: dd7d5adb8dbe7cf43965564d8969b64b, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 491828247894866885, guid: dd7d5adb8dbe7cf43965564d8969b64b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 491828247894866885, guid: dd7d5adb8dbe7cf43965564d8969b64b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 491828247894866885, guid: dd7d5adb8dbe7cf43965564d8969b64b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 491828247894866886, guid: dd7d5adb8dbe7cf43965564d8969b64b, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: a5c7f76cf1472a547a5059e74b440cb6, type: 2}
+    m_RemovedComponents:
+    - {fileID: 491828247894866888, guid: dd7d5adb8dbe7cf43965564d8969b64b, type: 3}
+  m_SourcePrefab: {fileID: 100100000, guid: dd7d5adb8dbe7cf43965564d8969b64b, type: 3}
+--- !u!1 &304704659 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 491828247894866884, guid: dd7d5adb8dbe7cf43965564d8969b64b, type: 3}
+  m_PrefabInstance: {fileID: 304704658}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &304704660
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 304704659}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d9a22761f901a4249b043eb3a9e69b43, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fadeOnStart: 1
+  fadeDuration: 2
+  fadeColor: {r: 0, g: 0, b: 0, a: 0}
+  image: {fileID: 0}
 --- !u!1 &315236411
 GameObject:
   m_ObjectHideFlags: 0
@@ -2974,7 +3073,7 @@ MonoBehaviour:
   hoverEvent:
     m_PersistentCalls:
       m_Calls: []
-  hoverSound: {fileID: 8300000, guid: 429d83d57f7d8a548a931cff974d81b7, type: 3}
+  hoverSound: {fileID: 8300000, guid: 3572d5812ac0d4b489a6694f93a3570c, type: 3}
   clickSound: {fileID: 8300000, guid: edefa5057bffcdd478b40f31778d02a2, type: 3}
   buttonVar: {fileID: 1215799074}
   normalText: {fileID: 1662146080}
@@ -3498,9 +3597,13 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5835233050213604402, guid: 515ce7c910b207b43901c5a718ab790e, type: 3}
+      propertyPath: m_Pitch
+      value: 1.45
+      objectReference: {fileID: 0}
+    - target: {fileID: 5835233050213604402, guid: 515ce7c910b207b43901c5a718ab790e, type: 3}
       propertyPath: m_audioClip
       value: 
-      objectReference: {fileID: 8300000, guid: 429d83d57f7d8a548a931cff974d81b7, type: 3}
+      objectReference: {fileID: 8300000, guid: 3572d5812ac0d4b489a6694f93a3570c, type: 3}
     - target: {fileID: 5835233050213604402, guid: 515ce7c910b207b43901c5a718ab790e, type: 3}
       propertyPath: OutputAudioMixerGroup
       value: 
@@ -4540,7 +4643,7 @@ MonoBehaviour:
   hoverEvent:
     m_PersistentCalls:
       m_Calls: []
-  hoverSound: {fileID: 8300000, guid: 429d83d57f7d8a548a931cff974d81b7, type: 3}
+  hoverSound: {fileID: 8300000, guid: 3572d5812ac0d4b489a6694f93a3570c, type: 3}
   clickSound: {fileID: 8300000, guid: edefa5057bffcdd478b40f31778d02a2, type: 3}
   buttonVar: {fileID: 1893510810}
   normalText: {fileID: 1067475819}
@@ -4776,7 +4879,7 @@ MonoBehaviour:
   hoverEvent:
     m_PersistentCalls:
       m_Calls: []
-  hoverSound: {fileID: 8300000, guid: 429d83d57f7d8a548a931cff974d81b7, type: 3}
+  hoverSound: {fileID: 8300000, guid: 3572d5812ac0d4b489a6694f93a3570c, type: 3}
   clickSound: {fileID: 8300000, guid: edefa5057bffcdd478b40f31778d02a2, type: 3}
   buttonVar: {fileID: 1899905816}
   normalText: {fileID: 985136371}
