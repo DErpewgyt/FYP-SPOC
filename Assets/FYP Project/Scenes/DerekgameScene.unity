@@ -24582,7 +24582,7 @@ MonoBehaviour:
     CPU</b>
 
 
-    -Note that on Very low setting VSync is disabled'
+    --Note that on Very low setting VSync is disabled'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: f02fe0a80d801604da74c32973654929, type: 2}
   m_sharedMaterial: {fileID: 8554351414307161554, guid: f02fe0a80d801604da74c32973654929, type: 2}
