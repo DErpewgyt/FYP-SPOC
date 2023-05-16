@@ -146,14 +146,14 @@ public class ObjectClicker : MonoBehaviour
         {
             //print("YCMA");
             ZoomIn();
-            IdentifyInteractable("RightKnob");
+            IdentifyInteractable("Gripper");
         }
 
         if (Input.GetKeyDown(KeyCode.Alpha5))
         {
             //print("YCMA");
             ZoomIn();
-            IdentifyInteractable("Gripper");
+            IdentifyInteractable("RightKnob");
         }
 
         CheckScrollWheelInput();
