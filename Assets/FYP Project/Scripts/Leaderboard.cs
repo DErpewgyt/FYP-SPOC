@@ -66,6 +66,8 @@ public class Leaderboard : MonoBehaviour
 
     public void ToggleLeaderboard()
     {
+        LoadTimes();
+        DisplayTimes();
         leaderboard = !leaderboard; // set whether leaderboard visible or not
 
         leaderboardScreen.SetActive(leaderboard);
