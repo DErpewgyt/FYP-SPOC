@@ -1,3 +1,4 @@
+// Jayden Lim 2123066
 using System.Collections.Generic;
 using System.IO;
 using TMPro;
@@ -5,97 +6,97 @@ using UnityEngine;
 
 public class Stopwatch : MonoBehaviour
 {
-    public TextMeshProUGUI timeText; // Reference to the Text component to display the time
-    private float timeElapsed; // Amount of time that has elapsed since the stopwatch started
-    public bool timerRunning; // Flag to indicate whether the stopwatch is running or not
-    public bool conditionsCompleted = false; // Flag to indicate whether all conditions have been completed
-    private string filePath; // Path to the JSON file to save the times to
-    private List<float> bestTimes; // List of the user's 5 best times
-    //public bool resetData; // Bool to check to trgigger the reset of saved data
-    public GameObject LevelCompleteScreen;
-    public GameObject EndBtn;
-    private bool timeSaved = false;
+    public TextMeshProUGUI timeText; // text where time will be displayed
+
+    private float time; // variable to store the time
+    private List<float> bestTimes; // list of user's best times
+
+    public bool timerRunning; // checker if time is running
+    public bool conditionsCompleted = false; // checker if conditions are completed or not
+    private bool timeSaved = false; // checker if time has been saved or not
+
+    public GameObject LevelCompleteScreen; // screen that pops up when level completes
+    public GameObject EndBtn; // the retry and main menu btns
+
+    private string filePath; // directory of save file
 
     private void Start()
     {
-        timeElapsed = 0f;
-        timerRunning = false; // Start the stopwatch when the scene loads
-        filePath = Application.dataPath + "/SaveDataFile.json"; // Set the file path to the data directory and the file name to "SaveDataFile.json"
-        bestTimes = new List<float>(); // Create a new empty list for the best times
+        time = 0f;
+        timerRunning = false;
+        filePath = Application.dataPath + "/SaveDataFile.json"; // declare file path
 
-        if (File.Exists(filePath))
+        if (File.Exists(filePath)) // check if any existing saved times
         {
-            // Load the JSON file and set the bestTimes list to the saved list
             string json = File.ReadAllText(filePath);
             SaveData saveData = JsonUtility.FromJson<SaveData>(json);
-            bestTimes = saveData.bestTimes;
+            bestTimes = saveData.bestTimes; // load best times
         }
     }
 
     private void Update()
     {
-        if (timerRunning)
+        if (timerRunning) // timer
         {
-            timeElapsed += Time.deltaTime; // Increase the time elapsed by the amount of time since the last frame
-            int minutes = Mathf.FloorToInt(timeElapsed / 60f); // Calculate minutes
-            int seconds = Mathf.FloorToInt(timeElapsed % 60f); // Calculate seconds
-            timeText.text = string.Format("{0:00}:{1:00}", minutes, seconds); // Format text in "mm:ss"
-            if (conditionsCompleted && timeSaved == false) // To be changed to check if all the checklist are checked
+            time += Time.deltaTime; // run timer
+            int minutes = Mathf.FloorToInt(time / 60f); // calculate minutes
+            int seconds = Mathf.FloorToInt(time % 60f); // calculate seconds
+            timeText.text = string.Format("{0:00}:{1:00}", minutes, seconds); // format time
+            if (conditionsCompleted && timeSaved == false) // check if conditions completed
             {
-                SaveTime(); // Save time taken to the JSON
+                SaveTime(); // save time
                 timeSaved = true;
-                levelComplete(); // Call the levelComplete method here
+                levelComplete(); // activate level complete screen
             }
         }
     }
 
-    public void CompleteConditions()
+    public void CompleteConditions() // set conditionsCompleted
     {
-        conditionsCompleted = true;
+        conditionsCompleted = true; 
         print("conditions completed:" + conditionsCompleted);
     }
 
-
-    private void SaveBestTimes()
+    private void SaveBestTimes() // save times to file
     {
-        bestTimes.Sort(); // Sort the list of times in ascending order
+        bestTimes.Sort(); // sort times in ascending order
         if (bestTimes.Count > 5)
         {
-            bestTimes.RemoveRange(5, bestTimes.Count - 5); // Remove any times after the 5th best time
+            bestTimes.RemoveRange(5, bestTimes.Count - 5); // remove times after the 5th position
         }
-        SaveData data = new SaveData(); // Save the bestTimes into JSON
+        SaveData data = new SaveData();
         data.bestTimes = bestTimes;
         string json = JsonUtility.ToJson(data, true);
-        File.WriteAllText(filePath, json);
+        File.WriteAllText(filePath, json); // save times to json
         print("saved the time");
     }
 
-    private void SaveTime()
+    private void SaveTime() // save 
     {
         if (bestTimes.Count < 5)
         {
-            bestTimes.Add(timeElapsed); // If there are less than 5 best times just add the time to lists
+            bestTimes.Add(time); // If there are less than 5 best times just add the time to lists
         }
         else
         {
-            float slowestTime = bestTimes[bestTimes.Count - 1]; // Get the slowest time from the list
-            if (timeElapsed < slowestTime)
+            float slowestTime = bestTimes[bestTimes.Count - 1]; // slowest time from current list
+            if (time < slowestTime)
             {
-                bestTimes[bestTimes.Count - 1] = timeElapsed; // If the time taken is faster than the slowest time, replace the slowest time with the new time
+                bestTimes[bestTimes.Count - 1] = time; // if new time faster, remove current slowest time
             }
             else
             {
-                conditionsCompleted = false; // Reset the flag to indicate that all conditions have not been completed
-                levelComplete();
+                conditionsCompleted = false; // reset checker
+                /*levelComplete();*/
                 return; // If the time taken is slower than the slowest time don's need save
             }
         }
         SaveBestTimes(); // Save the time to JSON
         conditionsCompleted = false; // Reset the flag to indicate that all conditions have not been completed
-        levelComplete();
+        /*levelComplete(); // activate level complete screen*/
     }
 
-    public void levelComplete()
+    public void levelComplete() // activate level complete screen
     {
         LevelCompleteScreen.SetActive(true);
         EndBtn.SetActive(true);
