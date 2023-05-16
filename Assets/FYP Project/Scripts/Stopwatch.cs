@@ -24,6 +24,7 @@ public class Stopwatch : MonoBehaviour
     {
         time = 0f;
         timerRunning = false;
+        timeSaved = false;
         filePath = Application.dataPath + "/SaveDataFile.json"; // declare file path
 
         if (File.Exists(filePath)) // check if any existing saved times
@@ -39,12 +40,13 @@ public class Stopwatch : MonoBehaviour
         if (timerRunning) // timer
         {
             time += Time.deltaTime; // run timer
-            int minutes = Mathf.FloorToInt(time / 60f); // calculate minutes
-            int seconds = Mathf.FloorToInt(time % 60f); // calculate seconds
-            timeText.text = string.Format("{0:00}:{1:00}", minutes, seconds); // format time
+            int mins = Mathf.FloorToInt(time / 60f); // calculate minutes
+            int secs = Mathf.FloorToInt(time % 60f); // calculate seconds
+            timeText.text = string.Format("{0:00}:{1:00}", mins, secs); // format time
             if (conditionsCompleted && timeSaved == false) // check if conditions completed
             {
-                SaveTime(); // save time
+
+                AddTime(); // add time
                 timeSaved = true;
                 levelComplete(); // activate level complete screen
             }
@@ -59,11 +61,6 @@ public class Stopwatch : MonoBehaviour
 
     private void SaveBestTimes() // save times to file
     {
-        bestTimes.Sort(); // sort times in ascending order
-        if (bestTimes.Count > 5)
-        {
-            bestTimes.RemoveRange(5, bestTimes.Count - 5); // remove times after the 5th position
-        }
         SaveData data = new SaveData();
         data.bestTimes = bestTimes;
         string json = JsonUtility.ToJson(data, true);
@@ -71,8 +68,9 @@ public class Stopwatch : MonoBehaviour
         print("saved the time");
     }
 
-    private void SaveTime() // save 
+    private void AddTime() // add to list 
     {
+        bestTimes.Sort(); // sort times in ascending order
         if (bestTimes.Count < 5)
         {
             bestTimes.Add(time); // If there are less than 5 best times just add the time to lists
@@ -87,13 +85,11 @@ public class Stopwatch : MonoBehaviour
             else
             {
                 conditionsCompleted = false; // reset checker
-                /*levelComplete();*/
-                return; // If the time taken is slower than the slowest time don's need save
+                return; // if time taken slower dont save
             }
         }
-        SaveBestTimes(); // Save the time to JSON
-        conditionsCompleted = false; // Reset the flag to indicate that all conditions have not been completed
-        /*levelComplete(); // activate level complete screen*/
+        SaveBestTimes(); // save the time to JSON
+        conditionsCompleted = false; // reset checker
     }
 
     public void levelComplete() // activate level complete screen
