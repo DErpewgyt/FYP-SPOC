@@ -6,33 +6,36 @@ using UnityEngine.SceneManagement;
 public class ZoomOnInstrument : MonoBehaviour
 {
     [SerializeField] private CinemachineVirtualCamera cam;
-    public float targetFOV;
-    public float zoomSpeed;
-    public float raycastDistance = 10f;
-    private float currentFOV;
-    public GameObject background;// black screen to allow for smooth transition
-    public CanvasGroup canvasGroup;
-    public float fadeTime = 3f;// how long to wait before fading
-    public string sceneToLoad;// scene to transition to
-    public GameObject controls;
+
+    public float targetFOV; // target fov after zoomed
+    public float zoomSpeed; // zoom speed
+    public float raycastDistance = 10f; // how far instrument can be clicked
+    private float currentFOV; // current fov of camera
+    public float fadeTime = 3f; // fade duration
+
+    public GameObject background; // black screen
+    public GameObject controls; // player control
+
+    public string sceneToLoad; // scene to transition to
+    public CanvasGroup canvasGroup; // canvasGroup to control alpha
 
     private void Start()
     {
-        currentFOV = cam.m_Lens.FieldOfView;
+        currentFOV = cam.m_Lens.FieldOfView; // get current fov
     }
 
     private void Update()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0)) // left click
         {
             {
-                RaycastHit hit; // Create a RaycastHit variable to store information about the hit object
-                Ray ray = Camera.main.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0f)); // Cast a ray from the center of the camera's viewport
+                RaycastHit hit; // raycast variable
+                Ray ray = Camera.main.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0f)); // create raycast from the center of the camera
 
-                if (Physics.Raycast(ray, out hit, raycastDistance)) // Check if the raycast hits any object within a certain distance
+                if (Physics.Raycast(ray, out hit, raycastDistance)) // check if raycast hit anything
                 {
-                    Debug.Log("Hit object: " + hit.transform.name); // Print the name of the object hit by the raycast
-                    if (hit.transform.name == "newkeratometer")
+                    Debug.Log("Hit object: " + hit.transform.name); // print whatever raycast hits
+                    if (hit.transform.name == "newkeratometer") // if keratometer zoom in
                     {
                         Debug.Log("clicked");
                         controls.SetActive(false);
@@ -44,7 +47,7 @@ public class ZoomOnInstrument : MonoBehaviour
         }
     }
 
-    private IEnumerator ZoomIn()
+    private IEnumerator ZoomIn() // zoom in gradually
     {
         while (Mathf.Abs(currentFOV - targetFOV) > 0.01f)
         {
@@ -53,15 +56,17 @@ public class ZoomOnInstrument : MonoBehaviour
             yield return null;
         }
     }
-    public void FadeToLevel(string sceneName)// fade to next level function
+
+    public void FadeToLevel(string sceneName)// fade 
     {
         sceneToLoad = sceneName;
-        LeanTween.alphaCanvas(canvasGroup, to: 1, fadeTime).setOnComplete(OnFadeComplete);
+        LeanTween.alphaCanvas(canvasGroup, to: 1, fadeTime).setOnComplete(OnFadeComplete); // fade to black
     }
 
     public void OnFadeComplete() // go to next scene
     {
         SceneManager.LoadScene(sceneToLoad);
-        //Debug.Log("Scene change");
+        controls.SetActive(false); // deactivate control
+        controls = null; // reset control
     }
 }

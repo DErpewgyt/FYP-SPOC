@@ -28,6 +28,8 @@ public class ObjectClicker : MonoBehaviour
 
     private void Start()
     {
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
         Blur.SetActive(false);
         Blur2.SetActive(false);
         anim = parent.GetComponentInParent<Animator>();

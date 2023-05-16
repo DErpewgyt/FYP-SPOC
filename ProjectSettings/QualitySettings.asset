@@ -4,7 +4,7 @@
 QualitySettings:
   m_ObjectHideFlags: 0
   serializedVersion: 5
-  m_CurrentQuality: 0
+  m_CurrentQuality: 2
   m_QualitySettings:
   - serializedVersion: 2
     name: Very Low
@@ -223,5 +223,6 @@ QualitySettings:
     customRenderPipeline: {fileID: 11400000, guid: 10aa08bdc8b88f84ca651064f40878eb, type: 2}
     excludedTargetPlatforms: []
   m_PerPlatformDefaultQuality:
-    Server: 0
-    Standalone: 0
+    Android: 2
+    Server: 2
+    Standalone: 2

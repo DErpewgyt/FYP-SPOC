@@ -2,38 +2,29 @@ using UnityEngine;
 
 public class Fade : MonoBehaviour
 {
-    public GameObject background; // black screen to allow for smooth transition
-    public CanvasGroup canvasGroup;
-    public float fadeTime = 3f; // how long to wait before fading
-    public GameObject clicker;
-    public GameObject fader;
+    public GameObject clicker; // clicker gameobject
+    public GameObject fader; // fader gameobject
 
-    private bool skipFade = false; // Flag to skip the fading process
-    private int fadeTweenId; // ID of the fading tween
-    public static bool ShouldFadeIn = true;
+    public CanvasGroup canvasGroup; // canvas group to control black screen
 
-    // Start is called before the first frame update
+    public float fadeTime = 3f; // duration of fade
+
+    public static bool ShouldFadeIn = true; // indicator to skip fade animation or not
+
     private void Start()
     {
-        // Check if the scene should fade in or not
         if (ShouldFadeIn)
         {
-            fadeTweenId = LeanTween.alphaCanvas(canvasGroup, 0f, fadeTime).setOnComplete(OnFadeComplete).id;
+            LeanTween.alphaCanvas(canvasGroup, to: 0, fadeTime).setOnComplete(OnFadeComplete);
         }
         else
         {
-            // If not, instantly finish the fade
             SkipFade();
-            ShouldFadeIn = true;  // Reset the flag for the next scene load
+            ShouldFadeIn = true; // reset indicator
         }
     }
 
-    // Update is called once per frame
-    private void Update()
-    {
-    }
-
-    public void OnFadeComplete()
+    public void OnFadeComplete() // after fade completes do this
     {
         clicker.SetActive(true);
         fader.SetActive(false);
@@ -41,17 +32,7 @@ public class Fade : MonoBehaviour
 
     public void SkipFade()
     {
-        skipFade = true;
-
-        // Cancel the tween animation if it is still playing
-        if (LeanTween.isTweening(fadeTweenId))
-        {
-            LeanTween.cancel(fadeTweenId);
-        }
-
-        // Set the alpha value of the CanvasGroup to 0
         canvasGroup.alpha = 0f;
-
         OnFadeComplete();
     }
 }

@@ -48,6 +48,7 @@ public class Checker : MonoBehaviour
 
     public Stopwatch timerScript;
     public bool saved = false;
+    public GameObject submit;
     private void Start()
     {
         BlurCircleWin.SetActive(false);
@@ -66,8 +67,9 @@ public class Checker : MonoBehaviour
     {
         if (objextive1 && objextive2 && objextive3 && objextive4 && !saved)
         {
-            timerScript.CompleteConditions();
-            saved = true;
+            /*timerScript.CompleteConditions();
+            saved = true;*/
+            submit.SetActive(true);
         }
 
         BlackCircleBlur = Vector3.Distance(BlackCircle.transform.position, BlackCircleOptimalDist.transform.position);
@@ -82,7 +84,7 @@ public class Checker : MonoBehaviour
         {
             FocusBlackCircle.isOn = false;
             BlurCircleWin.SetActive(false);
-            objextive1 = false;
+            //objextive1 = false;
 }
 
 
@@ -100,7 +102,7 @@ public class Checker : MonoBehaviour
         {
             Center3Circles.isOn = false;
             GroupCircleWin.SetActive(false);
-            objextive2 = false;
+            //objextive2 = false;
         }
 
 
@@ -116,7 +118,7 @@ public class Checker : MonoBehaviour
         {
             AlignLeftCircle.isOn = false;
             LeftCircleWin.SetActive(false);
-            objextive3 = false;
+            //objextive3 = false;
         }
 
 
@@ -132,7 +134,7 @@ public class Checker : MonoBehaviour
         {
             AlignTopCircle.isOn = false;
             TopCircleWin.SetActive(false);
-            objextive4 = false;
+            //objextive4 = false;
         }
     }
     private void DistanceChecker()

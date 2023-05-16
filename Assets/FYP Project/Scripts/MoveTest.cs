@@ -31,14 +31,13 @@ public class MoveTest : MonoBehaviour
     public float maxValueTop = .2f;
     public float minValueTop = 0.075f;
     public float maxDistZScroll = .1f;
-    // Define the starting position variable as a static variable
+
     private static Vector3 startingPos;
     private static Vector3 BlurStartingPos;
     private static Vector3 BlurStartingPosCircles;
 
-
-    // Define the speed and maximum distance variables
-    public float speed = .25f;
+    public float speed = .05f;
+    public float CirlcesSpeed = .02f;
 
     private void Start()
     {
@@ -105,7 +104,7 @@ public class MoveTest : MonoBehaviour
             // Check if any of the movement keys are pressed
             if (moveDir != Vector3.zero)
             {
-                Vector3 targetPos = transform.position + moveDir * speed * Time.deltaTime;
+                Vector3 targetPos = transform.position + moveDir * CirlcesSpeed * Time.deltaTime;
                 targetPos = new Vector3(
                     Mathf.Clamp(targetPos.x, startingPos.x - maxDistX, startingPos.x + maxDistX),
                     Mathf.Clamp(targetPos.y, startingPos.y - maxDistY, startingPos.y + maxDistY),
@@ -129,7 +128,6 @@ public class MoveTest : MonoBehaviour
                 print(moveDirectionZ.z);
             }
 
-            // Check if the Z movement keys are pressed
             if (moveDirectionZ != Vector3.zero)
             {
                 Vector3 targetPos = CircleGroupBlur.transform.position + moveDirectionZ * 1f * Time.deltaTime;
@@ -180,14 +178,10 @@ public class MoveTest : MonoBehaviour
             BoxVolumeBlurryCircle.SetActive(false);
             BoxVolumeCircleGroupBlur.SetActive(true);
             Vector3 moveDirectionX = new Vector3(xDirection, 0.0f, 0.0f);
-
-            // Calculate the target position
             Vector3 targetPosx = LeftCircle.transform.position + moveDirectionX * speed;
 
-            // Clamp the target position within the maximum distance
+            // Clamps max and min distances
             targetPosx.x = Mathf.Clamp(targetPosx.x, MiddleCircle.transform.position.x - maxValueLeft, MiddleCircle.transform.position.x - minValueLeft);
-
-            // Move the circle to the target position
             LeftCircle.transform.position = targetPosx;
         }
 
@@ -197,11 +191,9 @@ public class MoveTest : MonoBehaviour
             BoxVolumeBlurryCircle.SetActive(false);
             BoxVolumeCircleGroupBlur.SetActive(true);
             Vector3 moveDirectionY = new Vector3(0.0f, yDirection, 0.0f);
-
-            // Calculate the target position
             Vector3 targetPosy = TopCircle.transform.position + moveDirectionY * speed;
 
-            // Clamp the target position within the maximum distance
+            // Clamps max and min distances
             targetPosy.y = Mathf.Clamp(targetPosy.y, MiddleCircle.transform.position.y + minValueTop, MiddleCircle.transform.position.y + maxValueTop);
 
             // Move the circle to the target position
@@ -220,14 +212,10 @@ public class MoveTest : MonoBehaviour
             if (Mathf.Abs(zDirection) > 0.05f)
             {
                 Vector3 moveDirectionZ = new Vector3(0.0f, 0.0f, zDirection);
-
-                // Calculate the target position
                 Vector3 targetPosz = BlurryCircle.transform.position + moveDirectionZ * speed;
 
-                // Clamp the target position within the maximum distance
+                // Clamps max and min distances
                 targetPosz.z = Mathf.Clamp(targetPosz.z, BlurStartingPos.z - maxDistZScroll, BlurStartingPos.z + maxDistZScroll);
-
-                // Move the circle to the target position
                 BlurryCircle.transform.position = targetPosz;
             }
         }
