@@ -53,6 +53,7 @@ public class ZoomOnInstrument : MonoBehaviour
             yield return null;
         }
     }
+
     public void FadeToLevel(string sceneName)// fade to next level function
     {
         sceneToLoad = sceneName;
@@ -62,6 +63,7 @@ public class ZoomOnInstrument : MonoBehaviour
     public void OnFadeComplete() // go to next scene
     {
         SceneManager.LoadScene(sceneToLoad);
-        //Debug.Log("Scene change");
+        controls.SetActive(false); // Ensure controls are deactivated
+        controls = null; // Set controls to null if it's not needed in the next scene
     }
 }

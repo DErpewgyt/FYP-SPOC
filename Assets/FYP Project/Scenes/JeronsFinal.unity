@@ -202,6 +202,7 @@ MonoBehaviour:
   objextive3: 0
   objextive4: 0
   timerScript: {fileID: 1631702566}
+  saved: 0
 --- !u!1 &34321375
 GameObject:
   m_ObjectHideFlags: 0
@@ -847,7 +848,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3306092452728872889, guid: a340c995a6149014390ec26ca3a61964, type: 3}
       propertyPath: m_RootOrder
-      value: 11
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 3306092452728872889, guid: a340c995a6149014390ec26ca3a61964, type: 3}
       propertyPath: m_AnchorMax.x
@@ -999,6 +1000,7 @@ MonoBehaviour:
   zoomedIn: 0
   Blur: {fileID: 1468389654}
   Blur2: {fileID: 430333947}
+  helpController: {fileID: 0}
 --- !u!1 &273807258
 GameObject:
   m_ObjectHideFlags: 0
@@ -6220,7 +6222,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 345858161565576016, guid: 14c89af25acd39c4aa6abf77a045c50f, type: 3}
       propertyPath: m_RootOrder
-      value: 12
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 345858161565576016, guid: 14c89af25acd39c4aa6abf77a045c50f, type: 3}
       propertyPath: m_AnchorMax.x

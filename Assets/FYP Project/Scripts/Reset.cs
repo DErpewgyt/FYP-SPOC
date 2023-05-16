@@ -7,17 +7,16 @@ public class Reset : MonoBehaviour
     public GameObject clicker;
     public GameObject fader;
     public CanvasGroup canvasGroup;
-    public Fade fadeScript;
 
     private void Start()
     {
-        // Store the starting scene and objects
+        // Store the starting scene
         startingScene = SceneManager.GetActiveScene();
     }
 
     public void ResetScene()
     {
-        Fade.ShouldFadeIn = false;  // Tell the Fade script to not do the fade animation
+        Fade.ShouldFadeIn = false;  // skip fade
         SceneManager.LoadScene(startingScene.buildIndex, LoadSceneMode.Single);
     }
 }
