@@ -103,7 +103,7 @@ public class Checker : MonoBehaviour
         CircleGrpDist = Vector3.Distance(ViewPortMiddle.transform.position, ViewPortCircles.transform.position);
         CircleGrpDistBlur = Vector3.Distance(ViewPortBlur.transform.position, ViewPortBlurOptimal.transform.position);
         //print(CircleGrpDist);
-        print(CircleGrpDistBlur);
+        //print(CircleGrpDistBlur);
         if (CircleGrpDist < GrpCirlceDist && CircleGrpDistBlur < GrpCirlceDistBlur)
         {
             Center3Circles.isOn = true;

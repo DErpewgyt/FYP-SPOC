@@ -115,7 +115,7 @@ public class ObjectClicker : MonoBehaviour
         {
             if (!animationInProgress)
             {
-                print("YCMA");
+                //print("YCMA");
                 ZoomOut();
                 DisableMovements();
             }
@@ -123,42 +123,42 @@ public class ObjectClicker : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Alpha1))
         {
-            print("YCMA");
+            //print("YCMA");
             ZoomIn();
             IdentifyInteractable("EyePiece");
         }
 
         if (Input.GetKeyDown(KeyCode.Alpha2))
         {
-            print("YCMA");
+            //print("YCMA");
             ZoomIn();
             IdentifyInteractable("JoyStick");
         }
 
         if (Input.GetKeyDown(KeyCode.Alpha3))
         {
-            print("YCMA");
+            //print("YCMA");
             ZoomIn();
             IdentifyInteractable("LeftKnob");
         }
 
         if (Input.GetKeyDown(KeyCode.Alpha4))
         {
-            print("YCMA");
-            ZoomIn();
-            IdentifyInteractable("Gripper");
-        }
-
-        if (Input.GetKeyDown(KeyCode.Alpha5))
-        {
-            print("YCMA");
+            //print("YCMA");
             ZoomIn();
             IdentifyInteractable("RightKnob");
         }
 
+        if (Input.GetKeyDown(KeyCode.Alpha5))
+        {
+            //print("YCMA");
+            ZoomIn();
+            IdentifyInteractable("Gripper");
+        }
+
         CheckScrollWheelInput();
 
-        print(currentSelectedObject);
+        //print(currentSelectedObject);
 
 
     }
