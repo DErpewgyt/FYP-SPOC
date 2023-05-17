@@ -54,6 +54,7 @@ public class Checker : MonoBehaviour
     public Stopwatch timerScript;
     public bool saved = false;
     public GameObject submit;
+    public GameObject readings;
     private void Start()
     {
         BlurCircleWin.SetActive(false);
@@ -80,6 +81,7 @@ public class Checker : MonoBehaviour
             /*timerScript.CompleteConditions();
             saved = true;*/
             submit.SetActive(true);
+            readings.SetActive(true);
         }
 
         BlackCircleBlur = Vector3.Distance(BlackCircle.transform.position, BlackCircleOptimalDist.transform.position);
