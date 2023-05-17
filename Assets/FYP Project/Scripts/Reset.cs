@@ -4,9 +4,6 @@ using UnityEngine.SceneManagement;
 public class Reset : MonoBehaviour
 {
     private Scene startingScene;
-    public GameObject clicker;
-    public GameObject fader;
-    public CanvasGroup canvasGroup;
 
     private void Start()
     {
@@ -17,6 +14,6 @@ public class Reset : MonoBehaviour
     public void ResetScene()
     {
         Fade.ShouldFadeIn = false;  // skip fade
-        SceneManager.LoadScene(startingScene.buildIndex, LoadSceneMode.Single);
+        SceneManager.LoadScene(startingScene.buildIndex, LoadSceneMode.Single); // reload
     }
 }

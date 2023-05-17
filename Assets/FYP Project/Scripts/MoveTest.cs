@@ -72,13 +72,13 @@ public class MoveTest : MonoBehaviour
                 print(moveDir.x);
             }
 
-            if (Input.GetKey(KeyCode.Q))
+            if (Input.GetKey(KeyCode.S))
             {
                 moveDir.y = -1f;
                 print(moveDir.y);
             }
 
-            if (Input.GetKey(KeyCode.E))
+            if (Input.GetKey(KeyCode.W))
             {
                 moveDir.y = 1f;
                 print(moveDir.y);
@@ -116,13 +116,13 @@ public class MoveTest : MonoBehaviour
 
             Vector3 moveDirectionZ = new Vector3(0, 0, 0);
 
-            if (Input.GetKey(KeyCode.S))
+            if (Input.GetKey(KeyCode.Q))
             {
                 moveDirectionZ.z = -1f;
                 print(moveDirectionZ.z);
             }
 
-            if (Input.GetKey(KeyCode.W))
+            if (Input.GetKey(KeyCode.E))
             {
                 moveDirectionZ.z = 1f;
                 print(moveDirectionZ.z);

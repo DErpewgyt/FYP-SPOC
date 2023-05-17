@@ -33,6 +33,11 @@ public class Checker : MonoBehaviour
     public Toggle AlignLeftCircle;
     public Toggle AlignTopCircle;
 
+    public Toggle FocusBlackCircleViewPort;
+    public Toggle Center3CirclesViewPort;
+    public Toggle AlignLeftCircleViewPort;
+    public Toggle AlignTopCircleViewPort;
+
     public float BlackCirlceDist;
     public float GrpCirlceDist;
     public float GrpCirlceDistBlur;
@@ -48,6 +53,7 @@ public class Checker : MonoBehaviour
 
     public Stopwatch timerScript;
     public bool saved = false;
+    public GameObject submit;
     private void Start()
     {
         BlurCircleWin.SetActive(false);
@@ -59,6 +65,11 @@ public class Checker : MonoBehaviour
         Center3Circles.isOn = false;
         AlignLeftCircle.isOn = false;
         AlignTopCircle.isOn = false;
+
+        FocusBlackCircleViewPort.isOn = false;
+        Center3CirclesViewPort.isOn = false;
+        AlignLeftCircleViewPort.isOn = false;
+        AlignTopCircleViewPort.isOn = false;
     }
 
     // Update is called once per frame
@@ -66,8 +77,9 @@ public class Checker : MonoBehaviour
     {
         if (objextive1 && objextive2 && objextive3 && objextive4 && !saved)
         {
-            timerScript.CompleteConditions();
-            saved = true;
+            /*timerScript.CompleteConditions();
+            saved = true;*/
+            submit.SetActive(true);
         }
 
         BlackCircleBlur = Vector3.Distance(BlackCircle.transform.position, BlackCircleOptimalDist.transform.position);
@@ -76,31 +88,35 @@ public class Checker : MonoBehaviour
         {
             objextive1 = true;
             FocusBlackCircle.isOn = true;
+            FocusBlackCircleViewPort.isOn = true;
             BlurCircleWin.SetActive(true);
         }
         else
         {
-            FocusBlackCircle.isOn = false;
+            FocusBlackCircle.isOn = false;            
+            FocusBlackCircleViewPort.isOn = false;
             BlurCircleWin.SetActive(false);
-            //objextive1 = false;
+            objextive1 = false;
 }
 
 
         CircleGrpDist = Vector3.Distance(ViewPortMiddle.transform.position, ViewPortCircles.transform.position);
         CircleGrpDistBlur = Vector3.Distance(ViewPortBlur.transform.position, ViewPortBlurOptimal.transform.position);
         //print(CircleGrpDist);
-        print(CircleGrpDistBlur);
+        //print(CircleGrpDistBlur);
         if (CircleGrpDist < GrpCirlceDist && CircleGrpDistBlur < GrpCirlceDistBlur)
         {
             Center3Circles.isOn = true;
+            Center3CirclesViewPort.isOn = true;
             GroupCircleWin.SetActive(true);
             objextive2 = true;
         }
         else
         {
             Center3Circles.isOn = false;
+            Center3CirclesViewPort.isOn = false;
             GroupCircleWin.SetActive(false);
-            //objextive2 = false;
+            objextive2 = false;
         }
 
 
@@ -109,14 +125,16 @@ public class Checker : MonoBehaviour
         if (LeftAndMiddleCircleDist < LeftCircleMax && LeftAndMiddleCircleDist > LeftCircleMin)
         {
             AlignLeftCircle.isOn = true;
+            AlignLeftCircleViewPort.isOn = true;
             LeftCircleWin.SetActive(true);
             objextive3 = true;
         }
         else
-        {
+        { 
             AlignLeftCircle.isOn = false;
+            AlignLeftCircleViewPort.isOn = false;
             LeftCircleWin.SetActive(false);
-            //objextive3 = false;
+            objextive3 = false;
         }
 
 
@@ -125,14 +143,16 @@ public class Checker : MonoBehaviour
         if (TopAndMiddleCircleDist < TopCircleMax && TopAndMiddleCircleDist > TopCircleMin)
         {
             AlignTopCircle.isOn = true;
+            AlignTopCircleViewPort.isOn = true;
             TopCircleWin.SetActive(true);
             objextive4 = true;
         }
         else
         {
             AlignTopCircle.isOn = false;
+            AlignTopCircleViewPort.isOn = false;
             TopCircleWin.SetActive(false);
-            //objextive4 = false;
+            objextive4 = false;
         }
     }
     private void DistanceChecker()

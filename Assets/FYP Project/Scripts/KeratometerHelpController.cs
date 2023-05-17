@@ -3,15 +3,18 @@ using UnityEngine.UI;
 
 public class KeratometerHelpController : MonoBehaviour
 {
-    public GameObject helpImage;
+    public GameObject guide;
     public GameObject blur;
-    public Button helpButton;  // Add this line
+    public Button helpButton;
+    public GameObject clipboard;
 
     public void OnHelpButtonClick()
     {
-        bool isHelpImageActive = !helpImage.activeInHierarchy;
-        helpImage.SetActive(isHelpImageActive);
+        bool isHelpImageActive = !guide.activeInHierarchy;
+        guide.SetActive(isHelpImageActive);
         blur.SetActive(isHelpImageActive);
-        helpButton.gameObject.SetActive(!isHelpImageActive);  // Add this line
+        helpButton.gameObject.SetActive(!isHelpImageActive);
+        //helpButton.SetActive(false);
+        clipboard.gameObject.SetActive(!isHelpImageActive);
     }
 }

@@ -1,12 +1,13 @@
 using UnityEngine;
 using UnityEngine.EventSystems;
-using UnityEngine.UI;  // Add this line
+using UnityEngine.UI;
 
 public class ClickAwayController : MonoBehaviour
 {
-    public GameObject helpImage;
+    public GameObject guide;
     public GameObject blur;
-    public Button helpButton;  // Add this line
+    public Button helpButton;
+    public GameObject clipboard;
 
     void Update()
     {
@@ -16,18 +17,20 @@ public class ClickAwayController : MonoBehaviour
             RaycastHit hit;
             if (Physics.Raycast(ray, out hit))
             {
-                if (hit.transform.gameObject != helpImage)
+                if (hit.transform.gameObject != guide)
                 {
-                    helpImage.SetActive(false);
+                    guide.SetActive(false);
                     blur.SetActive(false);
-                    helpButton.gameObject.SetActive(true);  // Add this line
+                    clipboard.SetActive(true);
+                    helpButton.gameObject.SetActive(true);
                 }
             }
             else
             {
-                helpImage.SetActive(false);
+                guide.SetActive(false);
                 blur.SetActive(false);
-                helpButton.gameObject.SetActive(true);  // Add this line
+                clipboard.SetActive(true);
+                helpButton.gameObject.SetActive(true);
             }
         }
     }

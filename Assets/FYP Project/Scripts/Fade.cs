@@ -2,12 +2,14 @@ using UnityEngine;
 
 public class Fade : MonoBehaviour
 {
-    public GameObject clicker;
-    public GameObject fader;
-    public CanvasGroup canvasGroup;
-    public float fadeTime = 3f;
-    private bool skipFade = false;
-    public static bool ShouldFadeIn = true;
+    public GameObject clicker; // clicker gameobject
+    public GameObject fader; // fader gameobject
+
+    public CanvasGroup canvasGroup; // canvas group to control black screen
+
+    public float fadeTime = 3f; // duration of fade
+
+    public static bool ShouldFadeIn = true; // indicator to skip fade animation or not
 
     private void Start()
     {
@@ -18,11 +20,11 @@ public class Fade : MonoBehaviour
         else
         {
             SkipFade();
-            ShouldFadeIn = true;
+            ShouldFadeIn = true; // reset indicator
         }
     }
 
-    public void OnFadeComplete()
+    public void OnFadeComplete() // after fade completes do this
     {
         clicker.SetActive(true);
         fader.SetActive(false);
@@ -30,7 +32,6 @@ public class Fade : MonoBehaviour
 
     public void SkipFade()
     {
-        skipFade = true;
         canvasGroup.alpha = 0f;
         OnFadeComplete();
     }

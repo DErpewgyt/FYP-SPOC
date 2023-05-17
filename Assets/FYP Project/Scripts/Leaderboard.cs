@@ -5,45 +5,45 @@ using UnityEngine;
 
 public class Leaderboard : MonoBehaviour
 {
-    public List<TextMeshProUGUI> timeTexts; // List of TextMeshProUGUI objects to display the best times
-    private string filePath; // Path to the JSON file to load the times from
+    public List<TextMeshProUGUI> timeTexts; // list of textMeshPro to display the times
+
     private List<float> bestTimes; // List of the user's 5 best times
 
-    public GameObject leaderboardPopup; // Reference to the leaderboard popup GameObject
-    public bool leaderboardVisible = false; // Flag to track the visibility of the leaderboard popup
+    private string filePath; // file path 
+
+    public GameObject leaderboardScreen; // leaderboard gameobject
+
+    public bool leaderboard = false; // checker for whether leaderboard is visible or not
 
     private void Start()
     {
-        filePath = Application.dataPath + "/SaveDataFile.json"; // Set the file path to the data directory and the file name to "SaveDataFile.json"
-        bestTimes = new List<float>(); // Create a new empty list for the best times
+        filePath = Application.dataPath + "/SaveDataFile.json"; // decalre file path
 
-        LoadBestTimes(); // Load the best times from the save file
-        DisplayBestTimes(); // Display the loaded best times on the leaderboard
+        LoadTimes(); // load times from saved file
+        DisplayTimes(); // display times on the leaderboard
     }
 
-    private void LoadBestTimes()
+    private void LoadTimes()
     {
-        if (File.Exists(filePath))
+        if (File.Exists(filePath)) // if file exists load times
         {
-            // Load the JSON file and set the bestTimes list to the saved list
             string json = File.ReadAllText(filePath);
             SaveData saveData = JsonUtility.FromJson<SaveData>(json);
             bestTimes = saveData.bestTimes;
         }
     }
 
-    private void DisplayBestTimes()
-    {
-        // Sort the list of times in ascending order
-        bestTimes.Sort();
+    private void DisplayTimes()
+    { 
+        bestTimes.Sort(); // sort times in ascending order
 
-        // Display the best times on the TextMeshProUGUI objects
+        // display times on textMeshPros
         if (bestTimes.Count == 0)
         {
-            timeTexts[0].text = "No Attempts Yet!"; // Display "No Attempts Yet!" if there are no saved best times
+            timeTexts[0].text = "No Attempts Yet!"; // if no saved times
             for (int i = 1; i < timeTexts.Count; i++)
             {
-                timeTexts[i].text = ""; // Hide the remaining TextMeshProUGUI objects
+                timeTexts[i].text = ""; // set remaining tmp as blank
             }
         }
         else
@@ -52,13 +52,13 @@ public class Leaderboard : MonoBehaviour
             {
                 if (i < bestTimes.Count)
                 {
-                    int minutes = Mathf.FloorToInt(bestTimes[i] / 60f); // Calculate minutes
-                    int seconds = Mathf.FloorToInt(bestTimes[i] % 60f); // Calculate seconds
-                    timeTexts[i].text = string.Format("{0:00}:{1:00}", minutes, seconds); // Format text in "mm:ss"
+                    int mins = Mathf.FloorToInt(bestTimes[i] / 60f); // calculate minutes
+                    int secs = Mathf.FloorToInt(bestTimes[i] % 60f); // calculate seconds
+                    timeTexts[i].text = string.Format("{0:00}:{1:00}", mins, secs); // format time
                 }
                 else
                 {
-                    timeTexts[i].text = "N/A"; // Display "N/A" if there are no more best times to display
+                    timeTexts[i].text = "N/A"; // display N/A if less than 5 saved times
                 }
             }
         }
@@ -66,19 +66,19 @@ public class Leaderboard : MonoBehaviour
 
     public void ToggleLeaderboard()
     {
-        leaderboardVisible = !leaderboardVisible; // Toggle the visibility flag
+        LoadTimes();
+        DisplayTimes();
+        leaderboard = !leaderboard; // set whether leaderboard visible or not
 
-        leaderboardPopup.SetActive(leaderboardVisible); // Set the visibility of the leaderboard popup based on the flag
+        leaderboardScreen.SetActive(leaderboard);
 
-        if (leaderboardVisible)
+        if (leaderboard)
         {
-            Time.timeScale = 0f; // Pause the game if the leaderboard is now visible
-            LoadBestTimes(); // Load the best times when the leaderboard is shown
-            DisplayBestTimes(); // Display the loaded best times on the leaderboard
+            Time.timeScale = 0f; // pause game
         }
         else
         {
-            Time.timeScale = 1f; // Resume the game if the leaderboard is now hidden
+            Time.timeScale = 1f; // resume game
         }
     }
 }
