@@ -453,7 +453,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 71220361}
   m_LocalRotation: {x: -0, y: 0.00000006322026, z: -0.000000021073422, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -0.000057250614}
+  m_LocalPosition: {x: 0, y: 0, z: -0}
   m_LocalScale: {x: 0.8033804, y: 0.8033805, z: 0.8033804}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -462,7 +462,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 22.799896, y: -11.400005}
+  m_AnchoredPosition: {x: 22.8, y: -4.1}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &71220363
@@ -485,9 +485,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Centre 3 Circles
-
-'
+  m_text: "Centre and Focus \n3 Circles\n"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -1000,14 +998,14 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 178361458}
-  m_LocalRotation: {x: -0.051275793, y: 0.0012151912, z: -0.023661278, w: -0.9984035}
+  m_LocalRotation: {x: -0.05128213, y: 0.0009092337, z: -0.017703906, w: -0.9985269}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.18715487, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1620714941}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 5.88, y: 0, z: 2.715}
+  m_LocalEulerAnglesHint: {x: 5.88, y: 0, z: 2.031}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
@@ -1025,9 +1023,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6474726ecee870e4394364b639c2d72a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  helpImage: {fileID: 1059491195}
+  guide: {fileID: 1059491195}
   blur: {fileID: 343576632}
   helpButton: {fileID: 178361461}
+  clipboard: {fileID: 836766086574530398}
 --- !u!114 &178361461
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1953,8 +1952,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 343576632}
   m_LocalRotation: {x: -0.6699081, y: -0.00063724886, z: -0.00070624787, w: 0.74244344}
-  m_LocalPosition: {x: -0.001, y: 1.006, z: -9.024}
-  m_LocalScale: {x: 0.73906994, y: 0.37577283, z: 0.9538242}
+  m_LocalPosition: {x: -1.1312e-11, y: 0.99, z: -8.67}
+  m_LocalScale: {x: 0.91895956, y: 0.37577283, z: 1.0390007}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -1993,6 +1992,7 @@ RectTransform:
   m_Children:
   - {fileID: 1426427064}
   - {fileID: 1160216893}
+  - {fileID: 445084206}
   - {fileID: 1066885701}
   m_Father: {fileID: 156760096}
   m_RootOrder: 6
@@ -2614,17 +2614,17 @@ RectTransform:
   m_GameObject: {fileID: 445084205}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.0009159632, y: 0.0009159631, z: 0.0009159631}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 512145148}
   - {fileID: 579043172}
-  m_Father: {fileID: 1160216893}
+  m_Father: {fileID: 345273459}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.00982666, y: -32.78195}
+  m_AnchoredPosition: {x: -959.80164, y: -538.63513}
   m_SizeDelta: {x: 160, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &445084207
@@ -3177,7 +3177,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 9, y: -0.5}
+  m_AnchoredPosition: {x: 9, y: 7.1}
   m_SizeDelta: {x: -28, y: -3}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &591822459
@@ -3200,7 +3200,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Centre 3 Circles
+  m_text: 'Centre and Focus
+
+    3 Circles'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -4130,7 +4132,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 775010349}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: -0}
   m_LocalScale: {x: 3.2182, y: 3.2182, z: 3.2182}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -4141,7 +4143,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 68, y: -163}
+  m_AnchoredPosition: {x: 68, y: -168}
   m_SizeDelta: {x: 160, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &775010351
@@ -5075,7 +5077,7 @@ GameObject:
   - component: {fileID: 1053004774}
   - component: {fileID: 1053004775}
   m_Layer: 5
-  m_Name: Centre 3 Circles
+  m_Name: Centre and Focus 3 Circles
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5162,6 +5164,7 @@ GameObject:
   - component: {fileID: 1059491198}
   - component: {fileID: 1059491197}
   - component: {fileID: 1059491196}
+  - component: {fileID: 1059491199}
   m_Layer: 0
   m_Name: guide
   m_TagString: Untagged
@@ -5223,7 +5226,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: a2f67f729d594eb42a442e33a2874a6c, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 30bcf3dc9b8bd2a438d8b064676c4ee0, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -5241,14 +5244,30 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1059491195}
-  m_LocalRotation: {x: -0.051290166, y: -0.000048701808, z: 0.0009482839, w: -0.99868333}
-  m_LocalPosition: {x: 0, y: 1.019, z: -9.144}
-  m_LocalScale: {x: 0.044356637, y: 0.044356637, z: 0.044356637}
+  m_LocalRotation: {x: 0.052335896, y: 0, z: 0, w: 0.9986295}
+  m_LocalPosition: {x: 0, y: 1.137, z: -10.304}
+  m_LocalScale: {x: 0.03320119, y: 0.03320119, z: 0.03320119}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 16
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 6, y: 0, z: 0}
+--- !u!114 &1059491199
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1059491195}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 301af2bf895ecd245adce0215899f8df, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  guide: {fileID: 1059491195}
+  zoomSpeed: 0.1
+  dragSpeed: 3
+  dragLimit: 2
 --- !u!1 &1062658818
 GameObject:
   m_ObjectHideFlags: 0
@@ -5367,11 +5386,11 @@ RectTransform:
   - {fileID: 290975390}
   - {fileID: 9675591}
   m_Father: {fileID: 345273459}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -959.80176, y: -538.6662}
+  m_AnchoredPosition: {x: -959.80176, y: -538.665}
   m_SizeDelta: {x: 160, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1066885702
@@ -5989,7 +6008,7 @@ GameObject:
   - component: {fileID: 1160216893}
   - component: {fileID: 1160216894}
   m_Layer: 5
-  m_Name: Centre 3 Circles
+  m_Name: Centre and Focus 3 Circles
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6009,7 +6028,6 @@ RectTransform:
   m_Children:
   - {fileID: 1687196058}
   - {fileID: 591822458}
-  - {fileID: 445084206}
   m_Father: {fileID: 345273459}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -8033,9 +8051,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4cf51bb63b714d143981bde96e7d6b7d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  helpImage: {fileID: 1059491195}
+  guide: {fileID: 1059491195}
   blur: {fileID: 343576632}
   helpButton: {fileID: 178361461}
+  clipboard: {fileID: 836766086574530398}
 --- !u!1 &1652618046
 GameObject:
   m_ObjectHideFlags: 0
@@ -8964,7 +8983,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 68.00006, y: -73}
+  m_AnchoredPosition: {x: 68, y: -78}
   m_SizeDelta: {x: 160, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1814533304
