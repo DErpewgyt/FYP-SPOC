@@ -1331,10 +1331,6 @@ MonoBehaviour:
   CircleGrpDistBlur: 0
   LeftAndMiddleCircleDist: 0
   TopAndMiddleCircleDist: 0
-  BlurCircleWin: {fileID: 1941652187}
-  GroupCircleWin: {fileID: 1110676388}
-  LeftCircleWin: {fileID: 219400984}
-  TopCircleWin: {fileID: 296823400}
   FocusBlackCircle: {fileID: 512508886}
   Center3Circles: {fileID: 1053004775}
   AlignLeftCircle: {fileID: 1814533304}

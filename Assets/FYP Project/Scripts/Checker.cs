@@ -23,11 +23,6 @@ public class Checker : MonoBehaviour
     public float LeftAndMiddleCircleDist;
     public float TopAndMiddleCircleDist;
 
-    public GameObject BlurCircleWin;
-    public GameObject GroupCircleWin;
-    public GameObject LeftCircleWin;
-    public GameObject TopCircleWin;
-
     public Toggle FocusBlackCircle;
     public Toggle Center3Circles;
     public Toggle AlignLeftCircle;
@@ -57,11 +52,6 @@ public class Checker : MonoBehaviour
     public GameObject readings;
     private void Start()
     {
-        BlurCircleWin.SetActive(false);
-        GroupCircleWin.SetActive(false);
-        LeftCircleWin.SetActive(false);
-        TopCircleWin.SetActive(false);
-
         FocusBlackCircle.isOn = false;
         Center3Circles.isOn = false;
         AlignLeftCircle.isOn = false;
@@ -82,6 +72,9 @@ public class Checker : MonoBehaviour
             saved = true;*/
             submit.SetActive(true);
             readings.SetActive(true);
+        } else { 
+            submit.SetActive(false); 
+            readings.SetActive(false); 
         }
 
         BlackCircleBlur = Vector3.Distance(BlackCircle.transform.position, BlackCircleOptimalDist.transform.position);
@@ -91,13 +84,11 @@ public class Checker : MonoBehaviour
             objextive1 = true;
             FocusBlackCircle.isOn = true;
             FocusBlackCircleViewPort.isOn = true;
-            BlurCircleWin.SetActive(true);
         }
         else
         {
             FocusBlackCircle.isOn = false;            
             FocusBlackCircleViewPort.isOn = false;
-            BlurCircleWin.SetActive(false);
             objextive1 = false;
 }
 
@@ -110,14 +101,12 @@ public class Checker : MonoBehaviour
         {
             Center3Circles.isOn = true;
             Center3CirclesViewPort.isOn = true;
-            GroupCircleWin.SetActive(true);
             objextive2 = true;
         }
         else
         {
             Center3Circles.isOn = false;
             Center3CirclesViewPort.isOn = false;
-            GroupCircleWin.SetActive(false);
             objextive2 = false;
         }
 
@@ -128,14 +117,12 @@ public class Checker : MonoBehaviour
         {
             AlignLeftCircle.isOn = true;
             AlignLeftCircleViewPort.isOn = true;
-            LeftCircleWin.SetActive(true);
             objextive3 = true;
         }
         else
         { 
             AlignLeftCircle.isOn = false;
             AlignLeftCircleViewPort.isOn = false;
-            LeftCircleWin.SetActive(false);
             objextive3 = false;
         }
 
@@ -146,14 +133,12 @@ public class Checker : MonoBehaviour
         {
             AlignTopCircle.isOn = true;
             AlignTopCircleViewPort.isOn = true;
-            TopCircleWin.SetActive(true);
             objextive4 = true;
         }
         else
         {
             AlignTopCircle.isOn = false;
             AlignTopCircleViewPort.isOn = false;
-            TopCircleWin.SetActive(false);
             objextive4 = false;
         }
     }
