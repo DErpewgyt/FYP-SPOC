@@ -3376,7 +3376,7 @@ GameObject:
   - component: {fileID: 649821461}
   - component: {fileID: 649821462}
   m_Layer: 5
-  m_Name: text 1
+  m_Name: reading1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6374,7 +6374,7 @@ GameObject:
   - component: {fileID: 1244531190}
   - component: {fileID: 1244531189}
   m_Layer: 5
-  m_Name: text 2
+  m_Name: reading2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8183,8 +8183,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5605b7cce5c93a547b284091dbb232ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  text1: {fileID: 649821462}
-  text2: {fileID: 1244531189}
+  reading1: {fileID: 649821462}
+  reading2: {fileID: 1244531189}
 --- !u!1 &1652618046
 GameObject:
   m_ObjectHideFlags: 0
