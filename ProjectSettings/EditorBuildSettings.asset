@@ -18,8 +18,8 @@ EditorBuildSettings:
     path: Assets/FYP Project/Scenes/(BUOptionScene).unity
     guid: 17379bdc05f224546a6556a36c51bbe3
   - enabled: 1
-    path: Assets/FYP Project/Scenes/DerekgameScene.unity
-    guid: f3efe2e9fef5af041a4b56c48f82cc9f
+    path: Assets/FYP Project/Scenes/NEWgameScene.unity
+    guid: 0310007e2cf0efc42978f33e54a6de34
   - enabled: 1
     path: Assets/FYP Project/Scenes/DUMP.unity
     guid: 6935be32df266ce4f85cab8b494a34ff
