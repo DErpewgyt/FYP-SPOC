@@ -21,5 +21,14 @@ public class Toggles : MonoBehaviour
         {
             vsyncToggle.isOn = true;
         }
+
+        // Add listener to the fullscreen toggle
+        fullscreenToggle.onValueChanged.AddListener(OnFullscreenToggle);
+    }
+
+    // Function to handle fullscreen toggle
+    void OnFullscreenToggle(bool value)
+    {
+        Screen.fullScreen = value;
     }
 }
