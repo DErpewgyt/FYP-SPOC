@@ -18162,7 +18162,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: ce0b3fb4a2e2fa14da7971a27c814a6c, type: 3}
       propertyPath: m_Name
-      value: Ch21_nonPBR@Sitting Idle
+      value: patient
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ce0b3fb4a2e2fa14da7971a27c814a6c, type: 3}
@@ -37103,7 +37103,7 @@ GameObject:
   m_Component:
   - component: {fileID: 936796108}
   m_Layer: 0
-  m_Name: uploads_files_3140564_FBX
+  m_Name: environment
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
