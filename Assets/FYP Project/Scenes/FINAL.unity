@@ -1351,7 +1351,6 @@ MonoBehaviour:
   objextive3: 0
   objextive4: 0
   timerScript: {fileID: 1631702566}
-  saved: 0
   submit: {fileID: 1779813650}
   readings: {fileID: 132409853}
 --- !u!1 &27998284
@@ -7129,7 +7128,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 156760095}
-  m_LocalRotation: {x: -0.7071068, y: -0, z: -0, w: 0.7071068}
+  m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 3.02, z: 3.82}
   m_LocalScale: {x: 0.28675, y: 0.28675, z: 0.28675}
   m_ConstrainProportionsScale: 0
