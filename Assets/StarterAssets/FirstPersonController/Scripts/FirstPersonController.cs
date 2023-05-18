@@ -64,6 +64,8 @@ namespace StarterAssets
 		private float _jumpTimeoutDelta;
 		private float _fallTimeoutDelta;
 
+		private PauseMenu pauseMenu;
+
 	
 #if ENABLE_INPUT_SYSTEM
 		private PlayerInput _playerInput;
@@ -108,6 +110,20 @@ namespace StarterAssets
 			// reset our timeouts on start
 			_jumpTimeoutDelta = JumpTimeout;
 			_fallTimeoutDelta = FallTimeout;
+
+			GameObject pauseMenuObject = GameObject.FindWithTag("PauseMenu");
+			if (pauseMenuObject != null)
+			{
+				pauseMenu = pauseMenuObject.GetComponent<PauseMenu>();
+
+				// Assign this FirstPersonController instance to the PauseMenu script
+				if (pauseMenu != null)
+				{
+					pauseMenu.AssignFirstPersonController(this);
+				}
+			}
+
+
 		}
 
 		private void Update()
@@ -129,7 +145,7 @@ namespace StarterAssets
 			Grounded = Physics.CheckSphere(spherePosition, GroundedRadius, GroundLayers, QueryTriggerInteraction.Ignore);
 		}
 
-		private void CameraRotation()
+		public void CameraRotation()
 		{
 			// if there is an input
 			if (_input.look.sqrMagnitude >= _threshold)

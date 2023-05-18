@@ -20389,11 +20389,11 @@ MonoBehaviour:
   targetFOV: 15
   zoomSpeed: 2
   raycastDistance: 10
-  background: {fileID: 1951656535}
-  canvasGroup: {fileID: 1364000367}
   fadeTime: 3
-  sceneToLoad: JeronsFinal
+  background: {fileID: 1951656535}
   controls: {fileID: 1640128203}
+  sceneToLoad: JeronsFinal
+  canvasGroup: {fileID: 1364000367}
 --- !u!1001 &982766542
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -29075,6 +29075,10 @@ PrefabInstance:
       propertyPath: quitPromptPanel
       value: 
       objectReference: {fileID: 1453564054}
+    - target: {fileID: 5104530459662529970, guid: 7a4989db670d3ba4fa887f5f78159557, type: 3}
+      propertyPath: firstPersonController
+      value: 
+      objectReference: {fileID: 1640128208}
     - target: {fileID: 5104530459662529971, guid: 7a4989db670d3ba4fa887f5f78159557, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -29166,6 +29170,10 @@ PrefabInstance:
     - target: {fileID: 5104530459662529975, guid: 7a4989db670d3ba4fa887f5f78159557, type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5104530459662529975, guid: 7a4989db670d3ba4fa887f5f78159557, type: 3}
+      propertyPath: m_TagString
+      value: PauseMenu
       objectReference: {fileID: 0}
     - target: {fileID: 5270713289628923287, guid: 7a4989db670d3ba4fa887f5f78159557, type: 3}
       propertyPath: m_Sprite
@@ -34308,6 +34316,17 @@ MonoBehaviour:
   MaxDistance: 3
   DoorOpen: {fileID: 2071490957}
   DoorClose: {fileID: 1819254147}
+--- !u!114 &1640128208 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5117300084254281649, guid: b2241f51310e0444f83b70310b3d1a22, type: 3}
+  m_PrefabInstance: {fileID: 3499529389696601508}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1640128203}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 55919ac34a26952479f3fc91f777b2fa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1642430637
 GameObject:
   m_ObjectHideFlags: 0

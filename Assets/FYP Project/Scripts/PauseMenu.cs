@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEditor;
+using StarterAssets; // Add this using directive
 
 public class PauseMenu : MonoBehaviour
 {
-
     public static bool GameIsPaused = false;
 
     public GameObject pauseMenuUI;
@@ -14,6 +14,8 @@ public class PauseMenu : MonoBehaviour
     public GameObject optionMenuUI;
     public GameObject quitPromptPanel;
     public GameObject menuPromptPanel;
+
+    private FirstPersonController firstPersonController; // Reference to the FirstPersonController script
 
     void Awake()
     {
@@ -50,8 +52,13 @@ public class PauseMenu : MonoBehaviour
         menuPromptPanel.SetActive(false);
         Time.timeScale = 1f;
         GameIsPaused = false;
-        //Cursor.lockState = CursorLockMode.None; // Unlock the mouse cursor
-        Cursor.visible = false; // Show the mouse cursor
+        Cursor.visible = false;
+
+        if (firstPersonController != null)
+        {
+            firstPersonController.enabled = true;
+            firstPersonController.CameraRotation(); // Call the CameraRotation() function
+        }
     }
 
     void Pause()
@@ -63,13 +70,15 @@ public class PauseMenu : MonoBehaviour
         menuPromptPanel.SetActive(false);
         Time.timeScale = 0f;
         GameIsPaused = true;
-        Cursor.lockState = CursorLockMode.None; // Unlock the mouse cursor
-        Cursor.visible = true; // Show the mouse cursor
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
 
+        if (firstPersonController != null)
+        {
+            firstPersonController.enabled = false;
+        }
     }
 
-
-    // --------------------------------------------------- Option Menu Controller------------------------------------------------
     public void OptionBtn()
     {
         optionMenuUI.SetActive(true);
@@ -81,19 +90,6 @@ public class PauseMenu : MonoBehaviour
         optionMenuUI.SetActive(false);
         pauseMenuBtn.SetActive(true);
     }
-
-
-    // --------------------------------------------------- Save/Load Controller-------------------------------------------------
-    public void SaveBtn()
-    {
-        Debug.Log("Saving");
-    }
-
-    public void LoadSave()
-    {
-        Debug.Log("Loading Save");
-    }
-
 
     // --------------------------------------------------- Main Menu Controller-------------------------------------------------
     public void MainMenu()
@@ -132,5 +128,11 @@ public class PauseMenu : MonoBehaviour
     {
         quitPromptPanel.SetActive(false);
         pauseMenuBtn.SetActive(true);
+    }
+
+    // Assign the FirstPersonController script
+    public void AssignFirstPersonController(FirstPersonController controller)
+    {
+        firstPersonController = controller;
     }
 }

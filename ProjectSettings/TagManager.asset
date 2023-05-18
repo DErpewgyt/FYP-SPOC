@@ -19,6 +19,7 @@ TagManager:
   - GripperImage
   - JoyStickImage
   - Door
+  - PauseMenu
   layers:
   - Default
   - TransparentFX
