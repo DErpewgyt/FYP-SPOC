@@ -25,6 +25,7 @@ public class ObjectClicker : MonoBehaviour
     private const float TIMER_RESET_VALUE = 1f;
     private GameObject eyePieceObject;
     public KeratometerHelpController helpController;
+    public GameObject ExitIcon;
 
     private void Start()
     {
@@ -289,6 +290,8 @@ public class ObjectClicker : MonoBehaviour
 
     private void ZoomIn()
     {
+        ExitIcon.SetActive(false);
+
         if (!zoomedIn && !animationInProgress)
         {
             animationInProgress = true;
@@ -318,6 +321,8 @@ public class ObjectClicker : MonoBehaviour
 
     private void ZoomOut()
     {
+        ExitIcon.SetActive(true);
+
         if (zoomedIn && !animationInProgress)
         {
             animationInProgress = true;

@@ -78,6 +78,7 @@ public class Checker : MonoBehaviour
         if (objextive1 && objextive2 && objextive3 && objextive4)
         {
             readings.SetActive(true);
+            Cursor.visible = true;
         }
         else
         {
