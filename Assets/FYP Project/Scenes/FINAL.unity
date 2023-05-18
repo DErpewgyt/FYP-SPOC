@@ -17699,9 +17699,25 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 238070142}
     - target: {fileID: 1975354752746916982, guid: abd6b35fe403bbb46b6edcd6dad39833, type: 3}
+      propertyPath: ResetBtn
+      value: 
+      objectReference: {fileID: 6217763896265535606}
+    - target: {fileID: 1975354752746916982, guid: abd6b35fe403bbb46b6edcd6dad39833, type: 3}
       propertyPath: timeText
       value: 
       objectReference: {fileID: 6217763897125563424}
+    - target: {fileID: 1975354752746916982, guid: abd6b35fe403bbb46b6edcd6dad39833, type: 3}
+      propertyPath: SubmitBtn
+      value: 
+      objectReference: {fileID: 1779813650}
+    - target: {fileID: 1975354752746916982, guid: abd6b35fe403bbb46b6edcd6dad39833, type: 3}
+      propertyPath: BestTimesBtn
+      value: 
+      objectReference: {fileID: 6217763896615311084}
+    - target: {fileID: 1975354752746916982, guid: abd6b35fe403bbb46b6edcd6dad39833, type: 3}
+      propertyPath: BestTimeScreen
+      value: 
+      objectReference: {fileID: 6217763896976870695}
     - target: {fileID: 1975354752746916982, guid: abd6b35fe403bbb46b6edcd6dad39833, type: 3}
       propertyPath: LevelCompleteScreen
       value: 
@@ -91614,7 +91630,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Leaderboard
+  m_text: Best Times
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 84dd14695854bbc43a5faa24fcf93d0d, type: 2}
   m_sharedMaterial: {fileID: 21261991626553910, guid: 84dd14695854bbc43a5faa24fcf93d0d, type: 2}
@@ -92010,7 +92026,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d218e07e7315e243acdfcc700d01eb5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  buttonText: Leaderboard
+  buttonText: Best Times
   clickEvent:
     m_PersistentCalls:
       m_Calls:
@@ -92675,7 +92691,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Leaderboard
+  m_text: Best Times
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: f02fe0a80d801604da74c32973654929, type: 2}
   m_sharedMaterial: {fileID: 8554351414307161554, guid: f02fe0a80d801604da74c32973654929, type: 2}
@@ -93427,7 +93443,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Leaderboard
+  m_text: Best Times
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 84dd14695854bbc43a5faa24fcf93d0d, type: 2}
   m_sharedMaterial: {fileID: 21261991626553910, guid: 84dd14695854bbc43a5faa24fcf93d0d, type: 2}

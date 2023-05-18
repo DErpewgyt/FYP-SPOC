@@ -47,7 +47,7 @@ public class Checker : MonoBehaviour
     public bool objextive4 = false;
 
     public Stopwatch timerScript;
-    public bool saved = false;
+    public static bool saved = false;
     public GameObject submit;
     public GameObject readings;
     private void Start()
@@ -68,11 +68,17 @@ public class Checker : MonoBehaviour
     {
         if (objextive1 && objextive2 && objextive3 && objextive4 && !saved)
         {
-            /*timerScript.CompleteConditions();
-            saved = true;*/
+            /*timerScript.CompleteConditions();*/
+            /*saved = true;*/
             submit.SetActive(true);
+            /*readings.SetActive(true);*/
+        }
+
+        if (objextive1 && objextive2 && objextive3 && objextive4)
+        {
             readings.SetActive(true);
-        } else { 
+        }
+        else { 
             submit.SetActive(false); 
             readings.SetActive(false); 
         }

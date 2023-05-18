@@ -17,6 +17,10 @@ public class Stopwatch : MonoBehaviour
 
     public GameObject LevelCompleteScreen; // screen that pops up when level completes
     public GameObject EndBtn; // the retry and main menu btns
+    public GameObject ResetBtn; // reset btn
+    public GameObject BestTimesBtn; // best time btn
+    public GameObject BestTimeScreen; // best time screen
+    public GameObject SubmitBtn; // submit btn
 
     private string filePath; // directory of save file
 
@@ -45,7 +49,7 @@ public class Stopwatch : MonoBehaviour
             timeText.text = string.Format("{0:00}:{1:00}", mins, secs); // format time
             if (conditionsCompleted && timeSaved == false) // check if conditions completed
             {
-
+                Checker.saved = true;
                 AddTime(); // add time
                 timeSaved = true;
                 levelComplete(); // activate level complete screen
@@ -94,8 +98,12 @@ public class Stopwatch : MonoBehaviour
 
     public void levelComplete() // activate level complete screen
     {
+        ResetBtn.SetActive(false);
+        BestTimesBtn.SetActive(false);
+        BestTimeScreen.SetActive(false);
         LevelCompleteScreen.SetActive(true);
         EndBtn.SetActive(true);
+        SubmitBtn.SetActive(false);
         Time.timeScale = 0f;
     }
 }
