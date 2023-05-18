@@ -9,18 +9,18 @@ public class Fade : MonoBehaviour
 
     public float fadeTime = 3f; // duration of fade
 
-    public static bool ShouldFadeIn = true; // indicator to skip fade animation or not
+    public static bool FadeChecker = true; // indicator to skip fade animation or not
 
     private void Start()
     {
-        if (ShouldFadeIn)
+        if (FadeChecker)
         {
             LeanTween.alphaCanvas(canvasGroup, to: 0, fadeTime).setOnComplete(OnFadeComplete);
         }
         else
         {
             SkipFade();
-            ShouldFadeIn = true; // reset indicator
+            FadeChecker = true; // reset indicator
         }
     }
 

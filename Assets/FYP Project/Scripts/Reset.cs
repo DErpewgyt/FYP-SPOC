@@ -13,7 +13,7 @@ public class Reset : MonoBehaviour
 
     public void ResetScene()
     {
-        Fade.ShouldFadeIn = false;  // skip fade
+        Fade.FadeChecker = false;  // skip fade
         SceneManager.LoadScene(startingScene.buildIndex, LoadSceneMode.Single); // reload
     }
 }

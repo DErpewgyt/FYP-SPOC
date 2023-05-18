@@ -10260,6 +10260,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3306092452857900270, guid: a340c995a6149014390ec26ca3a61964, type: 3}
+      propertyPath: buttonText
+      value: RETURN TO CLINIC
+      objectReference: {fileID: 0}
+    - target: {fileID: 3306092452857900270, guid: a340c995a6149014390ec26ca3a61964, type: 3}
       propertyPath: clickEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1631702563}
@@ -17797,6 +17801,10 @@ PrefabInstance:
       propertyPath: fadeScript
       value: 
       objectReference: {fileID: 793013046}
+    - target: {fileID: 1975354752746917772, guid: abd6b35fe403bbb46b6edcd6dad39833, type: 3}
+      propertyPath: sceneToLoad
+      value: NEWgameScene
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: abd6b35fe403bbb46b6edcd6dad39833, type: 3}
 --- !u!1 &418806269 stripped

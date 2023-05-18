@@ -15,7 +15,7 @@ public class LevelCompleteScreen : MonoBehaviour
 
     public void retry()
     {
-        Fade.ShouldFadeIn = false;  // skip fade
+        Fade.FadeChecker = false;  // skip fade
         Time.timeScale = 1f; // resume time flow
         SceneManager.LoadScene(startingScene.buildIndex, LoadSceneMode.Single); // reload
         /*print("retry");*/
