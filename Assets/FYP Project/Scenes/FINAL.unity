@@ -11591,6 +11591,7 @@ MonoBehaviour:
   Blur: {fileID: 1468389654}
   Blur2: {fileID: 430333947}
   helpController: {fileID: 0}
+  ExitIcon: {fileID: 1334708156}
 --- !u!1 &262685395
 GameObject:
   m_ObjectHideFlags: 0
