@@ -14,7 +14,7 @@ public class VideoSettingsP2 : MonoBehaviour
             int qualityIndex = PlayerPrefs.GetInt("QualityLevel");
             QualitySettings.SetQualityLevel(qualityIndex);
             qualityDropdown.value = qualityIndex;
-            qualityDropdown.RefreshShownValue(); // Update the visible selection in the dropdown
+            qualityDropdown.RefreshShownValue();
         }
     }
 

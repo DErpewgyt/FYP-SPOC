@@ -68,19 +68,21 @@ public class Checker : MonoBehaviour
     {
         if (objextive1 && objextive2 && objextive3 && objextive4 && !saved)
         {
-            /*timerScript.CompleteConditions();*/
-            /*saved = true;*/
-            submit.SetActive(true);
-            /*readings.SetActive(true);*/
+            // timerScript.CompleteConditions();/
+ 
+             // saved = true;/
+              submit.SetActive(true);
+            // readings.SetActive(true);/
         }
 
         if (objextive1 && objextive2 && objextive3 && objextive4)
         {
             readings.SetActive(true);
         }
-        else { 
-            submit.SetActive(false); 
-            readings.SetActive(false); 
+        else
+        {
+            submit.SetActive(false);
+            readings.SetActive(false);
         }
 
         BlackCircleBlur = Vector3.Distance(BlackCircle.transform.position, BlackCircleOptimalDist.transform.position);
@@ -93,10 +95,10 @@ public class Checker : MonoBehaviour
         }
         else
         {
-            FocusBlackCircle.isOn = false;            
+            FocusBlackCircle.isOn = false;
             FocusBlackCircleViewPort.isOn = false;
             objextive1 = false;
-}
+        }
 
 
         CircleGrpDist = Vector3.Distance(ViewPortMiddle.transform.position, ViewPortCircles.transform.position);
@@ -126,7 +128,7 @@ public class Checker : MonoBehaviour
             objextive3 = true;
         }
         else
-        { 
+        {
             AlignLeftCircle.isOn = false;
             AlignLeftCircleViewPort.isOn = false;
             objextive3 = false;

@@ -22,10 +22,4 @@ public class Toggles : MonoBehaviour
             vsyncToggle.isOn = true;
         }
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
 }

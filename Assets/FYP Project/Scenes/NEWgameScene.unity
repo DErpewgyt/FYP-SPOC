@@ -1821,7 +1821,7 @@ MonoBehaviour:
   hoverEvent:
     m_PersistentCalls:
       m_Calls: []
-  hoverSound: {fileID: 8300000, guid: 429d83d57f7d8a548a931cff974d81b7, type: 3}
+  hoverSound: {fileID: 8300000, guid: 3572d5812ac0d4b489a6694f93a3570c, type: 3}
   clickSound: {fileID: 8300000, guid: edefa5057bffcdd478b40f31778d02a2, type: 3}
   buttonVar: {fileID: 72443962}
   normalText: {fileID: 1250520447}
@@ -19098,7 +19098,7 @@ MonoBehaviour:
   hoverEvent:
     m_PersistentCalls:
       m_Calls: []
-  hoverSound: {fileID: 8300000, guid: 429d83d57f7d8a548a931cff974d81b7, type: 3}
+  hoverSound: {fileID: 8300000, guid: 3572d5812ac0d4b489a6694f93a3570c, type: 3}
   clickSound: {fileID: 8300000, guid: edefa5057bffcdd478b40f31778d02a2, type: 3}
   buttonVar: {fileID: 877214649}
   normalText: {fileID: 1699842658}
@@ -30042,6 +30042,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 439962666485270884, guid: 7a4989db670d3ba4fa887f5f78159557, type: 3}
+      propertyPath: hoverSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 3572d5812ac0d4b489a6694f93a3570c, type: 3}
+    - target: {fileID: 439962666485270884, guid: 7a4989db670d3ba4fa887f5f78159557, type: 3}
       propertyPath: clickEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
       value: 1
       objectReference: {fileID: 0}
@@ -30234,12 +30238,28 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5104530457721451152, guid: 7a4989db670d3ba4fa887f5f78159557, type: 3}
+      propertyPath: hoverSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 3572d5812ac0d4b489a6694f93a3570c, type: 3}
+    - target: {fileID: 5104530457721451152, guid: 7a4989db670d3ba4fa887f5f78159557, type: 3}
       propertyPath: clickEvent.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: OptionBtn
       objectReference: {fileID: 0}
+    - target: {fileID: 5104530457721451159, guid: 7a4989db670d3ba4fa887f5f78159557, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 624
+      objectReference: {fileID: 0}
+    - target: {fileID: 5104530458023030651, guid: 7a4989db670d3ba4fa887f5f78159557, type: 3}
+      propertyPath: hoverSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 3572d5812ac0d4b489a6694f93a3570c, type: 3}
     - target: {fileID: 5104530458023030651, guid: 7a4989db670d3ba4fa887f5f78159557, type: 3}
       propertyPath: clickEvent.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: QuitGame
+      objectReference: {fileID: 0}
+    - target: {fileID: 5104530458023030654, guid: 7a4989db670d3ba4fa887f5f78159557, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 264
       objectReference: {fileID: 0}
     - target: {fileID: 5104530458089746290, guid: 7a4989db670d3ba4fa887f5f78159557, type: 3}
       propertyPath: m_fontAsset
@@ -30253,6 +30273,14 @@ PrefabInstance:
       propertyPath: m_hasFontAssetChanged
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5104530458130226202, guid: 7a4989db670d3ba4fa887f5f78159557, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 444
+      objectReference: {fileID: 0}
+    - target: {fileID: 5104530458130226215, guid: 7a4989db670d3ba4fa887f5f78159557, type: 3}
+      propertyPath: hoverSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 3572d5812ac0d4b489a6694f93a3570c, type: 3}
     - target: {fileID: 5104530458130226215, guid: 7a4989db670d3ba4fa887f5f78159557, type: 3}
       propertyPath: clickEvent.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: MainMenu
@@ -30329,6 +30357,14 @@ PrefabInstance:
       propertyPath: m_hasFontAssetChanged
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5104530459089193179, guid: 7a4989db670d3ba4fa887f5f78159557, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 798
+      objectReference: {fileID: 0}
+    - target: {fileID: 5104530459089193188, guid: 7a4989db670d3ba4fa887f5f78159557, type: 3}
+      propertyPath: hoverSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 3572d5812ac0d4b489a6694f93a3570c, type: 3}
     - target: {fileID: 5104530459265965789, guid: 7a4989db670d3ba4fa887f5f78159557, type: 3}
       propertyPath: m_IsActive
       value: 1
@@ -43550,7 +43586,7 @@ MonoBehaviour:
   hoverEvent:
     m_PersistentCalls:
       m_Calls: []
-  hoverSound: {fileID: 8300000, guid: 429d83d57f7d8a548a931cff974d81b7, type: 3}
+  hoverSound: {fileID: 8300000, guid: 3572d5812ac0d4b489a6694f93a3570c, type: 3}
   clickSound: {fileID: 8300000, guid: edefa5057bffcdd478b40f31778d02a2, type: 3}
   buttonVar: {fileID: 2009785742}
   normalText: {fileID: 1522049768}
@@ -44322,7 +44358,7 @@ MonoBehaviour:
   hoverEvent:
     m_PersistentCalls:
       m_Calls: []
-  hoverSound: {fileID: 8300000, guid: 429d83d57f7d8a548a931cff974d81b7, type: 3}
+  hoverSound: {fileID: 8300000, guid: 3572d5812ac0d4b489a6694f93a3570c, type: 3}
   clickSound: {fileID: 8300000, guid: edefa5057bffcdd478b40f31778d02a2, type: 3}
   buttonVar: {fileID: 2054460443}
   normalText: {fileID: 849029740}

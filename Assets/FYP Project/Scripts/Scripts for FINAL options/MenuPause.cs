@@ -3,9 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEditor;
-using StarterAssets;
 
-public class PauseMenu : MonoBehaviour
+public class MenuPause : MonoBehaviour
 {
     public static bool GameIsPaused = false;
 
@@ -14,19 +13,8 @@ public class PauseMenu : MonoBehaviour
     public GameObject optionMenuUI;
     public GameObject quitPromptPanel;
     public GameObject menuPromptPanel;
-
-    private FirstPersonController firstPersonController;
-
-    void Awake()
-    {
-        Cursor.visible = false;
-        Resume();
-    }
-
-    void Start()
-    {
-        Cursor.visible = false;
-    }
+    public GameObject Timers;
+    public GameObject returnClinic;
 
     void Update()
     {
@@ -50,15 +38,10 @@ public class PauseMenu : MonoBehaviour
         optionMenuUI.SetActive(false);
         quitPromptPanel.SetActive(false);
         menuPromptPanel.SetActive(false);
+        Timers.SetActive(true);
+        returnClinic.SetActive(true);
         Time.timeScale = 1f;
         GameIsPaused = false;
-        Cursor.visible = false;
-
-        if (firstPersonController != null)
-        {
-            firstPersonController.enabled = true;
-            firstPersonController.CameraRotation();
-        }
     }
 
     void Pause()
@@ -68,15 +51,10 @@ public class PauseMenu : MonoBehaviour
         optionMenuUI.SetActive(false);
         quitPromptPanel.SetActive(false);
         menuPromptPanel.SetActive(false);
+        Timers.SetActive(false);
+        returnClinic.SetActive(false);
         Time.timeScale = 0f;
         GameIsPaused = true;
-        Cursor.lockState = CursorLockMode.None;
-        Cursor.visible = true;
-
-        if (firstPersonController != null)
-        {
-            firstPersonController.enabled = false;
-        }
     }
 
     public void OptionBtn()
@@ -128,10 +106,5 @@ public class PauseMenu : MonoBehaviour
     {
         quitPromptPanel.SetActive(false);
         pauseMenuBtn.SetActive(true);
-    }
-
-    public void AssignFirstPersonController(FirstPersonController controller)
-    {
-        firstPersonController = controller;
     }
 }
