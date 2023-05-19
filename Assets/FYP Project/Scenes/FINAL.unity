@@ -11586,12 +11586,11 @@ MonoBehaviour:
   linkCursorTexture: {fileID: 2800000, guid: 9b06c0d8b4e8fa6448f481781b52a3ba, type: 3}
   parent: {fileID: 1158797494}
   KeratometerMovement: {fileID: 1476088112}
-  zoomedIn: 0
+  zoom: 0
   Blur: {fileID: 1468389654}
   Blur2: {fileID: 430333947}
   helpController: {fileID: 0}
   ExitIcon: {fileID: 1334708156}
-  ExitActive: 0
 --- !u!1 &262685395
 GameObject:
   m_ObjectHideFlags: 0
@@ -12482,7 +12481,7 @@ MonoBehaviour:
   VerticalCircle: 0
   HorizontalCircle: 0
   CircleMovement: 0
-  objectClicker: {fileID: 0}
+  Clicker: {fileID: 0}
   ThreeCirclesIdealTransform: {fileID: 0}
   parentObject: {fileID: 0}
   BlurryCircle: {fileID: 0}
@@ -61081,7 +61080,7 @@ MonoBehaviour:
   VerticalCircle: 0
   HorizontalCircle: 0
   CircleMovement: 0
-  objectClicker: {fileID: 257056101}
+  Clicker: {fileID: 257056101}
   ThreeCirclesIdealTransform: {fileID: 2143346262}
   parentObject: {fileID: 1476088110}
   BlurryCircle: {fileID: 1774367361}
@@ -69535,7 +69534,7 @@ MonoBehaviour:
   VerticalCircle: 0
   HorizontalCircle: 0
   CircleMovement: 0
-  objectClicker: {fileID: 0}
+  Clicker: {fileID: 0}
   ThreeCirclesIdealTransform: {fileID: 0}
   parentObject: {fileID: 0}
   BlurryCircle: {fileID: 0}

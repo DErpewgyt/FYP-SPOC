@@ -14,6 +14,7 @@ public class ObjectClicker : MonoBehaviour
     private RaycastHit raycastHit;
     private Animator anim;
     public static bool zoomedIn = false;
+    public bool zoom = false;
     private bool isOverObject = false;
     private bool animationInProgress = false;
     private float multiplier = 0.25f;
@@ -308,6 +309,7 @@ public class ObjectClicker : MonoBehaviour
             animationInProgress = true;
             anim.Play("keratometerviewer");
             zoomedIn = true;
+            zoom = true;
 
             // Hide cursor during the animation
             Cursor.visible = false;
@@ -345,6 +347,7 @@ public class ObjectClicker : MonoBehaviour
 
             anim.Play("keratometerunviewer");
             zoomedIn = false;
+            zoom = false;
 
             // Show cursor when the animation finishes
             StartCoroutine(ShowCursorAfterDelay(anim.GetCurrentAnimatorStateInfo(0).length));

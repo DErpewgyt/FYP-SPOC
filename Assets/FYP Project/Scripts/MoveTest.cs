@@ -9,7 +9,7 @@ public class MoveTest : MonoBehaviour
     public bool HorizontalCircle;
     public bool CircleMovement;
 
-    //public ObjectClicker objectClicker;
+    public ObjectClicker Clicker;
 
     public GameObject ThreeCirclesIdealTransform;
     public GameObject parentObject;
@@ -49,7 +49,7 @@ public class MoveTest : MonoBehaviour
 
     private void Update()
     {
-        if (!ObjectClicker.zoomedIn)
+        if (!Clicker.zoom)
         {
             BoxVolumeCircleGroupBlur.SetActive(false);
         }
