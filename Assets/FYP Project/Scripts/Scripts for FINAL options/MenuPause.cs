@@ -15,13 +15,13 @@ public class MenuPause : MonoBehaviour
     public GameObject menuPromptPanel;
     public GameObject Timers;
     public GameObject returnClinic;
-    private ObjectClicker objectClicker;
+    /*private ObjectClicker objectClicker;*/
 
 
-    private void Start()
+/*    private void Start()
     {
         objectClicker = PMOClinker.instance.objectClicker;
-    }
+    }*/
 
 
     void Update()
@@ -50,7 +50,7 @@ public class MenuPause : MonoBehaviour
         returnClinic.SetActive(true);
         Time.timeScale = 1f;
         GameIsPaused = false;
-        objectClicker.ExitIcon.SetActive(!objectClicker.zoomedIn);
+        /*objectClicker.ExitIcon.SetActive(!objectClicker.zoomedIn);*/
     }
 
     void Pause()

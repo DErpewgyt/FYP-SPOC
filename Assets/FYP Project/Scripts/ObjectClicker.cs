@@ -26,7 +26,7 @@ public class ObjectClicker : MonoBehaviour
     private GameObject eyePieceObject;
     public KeratometerHelpController helpController;
     public GameObject ExitIcon;
-
+    public bool ExitActive;
     private void Start()
     {
         Cursor.lockState = CursorLockMode.None;
@@ -35,6 +35,7 @@ public class ObjectClicker : MonoBehaviour
         Blur2.SetActive(false);
         anim = parent.GetComponentInParent<Animator>();
         DisableMovements();
+        ExitActive = true;
 
         // Initialize the image dictionary and add the corresponding images for each component
         imageDictionary = new Dictionary<string, GameObject>()
@@ -58,10 +59,10 @@ public class ObjectClicker : MonoBehaviour
 
     private void Update()
     {
-/*        if (!helpController.helpImage.activeInHierarchy)
-        {
-            return;
-        }*/
+        /*        if (!helpController.helpImage.activeInHierarchy)
+                {
+                    return;
+                }*/
 
         // Highlight
         if (highlight != null)
@@ -160,6 +161,15 @@ public class ObjectClicker : MonoBehaviour
         CheckScrollWheelInput();
 
         //print(currentSelectedObject);
+
+        if (ExitActive == true)
+        {
+            ExitIcon.SetActive(true);
+        }
+        else if (ExitActive == false)
+        {
+            ExitIcon.SetActive(false);
+        }
 
 
     }
@@ -290,7 +300,8 @@ public class ObjectClicker : MonoBehaviour
 
     private void ZoomIn()
     {
-        ExitIcon.SetActive(false);
+        /*ExitIcon.SetActive(false);*/
+        ExitActive = false;
 
         if (!zoomedIn && !animationInProgress)
         {
@@ -298,7 +309,7 @@ public class ObjectClicker : MonoBehaviour
             anim.Play("keratometerviewer");
             zoomedIn = true;
 
-            // Hide the cursor during the animation
+            // Hide cursor during the animation
             Cursor.visible = false;
 
             // Start timer
@@ -306,10 +317,11 @@ public class ObjectClicker : MonoBehaviour
             Stopwatch timerScript = timer.GetComponent<Stopwatch>();
             timerScript.timerRunning = true;
 
-            // Activate the blur effect after the animation is finished
-            StartCoroutine(ActivateBlurAfterDelay(anim.GetCurrentAnimatorStateInfo(0).length));
+            // Activate blur effect and show the cursor after animation finishes
+            StartCoroutine(ActivateBlurAndShowCursorAfterDelay(anim.GetCurrentAnimatorStateInfo(0).length));
         }
     }
+
 
     private void DisableMovements()
     {
@@ -321,22 +333,24 @@ public class ObjectClicker : MonoBehaviour
 
     private void ZoomOut()
     {
-        ExitIcon.SetActive(true);
+        ExitActive = true;
 
         if (zoomedIn && !animationInProgress)
         {
             animationInProgress = true;
-            // Deactivate the blur effect before starting the zoom out animation
+            // Deactivate blur effect and show the cursor before starting zoom out animation
             Blur.SetActive(false);
             Blur2.SetActive(false);
+            Cursor.visible = true;  // make cursor visible here
 
             anim.Play("keratometerunviewer");
             zoomedIn = false;
 
-            // Show the cursor when the animation is finished
+            // Show cursor when the animation finishes
             StartCoroutine(ShowCursorAfterDelay(anim.GetCurrentAnimatorStateInfo(0).length));
         }
     }
+
 
     private IEnumerator ShowCursorAfterDelay(float delay)
     {
@@ -351,5 +365,14 @@ public class ObjectClicker : MonoBehaviour
         Blur.SetActive(true);
         Blur2.SetActive(true);
         animationInProgress = false;
+    }
+
+    private IEnumerator ActivateBlurAndShowCursorAfterDelay(float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        Blur.SetActive(true);
+        Blur2.SetActive(true);
+        animationInProgress = false;
+        Cursor.visible = true;  // make cursor visible here
     }
 }

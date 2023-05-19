@@ -11591,6 +11591,7 @@ MonoBehaviour:
   Blur2: {fileID: 430333947}
   helpController: {fileID: 0}
   ExitIcon: {fileID: 1334708156}
+  ExitActive: 0
 --- !u!1 &262685395
 GameObject:
   m_ObjectHideFlags: 0
@@ -83205,51 +83206,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1960562481}
   m_Mesh: {fileID: -5217771781949634886, guid: 92ac2c59f0b5c78439abe9895c9e7077, type: 3}
---- !u!1 &1960643042
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1960643044}
-  - component: {fileID: 1960643043}
-  m_Layer: 0
-  m_Name: PMOC Linker
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1960643043
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1960643042}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dc78013a4add6a84ba167d5aa54acc0a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  objectClicker: {fileID: 257056101}
---- !u!4 &1960643044
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1960643042}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -5.6848145, y: 0.8687581, z: -6.167036}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 27
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1964186932
 GameObject:
   m_ObjectHideFlags: 0
