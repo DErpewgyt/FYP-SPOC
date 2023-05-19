@@ -13,10 +13,10 @@ public class ZoomOnInstrument : MonoBehaviour
     private float currentFOV; // current fov of camera
     public float fadeTime = 3f; // fade duration
 
-    public GameObject background; // black screen
     public GameObject controls; // player control
 
     public string sceneToLoad; // scene to transition to
+
     public CanvasGroup canvasGroup; // canvasGroup to control alpha
 
     private void Start()
@@ -39,8 +39,9 @@ public class ZoomOnInstrument : MonoBehaviour
                     {
                         Debug.Log("clicked");
                         controls.SetActive(false);
+                        /*FadeToLevel(sceneToLoad);*/
+                        LeanTween.alphaCanvas(canvasGroup, to: 1, fadeTime).setOnComplete(OnFadeComplete);
                         StartCoroutine(ZoomIn());
-                        FadeToLevel(sceneToLoad);
                     }
                 }
             }
@@ -57,11 +58,11 @@ public class ZoomOnInstrument : MonoBehaviour
         }
     }
 
-    public void FadeToLevel(string sceneName)// fade 
+    /*public void FadeToLevel(string sceneName)// fade
     {
         sceneToLoad = sceneName;
         LeanTween.alphaCanvas(canvasGroup, to: 1, fadeTime).setOnComplete(OnFadeComplete); // fade to black
-    }
+    }*/
 
     public void OnFadeComplete() // go to next scene
     {
