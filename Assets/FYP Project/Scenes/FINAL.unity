@@ -1421,7 +1421,6 @@ MonoBehaviour:
   LeftCircleMax: 0.035
   TopCircleMin: 0.035
   TopCircleMax: 0.04
-  objextive1: 0
   objextive2: 0
   objextive3: 0
   objextive4: 0
@@ -68446,6 +68445,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   reading1: {fileID: 649821462}
   reading2: {fileID: 1244531189}
+--- !u!114 &1631702571
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 418806269}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc78013a4add6a84ba167d5aa54acc0a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  objectClicker: {fileID: 257056101}
 --- !u!1 &1632449529
 GameObject:
   m_ObjectHideFlags: 0

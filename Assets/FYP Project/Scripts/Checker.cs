@@ -41,7 +41,7 @@ public class Checker : MonoBehaviour
     public float TopCircleMin;
     public float TopCircleMax;
 
-    public bool objextive1 = false;
+    public static bool objextive1 = false;
     public bool objextive2 = false;
     public bool objextive3 = false;
     public bool objextive4 = false;
