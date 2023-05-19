@@ -30397,6 +30397,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 3499529389696601513}
     - target: {fileID: 5104530459662529970, guid: 7a4989db670d3ba4fa887f5f78159557, type: 3}
+      propertyPath: canvasFader
+      value: 
+      objectReference: {fileID: 8286778515609714013}
+    - target: {fileID: 5104530459662529970, guid: 7a4989db670d3ba4fa887f5f78159557, type: 3}
       propertyPath: optionMenuUI
       value: 
       objectReference: {fileID: 929143171}
