@@ -14,6 +14,7 @@ public class PauseMenu : MonoBehaviour
     public GameObject optionMenuUI;
     public GameObject quitPromptPanel;
     public GameObject menuPromptPanel;
+    public GameObject canvasFader;
 
     private FirstPersonController firstPersonController;
 
@@ -50,6 +51,7 @@ public class PauseMenu : MonoBehaviour
         optionMenuUI.SetActive(false);
         quitPromptPanel.SetActive(false);
         menuPromptPanel.SetActive(false);
+        canvasFader.SetActive(true);
         Time.timeScale = 1f;
         GameIsPaused = false;
         Cursor.visible = false;
@@ -68,6 +70,7 @@ public class PauseMenu : MonoBehaviour
         optionMenuUI.SetActive(false);
         quitPromptPanel.SetActive(false);
         menuPromptPanel.SetActive(false);
+        canvasFader.SetActive(false);
         Time.timeScale = 0f;
         GameIsPaused = true;
         Cursor.lockState = CursorLockMode.None;
