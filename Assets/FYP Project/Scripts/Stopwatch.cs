@@ -9,7 +9,7 @@ public class Stopwatch : MonoBehaviour
     public TextMeshProUGUI timeText; // text where time will be displayed
 
     private float time; // variable to store the time
-    private List<float> bestTimes; // list of user's best times
+    private List<float> bestTimes = new List<float>(); // List of the user's 5 best times
 
     public bool timerRunning; // checker if time is running
     public bool conditionsCompleted = false; // checker if conditions are completed or not
@@ -26,6 +26,7 @@ public class Stopwatch : MonoBehaviour
 
     private void Start()
     {
+        bestTimes = new List<float>();
         time = 0f;
         timerRunning = false;
         timeSaved = false;
@@ -59,6 +60,7 @@ public class Stopwatch : MonoBehaviour
 
     public void CompleteConditions() // set conditionsCompleted
     {
+        Debug.Log("Best time byutr");
         conditionsCompleted = true; 
         print("conditions completed:" + conditionsCompleted);
     }

@@ -13,7 +13,7 @@ public class ObjectClicker : MonoBehaviour
     private Transform highlight;
     private RaycastHit raycastHit;
     private Animator anim;
-    public bool zoomedIn = false;
+    public static bool zoomedIn = false;
     private bool isOverObject = false;
     private bool animationInProgress = false;
     private float multiplier = 0.25f;
@@ -26,7 +26,7 @@ public class ObjectClicker : MonoBehaviour
     private GameObject eyePieceObject;
     public KeratometerHelpController helpController;
     public GameObject ExitIcon;
-    public bool ExitActive;
+    public static bool ExitActive;
     private void Start()
     {
         Cursor.lockState = CursorLockMode.None;

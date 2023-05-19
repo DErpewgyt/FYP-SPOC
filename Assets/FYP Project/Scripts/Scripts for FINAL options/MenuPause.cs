@@ -41,6 +41,14 @@ public class MenuPause : MonoBehaviour
 
     public void Resume()
     {
+        if(ObjectClicker.zoomedIn == true)
+        {
+            ObjectClicker.ExitActive = false;
+        }
+        else
+        {
+            ObjectClicker.ExitActive = true;
+        }
         pauseMenuUI.SetActive(false);
         pauseMenuBtn.SetActive(false);
         optionMenuUI.SetActive(false);
@@ -55,6 +63,7 @@ public class MenuPause : MonoBehaviour
 
     void Pause()
     {
+        ObjectClicker.ExitActive = false;
         pauseMenuUI.SetActive(true);
         pauseMenuBtn.SetActive(true);
         optionMenuUI.SetActive(false);

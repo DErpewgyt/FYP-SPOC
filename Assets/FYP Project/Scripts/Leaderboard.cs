@@ -7,7 +7,7 @@ public class Leaderboard : MonoBehaviour
 {
     public List<TextMeshProUGUI> timeTexts; // list of textMeshPro to display the times
 
-    private List<float> bestTimes; // List of the user's 5 best times
+    private List<float> bestTimes = new List<float>(); // List of the user's 5 best times
 
     private string filePath; // file path 
 
@@ -17,6 +17,7 @@ public class Leaderboard : MonoBehaviour
 
     private void Start()
     {
+        bestTimes = new List<float>();
         filePath = Application.dataPath + "/SaveDataFile.json"; // decalre file path
 
         LoadTimes(); // load times from saved file
@@ -35,7 +36,7 @@ public class Leaderboard : MonoBehaviour
 
     private void DisplayTimes()
     { 
-        bestTimes.Sort(); // sort times in ascending order
+        
 
         // display times on textMeshPros
         if (bestTimes.Count == 0)
@@ -48,6 +49,8 @@ public class Leaderboard : MonoBehaviour
         }
         else
         {
+            bestTimes.Sort(); // sort times in ascending order
+
             for (int i = 0; i < timeTexts.Count; i++)
             {
                 if (i < bestTimes.Count)

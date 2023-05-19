@@ -13,7 +13,7 @@ public class SceneChanger : MonoBehaviour
 
     private IEnumerator Start()
     {
-        image = GetComponent<Image>();
+        //image = GetComponent<Image>();
         if (fadeOnStart)
             FadeIn();
         yield return new WaitForSeconds(4);
