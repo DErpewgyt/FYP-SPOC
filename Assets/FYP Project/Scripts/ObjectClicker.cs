@@ -60,19 +60,14 @@ public class ObjectClicker : MonoBehaviour
 
     private void Update()
     {
-        /*        if (!helpController.helpImage.activeInHierarchy)
-                {
-                    return;
-                }*/
-
-        // Highlight
         if (highlight != null)
         {
             highlight.GetComponent<MeshRenderer>().sharedMaterial = originalMaterialHighlight;
             highlight = null;
         }
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-        if (Cursor.visible && !EventSystem.current.IsPointerOverGameObject() && Physics.Raycast(ray, out raycastHit))
+        //if (Cursor.visible && !EventSystem.current.IsPointerOverGameObject() && Physics.Raycast(ray, out raycastHit))
+        if (Cursor.visible && !IsPointerOverGameObjectWithTag("CursorChangeOnly") && Physics.Raycast(ray, out raycastHit))
         {
             highlight = raycastHit.transform;
             if (highlight.CompareTag("Selectable") || highlight.CompareTag("EyePiece") || highlight.CompareTag("Gripper") || highlight.CompareTag("JoyStick") || highlight.CompareTag("LeftKnob") || highlight.CompareTag("RightKnob"))
@@ -105,6 +100,15 @@ public class ObjectClicker : MonoBehaviour
                 }
             }
         }
+        //else if (EventSystem.current.IsPointerOverGameObject())
+        else if (IsPointerOverGameObjectWithTag("CursorChangeOnly"))
+        {
+            if (!isOverObject)
+            {
+                isOverObject = true;
+                Cursor.SetCursor(linkCursorTexture, new Vector2(linkCursorTexture.width * multiplier, linkCursorTexture.height * multiplier), CursorMode.Auto);
+            }
+        }
         else
         {
             if (isOverObject)
@@ -118,7 +122,6 @@ public class ObjectClicker : MonoBehaviour
         {
             if (!animationInProgress)
             {
-                //print("YCMA");
                 ZoomOut();
                 DisableMovements();
             }
@@ -126,42 +129,35 @@ public class ObjectClicker : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Alpha1))
         {
-            //print("YCMA");
             ZoomIn();
             IdentifyInteractable("EyePiece");
         }
 
         if (Input.GetKeyDown(KeyCode.Alpha2))
         {
-            //print("YCMA");
             ZoomIn();
             IdentifyInteractable("JoyStick");
         }
 
         if (Input.GetKeyDown(KeyCode.Alpha3))
         {
-            //print("YCMA");
             ZoomIn();
             IdentifyInteractable("LeftKnob");
         }
 
         if (Input.GetKeyDown(KeyCode.Alpha4))
         {
-            //print("YCMA");
             ZoomIn();
             IdentifyInteractable("Gripper");
         }
 
         if (Input.GetKeyDown(KeyCode.Alpha5))
         {
-            //print("YCMA");
             ZoomIn();
             IdentifyInteractable("RightKnob");
         }
 
         CheckScrollWheelInput();
-
-        //print(currentSelectedObject);
 
         if (ExitActive == true)
         {
@@ -171,9 +167,9 @@ public class ObjectClicker : MonoBehaviour
         {
             ExitIcon.SetActive(false);
         }
-
-
     }
+
+
 
     private void IdentifyInteractable(string tag)
     {
@@ -377,5 +373,24 @@ public class ObjectClicker : MonoBehaviour
         Blur2.SetActive(true);
         animationInProgress = false;
         Cursor.visible = true;  // make cursor visible here
+    }
+
+    private bool IsPointerOverGameObjectWithTag(string tag)
+    {
+        PointerEventData eventDataCurrentPosition = new PointerEventData(EventSystem.current);
+        eventDataCurrentPosition.position = new Vector2(Input.mousePosition.x, Input.mousePosition.y);
+
+        List<RaycastResult> results = new List<RaycastResult>();
+        EventSystem.current.RaycastAll(eventDataCurrentPosition, results);
+
+        foreach (RaycastResult result in results)
+        {
+            if (result.gameObject.CompareTag(tag))
+            {
+                return true;
+            }
+        }
+
+        return false;
     }
 }

@@ -8070,7 +8070,7 @@ GameObject:
   - component: {fileID: 178361460}
   m_Layer: 5
   m_Name: Button
-  m_TagString: Untagged
+  m_TagString: CursorChangeOnly
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8111,6 +8111,7 @@ MonoBehaviour:
   blur: {fileID: 343576632}
   helpButton: {fileID: 178361461}
   clipboard: {fileID: 836766086574530398}
+  returnClinic: {fileID: 1682191354}
 --- !u!114 &178361461
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -25963,7 +25964,7 @@ GameObject:
   - component: {fileID: 610081728}
   m_Layer: 5
   m_Name: Normal
-  m_TagString: Untagged
+  m_TagString: CursorChangeOnly
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -26105,7 +26106,7 @@ GameObject:
   - component: {fileID: 615762913}
   m_Layer: 5
   m_Name: Text
-  m_TagString: Untagged
+  m_TagString: CursorChangeOnly
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -26150,7 +26151,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Reset
+  m_text: Submit
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 84dd14695854bbc43a5faa24fcf93d0d, type: 2}
   m_sharedMaterial: {fileID: 21261991626553910, guid: 84dd14695854bbc43a5faa24fcf93d0d, type: 2}
@@ -26241,7 +26242,7 @@ GameObject:
   - component: {fileID: 615823552}
   m_Layer: 5
   m_Name: Ripple
-  m_TagString: Untagged
+  m_TagString: CursorChangeOnly
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -33653,6 +33654,10 @@ PrefabInstance:
       propertyPath: clicker
       value: 
       objectReference: {fileID: 257056099}
+    - target: {fileID: 8286778516604589186, guid: 698c90553f07f4a4e962a948141912ad, type: 3}
+      propertyPath: fadeTime
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 698c90553f07f4a4e962a948141912ad, type: 3}
 --- !u!114 &793013046 stripped
@@ -43389,7 +43394,7 @@ GameObject:
   - component: {fileID: 1059491199}
   m_Layer: 0
   m_Name: guide
-  m_TagString: Untagged
+  m_TagString: CursorChangeOnly2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -49325,7 +49330,7 @@ GameObject:
   - component: {fileID: 1214937652}
   m_Layer: 5
   m_Name: Highlighted
-  m_TagString: Untagged
+  m_TagString: CursorChangeOnly
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -50381,7 +50386,7 @@ GameObject:
   - component: {fileID: 1243420166}
   m_Layer: 5
   m_Name: Background
-  m_TagString: Untagged
+  m_TagString: CursorChangeOnly
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -58951,7 +58956,7 @@ GameObject:
   - component: {fileID: 1437293876}
   m_Layer: 5
   m_Name: Background
-  m_TagString: Untagged
+  m_TagString: CursorChangeOnly
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -66734,7 +66739,7 @@ GameObject:
   - component: {fileID: 1587122754}
   m_Layer: 5
   m_Name: Background
-  m_TagString: Untagged
+  m_TagString: CursorChangeOnly
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -67919,8 +67924,9 @@ GameObject:
   - component: {fileID: 1620714940}
   - component: {fileID: 1620714939}
   - component: {fileID: 1620714938}
+  - component: {fileID: 1620714942}
   m_Layer: 5
-  m_Name: Canvas
+  m_Name: helpicon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -68008,6 +68014,19 @@ RectTransform:
   m_AnchoredPosition: {x: 3.03, y: -0.49}
   m_SizeDelta: {x: 90, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!65 &1620714942
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1620714937}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 29.850327, y: 30.868582, z: 1}
+  m_Center: {x: -0.27446872, y: -0.4598868, z: 0}
 --- !u!1 &1621032047
 GameObject:
   m_ObjectHideFlags: 0
@@ -68431,6 +68450,7 @@ MonoBehaviour:
   blur: {fileID: 343576632}
   helpButton: {fileID: 178361461}
   clipboard: {fileID: 836766086574530398}
+  returnClinic: {fileID: 1682191354}
 --- !u!114 &1631702569
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -70473,7 +70493,7 @@ GameObject:
   - component: {fileID: 1682191356}
   m_Layer: 5
   m_Name: Button
-  m_TagString: Untagged
+  m_TagString: CursorChangeOnly
   m_Icon: {fileID: 2800000, guid: 98d001ce6b3b53242911dcc3d1415f59, type: 3}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -70791,7 +70811,7 @@ GameObject:
   - component: {fileID: 1682849831}
   m_Layer: 5
   m_Name: Text
-  m_TagString: Untagged
+  m_TagString: CursorChangeOnly
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -71484,7 +71504,7 @@ GameObject:
   - component: {fileID: 1702143420}
   m_Layer: 5
   m_Name: Background
-  m_TagString: Untagged
+  m_TagString: CursorChangeOnly
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -71560,7 +71580,7 @@ GameObject:
   - component: {fileID: 1706976614}
   m_Layer: 5
   m_Name: Highlighted
-  m_TagString: Untagged
+  m_TagString: CursorChangeOnly
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -74615,7 +74635,7 @@ GameObject:
   - component: {fileID: 1779813652}
   m_Layer: 5
   m_Name: Submit
-  m_TagString: Untagged
+  m_TagString: CursorChangeOnly
   m_Icon: {fileID: 2800000, guid: 98d001ce6b3b53242911dcc3d1415f59, type: 3}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -87888,7 +87908,7 @@ GameObject:
   - component: {fileID: 2090205859}
   m_Layer: 5
   m_Name: Normal
-  m_TagString: Untagged
+  m_TagString: CursorChangeOnly
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -95560,7 +95580,7 @@ GameObject:
   - component: {fileID: 6217763896061763598}
   m_Layer: 5
   m_Name: Highlighted
-  m_TagString: Untagged
+  m_TagString: CursorChangeOnly
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -95827,7 +95847,7 @@ GameObject:
   - component: {fileID: 6217763896122357620}
   m_Layer: 5
   m_Name: Ripple
-  m_TagString: Untagged
+  m_TagString: CursorChangeOnly
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -96130,7 +96150,7 @@ GameObject:
   - component: {fileID: 6217763896265535604}
   m_Layer: 5
   m_Name: Reset
-  m_TagString: Untagged
+  m_TagString: CursorChangeOnly
   m_Icon: {fileID: 2800000, guid: 98d001ce6b3b53242911dcc3d1415f59, type: 3}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -96370,7 +96390,7 @@ GameObject:
   - component: {fileID: 6217763896338462507}
   m_Layer: 5
   m_Name: Text
-  m_TagString: Untagged
+  m_TagString: CursorChangeOnly
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -96430,7 +96450,7 @@ GameObject:
   - component: {fileID: 6217763896364755180}
   m_Layer: 5
   m_Name: Normal
-  m_TagString: Untagged
+  m_TagString: CursorChangeOnly
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -96490,7 +96510,7 @@ GameObject:
   - component: {fileID: 6217763896383346531}
   m_Layer: 5
   m_Name: Normal
-  m_TagString: Untagged
+  m_TagString: CursorChangeOnly
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -96647,7 +96667,7 @@ GameObject:
   - component: {fileID: 6217763896615311082}
   m_Layer: 5
   m_Name: LeaderBoard btn
-  m_TagString: Untagged
+  m_TagString: CursorChangeOnly
   m_Icon: {fileID: 2800000, guid: 98d001ce6b3b53242911dcc3d1415f59, type: 3}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -96769,7 +96789,7 @@ GameObject:
   - component: {fileID: 6217763896620834456}
   m_Layer: 5
   m_Name: Background
-  m_TagString: Untagged
+  m_TagString: CursorChangeOnly
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -96912,7 +96932,7 @@ GameObject:
   - component: {fileID: 6217763896757499329}
   m_Layer: 5
   m_Name: Text
-  m_TagString: Untagged
+  m_TagString: CursorChangeOnly
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -97065,7 +97085,7 @@ GameObject:
   - component: {fileID: 6217763896950618126}
   m_Layer: 5
   m_Name: Background
-  m_TagString: Untagged
+  m_TagString: CursorChangeOnly
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -97656,7 +97676,7 @@ GameObject:
   - component: {fileID: 6217763897169677285}
   m_Layer: 5
   m_Name: Ripple
-  m_TagString: Untagged
+  m_TagString: CursorChangeOnly
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -98183,7 +98203,7 @@ GameObject:
   - component: {fileID: 6217763897628373563}
   m_Layer: 5
   m_Name: Text
-  m_TagString: Untagged
+  m_TagString: CursorChangeOnly
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -98259,7 +98279,7 @@ GameObject:
   - component: {fileID: 6217763897805700781}
   m_Layer: 5
   m_Name: Background
-  m_TagString: Untagged
+  m_TagString: CursorChangeOnly
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -98335,7 +98355,7 @@ GameObject:
   - component: {fileID: 6217763897960347896}
   m_Layer: 5
   m_Name: Background
-  m_TagString: Untagged
+  m_TagString: CursorChangeOnly
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -98375,7 +98395,7 @@ GameObject:
   - component: {fileID: 6217763898067015575}
   m_Layer: 5
   m_Name: Highlighted
-  m_TagString: Untagged
+  m_TagString: CursorChangeOnly
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -98413,7 +98433,7 @@ GameObject:
   - component: {fileID: 6217763898121390574}
   m_Layer: 5
   m_Name: Text
-  m_TagString: Untagged
+  m_TagString: CursorChangeOnly
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

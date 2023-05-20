@@ -8,6 +8,7 @@ public class ClickAwayController : MonoBehaviour
     public GameObject blur;
     public Button helpButton;
     public GameObject clipboard;
+    public GameObject returnClinic;
 
     void Update()
     {
@@ -22,6 +23,7 @@ public class ClickAwayController : MonoBehaviour
                     guide.SetActive(false);
                     blur.SetActive(false);
                     clipboard.SetActive(true);
+                    returnClinic.SetActive(true);
                     helpButton.gameObject.SetActive(true);
                 }
             }
@@ -30,6 +32,7 @@ public class ClickAwayController : MonoBehaviour
                 guide.SetActive(false);
                 blur.SetActive(false);
                 clipboard.SetActive(true);
+                returnClinic.SetActive(true);
                 helpButton.gameObject.SetActive(true);
             }
         }

@@ -7,6 +7,7 @@ public class KeratometerHelpController : MonoBehaviour
     public GameObject blur;
     public Button helpButton;
     public GameObject clipboard;
+    public GameObject returnClinic;
 
     public void OnHelpButtonClick()
     {
@@ -16,5 +17,6 @@ public class KeratometerHelpController : MonoBehaviour
         helpButton.gameObject.SetActive(!isHelpImageActive);
         //helpButton.SetActive(false);
         clipboard.gameObject.SetActive(!isHelpImageActive);
+        returnClinic.gameObject.SetActive(!isHelpImageActive);
     }
 }

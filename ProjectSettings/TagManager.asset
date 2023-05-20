@@ -20,6 +20,8 @@ TagManager:
   - JoyStickImage
   - Door
   - PauseMenu
+  - CursorChangeOnly
+  - CursorChangeOnly2
   layers:
   - Default
   - TransparentFX
