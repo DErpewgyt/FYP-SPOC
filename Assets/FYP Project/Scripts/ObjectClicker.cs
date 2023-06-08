@@ -357,15 +357,6 @@ public class ObjectClicker : MonoBehaviour
         Cursor.visible = true;
         animationInProgress = false;
     }
-
-    private IEnumerator ActivateBlurAfterDelay(float delay)
-    {
-        yield return new WaitForSeconds(delay);
-        Blur.SetActive(true);
-        Blur2.SetActive(true);
-        animationInProgress = false;
-    }
-
     private IEnumerator ActivateBlurAndShowCursorAfterDelay(float delay)
     {
         yield return new WaitForSeconds(delay);
