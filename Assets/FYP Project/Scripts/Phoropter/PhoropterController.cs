@@ -5,9 +5,9 @@ public class PhoropterController : MonoBehaviour
     public Material highlightMaterial;
     public Texture2D linkCursorTexture;
     private float multiplier = 0.25f;
-
     private Transform highlight;
-    private Material originalMaterialHighlight;
+    private Material[] originalMaterials;
+    private Renderer highlightRenderer;
     private bool isOverObject;
 
     private void Update()
@@ -16,9 +16,9 @@ public class PhoropterController : MonoBehaviour
 
         if (Physics.Raycast(ray, out RaycastHit hit))
         {
-            if (hit.collider.gameObject.CompareTag("PhoropterComponent"))
+            if (IsComponentTag(hit.collider.gameObject.tag))
             {
-                // Handle the interaction with the specific phoropter component
+                // phoropterComponent is whatever valid component that is hit w raycast
                 GameObject phoropterComponent = hit.collider.gameObject;
 
                 // Highlight the phoropter component
@@ -26,17 +26,25 @@ public class PhoropterController : MonoBehaviour
                 {
                     ClearHighlight();
                     highlight = phoropterComponent.transform;
-                    originalMaterialHighlight = highlight.GetComponent<MeshRenderer>().material;
-                    highlight.GetComponent<MeshRenderer>().material = highlightMaterial;
+                    highlightRenderer = highlight.GetComponent<Renderer>();
+                    originalMaterials = highlightRenderer.materials;
+                    Material[] highlightMaterials = new Material[originalMaterials.Length];
+
+                    for (int i = 0; i < originalMaterials.Length; i++)
+                    {
+                        highlightMaterials[i] = highlightMaterial;
+                    }
+
+                    highlightRenderer.materials = highlightMaterials;
                 }
 
-                // Set the cursor to the linkCursorTexture
+                // Set the cursor to custom clicker
                 SetCursor(linkCursorTexture);
                 isOverObject = true;
             }
             else
             {
-                // Clear highlight if the raycast is off the phoropter component
+                // Clear highlight if the raycast is off the valid phoropter component
                 ClearHighlight();
                 ResetCursor();
                 isOverObject = false;
@@ -44,10 +52,21 @@ public class PhoropterController : MonoBehaviour
         }
         else
         {
-            // Clear highlight if the raycast doesn't hit any object
+            // Clear the highlight if raycast never hit valid phoropter component
             ClearHighlight();
             ResetCursor();
             isOverObject = false;
+        }
+
+        //if leftclicked and isOverObject check is true, Identify which component is clicked based on the respective tags
+        if (Input.GetMouseButtonDown(0))
+        {
+            if (isOverObject)
+            {
+                // Execute the functionality based on the tag
+                string tag = highlight.gameObject.tag;
+                IdentifyInteractable(tag);
+            }
         }
     }
 
@@ -63,10 +82,110 @@ public class PhoropterController : MonoBehaviour
 
     private void ClearHighlight()
     {
-        if (highlight != null)
+        if (highlight != null && originalMaterials != null)
         {
-            highlight.GetComponent<MeshRenderer>().material = originalMaterialHighlight;
+            highlightRenderer.materials = originalMaterials;
             highlight = null;
+            originalMaterials = null;
         }
     }
+
+    private bool IsComponentTag(string tag)
+    {
+        // Check if the tag is valid
+        return tag == "PupillaryDistanceKnobLeft" ||
+               tag == "PupillaryDistanceKnobRight" ||
+               tag == "OpenAndCloseKnobLeft" ||
+               tag == "OpenAndCloseKnobRight" ||
+               tag == "ShortAndLongSightedGearLeft" ||
+               tag == "ShortAndLongSightedGearRight" ||
+               tag == "AstigmatismLensLeft" ||
+               tag == "AstigmatismLensRight" ||
+               tag == "AstigmatismMagnitudeKnobLeft" ||
+               tag == "AstigmatismMagnitudeKnobRight" ||
+               tag == "AstigmatismAxisKnobLeft" ||
+               tag == "AstigmatismAxisKnobRight";
+    }
+
+    private void IdentifyInteractable(string tag)
+    {
+        switch (tag)
+        {
+            // Handle functionality for PupillaryDistanceKnobLeft
+            case "PupillaryDistanceKnobLeft":
+                print("PupillaryDistanceKnobLeft clicked");
+                break;
+
+
+            // Handle functionality for PupillaryDistanceKnobRight
+            case "PupillaryDistanceKnobRight":
+                print("PupillaryDistanceKnobRight clicked");
+                break;
+
+
+            // Handle functionality for OpenAndCloseKnobLeft
+            case "OpenAndCloseKnobLeft":
+                print("OpenAndCloseKnobLeft clicked");
+                break;
+
+
+            // Handle functionality for OpenAndCloseKnobRight
+            case "OpenAndCloseKnobRight":
+                print("OpenAndCloseKnobRight clicked");
+                break;
+
+            // Handle functionality for ShortAndLongSightedGearLeft
+            case "ShortAndLongSightedGearLeft":
+                print("ShortAndLongSightedGearLeft clicked");
+
+                break;
+
+
+            // Handle functionality for ShortAndLongSightedGearRight
+            case "ShortAndLongSightedGearRight":
+                print("ShortAndLongSightedGearRight clicked");
+                break;
+
+
+            // Handle functionality for AstigmatismLensLeft
+            case "AstigmatismLensLeft":
+                print("AstigmatismLensLeft clicked");
+                break;
+
+
+            // Handle functionality for AstigmatismLensRight
+            case "AstigmatismLensRight":
+                print("AstigmatismLensRight clicked");
+                break;
+
+
+            // Handle functionality for AstigmatismMagnitudeKnobLeft
+            case "AstigmatismMagnitudeKnobLeft":
+                print("AstigmatismMagnitudeKnobLeft clicked");
+                break;
+
+
+            // Handle functionality for AstigmatismMagnitudeKnobRight
+            case "AstigmatismMagnitudeKnobRight":
+                print("AstigmatismMagnitudeKnobRight clicked");
+                break;
+
+
+            // Handle functionality for AstigmatismAxisKnobLeft
+            case "AstigmatismAxisKnobLeft":
+                print("AstigmatismAxisKnobLeft clicked");
+                break;
+
+
+            // Handle functionality for AstigmatismAxisKnobRight
+            case "AstigmatismAxisKnobRight":
+                print("AstigmatismAxisKnobRight clicked");
+                break;
+
+
+            default:
+                break;
+        }
+    }
+
 }

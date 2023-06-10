@@ -23,6 +23,18 @@ TagManager:
   - CursorChangeOnly
   - CursorChangeOnly2
   - PhoropterComponent
+  - OpenAndCloseKnobLeft
+  - OpenAndCloseKnobRight
+  - AstigmatismLensLeft
+  - AstigmatismLensRight
+  - AstigmatismMagnitudeKnobLeft
+  - AstigmatismAxisKnobLeft
+  - AstigmatismMagnitudeKnobRight
+  - AstigmatismAxisKnobRight
+  - ShortAndLongSightedGearLeft
+  - ShortAndLongSightedGearRight
+  - PupillaryDistanceKnobLeft
+  - PupillaryDistanceKnobRight
   layers:
   - Default
   - TransparentFX
