@@ -10,6 +10,8 @@ public class PhoropterController : MonoBehaviour
     private Renderer highlightRenderer;
     private bool isOverObject;
 
+    public ShortLongSightMovement ShortLongSightScript;
+
     private void Update()
     {
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
@@ -109,6 +111,7 @@ public class PhoropterController : MonoBehaviour
 
     private void IdentifyInteractable(string tag)
     {
+        DisableAll();
         switch (tag)
         {
             // Handle functionality for PupillaryDistanceKnobLeft
@@ -136,6 +139,7 @@ public class PhoropterController : MonoBehaviour
 
             // Handle functionality for ShortAndLongSightedGearLeft
             case "ShortAndLongSightedGearLeft":
+                ShortLongSightScript.LeftLSSightBool = true;
                 print("ShortAndLongSightedGearLeft clicked");
 
                 break;
@@ -143,6 +147,7 @@ public class PhoropterController : MonoBehaviour
 
             // Handle functionality for ShortAndLongSightedGearRight
             case "ShortAndLongSightedGearRight":
+                ShortLongSightScript.RightLSSightBool = true;
                 print("ShortAndLongSightedGearRight clicked");
                 break;
 
@@ -186,6 +191,12 @@ public class PhoropterController : MonoBehaviour
             default:
                 break;
         }
+    }
+
+    private void DisableAll()
+    {
+        ShortLongSightScript.LeftLSSightBool = false;
+        ShortLongSightScript.RightLSSightBool = false;
     }
 
 }
