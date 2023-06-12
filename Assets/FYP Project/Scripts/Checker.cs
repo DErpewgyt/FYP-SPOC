@@ -50,6 +50,8 @@ public class Checker : MonoBehaviour
     public static bool saved = false;
     public GameObject submit;
     public GameObject readings;
+    public GameObject checklist;
+    public GameObject images;
     private void Start()
     {
         FocusBlackCircle.isOn = false;
@@ -78,12 +80,17 @@ public class Checker : MonoBehaviour
         if (objextive1 && objextive2 && objextive3 && objextive4)
         {
             readings.SetActive(true);
+            checklist.SetActive(false);
+            images.SetActive(false);
+
             Cursor.visible = true;
         }
         else
         {
             submit.SetActive(false);
             readings.SetActive(false);
+            checklist.SetActive(true);
+            images.SetActive(true);
         }
 
         BlackCircleBlur = Vector3.Distance(BlackCircle.transform.position, BlackCircleOptimalDist.transform.position);
