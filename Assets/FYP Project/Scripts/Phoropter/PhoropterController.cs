@@ -10,6 +10,8 @@ public class PhoropterController : MonoBehaviour
     private Renderer highlightRenderer;
     private bool isOverObject;
 
+    public GameObject PDManager;
+
     private void Update()
     {
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
@@ -114,12 +116,14 @@ public class PhoropterController : MonoBehaviour
             // Handle functionality for PupillaryDistanceKnobLeft
             case "PupillaryDistanceKnobLeft":
                 print("PupillaryDistanceKnobLeft clicked");
+                PDManager.SetActive(true);
                 break;
 
 
             // Handle functionality for PupillaryDistanceKnobRight
             case "PupillaryDistanceKnobRight":
                 print("PupillaryDistanceKnobRight clicked");
+                PDManager.SetActive(true);
                 break;
 
 

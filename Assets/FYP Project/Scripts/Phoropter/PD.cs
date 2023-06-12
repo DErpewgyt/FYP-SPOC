@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class PD : MonoBehaviour
 {
-    public TextMeshProUGUI textMeshPro;
+    public TextMeshProUGUI PDText;
     private int pd;
 
     private void Awake()
@@ -19,13 +19,13 @@ public class PD : MonoBehaviour
         if (scrollInput != 0f)
         {
             pd += (int)Mathf.Sign(scrollInput);
-            pd = Mathf.Clamp(pd, 0, 20); // Limit pd to a range of 0 to 20
+            pd = Mathf.Clamp(pd, 0, 10); // Limit pd to a range of 0 to 20
             UpdateTmp();
         }
     }
 
     private void UpdateTmp()
     {
-        textMeshPro.text = pd.ToString();
+        PDText.text = pd.ToString();
     }
 }
