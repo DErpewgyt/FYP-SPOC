@@ -11,6 +11,8 @@ public class PhoropterController : MonoBehaviour
     private bool isOverObject;
 
     public GameObject PDManager;
+    public GameObject RulerController;
+    public GameObject Ruler;
     /*public ShortLongSightMovement ShortLongSightScript;*/
 
     private void Update()
@@ -119,6 +121,8 @@ public class PhoropterController : MonoBehaviour
             case "PupillaryDistanceKnobLeft":
                 print("PupillaryDistanceKnobLeft clicked");
                 PDManager.SetActive(true);
+                Ruler.SetActive(true);
+                RulerController.SetActive(true);
                 break;
 
 
@@ -126,6 +130,8 @@ public class PhoropterController : MonoBehaviour
             case "PupillaryDistanceKnobRight":
                 print("PupillaryDistanceKnobRight clicked");
                 PDManager.SetActive(true);
+                Ruler.SetActive(true);
+                RulerController.SetActive(true);
                 break;
 
 
@@ -199,6 +205,8 @@ public class PhoropterController : MonoBehaviour
     private void DisableAll()
     {
         PDManager.SetActive(false);
+        Ruler.SetActive(false);
+        RulerController.SetActive(false);
         /*ShortLongSightScript.LeftLSSightBool = false;*/
         /*ShortLongSightScript.RightLSSightBool = false;*/
     }
