@@ -14,6 +14,8 @@ public class PhoropterController : MonoBehaviour
     public GameObject RulerController;
     public GameObject Ruler;
     /*public ShortLongSightMovement ShortLongSightScript;*/
+    public ShortLongSightMovement ShortLongSightScript;
+    public GameObject OpenCloseManager;
 
     private void Update()
     {
@@ -138,12 +140,14 @@ public class PhoropterController : MonoBehaviour
             // Handle functionality for OpenAndCloseKnobLeft
             case "OpenAndCloseKnobLeft":
                 print("OpenAndCloseKnobLeft clicked");
+                //OpenCloseManager.SetActive(true);
                 break;
 
 
             // Handle functionality for OpenAndCloseKnobRight
             case "OpenAndCloseKnobRight":
                 print("OpenAndCloseKnobRight clicked");
+                //OpenCloseManager.SetActive(true);
                 break;
 
             // Handle functionality for ShortAndLongSightedGearLeft
