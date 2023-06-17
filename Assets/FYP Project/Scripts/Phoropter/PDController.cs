@@ -24,14 +24,14 @@ public class PDController : MonoBehaviour
     {
         float scrollInput = Input.GetAxis("Mouse ScrollWheel");
 
-        if (scrollInput > 0 && scrollLimit < 11)
+        if (scrollInput > 0 && scrollLimit < 21)
         {
             // Scroll outwards
             leftHalf.transform.position -= scrollDirection;
             rightHalf.transform.position += scrollDirection;
             scrollLimit += 1;
             pd += 1;
-            pd = Mathf.Clamp(pd, 0, 10);
+            pd = Mathf.Clamp(pd, 0, 20);
             UpdateTmp();
         }
         else if (scrollInput < 0 && scrollLimit > 0)
@@ -41,7 +41,7 @@ public class PDController : MonoBehaviour
             rightHalf.transform.position -= scrollDirection;
             scrollLimit -= 1;
             pd -= 1;
-            pd = Mathf.Clamp(pd, 0, 10);
+            pd = Mathf.Clamp(pd, 0, 20);
             UpdateTmp();
         }
     }
