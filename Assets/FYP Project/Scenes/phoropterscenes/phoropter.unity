@@ -3831,6 +3831,7 @@ MeshRenderer:
   m_RendererPriority: 0
   m_Materials:
   - {fileID: -1732466927440181278, guid: 92ac2c59f0b5c78439abe9895c9e7077, type: 3}
+  - {fileID: -1732466927440181278, guid: 92ac2c59f0b5c78439abe9895c9e7077, type: 3}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -10487,6 +10488,7 @@ MeshRenderer:
   m_Materials:
   - {fileID: 2100000, guid: 2f736957821683f44beabc9a5a503ebc, type: 2}
   - {fileID: 2100000, guid: 14d4684acc981a94e8e146c1d6518f71, type: 2}
+  - {fileID: 2100000, guid: 14d4684acc981a94e8e146c1d6518f71, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -11587,7 +11589,7 @@ GameObject:
   - component: {fileID: 3703039934850604522}
   - component: {fileID: 2461004943337410079}
   - component: {fileID: 8220542118891780171}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: AstigmatismLensLeft
   m_TagString: AstigmatismLensLeft
   m_Icon: {fileID: 0}
