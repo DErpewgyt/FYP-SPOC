@@ -5,8 +5,7 @@ public class PhoropterController : MonoBehaviour
     public Texture2D linkCursorTexture;
     private float multiplier = 0.25f;
     private bool isOverObject;
-    public LayerMask outlineLayerMask;
-
+    private GameObject highlightedObject;
     public GameObject PDManager;
     public GameObject RulerController;
     public GameObject Ruler;
@@ -21,42 +20,68 @@ public class PhoropterController : MonoBehaviour
         {
             if (IsComponentTag(hit.collider.gameObject.tag))
             {
-                // Set the cursor to custom clicker
-                if (hit.collider.gameObject.layer != LayerMask.NameToLayer("Outline Objects"))
+                // Check if highlighted object has changed
+                if (hit.collider.gameObject != highlightedObject)
                 {
-                    hit.collider.gameObject.layer = LayerMask.NameToLayer("Outline Objects");
+                    // Reset the layer of the previously highlighted object if any
+                    if (highlightedObject != null)
+                    {
+                        highlightedObject.layer = LayerMask.NameToLayer("Default");
+                    }
+
+                    // Set the new highlighted object
+                    highlightedObject = hit.collider.gameObject;
+
+                    // Set the cursor to custom clicker
+                    highlightedObject.layer = LayerMask.NameToLayer("Outline Objects");
+                    SetCursor(linkCursorTexture);
                 }
 
-                SetCursor(linkCursorTexture);
+                // Update the flag indicating the mouse is over a valid object
                 isOverObject = true;
             }
             else
             {
+                // Reset the layer and highlighted object
+                if (highlightedObject != null)
+                {
+                    highlightedObject.layer = LayerMask.NameToLayer("Default");
+                    highlightedObject = null;
+                }
+
                 ResetCursor();
                 isOverObject = false;
             }
         }
         else
         {
+            // Reset the layer and highlighted object
+            if (highlightedObject != null)
+            {
+                highlightedObject.layer = LayerMask.NameToLayer("Default");
+                highlightedObject = null;
+            }
+
             ResetCursor();
             isOverObject = false;
         }
 
-        //if leftclicked and isOverObject check is true, Identify which component is clicked based on the respective tags
+        // If left-clicked and isOverObject is true, identify the clicked component
         if (Input.GetMouseButtonDown(0))
         {
             if (isOverObject)
             {
                 // Execute the functionality based on the tag
-                string tag = hit.collider.gameObject.tag;
+                string tag = highlightedObject.tag;
                 IdentifyInteractable(tag);
+
             }
         }
     }
 
     private void SetCursor(Texture2D cursorTexture)
     {
-        Cursor.SetCursor(linkCursorTexture, new Vector2(linkCursorTexture.width * multiplier, linkCursorTexture.height * multiplier), CursorMode.Auto);
+        Cursor.SetCursor(cursorTexture, new Vector2(cursorTexture.width * multiplier, cursorTexture.height * multiplier), CursorMode.Auto);
     }
 
     private void ResetCursor()
@@ -94,7 +119,6 @@ public class PhoropterController : MonoBehaviour
                 RulerController.SetActive(true);
                 break;
 
-
             // Handle functionality for PupillaryDistanceKnobRight
             case "PupillaryDistanceKnobRight":
                 print("PupillaryDistanceKnobRight clicked");
@@ -103,13 +127,11 @@ public class PhoropterController : MonoBehaviour
                 RulerController.SetActive(true);
                 break;
 
-
             // Handle functionality for OpenAndCloseKnobLeft
             case "OpenAndCloseKnobLeft":
                 print("OpenAndCloseKnobLeft clicked");
                 //OpenCloseManager.SetActive(true);
                 break;
-
 
             // Handle functionality for OpenAndCloseKnobRight
             case "OpenAndCloseKnobRight":
@@ -121,9 +143,7 @@ public class PhoropterController : MonoBehaviour
             case "ShortAndLongSightedGearLeft":
                 ShortLongSightScript.LeftLSSightBool = true;
                 print("ShortAndLongSightedGearLeft clicked");
-
                 break;
-
 
             // Handle functionality for ShortAndLongSightedGearRight
             case "ShortAndLongSightedGearRight":
@@ -131,42 +151,35 @@ public class PhoropterController : MonoBehaviour
                 print("ShortAndLongSightedGearRight clicked");
                 break;
 
-
             // Handle functionality for AstigmatismLensLeft
             case "AstigmatismLensLeft":
                 print("AstigmatismLensLeft clicked");
                 break;
-
 
             // Handle functionality for AstigmatismLensRight
             case "AstigmatismLensRight":
                 print("AstigmatismLensRight clicked");
                 break;
 
-
             // Handle functionality for AstigmatismMagnitudeKnobLeft
             case "AstigmatismMagnitudeKnobLeft":
                 print("AstigmatismMagnitudeKnobLeft clicked");
                 break;
-
 
             // Handle functionality for AstigmatismMagnitudeKnobRight
             case "AstigmatismMagnitudeKnobRight":
                 print("AstigmatismMagnitudeKnobRight clicked");
                 break;
 
-
             // Handle functionality for AstigmatismAxisKnobLeft
             case "AstigmatismAxisKnobLeft":
                 print("AstigmatismAxisKnobLeft clicked");
                 break;
 
-
             // Handle functionality for AstigmatismAxisKnobRight
             case "AstigmatismAxisKnobRight":
                 print("AstigmatismAxisKnobRight clicked");
                 break;
-
 
             default:
                 break;
@@ -181,5 +194,4 @@ public class PhoropterController : MonoBehaviour
         ShortLongSightScript.LeftLSSightBool = false;
         ShortLongSightScript.RightLSSightBool = false;
     }
-
 }
