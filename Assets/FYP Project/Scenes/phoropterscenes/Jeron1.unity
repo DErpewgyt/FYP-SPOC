@@ -3965,8 +3965,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6598177d92c692940b03a912d995b8d4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  highlightMaterial: {fileID: 2100000, guid: 13733c3dbd182fa4ca488880c244e428, type: 2}
   linkCursorTexture: {fileID: 2800000, guid: 9b06c0d8b4e8fa6448f481781b52a3ba, type: 3}
+  outlineLayerMask:
+    serializedVersion: 2
+    m_Bits: 0
+  PDManager: {fileID: 0}
+  RulerController: {fileID: 0}
+  Ruler: {fileID: 0}
   ShortLongSightScript: {fileID: 1561380653}
 --- !u!1 &1028790175
 GameObject:
