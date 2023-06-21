@@ -2,14 +2,14 @@ using UnityEngine;
 
 public class RulerController : MonoBehaviour
 {
-    public GameObject ruler;
-    public GameObject miniRuler;
+    public RectTransform ruler;
+    public RectTransform miniRuler;
 
     public int rulerDist;
     public int rulerLimit;
 
-    public Vector3 RulerScroll = new Vector3(1f, 0f, 0f);
-    public Vector3 MiniRulerScroll = new Vector3(1f, 0f, 0f);
+    public float rulerScroll;
+    public float miniRulerScroll;
 
     private void Start()
     {
@@ -23,15 +23,16 @@ public class RulerController : MonoBehaviour
         if (scrollInput > 0 && rulerDist < rulerLimit)
         {
             // Increase
-            ruler.transform.position -= RulerScroll;
-            miniRuler.transform.position -= MiniRulerScroll;
+            print("increasing");
+            ruler.anchoredPosition -= new Vector2(rulerScroll, 0f);
+            miniRuler.anchoredPosition -= new Vector2(miniRulerScroll, 0f);
             rulerDist += 1;
         }
         else if (scrollInput < 0 && rulerDist > 0)
         {
             // Decrease
-            ruler.transform.position += RulerScroll;
-            miniRuler.transform.position += MiniRulerScroll;
+            ruler.anchoredPosition += new Vector2(rulerScroll, 0f);
+            miniRuler.anchoredPosition += new Vector2(miniRulerScroll, 0f);
             rulerDist -= 1;
         }
     }
