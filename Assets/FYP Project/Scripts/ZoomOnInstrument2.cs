@@ -2,14 +2,15 @@ using Cinemachine;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using System.Collections.Generic;
 
-public class ZoomOnInstrument1FINAL : MonoBehaviour
+public class ZoomOnInstrument2 : MonoBehaviour
 {
     [SerializeField] private CinemachineVirtualCamera cam;
-    [SerializeField] private Animator newkeratometer;
+    [SerializeField] private Animator dissectedphoropter;
     [SerializeField] private Animator tablestand;
     [SerializeField] private Animator phoropterstand;
-    [SerializeField] private Animator phoropter;
+    [SerializeField] private Animator keratometer;
 
     public Transform cameraTransform;
     public Transform cameraCapTransform;
@@ -39,26 +40,32 @@ public class ZoomOnInstrument1FINAL : MonoBehaviour
 
     private bool canPlayAnimator = false; // flag to control animator playback
 
+    private Dictionary<Animator, string> animatorDictionary = new Dictionary<Animator, string>(); // Dictionary to store animators and their animation names
+
     private void Start()
     {
         currentFOV = cam.m_Lens.FieldOfView; // get current fov
 
-        // Disable the animator component on start
-        if (newkeratometer != null)
+        // Disable the animator components on start
+        if (dissectedphoropter != null)
         {
-            newkeratometer.enabled = false;
+            dissectedphoropter.enabled = false;
+            animatorDictionary.Add(dissectedphoropter, "DissectedPhoropterAnimation");
         }
         if (tablestand != null)
         {
             tablestand.enabled = false;
+            animatorDictionary.Add(tablestand, "TableStandAnimPhoropt");
         }
         if (phoropterstand != null)
         {
             phoropterstand.enabled = false;
+            animatorDictionary.Add(phoropterstand, "phoropterStandTransit");
         }
-        if (phoropter != null)
+        if (keratometer != null)
         {
-            phoropter.enabled = false;
+            keratometer.enabled = false;
+            animatorDictionary.Add(keratometer, "phoropterTransitMoveKera");
         }
 
         // Enable animator playback after a short delay
@@ -73,17 +80,11 @@ public class ZoomOnInstrument1FINAL : MonoBehaviour
 
     private bool IsAnimatorPlaying()
     {
-        if (newkeratometer != null && newkeratometer.GetCurrentAnimatorStateInfo(0).normalizedTime < 1f)
-            return true;
-
-        if (tablestand != null && tablestand.GetCurrentAnimatorStateInfo(0).normalizedTime < 1f)
-            return true;
-
-        if (phoropterstand != null && phoropterstand.GetCurrentAnimatorStateInfo(0).normalizedTime < 1f)
-            return true;
-
-        if (phoropter != null && phoropter.GetCurrentAnimatorStateInfo(0).normalizedTime < 1f)
-            return true;
+        foreach (var animator in animatorDictionary.Keys)
+        {
+            if (animator.GetCurrentAnimatorStateInfo(0).normalizedTime < 1f)
+                return true;
+        }
 
         return false;
     }
@@ -97,21 +98,21 @@ public class ZoomOnInstrument1FINAL : MonoBehaviour
             if (Physics.Raycast(ray, out hit, raycastDistance)) // check if raycast hit anything
             {
                 Debug.Log("Hit object: " + hit.transform.name); // print whatever raycast hits
-                if (hit.transform.name == "newkeratometer") // if keratometer is clicked
+                if (hit.transform.name == "dissectedphoropter") // if dissectedphoropter is clicked
                 {
                     Debug.Log("Clicked");
-                    // Your code here to handle the left-click on the "newkeratometer" game object
+                    // Your code here to handle the left-click on the "dissectedphoropter" game object
                     controls.SetActive(false);
                     LeanTween.alphaCanvas(canvasGroup, to: 1, fadeTime).setOnComplete(OnFadeComplete);
                     StartCoroutine(ZoomIn());
 
-                    if (canPlayAnimator && newkeratometer != null)
+                    if (canPlayAnimator)
                     {
-                        newkeratometer.enabled = true; // Enable the animator component
-                        tablestand.enabled = true; // Enable the animator component
-                        phoropterstand.enabled = true; // Enable the animator component
-                        phoropter.enabled = true; // Enable the animator component
-                        newkeratometer.SetTrigger("PlayAnimation"); // Play the animator trigger
+                        foreach (var animator in animatorDictionary.Keys)
+                        {
+                            animator.enabled = true; // Enable the animator component
+                            animator.Play(animatorDictionary[animator]); // Play the corresponding animation
+                        }
                     }
                 }
             }
@@ -121,17 +122,10 @@ public class ZoomOnInstrument1FINAL : MonoBehaviour
         if (!IsAnimatorPlaying())
         {
             // Disable the animator components
-            if (newkeratometer != null)
-                newkeratometer.enabled = false;
-
-            if (tablestand != null)
-                tablestand.enabled = false;
-
-            if (phoropterstand != null)
-                phoropterstand.enabled = false;
-
-            if (phoropter != null)
-                phoropter.enabled = false;
+            foreach (var animator in animatorDictionary.Keys)
+            {
+                animator.enabled = false;
+            }
         }
     }
 
@@ -168,26 +162,23 @@ public class ZoomOnInstrument1FINAL : MonoBehaviour
             yield return null;
         }
         
-        if (canPlayAnimator && newkeratometer != null)
+        if (canPlayAnimator)
         {
-            newkeratometer.enabled = true; // Enable the animator component
-            tablestand.enabled = true; // Enable the animator component
-            phoropterstand.enabled = true; // Enable the animator component
-            phoropter.enabled = true; // Enable the animator component
-            newkeratometer.Play("YourAnimationName", 0, pauseTime / newkeratometer.GetCurrentAnimatorStateInfo(0).length); // Play the animator animation from the paused time
+            foreach (var animator in animatorDictionary.Keys)
+            {
+                animator.enabled = true; // Enable the animator component
+                animator.Play(animatorDictionary[animator], 0, pauseTime / animator.GetCurrentAnimatorStateInfo(0).length); // Play the animation from the paused time
+            }
         }
     }
 
     private void PauseAnimation()
     {
-        if (newkeratometer != null)
+        foreach (var animator in animatorDictionary.Keys)
         {
-            newkeratometer.enabled = false; // Disable the animator component
-            tablestand.enabled = false; // Disable the animator component
-            phoropterstand.enabled = false; // Disable the animator component
-            phoropter.enabled = false; // Disable the animator component
-            isPaused = true;
+            animator.enabled = false; // Disable the animator component
         }
+        isPaused = true;
     }
 
     public void OnFadeComplete() // go to next scene

@@ -7687,7 +7687,7 @@ GameObject:
   - component: {fileID: 356087847}
   - component: {fileID: 356087848}
   m_Layer: 0
-  m_Name: Script Manager NEW
+  m_Name: Script Manager Keratometer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7733,7 +7733,7 @@ MonoBehaviour:
   targetRo: {x: 0, y: 85, z: 0}
   transitionDuration: 0.5
   raycastDistance: 10
-  fadeTime: 4
+  fadeTime: 2
   controls: {fileID: 1640128203}
   sceneToLoad: FINAL
   canvasGroup: {fileID: 8286778515609714002}
@@ -8001,6 +8001,67 @@ Transform:
   - {fileID: 1664863306}
   m_Father: {fileID: 419426979}
   m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &366618894
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 366618896}
+  - component: {fileID: 366618895}
+  m_Layer: 0
+  m_Name: Script Manager Phoropter
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &366618895
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 366618894}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4bdf79a36274da4f9e7726e922519f3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cam: {fileID: 1750443150}
+  dissectedphoropter: {fileID: 936375848}
+  tablestand: {fileID: 8099477988801098174}
+  phoropterstand: {fileID: 337579486}
+  keratometer: {fileID: 36151190}
+  cameraTransform: {fileID: 3499529389696601509}
+  cameraCapTransform: {fileID: 1640128209}
+  cameraFolTransform: {fileID: 1750443151}
+  targetRotation: {x: 5.25, y: 85, z: 0}
+  targetRot: {x: 0, y: 85, z: 0}
+  targetRo: {x: 0, y: 85, z: 0}
+  transitionDuration: 0.5
+  raycastDistance: 10
+  fadeTime: 2
+  controls: {fileID: 1640128203}
+  sceneToLoad: (BUOptionScene)
+  canvasGroup: {fileID: 8286778515609714002}
+--- !u!4 &366618896
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 366618894}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 45.02274, y: -5.5204015, z: -14.571744}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 30
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &368193341
 GameObject:
@@ -23073,6 +23134,7 @@ GameObject:
   m_Component:
   - component: {fileID: 936375847}
   - component: {fileID: 936375848}
+  - component: {fileID: 936375849}
   m_Layer: 0
   m_Name: dissectedphoropter
   m_TagString: Untagged
@@ -23088,7 +23150,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 936375846}
   m_LocalRotation: {x: 0, y: -0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 29.17, y: 0.928, z: -8.362}
+  m_LocalPosition: {x: 29.187, y: 0.987, z: -8.196}
   m_LocalScale: {x: 0.7, y: 0.7, z: 0.7}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -23117,6 +23179,19 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!65 &936375849
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 936375846}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.58, y: 0.52, z: 0.38}
+  m_Center: {x: 0, y: 0.45, z: 0.06}
 --- !u!1 &936533984
 GameObject:
   m_ObjectHideFlags: 0
@@ -44794,14 +44869,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 59fd313b16ec33146858584159f40da1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cam: {fileID: 1750443150}
-  targetFOV: 15
-  zoomSpeed: 2
-  raycastDistance: 10
-  fadeTime: 2
-  controls: {fileID: 1640128203}
-  sceneToLoad: FINAL
-  canvasGroup: {fileID: 8286778515609714002}
 --- !u!4 &1815874236
 Transform:
   m_ObjectHideFlags: 0
@@ -57814,7 +57881,7 @@ Transform:
   - {fileID: 5772958907603233266}
   m_Father: {fileID: 543450653341768168}
   m_RootOrder: 16
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -90, y: 0, z: 90}
 --- !u!4 &986425996096453267
 Transform:
   m_ObjectHideFlags: 0
