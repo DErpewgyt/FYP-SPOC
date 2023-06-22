@@ -3776,7 +3776,10 @@ MonoBehaviour:
   highlightMaterial: {fileID: 2100000, guid: 13733c3dbd182fa4ca488880c244e428, type: 2}
   linkCursorTexture: {fileID: 2800000, guid: 9b06c0d8b4e8fa6448f481781b52a3ba, type: 3}
   PDManager: {fileID: 0}
+  RulerController: {fileID: 0}
+  Ruler: {fileID: 0}
   ShortLongSightScript: {fileID: 0}
+  OpenCloseManager: {fileID: 0}
 --- !u!1 &1028790175
 GameObject:
   m_ObjectHideFlags: 0
@@ -11589,7 +11592,7 @@ GameObject:
   - component: {fileID: 3703039934850604522}
   - component: {fileID: 2461004943337410079}
   - component: {fileID: 8220542118891780171}
-  m_Layer: 3
+  m_Layer: 0
   m_Name: AstigmatismLensLeft
   m_TagString: AstigmatismLensLeft
   m_Icon: {fileID: 0}

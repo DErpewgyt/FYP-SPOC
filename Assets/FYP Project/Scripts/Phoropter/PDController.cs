@@ -6,13 +6,13 @@ public class PDController : MonoBehaviour
     public GameObject leftHalf;
     public GameObject rightHalf;
 
-    public float moveSpeed = 1f;
-    public float scrollSensitivity = 1f;
+    /*public float moveSpeed = 1f;
+    public float scrollSensitivity = 1f;*/
 
     public int scrollLimit;
     public int pd;
 
-    public TextMeshProUGUI PDText;
+    /*public TextMeshProUGUI PDText;*/
 
     public Vector3 scrollDirection = new Vector3(1f, 0f, 0f);
 
@@ -32,7 +32,7 @@ public class PDController : MonoBehaviour
             scrollLimit += 1;
             pd += 1;
             pd = Mathf.Clamp(pd, 0, 20);
-            UpdateTmp();
+            //UpdateTmp();
         }
         else if (scrollInput < 0 && scrollLimit > 0)
         {
@@ -42,12 +42,12 @@ public class PDController : MonoBehaviour
             scrollLimit -= 1;
             pd -= 1;
             pd = Mathf.Clamp(pd, 0, 20);
-            UpdateTmp();
+           //UpdateTmp();
         }
     }
 
-    private void UpdateTmp()
+/*    private void UpdateTmp()
     {
         PDText.text = pd.ToString();
-    }
+    }*/
 }
