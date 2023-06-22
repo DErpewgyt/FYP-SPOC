@@ -9,8 +9,15 @@ public class PhoropterController : MonoBehaviour
     public GameObject PDManager;
     public GameObject RulerController;
     public GameObject Ruler;
+
     public ShortLongSightMovement ShortLongSightScript;
+    public AstigmatismLensMovement AstigmatismLensMovement;
     //public GameObject OpenCloseManager;
+
+    private void Start()
+    {
+        AstigmatismLensMovement = FindObjectOfType<AstigmatismLensMovement>();
+    }
 
     private void Update()
     {
@@ -154,11 +161,13 @@ public class PhoropterController : MonoBehaviour
             // Handle functionality for AstigmatismLensLeft
             case "AstigmatismLensLeft":
                 print("AstigmatismLensLeft clicked");
+                AstigmatismLensMovement.LeftLensAnimate();
                 break;
 
             // Handle functionality for AstigmatismLensRight
             case "AstigmatismLensRight":
                 print("AstigmatismLensRight clicked");
+                AstigmatismLensMovement.RightLensAnimate();
                 break;
 
             // Handle functionality for AstigmatismMagnitudeKnobLeft
