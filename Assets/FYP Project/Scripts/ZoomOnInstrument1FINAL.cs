@@ -99,7 +99,8 @@ public class ZoomOnInstrument1FINAL : MonoBehaviour
                 Debug.Log("Hit object: " + hit.transform.name); // print whatever raycast hits
                 if (hit.transform.name == "newkeratometer") // if keratometer is clicked
                 {
-                    Debug.Log("clicked");
+                    Debug.Log("Clicked");
+                    // Your code here to handle the left-click on the "newkeratometer" game object
                     controls.SetActive(false);
                     LeanTween.alphaCanvas(canvasGroup, to: 1, fadeTime).setOnComplete(OnFadeComplete);
                     StartCoroutine(ZoomIn());
@@ -134,9 +135,8 @@ public class ZoomOnInstrument1FINAL : MonoBehaviour
         }
     }
 
- private IEnumerator ZoomIn()
+    private IEnumerator ZoomIn()
     {
-      
         Quaternion initialRotation = cam.transform.rotation; // Initial camera rotation
         float initialFOV = cam.m_Lens.FieldOfView;
         float elapsedTime = 0f;
@@ -147,56 +147,48 @@ public class ZoomOnInstrument1FINAL : MonoBehaviour
         {
             elapsedTime += Time.deltaTime;
             float t = Mathf.Clamp01(elapsedTime / transitionDuration);
-             float rotationSpeed = 5f;
-            // Interpolate the position and rotation
-           
-            Quaternion newRotation = Quaternion.Lerp(initialRotation, Quaternion.Euler(targetRotation), t *rotationSpeed);
+            float rotationSpeed = 5f;
             
-          
-            Quaternion newRot = Quaternion.Lerp(initialRotation, Quaternion.Euler(targetRot), t*rotationSpeed);
-
-          
-            Quaternion newRo = Quaternion.Lerp(initialRotation, Quaternion.Euler(targetRo), t*rotationSpeed);
-            // Apply the new position and rotation to the camera
-     
+            Quaternion newRotation = Quaternion.Lerp(initialRotation, Quaternion.Euler(targetRotation), t * rotationSpeed);
+            Quaternion newRot = Quaternion.Lerp(initialRotation, Quaternion.Euler(targetRot), t * rotationSpeed);
+            Quaternion newRo = Quaternion.Lerp(initialRotation, Quaternion.Euler(targetRo), t * rotationSpeed);
+            
             cameraTransform.rotation = newRotation;
-
-          
             cameraCapTransform.rotation = newRot;
-
-           
             cameraFolTransform.rotation = newRo;
+
             float newFOV = Mathf.Lerp(initialFOV, targetFOV, t);
             cam.m_Lens.FieldOfView = newFOV;
-              float pauseTime = 2.5f; // The time in seconds to pause the animation
-        if (elapsedTime >= pauseTime && elapsedTime < pauseTime + Time.deltaTime)
-        {
-            PauseAnimation();
-        }
+            
+            if (elapsedTime >= pauseTime && elapsedTime < pauseTime + Time.deltaTime)
+            {
+                PauseAnimation();
+            }
+            
             yield return null;
         }
+        
         if (canPlayAnimator && newkeratometer != null)
-    {
-        newkeratometer.enabled = true; // Enable the animator component
-        tablestand.enabled = true; // Enable the animator component
-        phoropterstand.enabled = true; // Enable the animator component
-        phoropter.enabled = true; // Enable the animator component
-        newkeratometer.Play("YourAnimationName", 0, pauseTime / newkeratometer.GetCurrentAnimatorStateInfo(0).length); // Play the animator animation from the paused time
-    }
+        {
+            newkeratometer.enabled = true; // Enable the animator component
+            tablestand.enabled = true; // Enable the animator component
+            phoropterstand.enabled = true; // Enable the animator component
+            phoropter.enabled = true; // Enable the animator component
+            newkeratometer.Play("YourAnimationName", 0, pauseTime / newkeratometer.GetCurrentAnimatorStateInfo(0).length); // Play the animator animation from the paused time
+        }
     }
 
-  
     private void PauseAnimation()
-{
-    if (newkeratometer != null)
     {
-        newkeratometer.enabled = false; // Disable the animator component
-        tablestand.enabled = false; // Disable the animator component
-        phoropterstand.enabled = false; // Disable the animator component
-        phoropter.enabled = false; // Disable the animator component
-        isPaused = true;
+        if (newkeratometer != null)
+        {
+            newkeratometer.enabled = false; // Disable the animator component
+            tablestand.enabled = false; // Disable the animator component
+            phoropterstand.enabled = false; // Disable the animator component
+            phoropter.enabled = false; // Disable the animator component
+            isPaused = true;
+        }
     }
-}
 
     public void OnFadeComplete() // go to next scene
     {
