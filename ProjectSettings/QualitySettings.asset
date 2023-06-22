@@ -226,3 +226,4 @@ QualitySettings:
     Android: 2
     Server: 2
     Standalone: 2
+    Windows Store Apps: 0
