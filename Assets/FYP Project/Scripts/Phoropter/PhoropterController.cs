@@ -4,15 +4,12 @@ public class PhoropterController : MonoBehaviour
 {
     public Texture2D linkCursorTexture;
     private float multiplier = 0.25f;
-    private bool isOverObject;
     private GameObject highlightedObject;
-    private bool isObjectClicked = false; // New variable to track object click status
     public GameObject PDManager;
     public GameObject RulerController;
     public GameObject Ruler;
-
     public ShortLongSightMovement ShortLongSightScript;
-    private string[] allowedTags = { "PupillaryDistanceKnobLeft", 
+    private string[] allowedTags = { "PupillaryDistanceKnobLeft",
                                      "PupillaryDistanceKnobRight",
                                      "OpenAndCloseKnobLeft",
                                      "OpenAndCloseKnobRight",
@@ -27,7 +24,6 @@ public class PhoropterController : MonoBehaviour
                                    };
     private string activeTag;
     public AstigmatismLensMovement AstigmatismLensMovement;
-    //public GameObject OpenCloseManager;
 
     private void Start()
     {
@@ -42,29 +38,18 @@ public class PhoropterController : MonoBehaviour
         {
             if (IsComponentTag(hit.collider.gameObject.tag))
             {
-                // Check if highlighted object has changed
                 if (hit.collider.gameObject != highlightedObject)
                 {
-                    // Reset the layer of the previously highlighted object if any
                     if (highlightedObject != null)
                     {
-                        // Check if the object was clicked
                         if (activeTag != hit.collider.gameObject.tag && highlightedObject.tag != activeTag)
                         {
-                            // Reset the layer to default only if the object was not clicked
                             highlightedObject.layer = LayerMask.NameToLayer("Default");
-                        }
-                        else
-                        {
-                            // If the object was clicked, set the layer to "Outline Objects Active"
-                            highlightedObject.layer = LayerMask.NameToLayer("Outline Objects Active");
                         }
                     }
 
-                    // Set the new highlighted object
                     highlightedObject = hit.collider.gameObject;
 
-                    // Set the cursor to custom clicker
                     if (activeTag != hit.collider.gameObject.tag)
                     {
                         highlightedObject.layer = LayerMask.NameToLayer("Outline Objects");
@@ -72,62 +57,46 @@ public class PhoropterController : MonoBehaviour
                     SetCursor(linkCursorTexture);
                 }
 
-                // Update the flag indicating the mouse is over a valid object
-                //isOverObject = true;
-
-                // If left-clicked and isOverObject is true, identify the clicked component
                 if (Input.GetMouseButtonDown(0))
                 {
-/*                    if (isOverObject)
-                    {*/
-                        // Execute the functionality based on the tag
-                        string tag = highlightedObject.tag;
-                        IdentifyInteractable(tag);
-                        activeTag = tag;
-                        //highlightedObject.layer = LayerMask.NameToLayer("Outline Objects Active"); // Change the layer to "Outline Objects Active"
-                        foreach (string i in allowedTags)
+                    string tag = highlightedObject.tag;
+                    IdentifyInteractable(tag);
+                    activeTag = tag;
+                    foreach (string i in allowedTags)
+                    {
+                        if (i == tag)
                         {
-                            if (i == tag)
-                            {
-                                highlightedObject.layer = LayerMask.NameToLayer("Outline Objects Active");
-                            }
-                            else
-                            {
-                                GameObject ge = GameObject.FindGameObjectWithTag(i);
-                                if (ge != null)
-                                {
-                                    ge.layer = LayerMask.NameToLayer("Default");
-                                }
-                            }
-
+                            highlightedObject.layer = LayerMask.NameToLayer("Outline Objects Active");
                         }
-                        //isObjectClicked = true; // Set the isObjectClicked flag to true
-                    //}
+                        else
+                        {
+                            GameObject ge = GameObject.FindGameObjectWithTag(i);
+                            if (ge != null)
+                            {
+                                ge.layer = LayerMask.NameToLayer("Default");
+                            }
+                        }
+
+                    }
                 }
             }
         }
         else
         {
-            // Reset the layer and highlighted object only if the mouse is not over the object and the left mouse button is not being held down
             if (highlightedObject != null && !Input.GetMouseButton(0))
             {
-                // Check if the object was clicked
                 if (activeTag != highlightedObject.tag)
                 {
-                    // Reset the layer to default only if the object was not clicked
                     highlightedObject.layer = LayerMask.NameToLayer("Default");
                 }
                 else
                 {
-                    // If the object was clicked, set the layer to "Outline Objects Active"
                     highlightedObject.layer = LayerMask.NameToLayer("Outline Objects Active");
                 }
                 highlightedObject = null;
             }
 
             ResetCursor();
-            isOverObject = false;
-            //isObjectClicked = false; // Reset the isObjectClicked flag
         }
     }
 
@@ -143,25 +112,12 @@ public class PhoropterController : MonoBehaviour
 
     private bool IsComponentTag(string tag)
     {
-        // Check if the tag is valid
-/*        return tag == "PupillaryDistanceKnobLeft" ||
-               tag == "PupillaryDistanceKnobRight" ||
-               tag == "OpenAndCloseKnobLeft" ||
-               tag == "OpenAndCloseKnobRight" ||
-               tag == "ShortAndLongSightedGearLeft" ||
-               tag == "ShortAndLongSightedGearRight" ||
-               tag == "AstigmatismLensLeft" ||
-               tag == "AstigmatismLensRight" ||
-               tag == "AstigmatismMagnitudeKnobLeft" ||
-               tag == "AstigmatismMagnitudeKnobRight" ||
-               tag == "AstigmatismAxisKnobLeft" ||
-               tag == "AstigmatismAxisKnobRight";*/
-         foreach(string i in allowedTags)
+        foreach (string i in allowedTags)
         {
             if (i == tag)
                 return true;
         }
-         return false;
+        return false;
     }
 
     private void IdentifyInteractable(string tag)
