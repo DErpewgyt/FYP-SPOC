@@ -11,7 +11,7 @@ AnimatorStateMachine:
   m_ChildStates:
   - serializedVersion: 1
     m_State: {fileID: 4559904250864373983}
-    m_Position: {x: 303.33334, y: 138.61636, z: 0}
+    m_Position: {x: 300, y: 140, z: 0}
   m_ChildStateMachines: []
   m_AnyStateTransitions: []
   m_EntryTransitions: []
@@ -36,7 +36,7 @@ AnimatorStateMachine:
     m_Position: {x: 280, y: 10, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 735481267152160869}
-    m_Position: {x: 315, y: 75, z: 0}
+    m_Position: {x: 320, y: 70, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 1336649812075405437}
     m_Position: {x: 350, y: 140, z: 0}
@@ -193,7 +193,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: phoropterAnim 0
+  m_Name: phoropterAnim0
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions: []
