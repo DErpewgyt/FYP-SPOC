@@ -35,6 +35,7 @@ TagManager:
   - ShortAndLongSightedGearRight
   - PupillaryDistanceKnobLeft
   - PupillaryDistanceKnobRight
+  - PupillaryDistanceKnobLeftImage
   layers:
   - Default
   - TransparentFX
