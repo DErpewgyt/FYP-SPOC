@@ -8,8 +8,25 @@ public class OpenClose : MonoBehaviour
     public GameObject LeftCover;
     public GameObject RightCover;
 
-    private bool isLeftActive = false;
-    private bool isRightActive = false;
+    public Animator LeftCoverCloseAnimation;
+    public Animator RightCoverCloseAnimation;
+
+    private bool isLeftActive;
+    private bool isRightActive;
+
+    private void Start()
+    {
+        isLeftActive = false;
+        isRightActive = false;
+
+        bool isLeftCoverOpen = LeftCover.activeSelf;
+
+        LeftCoverCloseAnimation.SetBool("OpenClose", isLeftCoverOpen);
+
+        bool isRightCoverOpen = RightCover.activeSelf;
+
+        RightCoverCloseAnimation.SetBool("OpenClose", isRightCoverOpen);
+    }
 
     public void Update()
     {
@@ -21,43 +38,19 @@ public class OpenClose : MonoBehaviour
                 print("clicked");
                 if (hit.collider.gameObject.tag == "OpenAndCloseKnobLeft")
                 {
-                    Debug.Log("1 check");
-                    if (isLeftActive == true)
-                    {
-                        isLeftActive = false;
-                    }
-                    else
-                    {
-                        isLeftActive = true;
-                    }
-                    //isActive = !isActive;
+                    isLeftActive = !isLeftActive;
                     LeftCover.SetActive(isLeftActive);
-                }
-            }
-        }
 
-        Ray rayRight = Camera.main.ScreenPointToRay(Input.mousePosition);
-        if (Physics.Raycast(rayRight, out RaycastHit hitRight))
-        {
-            if (Input.GetMouseButtonDown(0))
-            {
-                print("clicked");
-                if (hit.collider.gameObject.tag == "OpenAndCloseKnobRight")
+                    LeftCoverCloseAnimation.SetBool("OpenClose", isLeftActive);
+                }
+                else if (hit.collider.gameObject.tag == "OpenAndCloseKnobRight")
                 {
-                    Debug.Log("1 check");
-                    if (isRightActive == true)
-                    {
-                        isRightActive = false;
-                    }
-                    else
-                    {
-                        isRightActive = true;
-                    }
-                    //isActive = !isActive;
+                    isRightActive = !isRightActive;
                     RightCover.SetActive(isRightActive);
+
+                    RightCoverCloseAnimation.SetBool("OpenClose", isRightActive);
                 }
             }
         }
-
     }
 }
