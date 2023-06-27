@@ -628,6 +628,8 @@ public class ShortLongSightMovement : MonoBehaviour
 
         if (LeftLSSightBool)
         {
+            TopLeftGroup.SetActive(true);
+            TopRightGroup.SetActive(false);
             if (scrollInput != 0f)
             {
                 LSLeft += Mathf.Sign(scrollInput) * 0.25f;
@@ -638,6 +640,8 @@ public class ShortLongSightMovement : MonoBehaviour
 
         if (RightLSSightBool)
         {
+            TopLeftGroup.SetActive(false);
+            TopRightGroup.SetActive(true);
             if (scrollInput != 0f)
             {
                 LSRight += Mathf.Sign(scrollInput) * 0.25f;
@@ -645,13 +649,20 @@ public class ShortLongSightMovement : MonoBehaviour
                 UpdateValue(RightValue ,LSRight);
             }
         }
+
+        if(!LeftLSSightBool && !RightLSSightBool)
+        {
+            TopLeftGroup.SetActive(false);
+            TopRightGroup.SetActive(false);
+        }
     }
 
     private void UpdateValue(TextMeshProUGUI valueText, float LSvalues)
     {
         valueText.text = LSvalues.ToString("F2");
-        disableAll();
-        if(LeftLSSightBool) { 
+
+        if(LeftLSSightBool) {
+            disableLeft();
             switch (LSvalues)
             {
 
@@ -1523,6 +1534,7 @@ public class ShortLongSightMovement : MonoBehaviour
         } else {
             if(RightLSSightBool)
             {
+                disableRight();
                 switch (LSvalues)
                 {
 
@@ -1983,412 +1995,414 @@ public class ShortLongSightMovement : MonoBehaviour
                         break;
 
 
+
                     case (float)0:
-                        Rightpos0.SetActive(true);
+                        TopRightpos0.SetActive(true);
                         Rightpos0.SetActive(true);
                         break;
 
 
                     case (float)0.25:
-                        Rightpos25.SetActive(true);
+                        TopRightpos25.SetActive(true);
                         Rightpos25.SetActive(true);
                         break;
 
 
                     case (float)0.5:
-                        Rightpos50.SetActive(true);
+                        TopRightpos50.SetActive(true);
                         Rightpos50.SetActive(true);
                         break;
 
 
                     case (float)0.75:
-                        Rightpos75.SetActive(true);
+                        TopRightpos75.SetActive(true);
                         Rightpos75.SetActive(true);
                         break;
 
 
                     case (float)1:
-                        Rightpos100.SetActive(true);
+                        TopRightpos100.SetActive(true);
                         Rightpos100.SetActive(true);
                         break;
 
 
                     case (float)1.25:
-                        Rightpos125.SetActive(true);
+                        TopRightpos125.SetActive(true);
                         Rightpos125.SetActive(true);
                         break;
 
 
                     case (float)1.5:
-                        Rightpos150.SetActive(true);
+                        TopRightpos150.SetActive(true);
                         Rightpos150.SetActive(true);
                         break;
 
 
                     case (float)1.75:
-                        Rightpos175.SetActive(true);
+                        TopRightpos175.SetActive(true);
                         Rightpos175.SetActive(true);
                         break;
 
 
                     case (float)2:
-                        Rightpos200.SetActive(true);
+                        TopRightpos200.SetActive(true);
                         Rightpos200.SetActive(true);
                         break;
 
 
                     case (float)2.25:
-                        Rightpos225.SetActive(true);
+                        TopRightpos225.SetActive(true);
                         Rightpos225.SetActive(true);
                         break;
 
 
                     case (float)2.5:
-                        Rightpos250.SetActive(true);
+                        TopRightpos250.SetActive(true);
                         Rightpos250.SetActive(true);
                         break;
 
 
                     case (float)2.75:
-                        Rightpos275.SetActive(true);
+                        TopRightpos275.SetActive(true);
                         Rightpos275.SetActive(true);
                         break;
 
 
                     case (float)3:
-                        Rightpos300.SetActive(true);
+                        TopRightpos300.SetActive(true);
                         Rightpos300.SetActive(true);
                         break;
 
 
                     case (float)3.25:
-                        Rightpos325.SetActive(true);
+                        TopRightpos325.SetActive(true);
                         Rightpos325.SetActive(true);
                         break;
 
 
                     case (float)3.5:
-                        Rightpos350.SetActive(true);
+                        TopRightpos350.SetActive(true);
                         Rightpos350.SetActive(true);
                         break;
 
 
                     case (float)3.75:
-                        Rightpos375.SetActive(true);
+                        TopRightpos375.SetActive(true);
                         Rightpos375.SetActive(true);
                         break;
 
 
                     case (float)4:
-                        Rightpos400.SetActive(true);
+                        TopRightpos400.SetActive(true);
                         Rightpos400.SetActive(true);
                         break;
 
 
                     case (float)4.25:
-                        Rightpos425.SetActive(true);
+                        TopRightpos425.SetActive(true);
                         Rightpos425.SetActive(true);
                         break;
 
 
                     case (float)4.5:
-                        Rightpos450.SetActive(true);
+                        TopRightpos450.SetActive(true);
                         Rightpos450.SetActive(true);
                         break;
 
 
                     case (float)4.75:
-                        Rightpos475.SetActive(true);
+                        TopRightpos475.SetActive(true);
                         Rightpos475.SetActive(true);
                         break;
 
 
                     case (float)5:
-                        Rightpos500.SetActive(true);
+                        TopRightpos500.SetActive(true);
                         Rightpos500.SetActive(true);
                         break;
 
 
                     case (float)5.25:
-                        Rightpos525.SetActive(true);
+                        TopRightpos525.SetActive(true);
                         Rightpos525.SetActive(true);
                         break;
 
 
                     case (float)5.5:
-                        Rightpos550.SetActive(true);
+                        TopRightpos550.SetActive(true);
                         Rightpos550.SetActive(true);
                         break;
 
 
                     case (float)5.75:
-                        Rightpos575.SetActive(true);
+                        TopRightpos575.SetActive(true);
                         Rightpos575.SetActive(true);
                         break;
 
 
                     case (float)6:
-                        Rightpos600.SetActive(true);
+                        TopRightpos600.SetActive(true);
                         Rightpos600.SetActive(true);
                         break;
 
 
                     case (float)6.25:
-                        Rightpos625.SetActive(true);
+                        TopRightpos625.SetActive(true);
                         Rightpos625.SetActive(true);
                         break;
 
 
                     case (float)6.5:
-                        Rightpos650.SetActive(true);
+                        TopRightpos650.SetActive(true);
                         Rightpos650.SetActive(true);
                         break;
 
 
                     case (float)6.75:
-                        Rightpos675.SetActive(true);
+                        TopRightpos675.SetActive(true);
                         Rightpos675.SetActive(true);
                         break;
 
 
                     case (float)7:
-                        Rightpos700.SetActive(true);
+                        TopRightpos700.SetActive(true);
                         Rightpos700.SetActive(true);
                         break;
 
 
                     case (float)7.25:
-                        Rightpos725.SetActive(true);
+                        TopRightpos725.SetActive(true);
                         Rightpos725.SetActive(true);
                         break;
 
 
                     case (float)7.5:
-                        Rightpos750.SetActive(true);
+                        TopRightpos750.SetActive(true);
                         Rightpos750.SetActive(true);
                         break;
 
 
                     case (float)7.75:
-                        Rightpos775.SetActive(true);
+                        TopRightpos775.SetActive(true);
                         Rightpos775.SetActive(true);
                         break;
 
 
                     case (float)8:
-                        Rightpos800.SetActive(true);
+                        TopRightpos800.SetActive(true);
                         Rightpos800.SetActive(true);
                         break;
 
 
                     case (float)8.25:
-                        Rightpos825.SetActive(true);
+                        TopRightpos825.SetActive(true);
                         Rightpos825.SetActive(true);
                         break;
 
 
                     case (float)8.5:
-                        Rightpos850.SetActive(true);
+                        TopRightpos850.SetActive(true);
                         Rightpos850.SetActive(true);
                         break;
 
 
                     case (float)8.75:
-                        Rightpos875.SetActive(true);
+                        TopRightpos875.SetActive(true);
                         Rightpos875.SetActive(true);
                         break;
 
 
                     case (float)9:
-                        Rightpos900.SetActive(true);
+                        TopRightpos900.SetActive(true);
                         Rightpos900.SetActive(true);
                         break;
 
 
                     case (float)9.25:
-                        Rightpos925.SetActive(true);
+                        TopRightpos925.SetActive(true);
                         Rightpos925.SetActive(true);
                         break;
 
 
                     case (float)9.5:
-                        Rightpos950.SetActive(true);
+                        TopRightpos950.SetActive(true);
                         Rightpos950.SetActive(true);
                         break;
 
 
                     case (float)9.75:
-                        Rightpos975.SetActive(true);
+                        TopRightpos975.SetActive(true);
                         Rightpos975.SetActive(true);
                         break;
 
 
                     case (float)10:
-                        Rightpos1000.SetActive(true);
+                        TopRightpos1000.SetActive(true);
                         Rightpos1000.SetActive(true);
                         break;
 
 
                     case (float)10.25:
-                        Rightpos1025.SetActive(true);
+                        TopRightpos1025.SetActive(true);
                         Rightpos1025.SetActive(true);
                         break;
 
 
                     case (float)10.5:
-                        Rightpos1050.SetActive(true);
+                        TopRightpos1050.SetActive(true);
                         Rightpos1050.SetActive(true);
                         break;
 
 
                     case (float)10.75:
-                        Rightpos1075.SetActive(true);
+                        TopRightpos1075.SetActive(true);
                         Rightpos1075.SetActive(true);
                         break;
 
 
                     case (float)11:
-                        Rightpos1100.SetActive(true);
+                        TopRightpos1100.SetActive(true);
                         Rightpos1100.SetActive(true);
                         break;
 
 
                     case (float)11.25:
-                        Rightpos1125.SetActive(true);
+                        TopRightpos1125.SetActive(true);
                         Rightpos1125.SetActive(true);
                         break;
 
 
                     case (float)11.5:
-                        Rightpos1150.SetActive(true);
+                        TopRightpos1150.SetActive(true);
                         Rightpos1150.SetActive(true);
                         break;
 
 
                     case (float)11.75:
-                        Rightpos1175.SetActive(true);
+                        TopRightpos1175.SetActive(true);
                         Rightpos1175.SetActive(true);
                         break;
 
 
                     case (float)12:
-                        Rightpos1200.SetActive(true);
+                        TopRightpos1200.SetActive(true);
                         Rightpos1200.SetActive(true);
                         break;
 
 
                     case (float)12.25:
-                        Rightpos1225.SetActive(true);
+                        TopRightpos1225.SetActive(true);
                         Rightpos1225.SetActive(true);
                         break;
 
 
                     case (float)12.5:
-                        Rightpos1250.SetActive(true);
+                        TopRightpos1250.SetActive(true);
                         Rightpos1250.SetActive(true);
                         break;
 
 
                     case (float)12.75:
-                        Rightpos1275.SetActive(true);
+                        TopRightpos1275.SetActive(true);
                         Rightpos1275.SetActive(true);
                         break;
 
 
                     case (float)13:
-                        Rightpos1300.SetActive(true);
+                        TopRightpos1300.SetActive(true);
                         Rightpos1300.SetActive(true);
                         break;
 
 
                     case (float)13.25:
-                        Rightpos1325.SetActive(true);
+                        TopRightpos1325.SetActive(true);
                         Rightpos1325.SetActive(true);
                         break;
 
 
                     case (float)13.5:
-                        Rightpos1350.SetActive(true);
+                        TopRightpos1350.SetActive(true);
                         Rightpos1350.SetActive(true);
                         break;
 
 
                     case (float)13.75:
-                        Rightpos1375.SetActive(true);
+                        TopRightpos1375.SetActive(true);
                         Rightpos1375.SetActive(true);
                         break;
 
 
                     case (float)14:
-                        Rightpos1400.SetActive(true);
+                        TopRightpos1400.SetActive(true);
                         Rightpos1400.SetActive(true);
                         break;
 
 
                     case (float)14.25:
-                        Rightpos1425.SetActive(true);
+                        TopRightpos1425.SetActive(true);
                         Rightpos1425.SetActive(true);
                         break;
 
 
                     case (float)14.5:
-                        Rightpos1450.SetActive(true);
+                        TopRightpos1450.SetActive(true);
                         Rightpos1450.SetActive(true);
                         break;
 
 
                     case (float)14.75:
-                        Rightpos1475.SetActive(true);
+                        TopRightpos1475.SetActive(true);
                         Rightpos1475.SetActive(true);
                         break;
 
 
                     case (float)15:
-                        Rightpos1500.SetActive(true);
+                        TopRightpos1500.SetActive(true);
                         Rightpos1500.SetActive(true);
                         break;
 
 
                     case (float)15.25:
-                        Rightpos1525.SetActive(true);
+                        TopRightpos1525.SetActive(true);
                         Rightpos1525.SetActive(true);
                         break;
 
 
                     case (float)15.5:
-                        Rightpos1550.SetActive(true);
+                        TopRightpos1550.SetActive(true);
                         Rightpos1550.SetActive(true);
                         break;
 
 
                     case (float)15.75:
-                        Rightpos1575.SetActive(true);
+                        TopRightpos1575.SetActive(true);
                         Rightpos1575.SetActive(true);
                         break;
 
 
                     case (float)16:
-                        Rightpos1600.SetActive(true);
+                        TopRightpos1600.SetActive(true);
                         Rightpos1600.SetActive(true);
                         break;
 
 
                     case (float)16.25:
-                        Rightpos1625.SetActive(true);
+                        TopRightpos1625.SetActive(true);
                         Rightpos1625.SetActive(true);
                         break;
 
 
                     case (float)16.5:
-                        Rightpos1650.SetActive(true);
+                        TopRightpos1650.SetActive(true);
                         Rightpos1650.SetActive(true);
                         break;
 
 
                     case (float)16.75:
-                        Rightpos1675.SetActive(true);
+                        TopRightpos1675.SetActive(true);
                         Rightpos1675.SetActive(true);
                         break;
+
                 }
             }
         }
@@ -2408,7 +2422,7 @@ public class ShortLongSightMovement : MonoBehaviour
 
     }
 
-    private void disableAll()
+    private void disableLeft()
     {
         Leftneg1900.SetActive(false);
         Leftneg1875.SetActive(false);
@@ -2638,7 +2652,7 @@ public class ShortLongSightMovement : MonoBehaviour
 
         TopLeftpos0.SetActive(false);
 
-                /**
+
         TopLeftpos25.SetActive(false);
         TopLeftpos50.SetActive(false);
         TopLeftpos75.SetActive(false);
@@ -2706,8 +2720,13 @@ public class ShortLongSightMovement : MonoBehaviour
         TopLeftpos1625.SetActive(false);
         TopLeftpos1650.SetActive(false);
         TopLeftpos1675.SetActive(false);
+        
+    }
 
 
+
+    private void disableRight()
+    {
 
         Rightneg1900.SetActive(false);
         Rightneg1875.SetActive(false);
@@ -2856,6 +2875,8 @@ public class ShortLongSightMovement : MonoBehaviour
         Rightpos1650.SetActive(false);
         Rightpos1675.SetActive(false);
 
+
+
         TopRightneg1900.SetActive(false);
         TopRightneg1875.SetActive(false);
         TopRightneg1850.SetActive(false);
@@ -3002,6 +3023,7 @@ public class ShortLongSightMovement : MonoBehaviour
         TopRightpos1625.SetActive(false);
         TopRightpos1650.SetActive(false);
         TopRightpos1675.SetActive(false);
-        */
+
     }
+
 }
