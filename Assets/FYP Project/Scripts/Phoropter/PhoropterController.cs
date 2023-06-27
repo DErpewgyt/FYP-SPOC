@@ -148,7 +148,7 @@ public class PhoropterController : MonoBehaviour
 
     private void IdentifyInteractable(string tag)
     {
-/*        foreach (GameObject image in imageDictionary.Values)
+        foreach (GameObject image in imageDictionary.Values)
         {
             image.SetActive(false);
         }
@@ -157,7 +157,7 @@ public class PhoropterController : MonoBehaviour
         if (imageDictionary.ContainsKey(tag))
         {
             imageDictionary[tag].SetActive(true);
-        }*/
+        }
 
         DisableAll();
         switch (tag)

@@ -36,6 +36,17 @@ TagManager:
   - PupillaryDistanceKnobLeft
   - PupillaryDistanceKnobRight
   - PupillaryDistanceKnobLeftImage
+  - PupillaryDistanceKnobRightImage
+  - OpenAndCloseKnobLeftImage
+  - OpenAndCloseKnobRightImage
+  - ShortAndLongSightedGearLeftImage
+  - ShortAndLongSightedGearRightImage
+  - AstigmatismLensLeftImage
+  - AstigmatismLensRightImage
+  - AstigmatismMagnitudeKnobLeftImage
+  - AstigmatismMagnitudeKnobRightImage
+  - AstigmatismAxisKnobLeftImage
+  - AstigmatismAxisKnobRightImage
   layers:
   - Default
   - TransparentFX
