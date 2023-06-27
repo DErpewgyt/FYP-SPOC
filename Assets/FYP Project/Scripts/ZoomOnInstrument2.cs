@@ -11,16 +11,9 @@ public class ZoomOnInstrument2 : MonoBehaviour
     [SerializeField] private Animator tablestand;
     [SerializeField] private Animator phoropterstand;
     [SerializeField] private Animator keratometer;
+    public GameObject maincam;
+    public GameObject zoomincam;
 
-    public Transform cameraTransform;
-    public Transform cameraCapTransform;
-    public Transform cameraFolTransform;
-
-    public Vector3 targetRotation;
-
-    public Vector3 targetRot;
-
-    public Vector3 targetRo;
     public float transitionDuration = 0.5f;
     
     private bool isPaused = false;
@@ -50,7 +43,7 @@ public class ZoomOnInstrument2 : MonoBehaviour
         if (dissectedphoropter != null)
         {
             dissectedphoropter.enabled = false;
-            animatorDictionary.Add(dissectedphoropter, "DissectedPhoropterAnimation");
+            animatorDictionary.Add(dissectedphoropter, "PhoropterTransit");
         }
         if (tablestand != null)
         {
@@ -65,7 +58,7 @@ public class ZoomOnInstrument2 : MonoBehaviour
         if (keratometer != null)
         {
             keratometer.enabled = false;
-            animatorDictionary.Add(keratometer, "phoropterTransitMoveKera");
+            animatorDictionary.Add(keratometer, "Keratometer");
         }
 
         // Enable animator playback after a short delay
@@ -102,6 +95,8 @@ public class ZoomOnInstrument2 : MonoBehaviour
                 {
                     Debug.Log("Clicked");
                     // Your code here to handle the left-click on the "dissectedphoropter" game object
+                    maincam.SetActive(false);
+                    zoomincam.SetActive(true);
                     controls.SetActive(false);
                     LeanTween.alphaCanvas(canvasGroup, to: 1, fadeTime).setOnComplete(OnFadeComplete);
                     StartCoroutine(ZoomIn());
@@ -131,7 +126,6 @@ public class ZoomOnInstrument2 : MonoBehaviour
 
     private IEnumerator ZoomIn()
     {
-        Quaternion initialRotation = cam.transform.rotation; // Initial camera rotation
         float initialFOV = cam.m_Lens.FieldOfView;
         float elapsedTime = 0f;
         float zoomDuration = 4f;
@@ -143,13 +137,7 @@ public class ZoomOnInstrument2 : MonoBehaviour
             float t = Mathf.Clamp01(elapsedTime / transitionDuration);
             float rotationSpeed = 5f;
             
-            Quaternion newRotation = Quaternion.Lerp(initialRotation, Quaternion.Euler(targetRotation), t * rotationSpeed);
-            Quaternion newRot = Quaternion.Lerp(initialRotation, Quaternion.Euler(targetRot), t * rotationSpeed);
-            Quaternion newRo = Quaternion.Lerp(initialRotation, Quaternion.Euler(targetRo), t * rotationSpeed);
-            
-            cameraTransform.rotation = newRotation;
-            cameraCapTransform.rotation = newRot;
-            cameraFolTransform.rotation = newRo;
+
 
             float newFOV = Mathf.Lerp(initialFOV, targetFOV, t);
             cam.m_Lens.FieldOfView = newFOV;

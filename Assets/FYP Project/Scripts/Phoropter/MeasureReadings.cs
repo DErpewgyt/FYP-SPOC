@@ -55,19 +55,19 @@ public class MeasureReadings : MonoBehaviour
         // Serial Number & Number & VD & PD
         float serialNumber = Random.Range(1000f, 600000f);
         float number = Random.Range(0f, 6000f);
-        float vd = Random.Range(10f, 14f);
-        float pd = Random.Range(54f, 74f);
+        float vd = 12f;
+        float pd = Random.Range(60f, 74f);
 
         /******************************************************************************************/
 
         // Right Power (S)
-        float rs1 = Random.Range(-19.00f, 16.75f);
+        float rs1 = Random.Range(0.00f, -19.00f);
         float rs2 = rs1;
         float rs3 = rs1;
         float rsTake = rs1;
 
         // Right Astigmatism (C)
-        float rc1 = Random.Range(0.00f, 6.00f);
+        float rc1 = Random.Range(0.00f, -6.00f);
         float rc2 = rc1;
         float rc3 = rc1;
         float rcTake = rc1;
@@ -84,13 +84,13 @@ public class MeasureReadings : MonoBehaviour
         /******************************************************************************************/
 
         // Left Power (S)
-        float ls1 = Random.Range(-19.00f, 16.75f);
+        float ls1 = Random.Range(0.00f, -19.00f);
         float ls2 = ls1;
         float ls3 = ls1;
         float lsTake = ls1;
 
         // Left Astigmatism (C)
-        float lc1 = Random.Range(0.00f, 6.00f);
+        float lc1 = Random.Range(0.00f, -6.00f);
         float lc2 = lc1;
         float lc3 = lc1;
         float lcTake = lc1;

@@ -2,6 +2,7 @@ using Cinemachine;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using System.Collections.Generic;
 
 public class ZoomOnInstrument1FINAL : MonoBehaviour
 {
@@ -10,16 +11,8 @@ public class ZoomOnInstrument1FINAL : MonoBehaviour
     [SerializeField] private Animator tablestand;
     [SerializeField] private Animator phoropterstand;
     [SerializeField] private Animator phoropter;
-
-    public Transform cameraTransform;
-    public Transform cameraCapTransform;
-    public Transform cameraFolTransform;
-
-    public Vector3 targetRotation;
-
-    public Vector3 targetRot;
-
-    public Vector3 targetRo;
+    public GameObject maincam;
+    public GameObject zoomincam;
     public float transitionDuration = 0.5f;
     
     private bool isPaused = false;
@@ -37,6 +30,8 @@ public class ZoomOnInstrument1FINAL : MonoBehaviour
 
     public CanvasGroup canvasGroup; // canvasGroup to control alpha
 
+    private Dictionary<Animator, string> animatorDictionary = new Dictionary<Animator, string>(); // Dictionary to store animators and their animation names
+
     private bool canPlayAnimator = false; // flag to control animator playback
 
     private void Start()
@@ -47,18 +42,22 @@ public class ZoomOnInstrument1FINAL : MonoBehaviour
         if (newkeratometer != null)
         {
             newkeratometer.enabled = false;
+            animatorDictionary.Add(newkeratometer, "keratometertransit");
         }
         if (tablestand != null)
         {
             tablestand.enabled = false;
+            animatorDictionary.Add(tablestand, "TableStandAnimation");
         }
         if (phoropterstand != null)
         {
             phoropterstand.enabled = false;
+            animatorDictionary.Add(phoropterstand, "phoropterStand");
         }
         if (phoropter != null)
         {
             phoropter.enabled = false;
+            animatorDictionary.Add(phoropter, "phoropterAnim0");
         }
 
         // Enable animator playback after a short delay
@@ -99,19 +98,22 @@ public class ZoomOnInstrument1FINAL : MonoBehaviour
                 Debug.Log("Hit object: " + hit.transform.name); // print whatever raycast hits
                 if (hit.transform.name == "newkeratometer") // if keratometer is clicked
                 {
+
                     Debug.Log("Clicked");
                     // Your code here to handle the left-click on the "newkeratometer" game object
+                    maincam.SetActive(false);
+                    zoomincam.SetActive(true);
                     controls.SetActive(false);
                     LeanTween.alphaCanvas(canvasGroup, to: 1, fadeTime).setOnComplete(OnFadeComplete);
                     StartCoroutine(ZoomIn());
 
-                    if (canPlayAnimator && newkeratometer != null)
+                    if (canPlayAnimator)
                     {
-                        newkeratometer.enabled = true; // Enable the animator component
-                        tablestand.enabled = true; // Enable the animator component
-                        phoropterstand.enabled = true; // Enable the animator component
-                        phoropter.enabled = true; // Enable the animator component
-                        newkeratometer.SetTrigger("PlayAnimation"); // Play the animator trigger
+                        foreach (var animator in animatorDictionary.Keys)
+                        {
+                            animator.enabled = true; // Enable the animator component
+                            animator.Play(animatorDictionary[animator]); // Play the corresponding animation
+                        }
                     }
                 }
             }
@@ -137,7 +139,7 @@ public class ZoomOnInstrument1FINAL : MonoBehaviour
 
     private IEnumerator ZoomIn()
     {
-        Quaternion initialRotation = cam.transform.rotation; // Initial camera rotation
+        
         float initialFOV = cam.m_Lens.FieldOfView;
         float elapsedTime = 0f;
         float zoomDuration = 4f;
@@ -147,15 +149,9 @@ public class ZoomOnInstrument1FINAL : MonoBehaviour
         {
             elapsedTime += Time.deltaTime;
             float t = Mathf.Clamp01(elapsedTime / transitionDuration);
-            float rotationSpeed = 5f;
+        
             
-            Quaternion newRotation = Quaternion.Lerp(initialRotation, Quaternion.Euler(targetRotation), t * rotationSpeed);
-            Quaternion newRot = Quaternion.Lerp(initialRotation, Quaternion.Euler(targetRot), t * rotationSpeed);
-            Quaternion newRo = Quaternion.Lerp(initialRotation, Quaternion.Euler(targetRo), t * rotationSpeed);
-            
-            cameraTransform.rotation = newRotation;
-            cameraCapTransform.rotation = newRot;
-            cameraFolTransform.rotation = newRo;
+        
 
             float newFOV = Mathf.Lerp(initialFOV, targetFOV, t);
             cam.m_Lens.FieldOfView = newFOV;
