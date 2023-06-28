@@ -1,4 +1,7 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class PhoropterController : MonoBehaviour
 {
@@ -20,14 +23,37 @@ public class PhoropterController : MonoBehaviour
                                      "AstigmatismMagnitudeKnobLeft",
                                      "AstigmatismMagnitudeKnobRight",
                                      "AstigmatismAxisKnobLeft",
-                                     "AstigmatismAxisKnobLeft"
+                                     "AstigmatismAxisKnobRight"
                                    };
     private string activeTag;
     public AstigmatismLensMovement AstigmatismLensMovement;
+    public Dictionary<string, GameObject> imageDictionary;
 
     private void Start()
     {
         AstigmatismLensMovement = FindObjectOfType<AstigmatismLensMovement>();
+        // Initialize the image dictionary and add the corresponding images for each component
+        imageDictionary = new Dictionary<string, GameObject>()
+        {
+            { "PupillaryDistanceKnobLeft", GameObject.FindWithTag("PupillaryDistanceKnobLeftImage") },
+            { "PupillaryDistanceKnobRight", GameObject.FindWithTag("PupillaryDistanceKnobRightImage") },
+            { "OpenAndCloseKnobLeft", GameObject.FindWithTag("OpenAndCloseKnobLeftImage") },
+            { "OpenAndCloseKnobRight", GameObject.FindWithTag("OpenAndCloseKnobRightImage") },
+            { "ShortAndLongSightedGearLeft", GameObject.FindWithTag("ShortAndLongSightedGearLeftImage") },
+            { "ShortAndLongSightedGearRight", GameObject.FindWithTag("ShortAndLongSightedGearRightImage") },
+            { "AstigmatismLensLeft", GameObject.FindWithTag("AstigmatismLensLeftImage") },
+            { "AstigmatismLensRight", GameObject.FindWithTag("AstigmatismLensRightImage") },
+            { "AstigmatismMagnitudeKnobLeft", GameObject.FindWithTag("AstigmatismMagnitudeKnobLeftImage") },
+            { "AstigmatismMagnitudeKnobRight", GameObject.FindWithTag("AstigmatismMagnitudeKnobRightImage") },
+            { "AstigmatismAxisKnobLeft", GameObject.FindWithTag("AstigmatismAxisKnobLeftImage") },
+            { "AstigmatismAxisKnobRight", GameObject.FindWithTag("AstigmatismAxisKnobRightImage") }
+        };
+
+        // Set all images to inactive initially
+        foreach (GameObject image in imageDictionary.Values)
+        {
+            image.SetActive(false);
+        }
     }
 
     private void Update()
@@ -122,6 +148,17 @@ public class PhoropterController : MonoBehaviour
 
     private void IdentifyInteractable(string tag)
     {
+        foreach (GameObject image in imageDictionary.Values)
+        {
+            image.SetActive(false);
+        }
+
+        // Activate the specific image corresponding to the clicked component
+        if (imageDictionary.ContainsKey(tag))
+        {
+            imageDictionary[tag].SetActive(true);
+        }
+
         DisableAll();
         switch (tag)
         {
