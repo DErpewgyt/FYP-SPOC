@@ -7733,7 +7733,7 @@ MonoBehaviour:
   maincam: {fileID: 318462623}
   zoomincam: {fileID: 1853328065}
   transitionDuration: 0.5
-  raycastDistance: 10
+  raycastDistance: 2
   fadeTime: 2
   controls: {fileID: 1640128203}
   sceneToLoad: FINAL
@@ -8040,7 +8040,7 @@ MonoBehaviour:
   maincam: {fileID: 318462623}
   zoomincam: {fileID: 1853328065}
   transitionDuration: 0.5
-  raycastDistance: 10
+  raycastDistance: 2
   fadeTime: 2
   controls: {fileID: 1640128203}
   sceneToLoad: (BUOptionScene)
