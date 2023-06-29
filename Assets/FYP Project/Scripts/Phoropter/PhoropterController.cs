@@ -16,6 +16,7 @@ public class PhoropterController : MonoBehaviour
     public GameObject RulerController;
     public GameObject Ruler;
     public ShortLongSightMovement ShortLongSightScript;
+    public AstigmatismMagnitudeControl AstigmatismMagnitudeControl;
     private string[] allowedTags = { "PupillaryDistanceKnobLeft",
                                      "PupillaryDistanceKnobRight",
                                      "OpenAndCloseKnobLeft",
@@ -225,11 +226,13 @@ public class PhoropterController : MonoBehaviour
             // Handle functionality for AstigmatismMagnitudeKnobLeft
             case "AstigmatismMagnitudeKnobLeft":
                 print("AstigmatismMagnitudeKnobLeft clicked");
+                AstigmatismMagnitudeControl.AstigMagLeftBool = true;
                 break;
 
             // Handle functionality for AstigmatismMagnitudeKnobRight
             case "AstigmatismMagnitudeKnobRight":
                 print("AstigmatismMagnitudeKnobRight clicked");
+                AstigmatismMagnitudeControl.AstigMagRightBool = true;
                 break;
 
             // Handle functionality for AstigmatismAxisKnobLeft
@@ -258,5 +261,7 @@ public class PhoropterController : MonoBehaviour
         RulerController.SetActive(false);
         ShortLongSightScript.LeftLSSightBool = false;
         ShortLongSightScript.RightLSSightBool = false;
+        AstigmatismMagnitudeControl.AstigMagRightBool = false;
+        AstigmatismMagnitudeControl.AstigMagLeftBool = false;
     }
 }
