@@ -9,6 +9,8 @@ public class PhoropterController : MonoBehaviour
     private float multiplier = 0.25f;
     private GameObject highlightedObject;
     public GameObject PDManager;
+    public GameObject ShortSightLeftManager;
+    public GameObject ShortSightRightManager;
     public GameObject RulerController;
     public GameObject Ruler;
     public ShortLongSightMovement ShortLongSightScript;
@@ -194,12 +196,14 @@ public class PhoropterController : MonoBehaviour
             case "ShortAndLongSightedGearLeft":
                 ShortLongSightScript.LeftLSSightBool = true;
                 print("ShortAndLongSightedGearLeft clicked");
+                ShortSightLeftManager.SetActive(true);
                 break;
 
             // Handle functionality for ShortAndLongSightedGearRight
             case "ShortAndLongSightedGearRight":
                 ShortLongSightScript.RightLSSightBool = true;
                 print("ShortAndLongSightedGearRight clicked");
+                ShortSightRightManager.SetActive(true);
                 break;
 
             // Handle functionality for AstigmatismLensLeft
@@ -241,6 +245,8 @@ public class PhoropterController : MonoBehaviour
 
     private void DisableAll()
     {
+        ShortSightRightManager.SetActive(false);
+        ShortSightLeftManager.SetActive(false);
         PDManager.SetActive(false);
         Ruler.SetActive(false);
         RulerController.SetActive(false);
