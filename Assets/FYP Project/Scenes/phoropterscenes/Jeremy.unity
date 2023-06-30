@@ -35281,6 +35281,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1012159150}
   - component: {fileID: 1012159148}
+  - component: {fileID: 1012159151}
   m_Layer: 0
   m_Name: Astigmatism Manager
   m_TagString: Untagged
@@ -35319,6 +35320,26 @@ Transform:
   m_Father: {fileID: 1212746567}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1012159151
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1012159147}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2b6161e328566774eaae7381fab383d1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  LeftValue: {fileID: 0}
+  RightValue: {fileID: 0}
+  TopLeftValue: {fileID: 0}
+  TopRightValue: {fileID: 0}
+  TopLeftobject: {fileID: 0}
+  TopRightobject: {fileID: 0}
+  AstigMagLeftBool: 0
+  AstigMagRightBool: 0
 --- !u!1 &1013152697
 GameObject:
   m_ObjectHideFlags: 0
@@ -35625,7 +35646,8 @@ MonoBehaviour:
   RulerController: {fileID: 1974065380}
   Ruler: {fileID: 31946812}
   ShortLongSightScript: {fileID: 18230739}
-  AstigmatismLensMovement: {fileID: 0}
+  AstigmatismMagnitudeControl: {fileID: 1012159151}
+  AstigmatismLensMovement: {fileID: 1012159148}
 --- !u!114 &1023291011
 MonoBehaviour:
   m_ObjectHideFlags: 0
