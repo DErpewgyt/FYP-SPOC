@@ -9,6 +9,8 @@ public class PhoropterController : MonoBehaviour
     private float multiplier = 0.25f;
     private GameObject highlightedObject;
     public GameObject PDManager;
+    public GameObject PDLeftManager;
+    public GameObject PDRightManager;
     public GameObject ShortSightLeftManager;
     public GameObject ShortSightRightManager;
     public GameObject RulerController;
@@ -167,6 +169,7 @@ public class PhoropterController : MonoBehaviour
             // Handle functionality for PupillaryDistanceKnobLeft
             case "PupillaryDistanceKnobLeft":
                 print("PupillaryDistanceKnobLeft clicked");
+                PDLeftManager.SetActive(true);
                 PDManager.SetActive(true);
                 Ruler.SetActive(true);
                 RulerController.SetActive(true);
@@ -175,6 +178,7 @@ public class PhoropterController : MonoBehaviour
             // Handle functionality for PupillaryDistanceKnobRight
             case "PupillaryDistanceKnobRight":
                 print("PupillaryDistanceKnobRight clicked");
+                PDRightManager.SetActive(true);
                 PDManager.SetActive(true);
                 Ruler.SetActive(true);
                 RulerController.SetActive(true);
@@ -245,6 +249,8 @@ public class PhoropterController : MonoBehaviour
 
     private void DisableAll()
     {
+        PDLeftManager.SetActive(false);
+        PDRightManager.SetActive(false);
         ShortSightRightManager.SetActive(false);
         ShortSightLeftManager.SetActive(false);
         PDManager.SetActive(false);
