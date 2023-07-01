@@ -9,10 +9,10 @@ public class PhoropterController : MonoBehaviour
     private float multiplier = 0.25f;
     private GameObject highlightedObject;
     public GameObject PDManager;
-    /*public GameObject PDLeftManager;
-    public GameObject PDRightManager;*/
-    /*public GameObject ShortSightLeftManager;
-    public GameObject ShortSightRightManager;*/
+    public GameObject PDLeftManager;
+    public GameObject PDRightManager;
+    public GameObject ShortSightLeftManager;
+    public GameObject ShortSightRightManager;
     public GameObject RulerController;
     public GameObject Ruler;
     public ShortLongSightMovement ShortLongSightScript;
@@ -170,7 +170,7 @@ public class PhoropterController : MonoBehaviour
             // Handle functionality for PupillaryDistanceKnobLeft
             case "PupillaryDistanceKnobLeft":
                 print("PupillaryDistanceKnobLeft clicked");
-                /*PDLeftManager.SetActive(true);*/
+                PDLeftManager.SetActive(true);
                 PDManager.SetActive(true);
                 Ruler.SetActive(true);
                 RulerController.SetActive(true);
@@ -179,7 +179,7 @@ public class PhoropterController : MonoBehaviour
             // Handle functionality for PupillaryDistanceKnobRight
             case "PupillaryDistanceKnobRight":
                 print("PupillaryDistanceKnobRight clicked");
-                /*PDRightManager.SetActive(true);*/
+                PDRightManager.SetActive(true);
                 PDManager.SetActive(true);
                 Ruler.SetActive(true);
                 RulerController.SetActive(true);
@@ -201,14 +201,14 @@ public class PhoropterController : MonoBehaviour
             case "ShortAndLongSightedGearLeft":
                 ShortLongSightScript.LeftLSSightBool = true;
                 print("ShortAndLongSightedGearLeft clicked");
-                /*ShortSightLeftManager.SetActive(true);*/
+                ShortSightLeftManager.SetActive(true);
                 break;
 
             // Handle functionality for ShortAndLongSightedGearRight
             case "ShortAndLongSightedGearRight":
                 ShortLongSightScript.RightLSSightBool = true;
                 print("ShortAndLongSightedGearRight clicked");
-                /*ShortSightRightManager.SetActive(true);*/
+                ShortSightRightManager.SetActive(true);
                 break;
 
             // Handle functionality for AstigmatismLensLeft
@@ -252,10 +252,10 @@ public class PhoropterController : MonoBehaviour
 
     private void DisableAll()
     {
-        /*PDLeftManager.SetActive(false);
-        PDRightManager.SetActive(false);*/
-        /*ShortSightRightManager.SetActive(false);
-        ShortSightLeftManager.SetActive(false);*/
+        PDLeftManager.SetActive(false);
+        PDRightManager.SetActive(false);
+        ShortSightRightManager.SetActive(false);
+        ShortSightLeftManager.SetActive(false);
         PDManager.SetActive(false);
         Ruler.SetActive(false);
         RulerController.SetActive(false);
