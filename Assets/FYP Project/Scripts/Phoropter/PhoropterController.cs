@@ -16,7 +16,9 @@ public class PhoropterController : MonoBehaviour
     public GameObject RulerController;
     public GameObject Ruler;
     public ShortLongSightMovement ShortLongSightScript;
+    public AstigmatismLensMovement AstigmatismLensMovement;
     public AstigmatismMagnitudeControl AstigmatismMagnitudeControl;
+    public AstigmatismAxisControl AstigmatismAxisControl;
     private string[] allowedTags = { "PupillaryDistanceKnobLeft",
                                      "PupillaryDistanceKnobRight",
                                      "OpenAndCloseKnobLeft",
@@ -31,12 +33,11 @@ public class PhoropterController : MonoBehaviour
                                      "AstigmatismAxisKnobRight"
                                    };
     private string activeTag;
-    public AstigmatismLensMovement AstigmatismLensMovement;
     public Dictionary<string, GameObject> imageDictionary;
-
     private void Start()
     {
         AstigmatismLensMovement = FindObjectOfType<AstigmatismLensMovement>();
+        AstigmatismAxisControl = FindObjectOfType<AstigmatismAxisControl>();
         // Initialize the image dictionary and add the corresponding images for each component
         imageDictionary = new Dictionary<string, GameObject>()
         {
@@ -238,11 +239,13 @@ public class PhoropterController : MonoBehaviour
             // Handle functionality for AstigmatismAxisKnobLeft
             case "AstigmatismAxisKnobLeft":
                 print("AstigmatismAxisKnobLeft clicked");
+                AstigmatismAxisControl.HandleLeftKnobClick();
                 break;
 
             // Handle functionality for AstigmatismAxisKnobRight
             case "AstigmatismAxisKnobRight":
                 print("AstigmatismAxisKnobRight clicked");
+                AstigmatismAxisControl.HandleRightKnobClick();
                 break;
 
             default:
@@ -263,5 +266,7 @@ public class PhoropterController : MonoBehaviour
         ShortLongSightScript.RightLSSightBool = false;
         AstigmatismMagnitudeControl.AstigMagRightBool = false;
         AstigmatismMagnitudeControl.AstigMagLeftBool = false;
+        AstigmatismAxisControl.isRotatingLeft = false;
+        AstigmatismAxisControl.isRotatingRight = false;
     }
 }
