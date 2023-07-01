@@ -23875,8 +23875,9 @@ Transform:
   - {fileID: 799920430}
   - {fileID: 1128871383}
   - {fileID: 2081969138}
+  - {fileID: 1537955493}
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &577100770
 GameObject:
@@ -37850,6 +37851,7 @@ MonoBehaviour:
   RulerController: {fileID: 1974065380}
   Ruler: {fileID: 2057180825}
   ShortLongSightScript: {fileID: 18230739}
+  AstigmatismMagnitudeControl: {fileID: 1012159151}
   AstigmatismLensMovement: {fileID: 1012159148}
 --- !u!114 &1023291011
 MonoBehaviour:
@@ -39223,7 +39225,7 @@ Transform:
   - {fileID: 1643785159}
   - {fileID: 1800719508}
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1060455068
 GameObject:
@@ -44293,7 +44295,7 @@ Transform:
   - {fileID: 1074825815}
   - {fileID: 465116677}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1213953880
 GameObject:
@@ -54018,8 +54020,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1537955492}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.354, y: 1.646, z: -2.19}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -3.054, y: -0.194, z: -0.5300001}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -54035,8 +54037,8 @@ Transform:
   - {fileID: 1815159595}
   - {fileID: 885116574}
   - {fileID: 616135565}
-  m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_Father: {fileID: 576382341}
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1539570880
 GameObject:
