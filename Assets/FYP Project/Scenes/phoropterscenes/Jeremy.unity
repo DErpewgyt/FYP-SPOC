@@ -32380,7 +32380,7 @@ Animator:
   m_Controller: {fileID: 9100000, guid: 3e55291bf3b6d5d4f8cea1f764ff159f, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
-  m_ApplyRootMotion: 0
+  m_ApplyRootMotion: 1
   m_LinearVelocityBlending: 0
   m_StabilizeFeet: 0
   m_WarningMessage: 
@@ -35074,7 +35074,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1002289417}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.0049, y: 0.004, z: 0.0359}
+  m_LocalPosition: {x: -0.0033, y: 0.004, z: 0.0355}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -35095,7 +35095,7 @@ Animator:
   m_Controller: {fileID: 9100000, guid: cb17c143406da9c4fa27afc48daa3e6a, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
-  m_ApplyRootMotion: 0
+  m_ApplyRootMotion: 1
   m_LinearVelocityBlending: 0
   m_StabilizeFeet: 0
   m_WarningMessage: 
@@ -37874,7 +37874,7 @@ Animator:
   m_Controller: {fileID: 9100000, guid: 3d0311f8a734fa74e9f56041f29faefd, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
-  m_ApplyRootMotion: 0
+  m_ApplyRootMotion: 1
   m_LinearVelocityBlending: 0
   m_StabilizeFeet: 0
   m_WarningMessage: 
@@ -67683,7 +67683,7 @@ Animator:
   m_Controller: {fileID: 9100000, guid: aaa8d48c803ef164092674d41ffdc8cc, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
-  m_ApplyRootMotion: 0
+  m_ApplyRootMotion: 1
   m_LinearVelocityBlending: 0
   m_StabilizeFeet: 0
   m_WarningMessage: 
@@ -71509,7 +71509,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1981806199461219289}
   m_LocalRotation: {x: -0.000000059604645, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.08793057, y: -0.027353648, z: -0.06958507}
+  m_LocalPosition: {x: 0.08633056, y: -0.027353592, z: -0.06918514}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
