@@ -49725,7 +49725,7 @@ MonoBehaviour:
   pd: 0
   rulerDist: 0
   correctDist: 0
-  CheckBtn: {fileID: 0}
+  CheckBtn: {fileID: 765525057}
 --- !u!1 &1443508260
 GameObject:
   m_ObjectHideFlags: 0
@@ -66135,7 +66135,7 @@ MonoBehaviour:
   rulerLimit: 279
   rulerScroll: 0.018
   miniRulerScroll: 0.0391
-  CheckBtn: {fileID: 0}
+  CheckBtn: {fileID: 765525057}
 --- !u!4 &1974065382
 Transform:
   m_ObjectHideFlags: 0
