@@ -35567,9 +35567,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   linkCursorTexture: {fileID: 2800000, guid: 9b06c0d8b4e8fa6448f481781b52a3ba, type: 3}
   PDManager: {fileID: 6805733}
+  PDLeftManager: {fileID: 0}
+  PDRightManager: {fileID: 0}
+  ShortSightLeftManager: {fileID: 0}
+  ShortSightRightManager: {fileID: 0}
   RulerController: {fileID: 1974065380}
   Ruler: {fileID: 31946812}
   ShortLongSightScript: {fileID: 18230739}
+  AstigmatismMagnitudeControl: {fileID: 0}
   AstigmatismLensMovement: {fileID: 0}
 --- !u!114 &1023291011
 MonoBehaviour:
@@ -65489,7 +65494,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   patientMeasurement: {fileID: 926611838}
-  miniRuler: {fileID: 0}
+  miniRuler: {fileID: 1540445895}
 --- !u!114 &1994804063
 MonoBehaviour:
   m_ObjectHideFlags: 0
