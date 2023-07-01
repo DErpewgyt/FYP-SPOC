@@ -5,8 +5,8 @@ using UnityEngine.UI;
 
 public class OpenClose : MonoBehaviour
 {
-    public GameObject LeftCover;
-    public GameObject RightCover;
+    public Animator LeftCoverPivotAnimation;
+    public Animator RightCoverPivotAnimation;
 
     public Animator LeftCoverCloseAnimation;
     public Animator RightCoverCloseAnimation;
@@ -19,13 +19,11 @@ public class OpenClose : MonoBehaviour
         isLeftActive = false;
         isRightActive = false;
 
-        bool isLeftCoverOpen = LeftCover.activeSelf;
+        LeftCoverPivotAnimation.SetBool("CoverOpenClose", false);
+        LeftCoverCloseAnimation.SetBool("OpenClose", false);
 
-        LeftCoverCloseAnimation.SetBool("OpenClose", isLeftCoverOpen);
-
-        bool isRightCoverOpen = RightCover.activeSelf;
-
-        RightCoverCloseAnimation.SetBool("OpenClose", isRightCoverOpen);
+        RightCoverPivotAnimation.SetBool("CoverOpenClose", false);
+        RightCoverCloseAnimation.SetBool("OpenClose", false);
     }
 
     public void Update()
@@ -39,18 +37,17 @@ public class OpenClose : MonoBehaviour
                 if (hit.collider.gameObject.tag == "OpenAndCloseKnobLeft")
                 {
                     isLeftActive = !isLeftActive;
-                    LeftCover.SetActive(isLeftActive);
-
+                    LeftCoverPivotAnimation.SetBool("CoverOpenClose", isLeftActive);
                     LeftCoverCloseAnimation.SetBool("OpenClose", isLeftActive);
                 }
                 else if (hit.collider.gameObject.tag == "OpenAndCloseKnobRight")
                 {
                     isRightActive = !isRightActive;
-                    RightCover.SetActive(isRightActive);
-
+                    RightCoverPivotAnimation.SetBool("CoverOpenClose", isRightActive);
                     RightCoverCloseAnimation.SetBool("OpenClose", isRightActive);
                 }
             }
         }
     }
 }
+

@@ -50,13 +50,16 @@ public class MeasureReadings : MonoBehaviour
     public TextMeshProUGUI SN;
     public TextMeshProUGUI NO;
 
+    public int pd;
+
     void Start()
     {
         // Serial Number & Number & VD & PD
         float serialNumber = Random.Range(1000f, 600000f);
         float number = Random.Range(0f, 6000f);
         float vd = 12f;
-        float pd = Random.Range(60f, 74f);
+        /*float pd = Random.Range(60f, 74f);*/
+        pd = 60;
 
         /******************************************************************************************/
 
