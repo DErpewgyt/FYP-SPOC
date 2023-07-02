@@ -19,6 +19,7 @@ public class PhoropterController : MonoBehaviour
     public AstigmatismLensMovement AstigmatismLensMovement;
     public AstigmatismMagnitudeControl AstigmatismMagnitudeControl;
     public AstigmatismAxisControl AstigmatismAxisControl;
+    public LensFlip LensController;
     private string[] allowedTags = { "PupillaryDistanceKnobLeft",
                                      "PupillaryDistanceKnobRight",
                                      "OpenAndCloseKnobLeft",
@@ -216,12 +217,14 @@ public class PhoropterController : MonoBehaviour
             case "AstigmatismLensLeft":
                 print("AstigmatismLensLeft clicked");
                 AstigmatismLensMovement.LeftLensAnimate();
+                LensController.leftFlip();
                 break;
 
             // Handle functionality for AstigmatismLensRight
             case "AstigmatismLensRight":
                 print("AstigmatismLensRight clicked");
                 AstigmatismLensMovement.RightLensAnimate();
+                LensController.rightFlip();
                 break;
 
             // Handle functionality for AstigmatismMagnitudeKnobLeft
