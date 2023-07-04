@@ -15,6 +15,10 @@ public class AstigmatismMagnitudeControl : MonoBehaviour
     public GameObject TopLeftobject;
     public GameObject TopRightobject;
 
+    public float rotationSpeed = 10f;
+    public GameObject LeftAstigmatismMagKnob;
+    public GameObject RightAstigmatismMagKnob;
+
     private float AstigMagLeft;
     private float AstigMagRight;
 
@@ -40,6 +44,10 @@ public class AstigmatismMagnitudeControl : MonoBehaviour
 
         if (AstigMagLeftBool)
         {
+            float rotationAmount = Input.mouseScrollDelta.y * rotationSpeed * Time.deltaTime;
+
+            RotateObject(LeftAstigmatismMagKnob, rotationAmount);
+
             TopLeftobject.SetActive(true);
             TopRightobject.SetActive(false);
             if (scrollInput != 0f)
@@ -52,6 +60,10 @@ public class AstigmatismMagnitudeControl : MonoBehaviour
 
         if (AstigMagRightBool)
         {
+            float rotationAmount = Input.mouseScrollDelta.y * rotationSpeed * Time.deltaTime;
+
+            RotateObject(RightAstigmatismMagKnob, rotationAmount);
+
             TopLeftobject.SetActive(false);
             TopRightobject.SetActive(true);
             if (scrollInput != 0f)
@@ -67,6 +79,18 @@ public class AstigmatismMagnitudeControl : MonoBehaviour
             TopLeftobject.SetActive(false);
             TopRightobject.SetActive(false);
         }
+    }
+
+    private void RotateObject(GameObject obj, float rotationAmount)
+    {
+        // Get the object's center position
+        Vector3 center = obj.GetComponent<Renderer>().bounds.center;
+
+        // Calculate the rotation axis as the object's up vector
+        Vector3 rotationAxis = obj.transform.up;
+
+        // Rotate the object around its center for the Y-axis
+        obj.transform.RotateAround(center, rotationAxis, rotationAmount);
     }
 
     private void UpdateValue(TextMeshProUGUI valueText, float LSvalues, TextMeshProUGUI valueText2)

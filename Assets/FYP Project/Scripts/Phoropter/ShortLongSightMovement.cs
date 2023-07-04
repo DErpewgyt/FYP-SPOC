@@ -613,6 +613,11 @@ public class ShortLongSightMovement : MonoBehaviour
     public GameObject TopRightpos1650;
     public GameObject TopRightpos1675;
 
+    //public GameObject LeftKnob;
+    //public GameObject RightKnob;
+
+    public float rotationSpeed = 100f;
+
     private void Start()
     {
         LeftLSSightBool = false;
@@ -628,24 +633,30 @@ public class ShortLongSightMovement : MonoBehaviour
 
         if (LeftLSSightBool)
         {
+            //float rotationAmount = Input.mouseScrollDelta.y * rotationSpeed * Time.deltaTime;
             TopLeftGroup.SetActive(true);
             TopRightGroup.SetActive(false);
             if (scrollInput != 0f)
             {
                 LSLeft += Mathf.Sign(scrollInput) * 0.25f;
                 LSLeft = Mathf.Clamp(LSLeft, -19f, 16.75f);
+
+                //RotateObject(LeftKnob, rotationAmount);
                 UpdateValue(LeftValue, LSLeft);
             }
         }
 
         if (RightLSSightBool)
         {
+            //float rotationAmount = Input.mouseScrollDelta.y * rotationSpeed * Time.deltaTime;
             TopLeftGroup.SetActive(false);
             TopRightGroup.SetActive(true);
             if (scrollInput != 0f)
             {
                 LSRight += Mathf.Sign(scrollInput) * 0.25f;
                 LSRight = Mathf.Clamp(LSRight, -19f, 16.75f);
+
+                //RotateObject(RightKnob, rotationAmount);
                 UpdateValue(RightValue ,LSRight);
             }
         }
@@ -656,6 +667,20 @@ public class ShortLongSightMovement : MonoBehaviour
             TopRightGroup.SetActive(false);
         }
     }
+
+    /*
+    private void RotateObject(GameObject obj, float rotationAmount)
+    {
+        // Get the object's center position
+        Vector3 center = obj.GetComponent<Renderer>().bounds.center;
+
+        // Calculate the rotation axis as the object's up vector
+        Vector3 rotationAxis = obj.transform.up;
+
+        // Rotate the object around its center for the Y-axis
+        obj.transform.RotateAround(center, rotationAxis, rotationAmount);
+    }
+    */
 
     private void UpdateValue(TextMeshProUGUI valueText, float LSvalues)
     {
