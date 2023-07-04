@@ -47,6 +47,8 @@ TagManager:
   - AstigmatismMagnitudeKnobRightImage
   - AstigmatismAxisKnobLeftImage
   - AstigmatismAxisKnobRightImage
+  - Keratometer
+  - Phoropter
   layers:
   - Default
   - TransparentFX
