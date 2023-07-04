@@ -58,8 +58,7 @@ public class MeasureReadings : MonoBehaviour
         float serialNumber = Random.Range(1000f, 600000f);
         float number = Random.Range(0f, 6000f);
         float vd = 12f;
-        /*float pd = Random.Range(60f, 74f);*/
-        pd = 60;
+        pd = Random.Range(60, 75);
 
         /******************************************************************************************/
 
