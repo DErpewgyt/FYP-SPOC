@@ -38,7 +38,7 @@ public class AIVoiceChecker : MonoBehaviour
         yield return null;
 
         /* Random Answer Generator*/////////////////////////////////////////////////////////////////////////////////
-        int randomChangePD = Random.Range(0, 3); // Generates a random number between 0 and 2
+        int randomChangePD = Random.Range(0, 3);
 
         switch (randomChangePD)
         {
@@ -113,13 +113,13 @@ public class AIVoiceChecker : MonoBehaviour
                 break;
         }
 
-        RS = RoundToQuarter(adjustedRsTake); // Round the adjusted value to the nearest 0.25
+        RS = RoundToQuarter(adjustedRsTake);
 
 
 
-        int randomChangeRC = Random.Range(0, 9); // Generates a random number between 0 and 6
+        int randomChangeRC = Random.Range(0, 9);
 
-        float adjustedRcTake = paper.rcTake; // Variable to store adjusted rsTake
+        float adjustedRcTake = paper.rcTake;
 
         switch (randomChangeRC)
         {
@@ -315,7 +315,7 @@ public class AIVoiceChecker : MonoBehaviour
                 break;
         }
 
-        LC = RoundToQuarter(adjustedLcTake); // Round the adjusted value to the nearest 0.25
+        LC = RoundToQuarter(adjustedLcTake);
 /*        string LC = LCformat.ToString("F2");
 */
 
