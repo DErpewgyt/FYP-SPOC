@@ -3,6 +3,8 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using System.Collections.Generic;
+using UnityEngine.UI;
+using TMPro;
 
 public class ZoomOnInstrument1FINAL : MonoBehaviour
 {
@@ -15,6 +17,18 @@ public class ZoomOnInstrument1FINAL : MonoBehaviour
     public GameObject zoomincam;
     public float transitionDuration = 0.5f;
     
+    public Animator objective;
+    public RawImage whiteBG; // Reference to the RawImage component
+    public TextMeshProUGUI textMesh;
+    public RawImage Line;
+    public RawImage Icon;
+    public float alphaChangeSpeed = 2f; // Speed of alpha change
+    public float alphaChangeDelay = 1f; // Delay before alpha change
+    private Coroutine whiteBGAlphaChangeCoroutine; // Coroutine reference for whiteBG alpha change
+    private Coroutine textAlphaChangeCoroutine; // Coroutine reference for Text alpha change
+    private Coroutine lineAlphaChangeCoroutine; // Coroutine reference for Line alpha change
+    private Coroutine iconAlphaChangeCoroutine; // Coroutine reference for Icon alpha change
+
     private bool isPaused = false;
     private float pauseTime = 160f; // The time in seconds to pause the animation (2 minutes and 40 seconds)
 
@@ -95,12 +109,39 @@ public class ZoomOnInstrument1FINAL : MonoBehaviour
             Ray ray = Camera.main.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0f)); // create raycast from the center of the camera
             if (Physics.Raycast(ray, out hit, raycastDistance)) // check if raycast hit anything
             {
+                
                 Debug.Log("Hit object: " + hit.transform.name); // print whatever raycast hits
                 if (hit.transform.name == "newkeratometer") // if keratometer is clicked
                 {
+                    
+                    if (whiteBG != null)
+                    {
+                        if (whiteBGAlphaChangeCoroutine != null)
+                            StopCoroutine(whiteBGAlphaChangeCoroutine);
+                        whiteBGAlphaChangeCoroutine = StartCoroutine(ChangeAlphaOverTimeWithDelay(whiteBG, 0f, alphaChangeSpeed, alphaChangeDelay));
+                    }
+                    if (textMesh != null)
+                    {
+                        if (textAlphaChangeCoroutine != null)
+                            StopCoroutine(textAlphaChangeCoroutine);
+                        textAlphaChangeCoroutine = StartCoroutine(ChangeTextAlphaOverTimeWithDelay(textMesh, 0f, alphaChangeSpeed, alphaChangeDelay));
+                    }
+                    if (Line != null)
+                    {
+                        if (lineAlphaChangeCoroutine != null)
+                            StopCoroutine(lineAlphaChangeCoroutine);
+                        lineAlphaChangeCoroutine = StartCoroutine(ChangeAlphaOverTimeWithDelay(Line, 0f, alphaChangeSpeed, alphaChangeDelay));
+                    }
+                    if (Icon != null)
+                    {
+                        if (iconAlphaChangeCoroutine != null)
+                            StopCoroutine(iconAlphaChangeCoroutine);
+                        iconAlphaChangeCoroutine = StartCoroutine(ChangeAlphaOverTimeWithDelay(Icon, 0f, alphaChangeSpeed, alphaChangeDelay));
+                    }
 
                     Debug.Log("Clicked");
                     // Your code here to handle the left-click on the "newkeratometer" game object
+                    
                     maincam.SetActive(false);
                     zoomincam.SetActive(true);
                     controls.SetActive(false);
@@ -111,6 +152,7 @@ public class ZoomOnInstrument1FINAL : MonoBehaviour
                     {
                         foreach (var animator in animatorDictionary.Keys)
                         {
+                            objective.SetBool("Complete2", true);
                             animator.enabled = true; // Enable the animator component
                             animator.Play(animatorDictionary[animator]); // Play the corresponding animation
                         }
@@ -172,6 +214,52 @@ public class ZoomOnInstrument1FINAL : MonoBehaviour
             phoropter.enabled = true; // Enable the animator component
             newkeratometer.Play("YourAnimationName", 0, pauseTime / newkeratometer.GetCurrentAnimatorStateInfo(0).length); // Play the animator animation from the paused time
         }
+    }
+
+     IEnumerator ChangeAlphaOverTimeWithDelay(RawImage image, float targetAlpha, float speed, float delay)
+    {
+        yield return new WaitForSeconds(delay);
+
+        Color currentColor = image.color;
+        float currentAlpha = currentColor.a;
+        float startTime = Time.time;
+        float endTime = startTime + Mathf.Abs(targetAlpha - currentAlpha) / speed;
+
+        while (Time.time < endTime)
+        {
+            float elapsedTime = Time.time - startTime;
+            float normalizedTime = Mathf.Clamp01(elapsedTime / (endTime - startTime));
+            float newAlpha = Mathf.Lerp(currentAlpha, targetAlpha, normalizedTime);
+            currentColor.a = newAlpha;
+            image.color = currentColor;
+            yield return null;
+        }
+
+        currentColor.a = targetAlpha;
+        image.color = currentColor;
+    }
+
+    IEnumerator ChangeTextAlphaOverTimeWithDelay(TextMeshProUGUI text, float targetAlpha, float speed, float delay)
+    {
+        yield return new WaitForSeconds(delay);
+
+        Color currentColor = text.color;
+        float currentAlpha = currentColor.a;
+        float startTime = Time.time;
+        float endTime = startTime + Mathf.Abs(targetAlpha - currentAlpha) / speed;
+
+        while (Time.time < endTime)
+        {
+            float elapsedTime = Time.time - startTime;
+            float normalizedTime = Mathf.Clamp01(elapsedTime / (endTime - startTime));
+            float newAlpha = Mathf.Lerp(currentAlpha, targetAlpha, normalizedTime);
+            currentColor.a = newAlpha;
+            text.color = currentColor;
+            yield return null;
+        }
+
+        currentColor.a = targetAlpha;
+        text.color = currentColor;
     }
 
     private void PauseAnimation()

@@ -18,8 +18,10 @@ public class DoorScript : MonoBehaviour
     public TextMeshProUGUI textMesh;
     public RawImage Line;
     public RawImage Icon;
+    public Canvas canvas;
     public float alphaChangeSpeed = 2f; // Speed of alpha change
     public float alphaChangeDelay = 1f; // Delay before alpha change
+    public float alphaChangeDelayCanva = 6f; // Delay before alpha change
 
     private Coroutine whiteBGAlphaChangeCoroutine; // Coroutine reference for whiteBG alpha change
     private Coroutine textAlphaChangeCoroutine; // Coroutine reference for Text alpha change
@@ -74,6 +76,7 @@ public class DoorScript : MonoBehaviour
                             StopCoroutine(iconAlphaChangeCoroutine);
                         iconAlphaChangeCoroutine = StartCoroutine(ChangeAlphaOverTimeWithDelay(Icon, 0f, alphaChangeSpeed, alphaChangeDelay));
                     }
+                      StartCoroutine(ActivateCanvasWithDelay());
                 }
                 else
                 {
@@ -85,6 +88,12 @@ public class DoorScript : MonoBehaviour
             }
         }
     }
+
+    IEnumerator ActivateCanvasWithDelay()
+{
+    yield return new WaitForSeconds(alphaChangeDelayCanva);
+    canvas.gameObject.SetActive(true);
+}
 
     IEnumerator ChangeAlphaOverTimeWithDelay(RawImage image, float targetAlpha, float speed, float delay)
     {
