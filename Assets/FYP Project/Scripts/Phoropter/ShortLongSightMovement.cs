@@ -663,7 +663,7 @@ public class ShortLongSightMovement : MonoBehaviour
 
                 if (LSRight != -19f && LSRight != 16.75f)
                 {
-                    RotateObject(RightKnob, rotationAmount);
+                    RotateObject(RightKnob, -rotationAmount);
                 }
 
                 UpdateValue(RightValue ,LSRight);
