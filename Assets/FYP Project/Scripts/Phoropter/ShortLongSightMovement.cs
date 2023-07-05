@@ -613,8 +613,8 @@ public class ShortLongSightMovement : MonoBehaviour
     public GameObject TopRightpos1650;
     public GameObject TopRightpos1675;
 
-    //public GameObject LeftKnob;
-    //public GameObject RightKnob;
+    public GameObject LeftKnob;
+    public GameObject RightKnob;
 
     public float rotationSpeed = 100f;
 
@@ -633,7 +633,7 @@ public class ShortLongSightMovement : MonoBehaviour
 
         if (LeftLSSightBool)
         {
-            //float rotationAmount = Input.mouseScrollDelta.y * rotationSpeed * Time.deltaTime;
+            float rotationAmount = Input.mouseScrollDelta.y * rotationSpeed * Time.deltaTime;
             TopLeftGroup.SetActive(true);
             TopRightGroup.SetActive(false);
             if (scrollInput != 0f)
@@ -641,14 +641,18 @@ public class ShortLongSightMovement : MonoBehaviour
                 LSLeft += Mathf.Sign(scrollInput) * 0.25f;
                 LSLeft = Mathf.Clamp(LSLeft, -19f, 16.75f);
 
-                //RotateObject(LeftKnob, rotationAmount);
+                if (LSLeft != -19f && LSLeft != 16.75f)
+                {
+                    RotateObject(LeftKnob, rotationAmount);
+                }
+
                 UpdateValue(LeftValue, LSLeft);
             }
         }
 
         if (RightLSSightBool)
         {
-            //float rotationAmount = Input.mouseScrollDelta.y * rotationSpeed * Time.deltaTime;
+            float rotationAmount = Input.mouseScrollDelta.y * rotationSpeed * Time.deltaTime;
             TopLeftGroup.SetActive(false);
             TopRightGroup.SetActive(true);
             if (scrollInput != 0f)
@@ -656,7 +660,12 @@ public class ShortLongSightMovement : MonoBehaviour
                 LSRight += Mathf.Sign(scrollInput) * 0.25f;
                 LSRight = Mathf.Clamp(LSRight, -19f, 16.75f);
 
-                //RotateObject(RightKnob, rotationAmount);
+
+                if (LSRight != -19f && LSRight != 16.75f)
+                {
+                    RotateObject(RightKnob, rotationAmount);
+                }
+
                 UpdateValue(RightValue ,LSRight);
             }
         }
@@ -668,11 +677,11 @@ public class ShortLongSightMovement : MonoBehaviour
         }
     }
 
-    /*
+    
     private void RotateObject(GameObject obj, float rotationAmount)
     {
-        // Get the object's center position
-        Vector3 center = obj.GetComponent<Renderer>().bounds.center;
+        // Get the object's position
+        Vector3 center = obj.transform.position;
 
         // Calculate the rotation axis as the object's up vector
         Vector3 rotationAxis = obj.transform.up;
@@ -680,7 +689,7 @@ public class ShortLongSightMovement : MonoBehaviour
         // Rotate the object around its center for the Y-axis
         obj.transform.RotateAround(center, rotationAxis, rotationAmount);
     }
-    */
+    
 
     private void UpdateValue(TextMeshProUGUI valueText, float LSvalues)
     {
