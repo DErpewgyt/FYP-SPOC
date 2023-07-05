@@ -51,6 +51,14 @@ public class MeasureReadings : MonoBehaviour
     public TextMeshProUGUI NO;
 
     public int pd;
+    public float rsTake;
+    public float lsTake;
+
+    public float rcTake;
+    public float lcTake;
+
+    public int raTake;
+    public int laTake;
 
     void Start()
     {
@@ -66,19 +74,19 @@ public class MeasureReadings : MonoBehaviour
         float rs1 = Random.Range(0.00f, -19.00f);
         float rs2 = rs1;
         float rs3 = rs1;
-        float rsTake = rs1;
+        rsTake = rs1;
 
         // Right Astigmatism (C)
         float rc1 = Random.Range(0.00f, -6.00f);
         float rc2 = rc1;
         float rc3 = rc1;
-        float rcTake = rc1;
+        rcTake = rc1;
 
         // Right Axis-Astigmatism (A)
-        float ra1 = Random.Range(0f, 180f);
-        float ra2 = ra1 - 1f;
-        float ra3 = ra1 - 3f;
-        float raTake = Mathf.Ceil((ra1 + ra2 + ra3) / 3f);
+        int ra1 = Random.Range(0, 180);
+        int ra2 = ra1 - 1;
+        int ra3 = ra1 - 3;
+        raTake = Mathf.RoundToInt(Mathf.Ceil((ra1 + ra2 + ra3) / 3));
 
         // Right Spherical Equivalent (SE)
         float seRight = rs1 + (rc1 / 2f);
@@ -89,19 +97,19 @@ public class MeasureReadings : MonoBehaviour
         float ls1 = Random.Range(0.00f, -19.00f);
         float ls2 = ls1;
         float ls3 = ls1;
-        float lsTake = ls1;
+        lsTake = ls1;
 
         // Left Astigmatism (C)
         float lc1 = Random.Range(0.00f, -6.00f);
         float lc2 = lc1;
         float lc3 = lc1;
-        float lcTake = lc1;
+        lcTake = lc1;
 
         // Left Axis-Astigmatism (A)
         float la1 = Random.Range(0f, 180f);
-        float la2 = la1 - 1f;
-        float la3 = la1 - 3f;
-        float laTake = Mathf.Ceil((la1 + la2 + la3) / 3f);
+        float la2 = la1 - 1;
+        float la3 = la1 - 3;
+        laTake = Mathf.RoundToInt(Mathf.Ceil((la1 + la2 + la3) / 3));
 
         // Left Spherical Equivalent (SE)
         float seLeft = ls1 + (lc1 / 2f);
