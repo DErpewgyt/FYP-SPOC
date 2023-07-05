@@ -571,6 +571,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   leftHalf: {fileID: 640221052}
   rightHalf: {fileID: 788474362}
+  leftKnob: {fileID: 11562294}
+  rightKnob: {fileID: 691530363}
+  rotationSpeed: 500
   scrollLimit: 279
   pd: 0
   scrollDirection: {x: 0.001, y: 0, z: 0}
@@ -25294,7 +25297,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 588049308}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e85611874719f584bb52001003726c0a, type: 3}
   m_Name: 
@@ -38899,6 +38902,9 @@ MonoBehaviour:
   TopRightValue: {fileID: 885774222}
   TopLeftobject: {fileID: 369463562}
   TopRightobject: {fileID: 224802355}
+  rotationSpeed: 500
+  LeftAstigmatismMagKnob: {fileID: 7161171260704586141}
+  RightAstigmatismMagKnob: {fileID: 6799656788266447915}
   AstigMagLeftBool: 0
   AstigMagRightBool: 0
 --- !u!114 &1012159152
@@ -38916,8 +38922,10 @@ MonoBehaviour:
   rotationSpeed: 100
   AstigmatismLensLeftFrame: {fileID: 1916761917}
   AstigmatismMiddleLensLeft: {fileID: 794469482376410768}
+  AstigmatismLeftKnob: {fileID: 8431897405483584320}
   AstigmatismLensRightFrame: {fileID: 218340258}
   AstigmatismMiddleLensRight: {fileID: 2585987437172070720}
+  AstigmatismRightKnob: {fileID: 1702232544775274239}
   isRotatingLeft: 0
   isRotatingRight: 0
 --- !u!1 &1013152697
@@ -70650,7 +70658,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1980818772}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e85611874719f584bb52001003726c0a, type: 3}
   m_Name: 

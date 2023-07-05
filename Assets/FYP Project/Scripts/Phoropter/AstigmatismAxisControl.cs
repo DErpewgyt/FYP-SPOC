@@ -5,9 +5,11 @@ public class AstigmatismAxisControl : MonoBehaviour
     public float rotationSpeed = 10f;
     public GameObject AstigmatismLensLeftFrame;
     public GameObject AstigmatismMiddleLensLeft;
+    public GameObject AstigmatismLeftKnob;
 
     public GameObject AstigmatismLensRightFrame;
     public GameObject AstigmatismMiddleLensRight;
+    public GameObject AstigmatismRightKnob;
 
     public bool isRotatingLeft = false;
     public bool isRotatingRight = false;
@@ -33,6 +35,9 @@ public class AstigmatismAxisControl : MonoBehaviour
 
             // Rotate the second object
             RotateObject(AstigmatismMiddleLensLeft, rotationAmount);
+
+            // Rotate the third object
+            RotateObject(AstigmatismLeftKnob, rotationAmount);
         }
 
         if (isRotatingRight)
@@ -44,6 +49,9 @@ public class AstigmatismAxisControl : MonoBehaviour
 
             // Rotate the second object
             RotateObject(AstigmatismMiddleLensRight, rotationAmount);
+
+            // Rotate the third object
+            RotateObject(AstigmatismRightKnob, rotationAmount);
         }
     }
 
