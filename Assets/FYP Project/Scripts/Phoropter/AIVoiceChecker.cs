@@ -388,63 +388,63 @@ public class AIVoiceChecker : MonoBehaviour
         // Checker for PD
         if (pd == 60)
         {
-            correctDist = 167;
+            correctDist = 34;
         }
         if (pd == 61)
         {
-            correctDist = 170;
+            correctDist = 37;
         }
         if (pd == 62)
         {
-            correctDist = 173;
+            correctDist = 40;
         }
         if (pd == 63)
         {
-            correctDist = 176;
+            correctDist = 43;
         }
         if (pd == 64)
         {
-            correctDist = 179;
+            correctDist = 46;
         }
         if (pd == 65)
         {
-            correctDist = 182;
+            correctDist = 49;
         }
         if (pd == 66)
         {
-            correctDist = 185;
+            correctDist = 52;
         }
         if (pd == 67)
         {
-            correctDist = 188;
+            correctDist = 55;
         }
         if (pd == 68)
         {
-            correctDist = 191;
+            correctDist = 58;
         }
         if (pd == 69)
         {
-            correctDist = 194;
+            correctDist = 61;
         }
         if (pd == 70)
         {
-            correctDist = 197;
+            correctDist = 64;
         }
         if (pd == 71)
         {
-            correctDist = 200;
+            correctDist = 67;
         }
         if (pd == 72)
         {
-            correctDist = 203;
+            correctDist = 70;
         }
         if (pd == 73)
         {
-            correctDist = 206;
+            correctDist = 73;
         }
         if (pd == 74)
         {
-            correctDist = 209;
+            correctDist = 76;
         }
     }
 
