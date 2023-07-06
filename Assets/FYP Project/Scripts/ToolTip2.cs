@@ -14,7 +14,10 @@ public class ToolTip2 : MonoBehaviour
     private Coroutine textAlphaChangeCoroutine3; // Coroutine reference for Text3 alpha change
     public float alphaChangeSpeed = 2f; // Speed of alpha change
     public float alphaChangeDelay = 1f; // Delay before alpha change
+    private bool keyPressHandled = false;
 
+
+    /*
     void Update()
     {
       if (Input.GetMouseButton(0))
@@ -40,6 +43,43 @@ public class ToolTip2 : MonoBehaviour
             }
         }
     }
+    */
+
+    void Update()
+    {
+        if (Input.GetMouseButton(0))
+        {
+            Debug.Log("Mouse input detected");
+            if (textMesh != null)
+            {
+                if (textAlphaChangeCoroutine1 != null)
+                    StopCoroutine(textAlphaChangeCoroutine1);
+                textAlphaChangeCoroutine1 = StartCoroutine(ChangeTextAlphaOverTimeWithDelay(textMesh, 0f, alphaChangeSpeed, alphaChangeDelay));
+            }
+            if (textMesh2 != null)
+            {
+                if (textAlphaChangeCoroutine2 != null)
+                    StopCoroutine(textAlphaChangeCoroutine2);
+                textAlphaChangeCoroutine2 = StartCoroutine(ChangeTextAlphaOverTimeWithDelay(textMesh2, 0f, alphaChangeSpeed, alphaChangeDelay));
+            }
+            if (textMesh3 != null && !keyPressHandled)
+            {
+                keyPressHandled = true;
+                if (textAlphaChangeCoroutine3 != null)
+                    StopCoroutine(textAlphaChangeCoroutine3);
+                textAlphaChangeCoroutine3 = StartCoroutine(ChangeTextAlphaOverTimeWithDelay(textMesh3, 0f, alphaChangeSpeed, alphaChangeDelay));
+                textMesh3.color = Color.red;
+            }
+        }
+        else if (Input.GetMouseButtonDown(0))
+        {
+            if (textMesh2 != null)
+            {
+                textMesh2.color = Color.red; // Set color to red
+            }
+        }
+    }
+
 
     bool ContainsAnyKey(KeyCode[] keys)
     {
@@ -72,5 +112,5 @@ public class ToolTip2 : MonoBehaviour
 
         currentColor.a = targetAlpha;
         text.color = currentColor;
-    }
+    }
 }
