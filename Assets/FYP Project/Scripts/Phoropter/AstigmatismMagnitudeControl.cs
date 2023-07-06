@@ -19,8 +19,8 @@ public class AstigmatismMagnitudeControl : MonoBehaviour
     public GameObject LeftAstigmatismMagKnob;
     public GameObject RightAstigmatismMagKnob;
 
-    private float AstigMagLeft;
-    private float AstigMagRight;
+    public float AstigMagLeft;
+    public float AstigMagRight;
 
     public bool AstigMagLeftBool;
     public bool AstigMagRightBool;

@@ -14,6 +14,14 @@ public class AstigmatismAxisControl : MonoBehaviour
     public bool isRotatingLeft = false;
     public bool isRotatingRight = false;
 
+    public float LeftDegree;
+    public float RightDegree;
+
+    public float LeftDegreeWholeNumber;
+    public float RightDegreeWholeNumber;
+
+
+
     public void HandleLeftKnobClick()
     {
         isRotatingLeft = true;
@@ -65,5 +73,24 @@ public class AstigmatismAxisControl : MonoBehaviour
 
         // Rotate the object around its center for the Y-axis
         obj.transform.RotateAround(center, rotationAxis, rotationAmount);
+
+        if (obj == AstigmatismLeftKnob)
+        {
+            LeftDegree = (LeftDegree + rotationAmount) % 180;
+            if (LeftDegree < 0)
+            {
+                LeftDegree += 180;
+            }
+            LeftDegreeWholeNumber = Mathf.Round(LeftDegree);
+        }
+        else if (obj == AstigmatismRightKnob)
+        {
+            RightDegree = (RightDegree + rotationAmount) % 180;
+            if (RightDegree < 0)
+            {
+                RightDegree += 180;
+            }
+            RightDegreeWholeNumber = Mathf.Round(RightDegree);
+        }
     }
 }
