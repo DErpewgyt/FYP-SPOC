@@ -6,8 +6,8 @@ public class PDController : MonoBehaviour
     public GameObject leftHalf;
     public GameObject rightHalf;
 
-    /*public GameObject leftKnob;
-    public GameObject rightKnob;*/
+    public GameObject leftKnob;
+    public GameObject rightKnob;
     public float rotationSpeed = 10f;
 
     /*public float moveSpeed = 1f;
@@ -37,8 +37,8 @@ public class PDController : MonoBehaviour
             pd += 1;
             //UpdateTmp();
 
-            /*RotateObject(leftKnob, rotationAmount);
-            RotateObject(rightKnob, rotationAmount);*/
+            RotateObject(leftKnob, rotationAmount);
+            RotateObject(rightKnob, rotationAmount);
         }
         else if (scrollInput < 0 && pd > 0)
         {
@@ -49,8 +49,8 @@ public class PDController : MonoBehaviour
             pd -= 1;
             //UpdateTmp();
 
-            /*RotateObject(leftKnob, rotationAmount);
-            RotateObject(rightKnob, rotationAmount);*/
+            RotateObject(leftKnob, rotationAmount);
+            RotateObject(rightKnob, rotationAmount);
         }
     }
 

@@ -664,6 +664,8 @@ MonoBehaviour:
   leftKnob: {fileID: 11562294}
   rightKnob: {fileID: 691530363}
   rotationSpeed: 500
+  moveSpeed: 1
+  scrollSensitivity: 1
   scrollLimit: 279
   pd: 0
   scrollDirection: {x: 0.001, y: 0, z: 0}
@@ -1652,6 +1654,7 @@ MonoBehaviour:
   LeftsideShortCutKnob: {fileID: 1214192608}
   RightSideShortCutKnob: {fileID: 1623591972}
   rotationSpeed: 6000
+  rotationamountShortCut: 20
 --- !u!4 &18230740
 Transform:
   m_ObjectHideFlags: 0
@@ -41294,6 +41297,8 @@ MonoBehaviour:
   rotationSpeed: 500
   LeftAstigmatismMagKnob: {fileID: 7161171260704586141}
   RightAstigmatismMagKnob: {fileID: 6799656788266447915}
+  AstigMagLeft: 0
+  AstigMagRight: 0
   AstigMagLeftBool: 0
   AstigMagRightBool: 0
 --- !u!114 &1012159152
@@ -41317,6 +41322,8 @@ MonoBehaviour:
   AstigmatismRightKnob: {fileID: 1702232544775274239}
   isRotatingLeft: 0
   isRotatingRight: 0
+  LeftDegree: 0
+  RightDegree: 0
 --- !u!1 &1013152697
 GameObject:
   m_ObjectHideFlags: 0
@@ -51985,20 +51992,31 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   paper: {fileID: 1999297261}
   ruler: {fileID: 1974065381}
+  LSController: {fileID: 0}
   perfect: {fileID: 935113430}
   tooNear: {fileID: 1643785160}
   tooFar: {fileID: 1800719509}
+  leftBlur: {fileID: 0}
+  leftClear: {fileID: 0}
+  leftTooClear: {fileID: 0}
+  rightBlur: {fileID: 0}
+  rightClear: {fileID: 0}
+  rightTooClear: {fileID: 0}
   pd: 0
-  RS: 
-  RC: 
+  RS: 0
+  RC: 0
   RA: 0
-  LS: 
-  LC: 
+  LS: 0
+  LC: 0
   LA: 0
   rulerDist: 0
   correctDist: 0
+  ls: 0
+  rs: 0
   MeasurementChanges: 0.25
   CheckBtn: {fileID: 447283727}
+  rsBtn: {fileID: 0}
+  lsBtn: {fileID: 0}
 --- !u!1 &1317624042
 GameObject:
   m_ObjectHideFlags: 0
