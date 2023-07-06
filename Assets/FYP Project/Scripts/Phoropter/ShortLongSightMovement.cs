@@ -613,14 +613,17 @@ public class ShortLongSightMovement : MonoBehaviour
     public GameObject TopRightpos1650;
     public GameObject TopRightpos1675;
 
-    public GameObject LeftKnob;
+    public GameObject LeftCheck;
+    public GameObject RightCheck;
+
+    /*public GameObject LeftKnob;
     public GameObject RightKnob;
 
     public GameObject LeftsideButtons;
     public GameObject RightSideButtons;
 
     public GameObject LeftsideShortCutKnob;
-    public GameObject RightSideShortCutKnob;
+    public GameObject RightSideShortCutKnob;*/
 
     public float rotationSpeed = 100f;
     public float rotationamountShortCut = 20f;
@@ -633,8 +636,8 @@ public class ShortLongSightMovement : MonoBehaviour
         LSLeft = 0;
         LSRight = 0;
 
-        LeftsideButtons.SetActive(false);
-        RightSideButtons.SetActive(false);
+        /*LeftsideButtons.SetActive(false);
+        RightSideButtons.SetActive(false);*/
     }
 
     private void Update()
@@ -643,8 +646,8 @@ public class ShortLongSightMovement : MonoBehaviour
 
         if (LeftLSSightBool)
         {
-            LeftsideButtons.SetActive(true); 
-            RightSideButtons.SetActive(false);
+            /*LeftsideButtons.SetActive(true); 
+            RightSideButtons.SetActive(false);*/
             float rotationAmount = Input.mouseScrollDelta.y * rotationSpeed * Time.deltaTime;
             TopLeftGroup.SetActive(true);
             TopRightGroup.SetActive(false);
@@ -653,19 +656,20 @@ public class ShortLongSightMovement : MonoBehaviour
                 LSLeft += Mathf.Sign(scrollInput) * 0.25f;
                 LSLeft = Mathf.Clamp(LSLeft, -19f, 16.75f);
 
-                if (LSLeft != -19f && LSLeft != 16.75f)
+                /*if (LSLeft != -19f && LSLeft != 16.75f)
                 {
                     RotateObjectTransform(LeftKnob, rotationAmount);
-                }
+                }*/
 
                 UpdateValue(LeftValue, LSLeft);
+                LeftCheck.SetActive(true);
             }
         }
 
         if (RightLSSightBool)
         {
-            RightSideButtons.SetActive(true);
-            LeftsideButtons.SetActive(false);
+            /*RightSideButtons.SetActive(true);
+            LeftsideButtons.SetActive(false);*/
             float rotationAmount = Input.mouseScrollDelta.y * rotationSpeed * Time.deltaTime;
             TopLeftGroup.SetActive(false);
             TopRightGroup.SetActive(true);
@@ -675,12 +679,13 @@ public class ShortLongSightMovement : MonoBehaviour
                 LSRight = Mathf.Clamp(LSRight, -19f, 16.75f);
 
 
-                if (LSRight != -19f && LSRight != 16.75f)
+                /*if (LSRight != -19f && LSRight != 16.75f)
                 {
                     RotateObjectTransform(RightKnob, -rotationAmount);
-                }
+                }*/
 
                 UpdateValue(RightValue ,LSRight);
+                RightCheck.SetActive(true);
             }
         }
 
@@ -689,8 +694,8 @@ public class ShortLongSightMovement : MonoBehaviour
             TopLeftGroup.SetActive(false);
             TopRightGroup.SetActive(false);
 
-            RightSideButtons.SetActive(false);
-            LeftsideButtons.SetActive(false);
+            /*RightSideButtons.SetActive(false);
+            LeftsideButtons.SetActive(false);*/
         }
     }
 
@@ -702,7 +707,7 @@ public class ShortLongSightMovement : MonoBehaviour
             float rotationAmount = rotationamountShortCut;
             LSLeft += 3;
             UpdateValue(LeftValue, LSLeft);
-            RotateObject(LeftsideShortCutKnob, -rotationAmount);
+            /*RotateObject(LeftsideShortCutKnob, -rotationAmount);*/
         }
     }
 
@@ -713,7 +718,7 @@ public class ShortLongSightMovement : MonoBehaviour
             float rotationAmount = -rotationamountShortCut;
             LSLeft -= 3;
             UpdateValue(LeftValue, LSLeft);
-            RotateObject(LeftsideShortCutKnob, rotationAmount);
+            /*RotateObject(LeftsideShortCutKnob, rotationAmount);*/
         }
     }
 
@@ -724,7 +729,7 @@ public class ShortLongSightMovement : MonoBehaviour
             float rotationAmount = rotationamountShortCut;
             LSRight += 3;
             UpdateValue(RightValue, LSRight);
-            RotateObject(RightSideShortCutKnob, -rotationAmount);
+            /*RotateObject(RightSideShortCutKnob, -rotationAmount);*/
         }
     }
 
@@ -735,7 +740,7 @@ public class ShortLongSightMovement : MonoBehaviour
             float rotationAmount = -rotationamountShortCut;
             LSRight -= 3;
             UpdateValue(RightValue, LSRight);
-            RotateObject(RightSideShortCutKnob, rotationAmount);
+            /*RotateObject(RightSideShortCutKnob, rotationAmount);*/
         }
     }
 

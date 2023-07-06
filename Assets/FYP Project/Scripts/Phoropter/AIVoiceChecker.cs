@@ -5,26 +5,40 @@ public class AIVoiceChecker : MonoBehaviour
 {
     public MeasureReadings paper;
     public RulerController ruler;
+    public ShortLongSightMovement LSController;
 
     public AudioSource perfect;
     public AudioSource tooNear;
     public AudioSource tooFar;
 
+    public AudioSource leftBlur;
+    public AudioSource leftClear;
+    public AudioSource leftTooClear;
+
+    public AudioSource rightBlur;
+    public AudioSource rightClear;
+    public AudioSource rightTooClear;
+
     public int pd;
-    public string RS;
-    public string RC;
+    public float RS;
+    public float RC;
     public int RA;
 
-    public string LS;
-    public string LC;
+    public float LS;
+    public float LC;
     public int LA;
     
     public int rulerDist;
     public int correctDist;
 
-    public float MeasurementChanges = 0.25f; // Increment/decrement value for rsTake
+    public float ls;
+    public float rs;
 
-    public GameObject CheckBtn;
+    public float MeasurementChanges = 0.25f;
+
+    public GameObject CheckBtn; // check pd
+    public GameObject rsBtn; // check patient's right side
+    public GameObject lsBtn; // check patient's left side
 
     // Start is called before the first frame update
     private void Start()
@@ -448,7 +462,7 @@ public class AIVoiceChecker : MonoBehaviour
         }
     }
 
-    public void check()
+    public void pdCheck()
     {
         rulerDist = ruler.rulerDist;
         print(rulerDist);
@@ -467,23 +481,61 @@ public class AIVoiceChecker : MonoBehaviour
         CheckBtn.SetActive(false);
     }
 
+    public void rsCheck() // Chcek patient's right
+    {
+        ls = LSController.LSLeft;
+        print(ls);
+        if (ls == RS)
+        {
+            rightClear.Play();
+        }
+        else if (ls > RS)
+        {
+            rightTooClear.Play();
+        }
+        else if (ls < RS)
+        {
+            rightBlur.Play();
+        }
+        rsBtn.SetActive(false);
+    }
+
+    public void lsCheck() // Chcek patient's left
+    {
+        rs = LSController.LSRight;
+        print(rs);
+        if (rs == LS)
+        {
+            leftClear.Play();
+        }
+        else if (rs > LS)
+        {
+            leftTooClear.Play();
+        }
+        else if (rs < LS)
+        {
+            leftBlur.Play();
+        }
+        lsBtn.SetActive(false);
+    }
+
     // Update is called once per frame
     private void Update()
     {
     }
 
-    private string RoundToQuarter(float value)
+    /*private string RoundToQuarter(float value)
     {
         float roundedValue = Mathf.Round(value * 4f) / 4f;
         string formattedValue = roundedValue.ToString("F2");
         return formattedValue;
-    }
+    }*/
 
 
-    /*// Rounds the value to the nearest 0.25
+    // Rounds the value to the nearest 0.25
     private float RoundToQuarter(float value)
     {
         float roundedValue = Mathf.Round(value * 4f) / 4f;
         return roundedValue;
-    }*/
+    }
 }
