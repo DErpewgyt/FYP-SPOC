@@ -664,8 +664,6 @@ MonoBehaviour:
   leftKnob: {fileID: 11562294}
   rightKnob: {fileID: 691530363}
   rotationSpeed: 500
-  moveSpeed: 1
-  scrollSensitivity: 1
   scrollLimit: 279
   pd: 0
   scrollDirection: {x: 0.001, y: 0, z: 0}
@@ -41324,6 +41322,8 @@ MonoBehaviour:
   isRotatingRight: 0
   LeftDegree: 0
   RightDegree: 0
+  LeftDegreeWholeNumber: 0
+  RightDegreeWholeNumber: 0
 --- !u!1 &1013152697
 GameObject:
   m_ObjectHideFlags: 0
