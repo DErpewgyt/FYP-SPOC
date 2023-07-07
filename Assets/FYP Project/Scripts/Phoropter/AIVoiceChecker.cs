@@ -138,7 +138,7 @@ public class AIVoiceChecker : MonoBehaviour
         switch (randomChangeRC)
         {
             case 0:
-                adjustedRcTake = Mathf.Max(adjustedRcTake - MeasurementChanges, -6.00f);
+                adjustedRcTake = Mathf.Max(adjustedRcTake - MeasurementChanges, 6.00f);
                 break;
 
             case 1:
@@ -146,7 +146,7 @@ public class AIVoiceChecker : MonoBehaviour
                 break;
 
             case 2:
-                adjustedRcTake = Mathf.Max(adjustedRcTake - MeasurementChanges * 2, -6.00f);
+                adjustedRcTake = Mathf.Max(adjustedRcTake - MeasurementChanges * 2, 6.00f);
                 break;
 
             case 3:
@@ -154,7 +154,7 @@ public class AIVoiceChecker : MonoBehaviour
                 break;
 
             case 4:
-                adjustedRcTake = Mathf.Max(adjustedRcTake - MeasurementChanges * 3, -6.00f);
+                adjustedRcTake = Mathf.Max(adjustedRcTake - MeasurementChanges * 3, 6.00f);
                 break;
 
             case 5:
@@ -162,7 +162,7 @@ public class AIVoiceChecker : MonoBehaviour
                 break;
 
             case 6:
-                adjustedRcTake = Mathf.Max(adjustedRcTake - MeasurementChanges * 4, -6.00f);
+                adjustedRcTake = Mathf.Max(adjustedRcTake - MeasurementChanges * 4, 6.00f);
                 break;
 
             case 7:
