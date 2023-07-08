@@ -20,7 +20,8 @@ public class AstigmatismAxisControl : MonoBehaviour
     public float LeftDegreeWholeNumber;
     public float RightDegreeWholeNumber;
 
-
+    public GameObject leftAxisBtn; // check patients left side
+    public GameObject rightAxisBtn; // check patients right side
 
     public void HandleLeftKnobClick()
     {
@@ -34,6 +35,8 @@ public class AstigmatismAxisControl : MonoBehaviour
 
     private void Update()
     {
+        float scrollInput = Input.GetAxis("Mouse ScrollWheel");
+
         if (isRotatingLeft)
         {
             float rotationAmount = Input.mouseScrollDelta.y * rotationSpeed * Time.deltaTime;
@@ -46,6 +49,11 @@ public class AstigmatismAxisControl : MonoBehaviour
 
             // Rotate the third object
             RotateObject(AstigmatismLeftKnob, rotationAmount);
+
+            if (scrollInput != 0f)
+            {
+                rightAxisBtn.SetActive(true);
+            }
         }
 
         if (isRotatingRight)
@@ -60,6 +68,11 @@ public class AstigmatismAxisControl : MonoBehaviour
 
             // Rotate the third object
             RotateObject(AstigmatismRightKnob, rotationAmount);
+
+            if (scrollInput != 0f)
+            {
+                leftAxisBtn.SetActive(true);
+            }
         }
     }
 
