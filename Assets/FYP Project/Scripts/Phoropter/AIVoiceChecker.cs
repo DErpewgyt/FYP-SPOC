@@ -6,6 +6,8 @@ public class AIVoiceChecker : MonoBehaviour
     public MeasureReadings paper;
     public RulerController ruler;
     public ShortLongSightMovement LSController;
+    public AstigmatismMagnitudeControl MagnitudeController;
+    public AstigmatismAxisControl axisController;
 
     public AudioSource perfect;
     public AudioSource tooNear;
@@ -34,11 +36,21 @@ public class AIVoiceChecker : MonoBehaviour
     public float ls;
     public float rs;
 
+    public float LeftMag;
+    public float RightMag;
+
+    public float leftAxis;
+    public float rightAxis;
+
     public float MeasurementChanges = 0.25f;
 
     public GameObject CheckBtn; // check pd
     public GameObject rsBtn; // check patient's right side
     public GameObject lsBtn; // check patient's left side
+    public GameObject rightMagBtn; // Checks patients right side
+    public GameObject leftMagBtn; // Checks patients left side
+    public GameObject rightAxisBtn; // check patients right side
+    public GameObject leftAxisBtn; // check patients left side
 
     // Start is called before the first frame update
     private void Start()
@@ -138,7 +150,7 @@ public class AIVoiceChecker : MonoBehaviour
         switch (randomChangeRC)
         {
             case 0:
-                adjustedRcTake = Mathf.Max(adjustedRcTake - MeasurementChanges, 6.00f);
+                adjustedRcTake = Mathf.Max(adjustedRcTake - MeasurementChanges, -6.00f);
                 break;
 
             case 1:
@@ -146,7 +158,7 @@ public class AIVoiceChecker : MonoBehaviour
                 break;
 
             case 2:
-                adjustedRcTake = Mathf.Max(adjustedRcTake - MeasurementChanges * 2, 6.00f);
+                adjustedRcTake = Mathf.Max(adjustedRcTake - MeasurementChanges * 2, -6.00f);
                 break;
 
             case 3:
@@ -154,7 +166,7 @@ public class AIVoiceChecker : MonoBehaviour
                 break;
 
             case 4:
-                adjustedRcTake = Mathf.Max(adjustedRcTake - MeasurementChanges * 3, 6.00f);
+                adjustedRcTake = Mathf.Max(adjustedRcTake - MeasurementChanges * 3, -6.00f);
                 break;
 
             case 5:
@@ -162,7 +174,7 @@ public class AIVoiceChecker : MonoBehaviour
                 break;
 
             case 6:
-                adjustedRcTake = Mathf.Max(adjustedRcTake - MeasurementChanges * 4, 6.00f);
+                adjustedRcTake = Mathf.Max(adjustedRcTake - MeasurementChanges * 4, -6.00f);
                 break;
 
             case 7:
@@ -519,9 +531,81 @@ public class AIVoiceChecker : MonoBehaviour
         lsBtn.SetActive(false);
     }
 
-    // Update is called once per frame
-    private void Update()
+    public void LeftMagCheck() // Check patients left
     {
+        LeftMag = MagnitudeController.AstigMagRight;
+        print(LeftMag);
+        print(LC);
+        if (LeftMag == LC)
+        {
+            perfect.Play();
+        }
+        else if (LeftMag < LC)
+        {
+            print("less than");
+        }
+        else if (LeftMag > LC)
+        {
+            print("more than");
+        }
+        leftMagBtn.SetActive(false);
+    }
+
+    public void RightMagCheck() // Check patients right
+    {
+        RightMag = MagnitudeController.AstigMagLeft;
+        print(RightMag);
+        if (RightMag == RC)
+        {
+            perfect.Play();
+        }
+        else if (RightMag < RC)
+        {
+            print("less than");
+        }
+        else if (RightMag > RC)
+        {
+            print("more than");
+        }
+        rightMagBtn.SetActive(false);
+    }
+
+    public void leftAxisCheck() // check patient's left axis
+    {
+        leftAxis = axisController.RightDegreeWholeNumber;
+        print(leftAxis);
+        if (leftAxis == LA)
+        {
+            perfect.Play();
+        }
+        else if (leftAxis < LA)
+        {
+            print("less than");
+        }
+        else if (leftAxis > LA)
+        {
+            print("more than");
+        }
+        leftAxisBtn.SetActive(false);
+    }
+
+    public void rightAxisCheck() // check patient's left axis
+    {
+        rightAxis = axisController.LeftDegreeWholeNumber;
+        print(rightAxis);
+        if (rightAxis == RA)
+        {
+            perfect.Play();
+        }
+        else if (rightAxis < RA)
+        {
+            print("less than");
+        }
+        else if (rightAxis > RA)
+        {
+            print("more than");
+        }
+        rightAxisBtn.SetActive(false);
     }
 
     /*private string RoundToQuarter(float value)
