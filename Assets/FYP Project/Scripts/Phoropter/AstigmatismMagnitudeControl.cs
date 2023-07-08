@@ -15,6 +15,9 @@ public class AstigmatismMagnitudeControl : MonoBehaviour
     public GameObject TopLeftobject;
     public GameObject TopRightobject;
 
+    public GameObject leftMagBtn; //check patients left side
+    public GameObject rightMagBtn; //check patients right side
+
     public float rotationSpeed = 10f;
     public GameObject LeftAstigmatismMagKnob;
     public GameObject RightAstigmatismMagKnob;
@@ -56,6 +59,7 @@ public class AstigmatismMagnitudeControl : MonoBehaviour
                 AstigMagLeft += Mathf.Sign(scrollInput) * -0.25f;
                 AstigMagLeft = Mathf.Clamp(AstigMagLeft, -6.00f, 0.00f);
                 UpdateValue(LeftValue, AstigMagLeft, TopLeftValue);
+                rightMagBtn.SetActive(true);
             }
         }
 
@@ -71,6 +75,7 @@ public class AstigmatismMagnitudeControl : MonoBehaviour
                 AstigMagRight += Mathf.Sign(scrollInput) * -0.25f;
                 AstigMagRight = Mathf.Clamp(AstigMagRight, -6.00f, 0.00f);
                 UpdateValue(RightValue, AstigMagRight, TopRightValue);
+                leftMagBtn.SetActive(true);
             }
         }
 

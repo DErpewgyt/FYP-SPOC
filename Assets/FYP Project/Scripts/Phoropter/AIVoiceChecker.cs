@@ -6,6 +6,7 @@ public class AIVoiceChecker : MonoBehaviour
     public MeasureReadings paper;
     public RulerController ruler;
     public ShortLongSightMovement LSController;
+    public AstigmatismMagnitudeControl MagnitudeController;
 
     public AudioSource perfect;
     public AudioSource tooNear;
@@ -34,11 +35,16 @@ public class AIVoiceChecker : MonoBehaviour
     public float ls;
     public float rs;
 
+    public float LeftMag;
+    public float RightMag;
+
     public float MeasurementChanges = 0.25f;
 
     public GameObject CheckBtn; // check pd
     public GameObject rsBtn; // check patient's right side
     public GameObject lsBtn; // check patient's left side
+    public GameObject rightMagBtn; // Checks patients right side
+    public GameObject leftMagBtn; // Checks patients left side
 
     // Start is called before the first frame update
     private void Start()
@@ -517,6 +523,20 @@ public class AIVoiceChecker : MonoBehaviour
             leftBlur.Play();
         }
         lsBtn.SetActive(false);
+    }
+
+    public void LeftMagCheck() // Check patients left
+    {
+        LeftMag = MagnitudeController.AstigMagRight;
+        print(LeftMag);
+        leftMagBtn.SetActive(false);
+    }
+
+    public void RightMagCheck() // Check patients right
+    {
+        RightMag = MagnitudeController.AstigMagLeft;
+        print(RightMag);
+        rightMagBtn.SetActive(false);
     }
 
     // Update is called once per frame
