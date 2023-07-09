@@ -68,14 +68,18 @@ public class ToolTip2 : MonoBehaviour
                 if (textAlphaChangeCoroutine3 != null)
                     StopCoroutine(textAlphaChangeCoroutine3);
                 textAlphaChangeCoroutine3 = StartCoroutine(ChangeTextAlphaOverTimeWithDelay(textMesh3, 0f, alphaChangeSpeed, alphaChangeDelay));
-                textMesh3.color = Color.red;
+                //textMesh3.color = Color.red;
+                Color blueColor = ColorUtility.TryParseHtmlString("#008BFF", out Color color) ? color : Color.white;
+                textMesh3.color = blueColor;
+
             }
         }
         else if (Input.GetMouseButtonDown(0))
         {
             if (textMesh2 != null)
             {
-                textMesh2.color = Color.red; // Set color to red
+                //textMesh2.color = Color.red; 
+                textMesh2.color = new Color(0f, 0.545f, 1f);
             }
         }
     }

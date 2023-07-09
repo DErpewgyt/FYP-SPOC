@@ -42,7 +42,7 @@ public class ToolTip : MonoBehaviour
                     string currentText = textMesh2.text;
 
                     // Replace "[W]" with the colored version
-                    string modifiedText = currentText.Replace("[W]", "<color=#FF0000>[W]</color>");
+                    string modifiedText = currentText.Replace("[W]", "<color=#008BFF>[W]</color>");
 
                     // Set the modified text back to textMesh2
                     textMesh2.text = modifiedText;
@@ -56,7 +56,7 @@ public class ToolTip : MonoBehaviour
                     string currentText = textMesh2.text;
 
                     // Replace the colored version of "[W]" with the original version
-                    string modifiedText = currentText.Replace("<color=#FF0000>[W]</color>", "[W]");
+                    string modifiedText = currentText.Replace("<color=#008BFF>[W]</color>", "[W]");
 
                     // Set the modified text back to textMesh2
                     textMesh2.text = modifiedText;
@@ -72,7 +72,7 @@ public class ToolTip : MonoBehaviour
                     string currentText = textMesh2.text;
 
                     // Replace "[A]" with the colored version
-                    string modifiedText = currentText.Replace("[A]", "<color=#00FF00>[A]</color>");
+                    string modifiedText = currentText.Replace("[A]", "<color=#008BFF>[A]</color>");
 
                     // Set the modified text back to textMesh2
                     textMesh2.text = modifiedText;
@@ -86,7 +86,7 @@ public class ToolTip : MonoBehaviour
                     string currentText = textMesh2.text;
 
                     // Replace the colored version of "[A]" with the original version
-                    string modifiedText = currentText.Replace("<color=#00FF00>[A]</color>", "[A]");
+                    string modifiedText = currentText.Replace("<color=#008BFF>[A]</color>", "[A]");
 
                     // Set the modified text back to textMesh2
                     textMesh2.text = modifiedText;
@@ -102,7 +102,7 @@ public class ToolTip : MonoBehaviour
                     string currentText = textMesh2.text;
 
                     // Replace "[S]" with the colored version
-                    string modifiedText = currentText.Replace("[S]", "<color=#0000FF>[S]</color>");
+                    string modifiedText = currentText.Replace("[S]", "<color=#008BFF>[S]</color>");
 
                     // Set the modified text back to textMesh2
                     textMesh2.text = modifiedText;
@@ -117,7 +117,7 @@ public class ToolTip : MonoBehaviour
                     string currentText = textMesh2.text;
 
                     // Replace the colored version of "[S]" with the original version
-                    string modifiedText = currentText.Replace("<color=#0000FF>[S]</color>", "[S]");
+                    string modifiedText = currentText.Replace("<color=#008BFF>[S]</color>", "[S]");
 
                     // Set the modified text back to textMesh2
                     textMesh2.text = modifiedText;
@@ -133,7 +133,7 @@ public class ToolTip : MonoBehaviour
                     string currentText = textMesh2.text;
 
                     // Replace "[D]" with the colored version
-                    string modifiedText = currentText.Replace("[D]", "<color=#FF00FF>[D]</color>");
+                    string modifiedText = currentText.Replace("[D]", "<color=#008BFF>[D]</color>");
 
                     // Set the modified text back to textMesh2
                     textMesh2.text = modifiedText;
@@ -149,7 +149,7 @@ public class ToolTip : MonoBehaviour
                     string currentText = textMesh2.text;
 
                     // Replace the colored version of "[D]" with the original version
-                    string modifiedText = currentText.Replace("<color=#FF00FF>[D]</color>", "[D]");
+                    string modifiedText = currentText.Replace("<color=#008BFF>[D]</color>", "[D]");
 
                     // Set the modified text back to textMesh2
                     textMesh2.text = modifiedText;
