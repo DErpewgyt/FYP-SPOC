@@ -612,10 +612,10 @@ public class ShortLongSightMovement : MonoBehaviour
     public GameObject TopRightpos1625;
     public GameObject TopRightpos1650;
     public GameObject TopRightpos1675;
-    /*
+
     public GameObject LeftCheck;
     public GameObject RightCheck;
-    */
+
     public GameObject LeftKnob;
     public GameObject RightKnob;
 
@@ -662,7 +662,7 @@ public class ShortLongSightMovement : MonoBehaviour
                 }
 
                 UpdateValue(LeftValue, LSLeft);
-                //LeftCheck.SetActive(true);
+                LeftCheck.SetActive(true);
             }
         }
 
@@ -685,7 +685,7 @@ public class ShortLongSightMovement : MonoBehaviour
                 }
 
                 UpdateValue(RightValue ,LSRight);
-                //RightCheck.SetActive(true);
+                RightCheck.SetActive(true);
             }
         }
 

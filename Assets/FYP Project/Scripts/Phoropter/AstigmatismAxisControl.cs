@@ -39,38 +39,63 @@ public class AstigmatismAxisControl : MonoBehaviour
 
         if (isRotatingLeft)
         {
-            float rotationAmount = Input.mouseScrollDelta.y * rotationSpeed * Time.deltaTime;
+            //float rotationAmount = Input.mouseScrollDelta.y * rotationSpeed * Time.deltaTime;
+            float rotation = 1;
 
-            // Rotate the first object
-            RotateObject(AstigmatismLensLeftFrame, rotationAmount);
 
-            // Rotate the second object
-            RotateObject(AstigmatismMiddleLensLeft, rotationAmount);
-
-            // Rotate the third object
-            RotateObject(AstigmatismLeftKnob, rotationAmount);
-
-            if (scrollInput != 0f)
+            if (scrollInput < 0f)
             {
+                // Rotate the first object
+                RotateObject(AstigmatismLensLeftFrame, -rotation);
+
+                // Rotate the second object
+                RotateObject(AstigmatismMiddleLensLeft, -rotation);
+
+                // Rotate the third object
+                RotateObject(AstigmatismLeftKnob, -rotation);
+                rightAxisBtn.SetActive(true);
+            }
+            else if (scrollInput > 0f)
+            {
+                // Rotate the first object
+                RotateObject(AstigmatismLensLeftFrame, rotation);
+
+                // Rotate the second object
+                RotateObject(AstigmatismMiddleLensLeft, rotation);
+
+                // Rotate the third object
+                RotateObject(AstigmatismLeftKnob, rotation);
                 rightAxisBtn.SetActive(true);
             }
         }
 
         if (isRotatingRight)
         {
-            float rotationAmount = Input.mouseScrollDelta.y * rotationSpeed * Time.deltaTime;
+            //float rotationAmount = Input.mouseScrollDelta.y * rotationSpeed * Time.deltaTime;
+            float rotation = 1;
 
-            // Rotate the first object
-            RotateObject(AstigmatismLensRightFrame, rotationAmount);
-
-            // Rotate the second object
-            RotateObject(AstigmatismMiddleLensRight, rotationAmount);
-
-            // Rotate the third object
-            RotateObject(AstigmatismRightKnob, rotationAmount);
-
-            if (scrollInput != 0f)
+            if (scrollInput < 0f)
             {
+                // Rotate the first object
+                RotateObject(AstigmatismLensRightFrame, rotation);
+
+                // Rotate the second object
+                RotateObject(AstigmatismMiddleLensRight, rotation);
+
+                // Rotate the third object
+                RotateObject(AstigmatismRightKnob, rotation);
+                leftAxisBtn.SetActive(true);
+            } 
+            else if(scrollInput > 0f)
+            {
+                // Rotate the first object
+                RotateObject(AstigmatismLensRightFrame, -rotation);
+
+                // Rotate the second object
+                RotateObject(AstigmatismMiddleLensRight, -rotation);
+
+                // Rotate the third object
+                RotateObject(AstigmatismRightKnob, -rotation);
                 leftAxisBtn.SetActive(true);
             }
         }
