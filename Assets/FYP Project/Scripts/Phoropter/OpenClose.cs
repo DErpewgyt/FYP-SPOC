@@ -11,8 +11,8 @@ public class OpenClose : MonoBehaviour
     public Animator LeftCoverCloseAnimation;
     public Animator RightCoverCloseAnimation;
 
-    private bool isLeftActive;
-    private bool isRightActive;
+    public bool isLeftActive;
+    public bool isRightActive;
 
     private void Start()
     {

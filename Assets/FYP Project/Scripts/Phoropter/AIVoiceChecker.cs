@@ -8,6 +8,7 @@ public class AIVoiceChecker : MonoBehaviour
     public ShortLongSightMovement LSController;
     public AstigmatismMagnitudeControl MagnitudeController;
     public AstigmatismAxisControl axisController;
+    public OpenClose openCloseController;
 
     public AudioSource perfect;
     public AudioSource tooNear;
@@ -21,6 +22,9 @@ public class AIVoiceChecker : MonoBehaviour
     public AudioSource rightClear;
     public AudioSource rightTooClear;
 
+    public bool isLeftOpen; // cover on patient's left
+    public bool isRightOpen; // cover on patient's right
+
     public int pd;
     public float RS;
     public float RC;
@@ -29,7 +33,7 @@ public class AIVoiceChecker : MonoBehaviour
     public float LS;
     public float LC;
     public int LA;
-    
+
     public int rulerDist;
     public int correctDist;
 
@@ -140,8 +144,6 @@ public class AIVoiceChecker : MonoBehaviour
         }
 
         RS = RoundToQuarter(adjustedRsTake);
-
-
 
         int randomChangeRC = Random.Range(0, 9);
 
@@ -298,7 +300,6 @@ public class AIVoiceChecker : MonoBehaviour
 
         LS = RoundToQuarter(adjustedLsTake);
 
-
         int randomChangeLC = Random.Range(0, 9);
 
         float adjustedLcTake = paper.lcTake;
@@ -342,8 +343,8 @@ public class AIVoiceChecker : MonoBehaviour
         }
 
         LC = RoundToQuarter(adjustedLcTake);
-/*        string LC = LCformat.ToString("F2");
-*/
+        /*        string LC = LCformat.ToString("F2");
+        */
 
         int randomChangeLA = Random.Range(0, 11);
 
@@ -396,7 +397,6 @@ public class AIVoiceChecker : MonoBehaviour
 
         /***********************************************************************************************************/
 
-
         // Print the retrieved value of pd
         print("Retrieved PD value: " + pd);
         print("/*********               RIGHT        ************/");
@@ -409,7 +409,6 @@ public class AIVoiceChecker : MonoBehaviour
         print("Retrieved LA Take value:" + LA);
 
         print("/*****************************************************************/");
-
 
         // Checker for PD
         if (pd == 60)
@@ -477,18 +476,27 @@ public class AIVoiceChecker : MonoBehaviour
     public void pdCheck()
     {
         rulerDist = ruler.rulerDist;
+        isLeftOpen = openCloseController.isRightActive;
+        isRightOpen = openCloseController.isLeftActive;
         print(rulerDist);
-        if (rulerDist == correctDist)
+        if (isLeftOpen == true || isRightOpen == true)
         {
-            perfect.Play();
+            print("cannot see anything");
         }
-        else if (rulerDist < correctDist)
+        else
         {
-            tooNear.Play();
-        }
-        else if (rulerDist > correctDist)
-        {
-            tooFar.Play();
+            if (rulerDist == correctDist)
+            {
+                perfect.Play();
+            }
+            else if (rulerDist < correctDist)
+            {
+                tooNear.Play();
+            }
+            else if (rulerDist > correctDist)
+            {
+                tooFar.Play();
+            }
         }
         CheckBtn.SetActive(false);
     }
@@ -496,37 +504,53 @@ public class AIVoiceChecker : MonoBehaviour
     public void rsCheck() // Chcek patient's right
     {
         ls = LSController.LSLeft;
+        isRightOpen = openCloseController.isLeftActive;
         print(ls);
-        if (ls == RS)
+        if (isRightOpen == true)
         {
-            rightClear.Play();
+            print("cannot see anything");
         }
-        else if (ls > RS)
+        else
         {
-            rightTooClear.Play();
-        }
-        else if (ls < RS)
-        {
-            rightBlur.Play();
+            if (ls == RS)
+            {
+                rightClear.Play();
+            }
+            else if (ls > RS)
+            {
+                rightTooClear.Play();
+            }
+            else if (ls < RS)
+            {
+                rightBlur.Play();
+            }
         }
         rsBtn.SetActive(false);
     }
 
     public void lsCheck() // Chcek patient's left
     {
+        isLeftOpen = openCloseController.isRightActive;
         rs = LSController.LSRight;
         print(rs);
-        if (rs == LS)
+        if (isLeftOpen == true)
         {
-            leftClear.Play();
+            print("cannot see anything");
         }
-        else if (rs > LS)
+        else
         {
-            leftTooClear.Play();
-        }
-        else if (rs < LS)
-        {
-            leftBlur.Play();
+            if (rs == LS)
+            {
+                leftClear.Play();
+            }
+            else if (rs > LS)
+            {
+                leftTooClear.Play();
+            }
+            else if (rs < LS)
+            {
+                leftBlur.Play();
+            }
         }
         lsBtn.SetActive(false);
     }
@@ -534,19 +558,27 @@ public class AIVoiceChecker : MonoBehaviour
     public void LeftMagCheck() // Check patients left
     {
         LeftMag = MagnitudeController.AstigMagRight;
+        isLeftOpen = openCloseController.isRightActive;
         print(LeftMag);
         print(LC);
-        if (LeftMag == LC)
+        if (isLeftOpen == true)
         {
-            perfect.Play();
+            print("cannot see anything");
         }
-        else if (LeftMag < LC)
+        else
         {
-            print("less than");
-        }
-        else if (LeftMag > LC)
-        {
-            print("more than");
+            if (LeftMag == LC)
+            {
+                perfect.Play();
+            }
+            else if (LeftMag < LC)
+            {
+                print("less than");
+            }
+            else if (LeftMag > LC)
+            {
+                print("more than");
+            }
         }
         leftMagBtn.SetActive(false);
     }
@@ -554,18 +586,26 @@ public class AIVoiceChecker : MonoBehaviour
     public void RightMagCheck() // Check patients right
     {
         RightMag = MagnitudeController.AstigMagLeft;
+        isRightOpen = openCloseController.isLeftActive;
         print(RightMag);
-        if (RightMag == RC)
+        if (isRightOpen == true)
         {
-            perfect.Play();
+            print("cannot see anything");
         }
-        else if (RightMag < RC)
+        else
         {
-            print("less than");
-        }
-        else if (RightMag > RC)
-        {
-            print("more than");
+            if (RightMag == RC)
+            {
+                perfect.Play();
+            }
+            else if (RightMag < RC)
+            {
+                print("less than");
+            }
+            else if (RightMag > RC)
+            {
+                print("more than");
+            }
         }
         rightMagBtn.SetActive(false);
     }
@@ -573,18 +613,26 @@ public class AIVoiceChecker : MonoBehaviour
     public void leftAxisCheck() // check patient's left axis
     {
         leftAxis = axisController.RightDegreeWholeNumber;
+        isLeftOpen = openCloseController.isRightActive;
         print(leftAxis);
-        if (leftAxis == LA)
+        if (isLeftOpen == true)
         {
-            perfect.Play();
+            print("cannot see anything");
         }
-        else if (leftAxis < LA)
+        else
         {
-            print("less than");
-        }
-        else if (leftAxis > LA)
-        {
-            print("more than");
+            if (leftAxis == LA)
+            {
+                perfect.Play();
+            }
+            else if (leftAxis < LA)
+            {
+                print("less than");
+            }
+            else if (leftAxis > LA)
+            {
+                print("more than");
+            }
         }
         leftAxisBtn.SetActive(false);
     }
@@ -592,18 +640,26 @@ public class AIVoiceChecker : MonoBehaviour
     public void rightAxisCheck() // check patient's left axis
     {
         rightAxis = axisController.LeftDegreeWholeNumber;
+        isRightOpen = openCloseController.isLeftActive;
         print(rightAxis);
-        if (rightAxis == RA)
+        if (isRightOpen == true)
         {
-            perfect.Play();
+            print("cannot see anything");
         }
-        else if (rightAxis < RA)
+        else
         {
-            print("less than");
-        }
-        else if (rightAxis > RA)
-        {
-            print("more than");
+            if (rightAxis == RA)
+            {
+                perfect.Play();
+            }
+            else if (rightAxis < RA)
+            {
+                print("less than");
+            }
+            else if (rightAxis > RA)
+            {
+                print("more than");
+            }
         }
         rightAxisBtn.SetActive(false);
     }
@@ -614,7 +670,6 @@ public class AIVoiceChecker : MonoBehaviour
         string formattedValue = roundedValue.ToString("F2");
         return formattedValue;
     }*/
-
 
     // Rounds the value to the nearest 0.25
     private float RoundToQuarter(float value)
