@@ -37025,6 +37025,8 @@ MonoBehaviour:
   RightCoverPivotAnimation: {fileID: 90590569}
   LeftCoverCloseAnimation: {fileID: 1857677356}
   RightCoverCloseAnimation: {fileID: 1777902942}
+  isLeftActive: 0
+  isRightActive: 0
 --- !u!4 &865494914
 Transform:
   m_ObjectHideFlags: 0
@@ -52518,6 +52520,7 @@ MonoBehaviour:
   LSController: {fileID: 18230739}
   MagnitudeController: {fileID: 1012159151}
   axisController: {fileID: 1012159152}
+  openCloseController: {fileID: 865494913}
   perfect: {fileID: 935113430}
   tooNear: {fileID: 1643785160}
   tooFar: {fileID: 1800719509}
@@ -52527,6 +52530,8 @@ MonoBehaviour:
   rightBlur: {fileID: 568529686}
   rightClear: {fileID: 228635507}
   rightTooClear: {fileID: 928216773}
+  isLeftOpen: 0
+  isRightOpen: 0
   pd: 0
   RS: 0
   RC: 0
