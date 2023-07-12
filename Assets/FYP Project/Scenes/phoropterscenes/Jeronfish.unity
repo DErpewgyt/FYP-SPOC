@@ -6260,7 +6260,7 @@ GameObject:
   - component: {fileID: 88625521}
   m_Layer: 0
   m_Name: AstigmatismLensLeftLens
-  m_TagString: AstigmatismLensLeft
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -12092,7 +12092,7 @@ GameObject:
   - component: {fileID: 218340260}
   m_Layer: 0
   m_Name: AstigmatismLensRightFrame
-  m_TagString: AstigmatismLensRight
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -22747,7 +22747,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d218e07e7315e243acdfcc700d01eb5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  buttonText: Check
+  buttonText: which circle is clearer?
   clickEvent:
     m_PersistentCalls:
       m_Calls:
@@ -63318,7 +63318,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Check
+  m_text: which circle is clearer?
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 84dd14695854bbc43a5faa24fcf93d0d, type: 2}
   m_sharedMaterial: {fileID: 21261991626553910, guid: 84dd14695854bbc43a5faa24fcf93d0d, type: 2}
@@ -77402,7 +77402,7 @@ GameObject:
   - component: {fileID: 1852528234}
   m_Layer: 0
   m_Name: AstigmatismLensRightLens
-  m_TagString: AstigmatismLensRight
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
