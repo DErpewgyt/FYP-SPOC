@@ -1,3 +1,4 @@
+using TMPro;
 using UnityEngine;
 
 public class AstigmatismAxisControl : MonoBehaviour
@@ -23,6 +24,12 @@ public class AstigmatismAxisControl : MonoBehaviour
     public GameObject leftAxisBtn; // check patients left side
     public GameObject rightAxisBtn; // check patients right side
 
+    public GameObject LeftAxis; // check patients left side
+    public GameObject RightAxis; // check patients right side
+
+    public TextMeshProUGUI LeftAxisTMP; // check patients left side
+    public TextMeshProUGUI RightAxisTMP; // check patients right side
+
     public void HandleLeftKnobClick()
     {
         isRotatingLeft = true;
@@ -39,6 +46,8 @@ public class AstigmatismAxisControl : MonoBehaviour
 
         if (isRotatingLeft)
         {
+            RightAxis.SetActive(false);
+            LeftAxis.SetActive(true);
             //float rotationAmount = Input.mouseScrollDelta.y * rotationSpeed * Time.deltaTime;
             float rotation = 1;
 
@@ -67,10 +76,13 @@ public class AstigmatismAxisControl : MonoBehaviour
                 RotateObject(AstigmatismLeftKnob, rotation);
                 rightAxisBtn.SetActive(true);
             }
+
         }
 
         if (isRotatingRight)
         {
+            LeftAxis.SetActive(false);
+            RightAxis.SetActive(true);
             //float rotationAmount = Input.mouseScrollDelta.y * rotationSpeed * Time.deltaTime;
             float rotation = 1;
 
@@ -99,6 +111,12 @@ public class AstigmatismAxisControl : MonoBehaviour
                 leftAxisBtn.SetActive(true);
             }
         }
+
+        if(!isRotatingLeft && !isRotatingRight) 
+        {   
+            LeftAxis.SetActive(false); 
+            RightAxis.SetActive(false);
+        }
     }
 
     private void RotateObject(GameObject obj, float rotationAmount)
@@ -120,6 +138,7 @@ public class AstigmatismAxisControl : MonoBehaviour
                 LeftDegree += 180;
             }
             LeftDegreeWholeNumber = Mathf.Round(LeftDegree);
+            UpdateValue(LeftAxisTMP, LeftDegree);
         }
         else if (obj == AstigmatismRightKnob)
         {
@@ -129,6 +148,12 @@ public class AstigmatismAxisControl : MonoBehaviour
                 RightDegree += 180;
             }
             RightDegreeWholeNumber = Mathf.Round(RightDegree);
+            UpdateValue(RightAxisTMP, RightDegree);
         }
+    }
+
+    private void UpdateValue(TextMeshProUGUI valueText, float LSvalues)
+    {
+        valueText.text = LSvalues.ToString();
     }
 }

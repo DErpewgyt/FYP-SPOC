@@ -55,7 +55,7 @@ public class AstigmatismMagnitudeControl : MonoBehaviour
             TopRightobject.SetActive(false);
             if (scrollInput != 0f)
             {
-                RotateObject(LeftAstigmatismMagKnob, rotationAmount, AstigMagLeft);
+                RotateObject(LeftAstigmatismMagKnob, -rotationAmount, AstigMagLeft);
                 AstigMagLeft += Mathf.Sign(scrollInput) * -0.25f;
                 AstigMagLeft = Mathf.Clamp(AstigMagLeft, -6.00f, 0.00f);
                 UpdateValue(LeftValue, AstigMagLeft, TopLeftValue);
@@ -71,7 +71,7 @@ public class AstigmatismMagnitudeControl : MonoBehaviour
             TopRightobject.SetActive(true);
             if (scrollInput != 0f)
             {
-                RotateObject(RightAstigmatismMagKnob, rotationAmount, AstigMagRight);
+                RotateObject(RightAstigmatismMagKnob, -rotationAmount, AstigMagRight);
                 AstigMagRight += Mathf.Sign(scrollInput) * -0.25f;
                 AstigMagRight = Mathf.Clamp(AstigMagRight, -6.00f, 0.00f);
                 UpdateValue(RightValue, AstigMagRight, TopRightValue);
