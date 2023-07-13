@@ -1,7 +1,8 @@
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
-
+using MySql.Data.MySqlClient;
+using System;
 public class PlayerDataHandler : MonoBehaviour
 {
     public TMP_InputField playerNameInput;
@@ -26,6 +27,8 @@ public class PlayerDataHandler : MonoBehaviour
             buttonComponent.onClick.AddListener(SavePlayerData);
         }
     }
+private string connectionString = "Server=aws.connect.psdb.cloud;Database=spoc;Uid=ek5g4qg03uf2vzt45jza;Pwd=pscale_pw_okLlgZi2QrSCynilZyYm34zDM2BdlDY7hyusEPH6GDX";
+
 
     private void LoadPlayerData()
     {
@@ -56,25 +59,48 @@ public class PlayerDataHandler : MonoBehaviour
         playerData.playerAdminNo = newNo;
     }
 
-    public void SavePlayerData()
+   public void SavePlayerData()
+{
+    // Update player name and admin number from input fields
+    string newPlayerName = playerNameInput.text;
+    string newAdminNo = playerAdminNoInput.text;
+
+    // Convert player data to JSON string
+    string jsonData = JsonUtility.ToJson(playerData);
+
+    // Save player data to storage
+    PlayerPrefs.SetString("PlayerData", jsonData);
+
+    // Update player data in the MySQL table
+    MySQLHandler mySQLHandler = FindObjectOfType<MySQLHandler>();
+    if (mySQLHandler != null)
     {
-        // Update player name and admin number from input fields
-        playerData.playerName = playerNameInput.text;
-        playerData.playerAdminNo = playerAdminNoInput.text;
+        mySQLHandler.InsertStudentData(newPlayerName, newAdminNo);
+    }
+}
 
-        // Convert player data to JSON string
-        string jsonData = JsonUtility.ToJson(playerData);
 
-        // Save player data to storage
-        PlayerPrefs.SetString("PlayerData", jsonData);
+private bool DataExistsInDatabase(string playerName, string adminNo)
+{
+    // Query the database to check if the player data already exists
+    using (MySqlConnection connection = new MySqlConnection(connectionString))
+    {
+        connection.Open();
 
-        // Update player data in the MySQL table
-        MySQLHandler mySQLHandler = FindObjectOfType<MySQLHandler>();
-        if (mySQLHandler != null)
+        string query = "SELECT COUNT(*) FROM student WHERE StudentName = @playerName AND AdminNo = @adminNo";
+
+        using (MySqlCommand command = new MySqlCommand(query, connection))
         {
-            mySQLHandler.InsertStudentData(playerData.playerName, playerData.playerAdminNo);
+            command.Parameters.AddWithValue("@playerName", playerName);
+            command.Parameters.AddWithValue("@adminNo", adminNo);
+
+            int count = Convert.ToInt32(command.ExecuteScalar());
+
+            return count > 0;
         }
     }
+}
+
 
     [System.Serializable]
     public class PlayerData
