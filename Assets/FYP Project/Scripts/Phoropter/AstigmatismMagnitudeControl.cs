@@ -27,6 +27,12 @@ public class AstigmatismMagnitudeControl : MonoBehaviour
 
     public bool AstigMagLeftBool;
     public bool AstigMagRightBool;
+
+    public bool isLeftChanged = false;
+    public bool isRightChanged = false;
+
+    public LensFlip lensFlip;
+    public AIVoiceChecker Checker;
     // Start is called before the first frame update
     void Start()
     {
@@ -59,6 +65,11 @@ public class AstigmatismMagnitudeControl : MonoBehaviour
                 AstigMagLeft += Mathf.Sign(scrollInput) * -0.25f;
                 AstigMagLeft = Mathf.Clamp(AstigMagLeft, -6.00f, 0.00f);
                 UpdateValue(LeftValue, AstigMagLeft, TopLeftValue);
+                isLeftChanged = true;
+            }
+
+            if (lensFlip.leftFlippedOnce && lensFlip.leftFlippedTwice && isLeftChanged && lensFlip.leftLens && Checker.isRightSideAstigAxisComplete)
+            {
                 rightMagBtn.SetActive(true);
             }
         }
