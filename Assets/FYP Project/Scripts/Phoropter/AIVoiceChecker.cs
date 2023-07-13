@@ -614,14 +614,17 @@ public class AIVoiceChecker : MonoBehaviour
             {
                 perfect.Play();
                 print("Both are the same");
+                isRightSideAstigMagComplete = true;
             }
             else if (RightMag < RC)
             {
                 print("1 is more clear, (decrease Magnitude)");
+                isRightSideAstigMagComplete = false;
             }
             else if (RightMag > RC)
             {
                 print("2 is more clear, (increase Magnitude)");
+                isRightSideAstigMagComplete = false;
             }
         }
         rightMagBtn.SetActive(false);
