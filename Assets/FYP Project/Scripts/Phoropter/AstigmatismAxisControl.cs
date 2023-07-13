@@ -15,6 +15,9 @@ public class AstigmatismAxisControl : MonoBehaviour
     public bool isRotatingLeft = false;
     public bool isRotatingRight = false;
 
+    public bool isLeftChanged = false;
+    public bool isRightChanged = false;
+
     public float LeftDegree;
     public float RightDegree;
 
@@ -29,6 +32,8 @@ public class AstigmatismAxisControl : MonoBehaviour
 
     public TextMeshProUGUI LeftAxisTMP; // check patients left side
     public TextMeshProUGUI RightAxisTMP; // check patients right side
+
+    public LensFlip lensFlip;
 
     public void HandleLeftKnobClick()
     {
@@ -62,7 +67,7 @@ public class AstigmatismAxisControl : MonoBehaviour
 
                 // Rotate the third object
                 RotateObject(AstigmatismLeftKnob, -rotation);
-                rightAxisBtn.SetActive(true);
+                isLeftChanged = true;
             }
             else if (scrollInput > 0f)
             {
@@ -74,6 +79,11 @@ public class AstigmatismAxisControl : MonoBehaviour
 
                 // Rotate the third object
                 RotateObject(AstigmatismLeftKnob, rotation);
+                isLeftChanged = true;
+            }
+
+            if (lensFlip.leftFlippedOnce && lensFlip.leftFlippedTwice && isLeftChanged && lensFlip.leftLens)
+            {
                 rightAxisBtn.SetActive(true);
             }
 
