@@ -9,6 +9,7 @@ public class AIVoiceChecker : MonoBehaviour
     public AstigmatismMagnitudeControl MagnitudeController;
     public AstigmatismAxisControl axisController;
     public OpenClose openCloseController;
+    public LensFlip LensFlip;
 
     public AudioSource perfect;
     public AudioSource tooNear;
@@ -55,6 +56,18 @@ public class AIVoiceChecker : MonoBehaviour
     public GameObject leftMagBtn; // Checks patients left side
     public GameObject rightAxisBtn; // check patients right side
     public GameObject leftAxisBtn; // check patients left side
+
+    public bool isSetupComplete = false;
+
+    public bool isRightSideComplete = false;
+    public bool isRightSideLSComplete = false;
+    public bool isRightSideAstigAxisComplete = false;
+    public bool isRightSideAstigMagComplete = false;
+
+    public bool isLeftSideComplete = false;
+    public bool isLeftSideLSComplete = false;
+    public bool isLeftSideAstigAxisComplete = false;
+    public bool isLeftSideAstigMagComplete = false;
 
     // Start is called before the first frame update
     private void Start()
@@ -594,17 +607,21 @@ public class AIVoiceChecker : MonoBehaviour
         }
         else
         {
+            LensFlip.leftFlippedOnce = false;
+            LensFlip.leftFlippedTwice = false;
+            MagnitudeController.isLeftChanged = false;
             if (RightMag == RC)
             {
                 perfect.Play();
+                print("Both are the same");
             }
             else if (RightMag < RC)
             {
-                print("less than");
+                print("1 is more clear, (decrease Magnitude)");
             }
             else if (RightMag > RC)
             {
-                print("more than");
+                print("2 is more clear, (increase Magnitude)");
             }
         }
         rightMagBtn.SetActive(false);
@@ -648,17 +665,24 @@ public class AIVoiceChecker : MonoBehaviour
         }
         else
         {
+            LensFlip.leftFlippedOnce = false;
+            LensFlip.leftFlippedTwice = false;
+            axisController.isLeftChanged = false;
             if (rightAxis == RA)
             {
                 perfect.Play();
+                print("They are both the same");
+                isRightSideAstigAxisComplete = true;
             }
             else if (rightAxis < RA)
             {
-                print("less than");
+                print("1 is more clear, (Increase Angle)");
+                isRightSideAstigAxisComplete = false;
             }
             else if (rightAxis > RA)
             {
-                print("more than");
+                print("2 is more clear, (Decrease Angle)");
+                isRightSideAstigAxisComplete = false;
             }
         }
         rightAxisBtn.SetActive(false);

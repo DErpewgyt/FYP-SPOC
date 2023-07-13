@@ -7,6 +7,12 @@ public class LensFlip : MonoBehaviour
     public bool leftLensFlipped;
     public bool rightLensFlipped;
 
+    public bool leftFlippedOnce;
+    public bool leftFlippedTwice;
+
+    public bool rightFlippedOnce;
+    public bool rightFlippedTwice;
+
     public GameObject LeftFlipBtn;
     public GameObject RightFlipBtn;
 
@@ -33,11 +39,13 @@ public class LensFlip : MonoBehaviour
         {
             leftLens = true;
             LeftFlipBtn.SetActive(true);
+
         }
         else if (leftLens == true)
         {
             leftLens = false;
             LeftFlipBtn.SetActive(false);
+
         }
     }
 
@@ -59,13 +67,17 @@ public class LensFlip : MonoBehaviour
     {
         if (leftLensFlipped == false)
         {
+            print("1");
             LeftLensFlipController.SetBool("Flipped", true);
             leftLensFlipped = true;
+            leftFlippedOnce = true;
         }
         else if (leftLensFlipped == true)
         {
+            print("2");
             LeftLensFlipController.SetBool("Flipped", false);
             leftLensFlipped = false;
+            leftFlippedTwice = true;
         }
     }
 
