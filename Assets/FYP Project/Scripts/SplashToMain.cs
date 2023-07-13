@@ -19,7 +19,7 @@ public class SplashToMain : MonoBehaviour
     yield return new WaitForSeconds(5);
     if (FadeScreen.instance != null)
     {
-        FadeScreen.instance.FadeOutToScene(1,1,0);
+        FadeScreen.instance.FadeOutToScene(6,1,0);
     }
     else
     {
