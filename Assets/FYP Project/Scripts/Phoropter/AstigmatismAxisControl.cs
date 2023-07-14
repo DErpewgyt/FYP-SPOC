@@ -34,6 +34,7 @@ public class AstigmatismAxisControl : MonoBehaviour
     public TextMeshProUGUI RightAxisTMP; // check patients right side
 
     public LensFlip lensFlip;
+    public AIVoiceChecker Checker;
 
     public void HandleLeftKnobClick()
     {
@@ -106,7 +107,7 @@ public class AstigmatismAxisControl : MonoBehaviour
 
                 // Rotate the third object
                 RotateObject(AstigmatismRightKnob, rotation);
-                leftAxisBtn.SetActive(true);
+                isRightChanged = true;
             } 
             else if(scrollInput > 0f)
             {
@@ -118,6 +119,12 @@ public class AstigmatismAxisControl : MonoBehaviour
 
                 // Rotate the third object
                 RotateObject(AstigmatismRightKnob, -rotation);
+                isRightChanged = true;
+
+            }
+
+            if (lensFlip.rightFlippedOnce && lensFlip.rightFlippedTwice && isRightChanged && lensFlip.rightLens && Checker.isRightSideComplete)
+            {
                 leftAxisBtn.SetActive(true);
             }
         }

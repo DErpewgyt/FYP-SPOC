@@ -24,17 +24,33 @@ public class ObjectiveScript : MonoBehaviour
     public RawImage whiteBG; // Reference to the RawImage component
     public RawImage Icon;
 
+    public int OBJIndicator1 = 1;
     public Animator LineObjective;
-    public TextMeshProUGUI AstigAxisTMP;
-    public RawImage AstigAxisLine;
-    public bool isAstigAxisAnimationPlayed = false;
+    public TextMeshProUGUI AstigAxisTMPleft;
+    public RawImage AstigAxisLineleft;
+    public bool isAstigAxisAnimationPlayedleft = false;
 
+    public int OBJIndicator2 = 2;
     public Animator LineObjective2;
-    public TextMeshProUGUI AstigMagTMP;
-    public RawImage AstigMagLine;
-    public bool isAstigMagAnimationPlayed = false;
-
+    public TextMeshProUGUI AstigMagTMPleft;
+    public RawImage AstigMagLineleft;
+    public bool isAstigMagAnimationPlayedleft = false;
+    /*
+    public int OBJIndicator3 = 3;
     public Animator LineObjective3;
+    public TextMeshProUGUI AstigAxisTMPright;
+    public RawImage AstigAxisLineright;
+    public bool isAstigAxisAnimationPlayedright = false;
+
+    public int OBJIndicator4 = 4;
+    public Animator LineObjective4;
+    public TextMeshProUGUI AstigMagTMPright;
+    public RawImage AstigMagLineright;
+    public bool isAstigMagAnimationPlayedright = false;
+    */
+
+    public int OBJIndicator5 = 5;
+    public Animator LineObjective5;
     public TextMeshProUGUI PlaceHolderTMP;
     public RawImage PlaceHolderIMG;
     public bool PlaceHolderBool = false;
@@ -54,7 +70,9 @@ public class ObjectiveScript : MonoBehaviour
 
     void Start()
     {
-        MakeAlpha0(AstigMagTMP, AstigMagLine);
+        MakeAlpha0(AstigMagTMPleft, AstigMagLineleft);
+        //MakeAlpha0(AstigAxisTMPright, AstigAxisLineright);
+        //MakeAlpha0(AstigMagTMPright, AstigMagLineright);
         MakeAlpha0(PlaceHolderTMP, PlaceHolderIMG);
     }
 
@@ -74,51 +92,122 @@ public class ObjectiveScript : MonoBehaviour
             Debug.Log("You Left Clicked");
         }
         */
+        
+        QuestItems(Checker.isRightSideAstigAxisComplete, isAstigAxisAnimationPlayedleft, LineObjective, AstigAxisTMPleft, AstigMagTMPleft, AstigAxisLineleft, AstigMagLineleft, OBJIndicator1);
 
-        if (Checker.isRightSideAstigAxisComplete && !isAstigAxisAnimationPlayed)
+        QuestItems(Checker.isRightSideAstigMagComplete, isAstigMagAnimationPlayedleft, LineObjective2, AstigMagTMPleft, PlaceHolderTMP, AstigMagLineleft, PlaceHolderIMG, OBJIndicator2);
+
+        /*
+        QuestItems(Checker.isRightSideAstigMagComplete, isAstigMagAnimationPlayedleft, LineObjective2, AstigMagTMPleft, AstigAxisTMPright, AstigMagLineleft, AstigAxisLineright);
+
+        QuestItems(Checker.isLeftSideAstigAxisComplete, isAstigAxisAnimationPlayedright, LineObjective3, AstigAxisTMPright, AstigMagTMPright, AstigAxisLineright, AstigMagLineright);
+
+        QuestItems(Checker.isLeftSideAstigMagComplete, isAstigMagAnimationPlayedright, LineObjective4, AstigMagTMPright, PlaceHolderTMP, AstigMagLineright, PlaceHolderIMG);
+
+
+        if (Checker.isRightSideAstigAxisComplete && !isAstigAxisAnimationPlayedleft)
         {
             LineObjective.SetBool("Complete", true);
 
-            if (AstigAxisTMP != null && AstigMagTMP != null)
+            if (AstigAxisTMPleft != null && AstigMagTMPleft != null)
             {
                 print("1");
                 if (textAlphaChangeCoroutine != null)
                     StopCoroutine(textAlphaChangeCoroutine);
 
-                textAlphaChangeCoroutine = StartCoroutine(FadeOutAndInTextOverTimeWithDelay(AstigAxisTMP, 0f, AstigMagTMP, 1f, alphaChangeSpeed, alphaChangeDelay));
+                textAlphaChangeCoroutine = StartCoroutine(FadeOutAndInTextOverTimeWithDelay(AstigAxisTMPleft, 0f, AstigMagTMPleft, 1f, alphaChangeSpeed, alphaChangeDelay));
             }
 
-            if (AstigAxisLine != null && AstigMagLine != null)
+            if (AstigAxisLineleft != null && AstigMagLineleft != null)
             {
                 print("1");
                 if (lineAlphaChangeCoroutine != null)
                     StopCoroutine(lineAlphaChangeCoroutine);
 
-                lineAlphaChangeCoroutine = StartCoroutine(FadeOutAndInAlphaOverTimeWithDelay(AstigAxisLine, 0f, AstigMagLine, 1f, alphaChangeSpeed, alphaChangeDelay));
+                lineAlphaChangeCoroutine = StartCoroutine(FadeOutAndInAlphaOverTimeWithDelay(AstigAxisLineleft, 0f, AstigMagLineleft, 1f, alphaChangeSpeed, alphaChangeDelay));
             }
-            isAstigAxisAnimationPlayed = true;
+            isAstigAxisAnimationPlayedleft = true;
         }
-        else if (Checker.isRightSideAstigMagComplete && !isAstigMagAnimationPlayed)
+        else if (Checker.isRightSideAstigMagComplete && !isAstigMagAnimationPlayedleft)
         {
             LineObjective2.SetBool("Complete", true);
 
-            if (AstigMagTMP != null)
+            if (AstigMagTMPleft != null)
             {
                 print("1");
                 if (textAlphaChangeCoroutine != null)
 
-                textAlphaChangeCoroutine = StartCoroutine(FadeOutAndInTextOverTimeWithDelay(AstigMagTMP, 0f, PlaceHolderTMP, 1f, alphaChangeSpeed, alphaChangeDelay));
+                textAlphaChangeCoroutine = StartCoroutine(FadeOutAndInTextOverTimeWithDelay(AstigMagTMPleft, 0f, PlaceHolderTMP, 1f, alphaChangeSpeed, alphaChangeDelay));
             }
-            if (AstigMagLine != null)
+            if (AstigMagLineleft != null)
             {
                 print("1");
                 if (lineAlphaChangeCoroutine != null)
 
-                lineAlphaChangeCoroutine = StartCoroutine(FadeOutAndInAlphaOverTimeWithDelay(AstigMagLine, 0f, PlaceHolderIMG, 1f, alphaChangeSpeed, alphaChangeDelay));
+                lineAlphaChangeCoroutine = StartCoroutine(FadeOutAndInAlphaOverTimeWithDelay(AstigMagLineleft, 0f, PlaceHolderIMG, 1f, alphaChangeSpeed, alphaChangeDelay));
             }
-            isAstigMagAnimationPlayed = true;
+            isAstigMagAnimationPlayedleft = true;
+        }
+        */
+    }
+
+
+
+    public void QuestItems(bool previousOBJcompleted, bool isanimationPlayed, Animator lineAnimator, TextMeshProUGUI currentTMP, TextMeshProUGUI nextTMP, RawImage currentIMG, RawImage nextIMG, int CurrentIndicator)
+    {
+        if (previousOBJcompleted && !isanimationPlayed)
+        {
+            lineAnimator.SetBool("Complete", true);
+
+            if (currentTMP != null && nextTMP != null)
+            {
+                print("1");
+                if (textAlphaChangeCoroutine != null)
+                    StopCoroutine(textAlphaChangeCoroutine);
+
+                textAlphaChangeCoroutine = StartCoroutine(FadeOutAndInTextOverTimeWithDelay(currentTMP, 0f, nextTMP, 1f, alphaChangeSpeed, alphaChangeDelay));
+            }
+
+            if (currentIMG != null && nextIMG != null)
+            {
+                print("1");
+                if (lineAlphaChangeCoroutine != null)
+                    StopCoroutine(lineAlphaChangeCoroutine);
+
+                lineAlphaChangeCoroutine = StartCoroutine(FadeOutAndInAlphaOverTimeWithDelay(currentIMG, 0f, nextIMG, 1f, alphaChangeSpeed, alphaChangeDelay));
+            }
+            boolswitch(CurrentIndicator);
         }
     }
+
+    public void boolswitch(int CurrentIndicator)
+    {
+        switch (CurrentIndicator)
+        {
+            case 1:
+                isAstigAxisAnimationPlayedleft = true;
+            break; 
+            
+            case 2:
+                isAstigMagAnimationPlayedleft = true;
+            break;
+
+            case 3:
+
+            break;
+
+            case 4:
+
+            break;
+
+            case 5:
+                PlaceHolderBool = true;
+            break;
+
+        }
+    }
+
+
 
     IEnumerator FadeOutAndInTextOverTimeWithDelay(TextMeshProUGUI fadeOutText, float fadeOutTargetAlpha, TextMeshProUGUI fadeInText, float fadeInTargetAlpha, float speed, float delay)
     {

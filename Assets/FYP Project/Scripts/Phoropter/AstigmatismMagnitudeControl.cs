@@ -31,6 +31,9 @@ public class AstigmatismMagnitudeControl : MonoBehaviour
     public bool isLeftChanged = false;
     public bool isRightChanged = false;
 
+    public Animator LeftAnimator;
+    public Animator RightAnimator;
+
     public LensFlip lensFlip;
     public AIVoiceChecker Checker;
     // Start is called before the first frame update
@@ -54,8 +57,10 @@ public class AstigmatismMagnitudeControl : MonoBehaviour
         if (AstigMagLeftBool)
         {
             float rotationAmount = Input.mouseScrollDelta.y * rotationSpeed * Time.deltaTime;
-
-
+            if (lensFlip.leftLens)
+            {
+                LeftAnimator.SetBool("IsRotatedLeft", true);
+            }
 
             TopLeftobject.SetActive(true);
             TopRightobject.SetActive(false);
@@ -72,11 +77,20 @@ public class AstigmatismMagnitudeControl : MonoBehaviour
             {
                 rightMagBtn.SetActive(true);
             }
+        } else
+        {
+            LeftAnimator.SetBool("IsRotatedLeft", false);
         }
+
 
         if (AstigMagRightBool)
         {
             float rotationAmount = Input.mouseScrollDelta.y * rotationSpeed * Time.deltaTime;
+            if (lensFlip.rightLens)
+            {
+                RightAnimator.SetBool("IsRotatedRight", true);
+            }
+
 
             TopLeftobject.SetActive(false);
             TopRightobject.SetActive(true);
@@ -86,8 +100,17 @@ public class AstigmatismMagnitudeControl : MonoBehaviour
                 AstigMagRight += Mathf.Sign(scrollInput) * -0.25f;
                 AstigMagRight = Mathf.Clamp(AstigMagRight, -6.00f, 0.00f);
                 UpdateValue(RightValue, AstigMagRight, TopRightValue);
+                isRightChanged = true;
+            }
+
+            if(lensFlip.rightFlippedOnce && lensFlip.rightFlippedTwice && isRightChanged && lensFlip.rightLens && Checker.isLeftSideAstigAxisComplete)
+            {
                 leftMagBtn.SetActive(true);
             }
+        } 
+        else
+        {
+            RightAnimator.SetBool("IsRotatedRight", false);
         }
 
         if(!AstigMagRightBool && !AstigMagLeftBool)

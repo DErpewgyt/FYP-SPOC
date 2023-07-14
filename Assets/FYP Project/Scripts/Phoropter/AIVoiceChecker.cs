@@ -75,6 +75,19 @@ public class AIVoiceChecker : MonoBehaviour
         StartCoroutine(GetMeasurements());
     }
 
+    private void Update()
+    {
+        if(isRightSideAstigAxisComplete && isRightSideAstigMagComplete)
+        {
+            isRightSideComplete = true;
+        }
+
+        if(isLeftSideAstigAxisComplete && isLeftSideAstigMagComplete)
+        {
+            isLeftSideComplete = true;
+        }
+    }
+
     private IEnumerator GetMeasurements()
     {
         // Wait for one frame to ensure that MeasureReadings initializes its variables
@@ -580,17 +593,24 @@ public class AIVoiceChecker : MonoBehaviour
         }
         else
         {
+            LensFlip.leftFlippedOnce = false;
+            LensFlip.leftFlippedTwice = false;
+            MagnitudeController.isRightChanged = false;
             if (LeftMag == LC)
             {
                 perfect.Play();
+                print("Both are the same");
+                isLeftSideAstigMagComplete = true;
             }
             else if (LeftMag < LC)
             {
-                print("less than");
+                print("1 is more clear, (decrease Magnitude right)");
+                isLeftSideAstigMagComplete = false;
             }
             else if (LeftMag > LC)
             {
-                print("more than");
+                print("2 is more clear, (increase Magnitude right)");
+                isLeftSideAstigMagComplete = false;
             }
         }
         leftMagBtn.SetActive(false);
@@ -618,12 +638,12 @@ public class AIVoiceChecker : MonoBehaviour
             }
             else if (RightMag < RC)
             {
-                print("1 is more clear, (decrease Magnitude)");
+                print("1 is more clear, (decrease Magnitude left)");
                 isRightSideAstigMagComplete = false;
             }
             else if (RightMag > RC)
             {
-                print("2 is more clear, (increase Magnitude)");
+                print("2 is more clear, (increase Magnitude left)");
                 isRightSideAstigMagComplete = false;
             }
         }
@@ -641,17 +661,23 @@ public class AIVoiceChecker : MonoBehaviour
         }
         else
         {
+            LensFlip.rightFlippedOnce = false;
+            LensFlip.rightFlippedTwice = false;
+            axisController.isRightChanged = false;
             if (leftAxis == LA)
             {
                 perfect.Play();
+                isLeftSideAstigAxisComplete = true;
             }
             else if (leftAxis < LA)
             {
-                print("less than");
+                print("1 is more clear, (Increase Angle right)");
+                isLeftSideAstigAxisComplete = false;
             }
             else if (leftAxis > LA)
             {
-                print("more than");
+                print("2 is more clear, (Decrease Angle right)");
+                isLeftSideAstigAxisComplete = false;
             }
         }
         leftAxisBtn.SetActive(false);
@@ -679,12 +705,12 @@ public class AIVoiceChecker : MonoBehaviour
             }
             else if (rightAxis < RA)
             {
-                print("1 is more clear, (Increase Angle)");
+                print("1 is more clear, (Increase Angle left)");
                 isRightSideAstigAxisComplete = false;
             }
             else if (rightAxis > RA)
             {
-                print("2 is more clear, (Decrease Angle)");
+                print("2 is more clear, (Decrease Angle left)");
                 isRightSideAstigAxisComplete = false;
             }
         }

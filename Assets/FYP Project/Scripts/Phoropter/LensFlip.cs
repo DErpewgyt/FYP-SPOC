@@ -87,11 +87,13 @@ public class LensFlip : MonoBehaviour
         {
             RightLensFlipController.SetBool("Flipped", true);
             rightLensFlipped = true;
+            rightFlippedOnce = true;
         }
         else if (rightLensFlipped == true)
         {
             RightLensFlipController.SetBool("Flipped", false);
             rightLensFlipped = false;
+            rightFlippedTwice = true;
         }
     }
 }
