@@ -287,5 +287,7 @@ public class PhoropterController : MonoBehaviour
         rightAxisBtn.SetActive(false);
         LensController.leftFlippedOnce = false;
         LensController.leftFlippedTwice = false;
+        LensController.rightFlippedOnce = false;
+        LensController.rightFlippedTwice = false;
     }
 }
