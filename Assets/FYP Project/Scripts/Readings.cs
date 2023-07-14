@@ -1,4 +1,72 @@
 using UnityEngine;
+
+public class Readings : MonoBehaviour
+{
+    public GameObject object1;
+    public GameObject object2;
+    public GameObject object3;
+    public GameObject object4;
+    public GameObject object5;
+    public GameObject object6;
+    public GameObject object7;
+    public GameObject object8;
+    public GameObject object9;
+    public GameObject object10;
+
+    private void Start()
+    {
+        // Set all game objects to inactive initially
+        object1.SetActive(false);
+        object2.SetActive(false);
+        object3.SetActive(false);
+        object4.SetActive(false);
+        object5.SetActive(false);
+        object6.SetActive(false);
+        object7.SetActive(false);
+        object8.SetActive(false);
+        object9.SetActive(false);
+        object10.SetActive(false);
+
+        // Randomly activate one of the game objects
+        int randomIndex = Random.Range(1, 11);
+        switch (randomIndex)
+        {
+            case 1:
+                object1.SetActive(true);
+                break;
+            case 2:
+                object2.SetActive(true);
+                break;
+            case 3:
+                object3.SetActive(true);
+                break;
+            case 4:
+                object4.SetActive(true);
+                break;
+            case 5:
+                object5.SetActive(true);
+                break;
+            case 6:
+                object6.SetActive(true);
+                break;
+            case 7:
+                object7.SetActive(true);
+                break;
+            case 8:
+                object8.SetActive(true);
+                break;
+            case 9:
+                object9.SetActive(true);
+                break;
+            case 10:
+                object10.SetActive(true);
+                break;
+        }
+    }
+}
+
+
+/*using UnityEngine;
 using TMPro;
 
 public class Readings : MonoBehaviour
@@ -49,3 +117,4 @@ public class Readings : MonoBehaviour
         hbottomreadings2.text = hbottomreadingstwo.ToString("F0");
     }
 }
+*/
