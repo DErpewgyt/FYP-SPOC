@@ -32,7 +32,6 @@ public class ObjectiveBackup : MonoBehaviour
 
 
 
-
     public float alphaChangeSpeed = 2f; // Speed of alpha change
     public float alphaChangeDelay = 2f; // Delay before alpha change
     public float alphaChangeDelayCanva = 6f; // Delay before alpha change

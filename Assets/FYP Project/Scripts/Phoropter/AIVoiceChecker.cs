@@ -23,6 +23,23 @@ public class AIVoiceChecker : MonoBehaviour
     public AudioSource rightClear;
     public AudioSource rightTooClear;
 
+    /*
+    public AudioSource LeftAxisClear1;
+    public AudioSource LeftAxisClear2;
+
+    public AudioSource LeftMagClear1;
+    public AudioSource LeftMagClear2;
+
+    public AudioSource RightAxisClear1;
+    public AudioSource RightAxisClear2;
+
+    public AudioSource RightMagClear1;
+    public AudioSource RightMagClear2;
+    */
+    public AudioSource ClearerSideis1;
+    public AudioSource ClearerSideis2;
+    public AudioSource BothAreClear;
+
     public bool isLeftOpen; // cover on patient's left
     public bool isRightOpen; // cover on patient's right
 
@@ -598,18 +615,21 @@ public class AIVoiceChecker : MonoBehaviour
             MagnitudeController.isRightChanged = false;
             if (LeftMag == LC)
             {
-                perfect.Play();
+                //perfect.Play();
+                BothAreClear.Play();
                 print("Both are the same");
                 isLeftSideAstigMagComplete = true;
             }
             else if (LeftMag < LC)
             {
                 print("1 is more clear, (decrease Magnitude right)");
+                ClearerSideis1.Play();
                 isLeftSideAstigMagComplete = false;
             }
             else if (LeftMag > LC)
             {
                 print("2 is more clear, (increase Magnitude right)");
+                ClearerSideis2.Play();
                 isLeftSideAstigMagComplete = false;
             }
         }
@@ -632,18 +652,21 @@ public class AIVoiceChecker : MonoBehaviour
             MagnitudeController.isLeftChanged = false;
             if (RightMag == RC)
             {
-                perfect.Play();
+                //perfect.Play();
+                BothAreClear.Play();
                 print("Both are the same");
                 isRightSideAstigMagComplete = true;
             }
             else if (RightMag < RC)
             {
                 print("1 is more clear, (decrease Magnitude left)");
+                ClearerSideis1.Play();
                 isRightSideAstigMagComplete = false;
             }
             else if (RightMag > RC)
             {
                 print("2 is more clear, (increase Magnitude left)");
+                ClearerSideis2.Play();
                 isRightSideAstigMagComplete = false;
             }
         }
@@ -666,17 +689,20 @@ public class AIVoiceChecker : MonoBehaviour
             axisController.isRightChanged = false;
             if (leftAxis == LA)
             {
-                perfect.Play();
+                //perfect.Play();
+                BothAreClear.Play();
                 isLeftSideAstigAxisComplete = true;
             }
             else if (leftAxis < LA)
             {
                 print("1 is more clear, (Increase Angle right)");
+                ClearerSideis1.Play();
                 isLeftSideAstigAxisComplete = false;
             }
             else if (leftAxis > LA)
             {
                 print("2 is more clear, (Decrease Angle right)");
+                ClearerSideis2.Play();
                 isLeftSideAstigAxisComplete = false;
             }
         }
@@ -699,18 +725,21 @@ public class AIVoiceChecker : MonoBehaviour
             axisController.isLeftChanged = false;
             if (rightAxis == RA)
             {
-                perfect.Play();
+                //perfect.Play();
+                BothAreClear.Play();
                 print("They are both the same");
                 isRightSideAstigAxisComplete = true;
             }
             else if (rightAxis < RA)
             {
                 print("1 is more clear, (Increase Angle left)");
+                ClearerSideis1.Play();
                 isRightSideAstigAxisComplete = false;
             }
             else if (rightAxis > RA)
             {
                 print("2 is more clear, (Decrease Angle left)");
+                ClearerSideis2.Play();
                 isRightSideAstigAxisComplete = false;
             }
         }

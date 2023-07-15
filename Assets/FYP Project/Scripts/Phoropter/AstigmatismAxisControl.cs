@@ -95,7 +95,6 @@ public class AstigmatismAxisControl : MonoBehaviour
             {
                 rightAxisBtn.SetActive(false);
             }
-
         }
 
         if (isRotatingRight)

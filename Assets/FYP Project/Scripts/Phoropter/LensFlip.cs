@@ -1,3 +1,4 @@
+using TMPro;
 using UnityEngine;
 
 public class LensFlip : MonoBehaviour
@@ -15,6 +16,12 @@ public class LensFlip : MonoBehaviour
 
     public GameObject LeftFlipBtn;
     public GameObject RightFlipBtn;
+
+    public TextMeshProUGUI LeftTMP1;
+    public TextMeshProUGUI LeftTMP2;
+
+    public TextMeshProUGUI RightTMP1;
+    public TextMeshProUGUI RightTMP2;
 
     public Animator LeftLensFlipController;
     public Animator RightLensFlipController;
@@ -39,13 +46,11 @@ public class LensFlip : MonoBehaviour
         {
             leftLens = true;
             LeftFlipBtn.SetActive(true);
-
         }
         else if (leftLens == true)
         {
             leftLens = false;
             LeftFlipBtn.SetActive(false);
-
         }
     }
 
@@ -71,6 +76,8 @@ public class LensFlip : MonoBehaviour
             LeftLensFlipController.SetBool("Flipped", true);
             leftLensFlipped = true;
             leftFlippedOnce = true;
+            LeftTMP1.text = "Flip to 2";
+            LeftTMP2.text = "Flip to 2";
         }
         else if (leftLensFlipped == true)
         {
@@ -78,6 +85,8 @@ public class LensFlip : MonoBehaviour
             LeftLensFlipController.SetBool("Flipped", false);
             leftLensFlipped = false;
             leftFlippedTwice = true;
+            LeftTMP1.text = "Flip to 1";
+            LeftTMP2.text = "Flip to 1";
         }
     }
 
@@ -88,12 +97,16 @@ public class LensFlip : MonoBehaviour
             RightLensFlipController.SetBool("Flipped", true);
             rightLensFlipped = true;
             rightFlippedOnce = true;
+            RightTMP1.text = "Flip to 2";
+            RightTMP2.text = "Flip to 2";
         }
         else if (rightLensFlipped == true)
         {
             RightLensFlipController.SetBool("Flipped", false);
             rightLensFlipped = false;
             rightFlippedTwice = true;
+            RightTMP1.text = "Flip to 1";
+            RightTMP2.text = "Flip to 1";
         }
     }
 }
