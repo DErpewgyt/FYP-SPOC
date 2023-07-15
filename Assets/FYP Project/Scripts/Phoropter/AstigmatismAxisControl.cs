@@ -69,6 +69,8 @@ public class AstigmatismAxisControl : MonoBehaviour
                 // Rotate the third object
                 RotateObject(AstigmatismLeftKnob, -rotation);
                 isLeftChanged = true;
+                lensFlip.leftFlippedOnce = false;
+                lensFlip.leftFlippedTwice = false;
             }
             else if (scrollInput > 0f)
             {
@@ -81,11 +83,17 @@ public class AstigmatismAxisControl : MonoBehaviour
                 // Rotate the third object
                 RotateObject(AstigmatismLeftKnob, rotation);
                 isLeftChanged = true;
+                lensFlip.leftFlippedOnce = false;
+                lensFlip.leftFlippedTwice = false;
             }
 
             if (lensFlip.leftFlippedOnce && lensFlip.leftFlippedTwice && isLeftChanged && lensFlip.leftLens)
             {
                 rightAxisBtn.SetActive(true);
+            }
+            else
+            {
+                rightAxisBtn.SetActive(false);
             }
 
         }
@@ -108,6 +116,8 @@ public class AstigmatismAxisControl : MonoBehaviour
                 // Rotate the third object
                 RotateObject(AstigmatismRightKnob, rotation);
                 isRightChanged = true;
+                lensFlip.rightFlippedOnce = false;
+                lensFlip.rightFlippedTwice=false;
             } 
             else if(scrollInput > 0f)
             {
@@ -120,12 +130,16 @@ public class AstigmatismAxisControl : MonoBehaviour
                 // Rotate the third object
                 RotateObject(AstigmatismRightKnob, -rotation);
                 isRightChanged = true;
-
+                lensFlip.rightFlippedOnce = false;
+                lensFlip.rightFlippedTwice = false;
             }
 
             if (lensFlip.rightFlippedOnce && lensFlip.rightFlippedTwice && isRightChanged && lensFlip.rightLens && Checker.isRightSideComplete)
             {
                 leftAxisBtn.SetActive(true);
+            } else
+            {
+                leftAxisBtn.SetActive(false);
             }
         }
 

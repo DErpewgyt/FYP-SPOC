@@ -71,11 +71,16 @@ public class AstigmatismMagnitudeControl : MonoBehaviour
                 AstigMagLeft = Mathf.Clamp(AstigMagLeft, -6.00f, 0.00f);
                 UpdateValue(LeftValue, AstigMagLeft, TopLeftValue);
                 isLeftChanged = true;
+                lensFlip.leftFlippedOnce = false;
+                lensFlip.leftFlippedTwice = false;
             }
 
             if (lensFlip.leftFlippedOnce && lensFlip.leftFlippedTwice && isLeftChanged && lensFlip.leftLens && Checker.isRightSideAstigAxisComplete)
             {
                 rightMagBtn.SetActive(true);
+            } else
+            {
+                rightMagBtn.SetActive(false);
             }
         } else
         {
@@ -101,11 +106,16 @@ public class AstigmatismMagnitudeControl : MonoBehaviour
                 AstigMagRight = Mathf.Clamp(AstigMagRight, -6.00f, 0.00f);
                 UpdateValue(RightValue, AstigMagRight, TopRightValue);
                 isRightChanged = true;
+                lensFlip.rightFlippedOnce = false;
+                lensFlip.rightFlippedTwice = false;
             }
 
             if(lensFlip.rightFlippedOnce && lensFlip.rightFlippedTwice && isRightChanged && lensFlip.rightLens && Checker.isLeftSideAstigAxisComplete)
             {
                 leftMagBtn.SetActive(true);
+            } else
+            {
+                leftMagBtn.SetActive(false);
             }
         } 
         else

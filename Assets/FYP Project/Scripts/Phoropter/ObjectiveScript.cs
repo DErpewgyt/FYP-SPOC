@@ -1,7 +1,3 @@
-using TMPro;
-using UnityEngine.UI;
-using UnityEngine;
-
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -35,7 +31,7 @@ public class ObjectiveScript : MonoBehaviour
     public TextMeshProUGUI AstigMagTMPleft;
     public RawImage AstigMagLineleft;
     public bool isAstigMagAnimationPlayedleft = false;
-    /*
+    
     public int OBJIndicator3 = 3;
     public Animator LineObjective3;
     public TextMeshProUGUI AstigAxisTMPright;
@@ -47,7 +43,7 @@ public class ObjectiveScript : MonoBehaviour
     public TextMeshProUGUI AstigMagTMPright;
     public RawImage AstigMagLineright;
     public bool isAstigMagAnimationPlayedright = false;
-    */
+    
 
     public int OBJIndicator5 = 5;
     public Animator LineObjective5;
@@ -71,8 +67,8 @@ public class ObjectiveScript : MonoBehaviour
     void Start()
     {
         MakeAlpha0(AstigMagTMPleft, AstigMagLineleft);
-        //MakeAlpha0(AstigAxisTMPright, AstigAxisLineright);
-        //MakeAlpha0(AstigMagTMPright, AstigMagLineright);
+        MakeAlpha0(AstigAxisTMPright, AstigAxisLineright);
+        MakeAlpha0(AstigMagTMPright, AstigMagLineright);
         MakeAlpha0(PlaceHolderTMP, PlaceHolderIMG);
     }
 
@@ -95,16 +91,15 @@ public class ObjectiveScript : MonoBehaviour
         
         QuestItems(Checker.isRightSideAstigAxisComplete, isAstigAxisAnimationPlayedleft, LineObjective, AstigAxisTMPleft, AstigMagTMPleft, AstigAxisLineleft, AstigMagLineleft, OBJIndicator1);
 
-        QuestItems(Checker.isRightSideAstigMagComplete, isAstigMagAnimationPlayedleft, LineObjective2, AstigMagTMPleft, PlaceHolderTMP, AstigMagLineleft, PlaceHolderIMG, OBJIndicator2);
+        //QuestItems(Checker.isRightSideAstigMagComplete, isAstigMagAnimationPlayedleft, LineObjective2, AstigMagTMPleft, PlaceHolderTMP, AstigMagLineleft, PlaceHolderIMG, OBJIndicator2);
+
+        QuestItems(Checker.isRightSideAstigMagComplete, isAstigMagAnimationPlayedleft, LineObjective2, AstigMagTMPleft, AstigAxisTMPright, AstigMagLineleft, AstigAxisLineright, OBJIndicator2);
+
+        QuestItems(Checker.isLeftSideAstigAxisComplete, isAstigAxisAnimationPlayedright, LineObjective3, AstigAxisTMPright, AstigMagTMPright, AstigAxisLineright, AstigMagLineright, OBJIndicator3);
+
+        QuestItems(Checker.isLeftSideAstigMagComplete, isAstigMagAnimationPlayedright, LineObjective4, AstigMagTMPright, PlaceHolderTMP, AstigMagLineright, PlaceHolderIMG, OBJIndicator4);
 
         /*
-        QuestItems(Checker.isRightSideAstigMagComplete, isAstigMagAnimationPlayedleft, LineObjective2, AstigMagTMPleft, AstigAxisTMPright, AstigMagLineleft, AstigAxisLineright);
-
-        QuestItems(Checker.isLeftSideAstigAxisComplete, isAstigAxisAnimationPlayedright, LineObjective3, AstigAxisTMPright, AstigMagTMPright, AstigAxisLineright, AstigMagLineright);
-
-        QuestItems(Checker.isLeftSideAstigMagComplete, isAstigMagAnimationPlayedright, LineObjective4, AstigMagTMPright, PlaceHolderTMP, AstigMagLineright, PlaceHolderIMG);
-
-
         if (Checker.isRightSideAstigAxisComplete && !isAstigAxisAnimationPlayedleft)
         {
             LineObjective.SetBool("Complete", true);
@@ -193,11 +188,11 @@ public class ObjectiveScript : MonoBehaviour
             break;
 
             case 3:
-
+                isAstigAxisAnimationPlayedright = true;
             break;
 
             case 4:
-
+                isAstigMagAnimationPlayedright= true;
             break;
 
             case 5:
