@@ -44,13 +44,22 @@ public class AIVoiceChecker : MonoBehaviour
     public bool isRightOpen; // cover on patient's right
 
     public int pd;
+
     public float RS;
     public float RC;
     public int RA;
 
+    public float PRS;
+    public float PRC;
+    public int PRA;
+
     public float LS;
     public float LC;
     public int LA;
+
+    public float PLS;
+    public float PLC;
+    public int PLA;
 
     public int rulerDist;
     public int correctDist;
@@ -72,7 +81,7 @@ public class AIVoiceChecker : MonoBehaviour
 
     public float MeasurementChanges = 0.25f;
 
-    public GameObject CheckBtn; // check pd
+    public GameObject CheckBtn; // check objective refraction
     public GameObject rsBtn; // check patient's right side
     public GameObject lsBtn; // check patient's left side
     public GameObject rightMagBtn; // Checks patients right side
@@ -121,7 +130,7 @@ public class AIVoiceChecker : MonoBehaviour
         yield return null;
 
         /* Random Answer Generator*/////////////////////////////////////////////////////////////////////////////////
-        int randomChangePD = Random.Range(0, 3);
+        /*int randomChangePD = Random.Range(0, 3);
 
         switch (randomChangePD)
         {
@@ -136,11 +145,14 @@ public class AIVoiceChecker : MonoBehaviour
             default:
                 pd = paper.pd;
                 break;
-        }
+        }*/
+
+        pd = paper.pd;
 
         int randomChangeRS = Random.Range(0, 13);
 
         float adjustedRsTake = paper.rsTake;
+        PRS = RoundToQuarter(paper.rsTake);
 
         switch (randomChangeRS)
         {
@@ -201,6 +213,7 @@ public class AIVoiceChecker : MonoBehaviour
         int randomChangeRC = Random.Range(0, 9);
 
         float adjustedRcTake = paper.rcTake;
+        PRC = RoundToQuarter(paper.rcTake);
 
         switch (randomChangeRC)
         {
@@ -243,6 +256,7 @@ public class AIVoiceChecker : MonoBehaviour
         RC = RoundToQuarter(adjustedRcTake);
 
         int randomChangeRA = Random.Range(0, 11);
+        PRA = paper.raTake;
 
         switch (randomChangeRA)
         {
@@ -296,6 +310,7 @@ public class AIVoiceChecker : MonoBehaviour
         int randomChangeLS = Random.Range(0, 13);
 
         float adjustedLsTake = paper.lsTake;
+        PLS = RoundToQuarter(paper.lsTake);
 
         switch (randomChangeLS)
         {
@@ -356,6 +371,7 @@ public class AIVoiceChecker : MonoBehaviour
         int randomChangeLC = Random.Range(0, 9);
 
         float adjustedLcTake = paper.lcTake;
+        PLC = RoundToQuarter(paper.lcTake);
 
         switch (randomChangeLC)
         {
@@ -400,6 +416,7 @@ public class AIVoiceChecker : MonoBehaviour
         */
 
         int randomChangeLA = Random.Range(0, 11);
+        PLA = paper.laTake;
 
         switch (randomChangeLA)
         {
@@ -549,7 +566,29 @@ public class AIVoiceChecker : MonoBehaviour
 
     }
 
-    public void pdCheck()
+    public void paperCheck()
+    {
+        rulerDist = ruler.rulerDist;
+        ls = LSController.LSLeft;
+        rs = LSController.LSRight;
+        LeftMag = MagnitudeController.AstigMagRight;
+        RightMag = MagnitudeController.AstigMagLeft;
+        leftAxis = axisController.RightDegreeWholeNumber;
+        rightAxis = axisController.LeftDegreeWholeNumber;
+        if (rulerDist == correctDist && ls == PRS && rs == PLS && LeftMag == PLC && RightMag == PRC && leftAxis == PLA && rightAxis == PRA)
+        {
+            perfect.Play();
+            isSetupComplete = true;
+            CheckBtn.SetActive(false);
+            print("correct calibrated readings");
+        }
+        else
+        {
+            print("wrong calibrated readings");
+        }
+    }
+
+    /*public void pdCheck()
     {
         rulerDist = ruler.rulerDist;
         isLeftOpen = openCloseController.isRightActive;
@@ -575,12 +614,13 @@ public class AIVoiceChecker : MonoBehaviour
             }
         }
         CheckBtn.SetActive(false);
-    }
+    }*/
 
     public void rsCheck() // Chcek patient's right
     {
         ls = LSController.LSLeft;
         isRightOpen = openCloseController.isLeftActive;
+        isLeftOpen = openCloseController.isRightActive;
         print(ls);
         if (isRightOpen == true)
         {
@@ -588,17 +628,25 @@ public class AIVoiceChecker : MonoBehaviour
         }
         else
         {
-            if (ls == RS)
+            if (isLeftOpen == false)
             {
-                rightClear.Play();
+                print("pls close the patient's left cover first");
             }
-            else if (ls > RS)
+            else
             {
-                rightTooClear.Play();
-            }
-            else if (ls < RS)
-            {
-                rightBlur.Play();
+                if (ls == RS)
+                {
+                    rightClear.Play();
+                    isRightSideLSComplete = true;
+                }
+                else if (ls > RS)
+                {
+                    rightTooClear.Play();
+                }
+                else if (ls < RS)
+                {
+                    rightBlur.Play();
+                }
             }
         }
         rsBtn.SetActive(false);
@@ -607,6 +655,7 @@ public class AIVoiceChecker : MonoBehaviour
     public void lsCheck() // Chcek patient's left
     {
         isLeftOpen = openCloseController.isRightActive;
+        isRightOpen = openCloseController.isLeftActive;
         rs = LSController.LSRight;
         print(rs);
         if (isLeftOpen == true)
@@ -615,17 +664,24 @@ public class AIVoiceChecker : MonoBehaviour
         }
         else
         {
-            if (rs == LS)
+            if (isRightOpen == false)
             {
-                leftClear.Play();
+                print("pls close the patient's right cover first");
             }
-            else if (rs > LS)
+            else
             {
-                leftTooClear.Play();
-            }
-            else if (rs < LS)
-            {
-                leftBlur.Play();
+                if (rs == LS)
+                {
+                    leftClear.Play();
+                }
+                else if (rs > LS)
+                {
+                    leftTooClear.Play();
+                }
+                else if (rs < LS)
+                {
+                    leftBlur.Play();
+                }
             }
         }
         lsBtn.SetActive(false);
