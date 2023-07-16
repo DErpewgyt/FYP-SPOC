@@ -67,6 +67,9 @@ public class AIVoiceChecker : MonoBehaviour
     public float ls;
     public float rs;
 
+    public float finalls;
+    public float finalrs;
+
     public float LeftMag;
     public float RightMag;
 
@@ -93,17 +96,17 @@ public class AIVoiceChecker : MonoBehaviour
 
     public bool isSetupComplete = false;
 
-    public bool isRightSideComplete = false;
-    public bool isRightSideLSComplete = false;
-    public bool isRightSideAstigAxisComplete = false;
-    public bool isRightSideAstigMagComplete = false;
-    public bool isRightSideFinalComplete = false;
+    public bool isRightSideComplete = false; //for patients right
+    public bool isRightSideLSComplete = false; //for patients right
+    public bool isRightSideAstigAxisComplete = false;//for patients left
+    public bool isRightSideAstigMagComplete = false;//for patients left
+    public bool isRightSideFinalComplete = false; //for patients right
 
-    public bool isLeftSideComplete = false;
-    public bool isLeftSideLSComplete = false;
-    public bool isLeftSideAstigAxisComplete = false;
-    public bool isLeftSideAstigMagComplete = false;
-    public bool isLeftSideFinalComplete = false;
+    public bool isLeftSideComplete = false;//for patients left
+    public bool isLeftSideLSComplete = false;//for patients left
+    public bool isLeftSideAstigAxisComplete = false; //for patients right
+    public bool isLeftSideAstigMagComplete = false; //for patients right
+    public bool isLeftSideFinalComplete = false;//for patients left
 
     // Start is called before the first frame update
     private void Start()
@@ -113,14 +116,65 @@ public class AIVoiceChecker : MonoBehaviour
 
     private void Update()
     {
-        if(isRightSideAstigAxisComplete && isRightSideAstigMagComplete && isRightSideFinalComplete)
+        ls = LSController.LSLeft;
+        rs = LSController.LSRight;
+        finalls = LSController.LSLeft;
+        finalrs = LSController.LSRight;
+        rightAxis = axisController.LeftDegreeWholeNumber;
+        leftAxis = axisController.RightDegreeWholeNumber;
+        RightMag = MagnitudeController.AstigMagLeft;
+        LeftMag = MagnitudeController.AstigMagRight;
+
+
+        if (isRightSideAstigAxisComplete && isRightSideAstigMagComplete && isRightSideFinalComplete && isRightSideLSComplete)
         {
             isRightSideComplete = true;
         }
 
-        if(isLeftSideAstigAxisComplete && isLeftSideAstigMagComplete && isLeftSideFinalComplete)
+        if(isLeftSideAstigAxisComplete && isLeftSideAstigMagComplete && isLeftSideFinalComplete && isLeftSideLSComplete)
         {
             isLeftSideComplete = true;
+        }
+
+        if(ls != RS)
+        {
+            isRightSideLSComplete = false;
+            Debug.Log("KILL YOURSELF");
+        }
+
+        if (rs != LS)
+        {
+            isLeftSideLSComplete = false;
+        }
+
+        if (LeftMag != LC)
+        {
+            isLeftSideAstigMagComplete = false;
+        }
+
+        if (RightMag != RC)
+        {
+            isRightSideAstigMagComplete = false;
+        }
+
+        if (leftAxis != LA)
+        {
+            isLeftSideAstigAxisComplete = false;
+        }
+
+        if (rightAxis != RA)
+        {
+            isRightSideAstigAxisComplete = false;
+        }
+
+        if(finalls != rightfinalcheckfloat)
+        {
+            isRightSideFinalComplete = false;
+        }
+
+        if (finalrs != leftfinalcheckfloat)
+        {
+            isLeftSideFinalComplete = false;
         }
     }
 
@@ -563,6 +617,24 @@ public class AIVoiceChecker : MonoBehaviour
             print("this is leftfinalcheckfloat: " + leftfinalcheckfloat);
         }
 
+        if (rightfinalcheckint == 0)
+        {
+            rightfinalcheckfloat = RS;
+            print("this is rightfinalcheckfloat: " + rightfinalcheckfloat);
+        }
+
+        else if (rightfinalcheckint == 1)
+        {
+            rightfinalcheckfloat = RS + 0.25f;
+            print("this is rightfinalcheckfloat: " + rightfinalcheckfloat);
+        }
+
+        else if (rightfinalcheckint == 2)
+        {
+            rightfinalcheckfloat = RS + 0.5f;
+            print("this is rightfinalcheckfloat: " + rightfinalcheckfloat);
+        }
+
 
     }
 
@@ -616,7 +688,7 @@ public class AIVoiceChecker : MonoBehaviour
         CheckBtn.SetActive(false);
     }*/
 
-    public void rsCheck() // Chcek patient's right
+    public void rsCheck() // Check patient's right
     {
         ls = LSController.LSLeft;
         isRightOpen = openCloseController.isLeftActive;
@@ -652,7 +724,7 @@ public class AIVoiceChecker : MonoBehaviour
         rsBtn.SetActive(false);
     }
 
-    public void lsCheck() // Chcek patient's left
+    public void lsCheck() // Check patient's left
     {
         isLeftOpen = openCloseController.isRightActive;
         isRightOpen = openCloseController.isLeftActive;
@@ -673,6 +745,7 @@ public class AIVoiceChecker : MonoBehaviour
                 if (rs == LS)
                 {
                     leftClear.Play();
+                    isLeftSideLSComplete = true;
                 }
                 else if (rs > LS)
                 {
@@ -687,7 +760,7 @@ public class AIVoiceChecker : MonoBehaviour
         lsBtn.SetActive(false);
     }
 
-    public void LeftMagCheck() // Check patients left
+    public void LeftMagCheck() // Check patients right
     {
         LeftMag = MagnitudeController.AstigMagRight;
         isLeftOpen = openCloseController.isRightActive;
@@ -713,19 +786,19 @@ public class AIVoiceChecker : MonoBehaviour
             {
                 print("1 is more clear, (decrease Magnitude right)");
                 ClearerSideis1.Play();
-                isLeftSideAstigMagComplete = false;
+                //isLeftSideAstigMagComplete = false;
             }
             else if (LeftMag > LC)
             {
                 print("2 is more clear, (increase Magnitude right)");
                 ClearerSideis2.Play();
-                isLeftSideAstigMagComplete = false;
+                //isLeftSideAstigMagComplete = false;
             }
         }
         leftMagBtn.SetActive(false);
     }
 
-    public void RightMagCheck() // Check patients right
+    public void RightMagCheck() // Check patients left
     {
         RightMag = MagnitudeController.AstigMagLeft;
         isRightOpen = openCloseController.isLeftActive;
@@ -750,19 +823,19 @@ public class AIVoiceChecker : MonoBehaviour
             {
                 print("1 is more clear, (decrease Magnitude left)");
                 ClearerSideis1.Play();
-                isRightSideAstigMagComplete = false;
+                //isRightSideAstigMagComplete = false;
             }
             else if (RightMag > RC)
             {
                 print("2 is more clear, (increase Magnitude left)");
                 ClearerSideis2.Play();
-                isRightSideAstigMagComplete = false;
+               //isRightSideAstigMagComplete = false;
             }
         }
         rightMagBtn.SetActive(false);
     }
 
-    public void leftAxisCheck() // check patient's left axis
+    public void leftAxisCheck() // check patient's right axis
     {
         leftAxis = axisController.RightDegreeWholeNumber;
         isLeftOpen = openCloseController.isRightActive;
@@ -786,13 +859,13 @@ public class AIVoiceChecker : MonoBehaviour
             {
                 print("1 is more clear, (Increase Angle right)");
                 ClearerSideis1.Play();
-                isLeftSideAstigAxisComplete = false;
+                //isLeftSideAstigAxisComplete = false;
             }
             else if (leftAxis > LA)
             {
                 print("2 is more clear, (Decrease Angle right)");
                 ClearerSideis2.Play();
-                isLeftSideAstigAxisComplete = false;
+                //isLeftSideAstigAxisComplete = false;
             }
         }
         leftAxisBtn.SetActive(false);
@@ -823,13 +896,13 @@ public class AIVoiceChecker : MonoBehaviour
             {
                 print("1 is more clear, (Increase Angle left)");
                 ClearerSideis1.Play();
-                isRightSideAstigAxisComplete = false;
+                //isRightSideAstigAxisComplete = false;
             }
             else if (rightAxis > RA)
             {
                 print("2 is more clear, (Decrease Angle left)");
                 ClearerSideis2.Play();
-                isRightSideAstigAxisComplete = false;
+               //isRightSideAstigAxisComplete = false;
             }
         }
         rightAxisBtn.SetActive(false);
@@ -838,27 +911,27 @@ public class AIVoiceChecker : MonoBehaviour
     public void leftFinalCheck() // Chcek patient's left
     {
         isLeftOpen = openCloseController.isRightActive;
-        rs = LSController.LSRight;
-        print(rs);
+        finalrs = LSController.LSRight;
+        print(finalrs);
         if (isLeftOpen == true)
         {
             print("cannot see anything");
         }
         else
         {
-            if (rs == leftfinalcheckfloat)//6.5=6.5
+            if (finalrs == leftfinalcheckfloat)//6.5=6.5
             {
                 //leftClear.Play();
                 Debug.Log("still clear!(anymore and ill be wrong)");
-
+                isLeftSideFinalComplete = true;
             }
-            else if (rs > leftfinalcheckfloat)//6.75>6.5
+            else if (finalrs > leftfinalcheckfloat)//6.75>6.5
             {
                 //leftTooClear.Play();
                 Debug.Log("blur/wrong");
             }
 
-            else if (rs < leftfinalcheckfloat)
+            else if (finalrs < leftfinalcheckfloat)
             {
                 //leftTooClear.Play();
                 Debug.Log("clear! (power too high rn)");
@@ -866,7 +939,39 @@ public class AIVoiceChecker : MonoBehaviour
             else
                 Debug.Log("unclear! (power way too high rn)");
         }
-/*        lsBtn.SetActive(false);*/
+    }
+
+    public void rightFinalCheck() // Chcek patient's right
+    {
+        isRightOpen = openCloseController.isLeftActive;
+        finalls = LSController.LSLeft;
+        print(finalls);
+        if (isRightOpen == true)
+        {
+            print("cannot see anything");
+        }
+        else
+        {
+            if (finalls == rightfinalcheckfloat)//6.5=6.5
+            {
+                //leftClear.Play();
+                Debug.Log("still clear!(anymore and ill be wrong)");
+                isRightSideFinalComplete = true;
+            }
+            else if (finalls > rightfinalcheckfloat)//6.75>6.5
+            {
+                //leftTooClear.Play();
+                Debug.Log("blur/wrong");
+            }
+
+            else if (finalls < rightfinalcheckfloat)
+            {
+                //leftTooClear.Play();
+                Debug.Log("clear! (power too high rn)");
+            }
+            else
+                Debug.Log("unclear! (power way too high rn)");
+        }
     }
 
     /*private string RoundToQuarter(float value)

@@ -623,6 +623,10 @@ public class ShortLongSightMovement : MonoBehaviour
 
     public AIVoiceChecker Checker;
 
+    public GameObject leftSideFinalBtn; //patients right
+
+    public GameObject rightSideFinalBtn; //patients left
+
     private void Start()
     {
         LeftLSSightBool = false;
@@ -646,6 +650,16 @@ public class ShortLongSightMovement : MonoBehaviour
             float rotationAmount = Input.mouseScrollDelta.y * rotationSpeed * Time.deltaTime;
             TopLeftGroup.SetActive(true);
             TopRightGroup.SetActive(false);
+
+            if (Checker.isSetupComplete == true && Checker.isRightSideAstigAxisComplete == false)
+            {
+                LeftCheck.SetActive(true);
+            }
+            else if (Checker.isSetupComplete == true && Checker.isRightSideAstigAxisComplete == true)
+            {
+                leftSideFinalBtn.SetActive(true);
+            }
+
             if (scrollInput != 0f)
             {
                 LSLeft += Mathf.Sign(scrollInput) * 0.25f;
@@ -655,12 +669,7 @@ public class ShortLongSightMovement : MonoBehaviour
                 {
                     RotateObjectTransform(LeftKnob, rotationAmount);
                 }
-
                 UpdateValue(LeftValue, LSLeft);
-                if (Checker.isSetupComplete == true)
-                {
-                    LeftCheck.SetActive(true);
-                }
             }
         }
 
@@ -671,6 +680,16 @@ public class ShortLongSightMovement : MonoBehaviour
             float rotationAmount = Input.mouseScrollDelta.y * rotationSpeed * Time.deltaTime;
             TopLeftGroup.SetActive(false);
             TopRightGroup.SetActive(true);
+
+            if (Checker.isRightSideFinalComplete == true && Checker.isLeftSideAstigAxisComplete == false)
+            {
+                RightCheck.SetActive(true);
+            }
+            else if (Checker.isRightSideFinalComplete == true && Checker.isLeftSideAstigAxisComplete == true)
+            {
+                rightSideFinalBtn.SetActive(true);
+            }
+
             if (scrollInput != 0f)
             {
                 LSRight += Mathf.Sign(scrollInput) * 0.25f;
@@ -682,10 +701,6 @@ public class ShortLongSightMovement : MonoBehaviour
                 }
 
                 UpdateValue(RightValue, LSRight);
-                if (Checker.isSetupComplete == true && Checker.isRightSideComplete == true)
-                {
-                    RightCheck.SetActive(true);
-                }
             }
         }
 

@@ -87,7 +87,7 @@ public class AstigmatismAxisControl : MonoBehaviour
                 lensFlip.leftFlippedTwice = false;
             }
 
-            if (lensFlip.leftFlippedOnce && lensFlip.leftFlippedTwice && isLeftChanged && lensFlip.leftLens)
+            if (lensFlip.leftFlippedOnce && lensFlip.leftFlippedTwice && isLeftChanged && lensFlip.leftLens && Checker.isRightSideLSComplete)
             {
                 rightAxisBtn.SetActive(true);
             }
@@ -133,7 +133,7 @@ public class AstigmatismAxisControl : MonoBehaviour
                 lensFlip.rightFlippedTwice = false;
             }
 
-            if (lensFlip.rightFlippedOnce && lensFlip.rightFlippedTwice && isRightChanged && lensFlip.rightLens && Checker.isRightSideComplete)
+            if (lensFlip.rightFlippedOnce && lensFlip.rightFlippedTwice && isRightChanged && lensFlip.rightLens && Checker.isLeftSideLSComplete)
             {
                 leftAxisBtn.SetActive(true);
             } else
