@@ -22,6 +22,8 @@ public class PhoropterController : MonoBehaviour
     public GameObject rightMagBtn;
     public GameObject leftAxisBtn;
     public GameObject rightAxisBtn;
+    public GameObject leftFinalBtn;
+    public GameObject rightFinalBtn;
     public ShortLongSightMovement ShortLongSightScript;
     public AstigmatismLensMovement AstigmatismLensMovement;
     public AstigmatismMagnitudeControl AstigmatismMagnitudeControl;
@@ -278,13 +280,15 @@ public class PhoropterController : MonoBehaviour
         AstigmatismMagnitudeControl.AstigMagLeftBool = false;
         AstigmatismAxisControl.isRotatingLeft = false;
         AstigmatismAxisControl.isRotatingRight = false;
-        PdBtn.SetActive(false);
+        /*PdBtn.SetActive(false);*/
         LSBtn.SetActive(false);
         RSBtn.SetActive(false);
         leftMagBtn.SetActive(false);
         rightMagBtn.SetActive(false);
         leftAxisBtn.SetActive(false);
         rightAxisBtn.SetActive(false);
+        leftFinalBtn.SetActive(false);
+        rightFinalBtn.SetActive(false);
         LensController.leftFlippedOnce = false;
         LensController.leftFlippedTwice = false;
         LensController.rightFlippedOnce = false;
