@@ -72143,8 +72143,8 @@ MonoBehaviour:
   Ans2: 0
   Ans3: 0
   Ans4: 0
-  inputFieldTop: {fileID: 0}
-  inputFieldBottom: {fileID: 0}
+  inputFieldTop: {fileID: 1092289394}
+  inputFieldBottom: {fileID: 1855552546}
   IsTopCorrect: 0
   IsBottomCorrect: 0
 --- !u!114 &1631702571
