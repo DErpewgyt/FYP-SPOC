@@ -46,6 +46,9 @@ public class PhoropterController : MonoBehaviour
     public Dictionary<string, GameObject> imageDictionary;
     private void Start()
     {
+        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.None;
+
         AstigmatismLensMovement = FindObjectOfType<AstigmatismLensMovement>();
         AstigmatismAxisControl = FindObjectOfType<AstigmatismAxisControl>();
         // Initialize the image dictionary and add the corresponding images for each component

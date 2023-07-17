@@ -742,12 +742,12 @@ public class AIVoiceChecker : MonoBehaviour
                 else if (ls > RS)
                 {
                     //rightTooClear.Play();
-                    GreenClearer.Play();
+                    RedClearer.Play();
                 }
                 else if (ls < RS)
                 {
                     //rightBlur.Play();
-                    RedClearer.Play();
+                    GreenClearer.Play();
                 }
             }
         }
@@ -781,12 +781,12 @@ public class AIVoiceChecker : MonoBehaviour
                 else if (rs > LS)
                 {
                     //leftTooClear.Play();
-                    GreenClearer.Play();
+                    RedClearer.Play();
                 }
                 else if (rs < LS)
                 {
                     //leftBlur.Play();
-                    RedClearer.Play();
+                    GreenClearer.Play();
                 }
             }
         }
