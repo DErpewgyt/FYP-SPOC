@@ -96,18 +96,22 @@ public class AIVoiceChecker : MonoBehaviour
 
     public bool isSetupComplete = false;
 
-    public bool isRightSideComplete = false; //for patients right
+    public bool IsRighteyeOpen = false; 
     public bool isRightSideLSComplete = false; //for patients right
     public bool isRightSideAstigAxisComplete = false;//for patients left
     public bool isRightSideAstigMagComplete = false;//for patients left
     public bool isRightSideFinalComplete = false; //for patients right
 
-    public bool isLeftSideComplete = false;//for patients left
+    public bool IsLefteyeOpen = false;
     public bool isLeftSideLSComplete = false;//for patients left
     public bool isLeftSideAstigAxisComplete = false; //for patients right
     public bool isLeftSideAstigMagComplete = false; //for patients right
     public bool isLeftSideFinalComplete = false;//for patients left
 
+    public bool isRightSideComplete = false; //for patients right
+    public bool isLeftSideComplete = false;//for patients left
+
+    public OpenClose OpenCloseController;
     // Start is called before the first frame update
     private void Start()
     {
@@ -125,6 +129,23 @@ public class AIVoiceChecker : MonoBehaviour
         RightMag = MagnitudeController.AstigMagLeft;
         LeftMag = MagnitudeController.AstigMagRight;
 
+        if(openCloseController.isLeftActive && !openCloseController.isRightActive && isRightSideFinalComplete)
+        {
+            IsLefteyeOpen = true;
+        } 
+        else
+        {
+            IsLefteyeOpen = false;
+        }
+
+        if (!openCloseController.isLeftActive && openCloseController.isRightActive && isSetupComplete)
+        {
+            IsRighteyeOpen = true;
+        } 
+        else 
+        { 
+            IsRighteyeOpen = false;
+        }
 
         if (isRightSideAstigAxisComplete && isRightSideAstigMagComplete && isRightSideFinalComplete && isRightSideLSComplete)
         {
@@ -139,7 +160,7 @@ public class AIVoiceChecker : MonoBehaviour
         if(ls != RS)
         {
             isRightSideLSComplete = false;
-            Debug.Log("KILL YOURSELF");
+            //Debug.Log("KILL YOURSELF");
         }
 
         if (rs != LS)
