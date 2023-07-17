@@ -23,6 +23,9 @@ public class AIVoiceChecker : MonoBehaviour
     public AudioSource rightClear;
     public AudioSource rightTooClear;
 
+    public AudioSource GreenClearer;
+    public AudioSource RedClearer;
+
     /*
     public AudioSource LeftAxisClear1;
     public AudioSource LeftAxisClear2;
@@ -39,6 +42,9 @@ public class AIVoiceChecker : MonoBehaviour
     public AudioSource ClearerSideis1;
     public AudioSource ClearerSideis2;
     public AudioSource BothAreClear;
+
+    public AudioSource StillClear;
+    public AudioSource BecomeBlur;
 
     public bool isLeftOpen; // cover on patient's left
     public bool isRightOpen; // cover on patient's right
@@ -729,16 +735,19 @@ public class AIVoiceChecker : MonoBehaviour
             {
                 if (ls == RS)
                 {
-                    rightClear.Play();
+                    //rightClear.Play();
+                    BothAreClear.Play();
                     isRightSideLSComplete = true;
                 }
                 else if (ls > RS)
                 {
-                    rightTooClear.Play();
+                    //rightTooClear.Play();
+                    GreenClearer.Play();
                 }
                 else if (ls < RS)
                 {
-                    rightBlur.Play();
+                    //rightBlur.Play();
+                    RedClearer.Play();
                 }
             }
         }
@@ -765,16 +774,19 @@ public class AIVoiceChecker : MonoBehaviour
             {
                 if (rs == LS)
                 {
-                    leftClear.Play();
+                    //leftClear.Play();
+                    BothAreClear.Play();
                     isLeftSideLSComplete = true;
                 }
                 else if (rs > LS)
                 {
-                    leftTooClear.Play();
+                    //leftTooClear.Play();
+                    GreenClearer.Play();
                 }
                 else if (rs < LS)
                 {
-                    leftBlur.Play();
+                    //leftBlur.Play();
+                    RedClearer.Play();
                 }
             }
         }
@@ -944,18 +956,21 @@ public class AIVoiceChecker : MonoBehaviour
             {
                 //leftClear.Play();
                 Debug.Log("still clear!(anymore and ill be wrong)");
+                StillClear.Play();
                 isLeftSideFinalComplete = true;
             }
             else if (finalrs > leftfinalcheckfloat)//6.75>6.5
             {
                 //leftTooClear.Play();
                 Debug.Log("blur/wrong");
+                BecomeBlur.Play();
             }
 
             else if (finalrs < leftfinalcheckfloat)
             {
                 //leftTooClear.Play();
                 Debug.Log("clear! (power too high rn)");
+                StillClear.Play();
             }
             else
                 Debug.Log("unclear! (power way too high rn)");
@@ -978,17 +993,20 @@ public class AIVoiceChecker : MonoBehaviour
                 //leftClear.Play();
                 Debug.Log("still clear!(anymore and ill be wrong)");
                 isRightSideFinalComplete = true;
+                StillClear.Play();
             }
             else if (finalls > rightfinalcheckfloat)//6.75>6.5
             {
                 //leftTooClear.Play();
                 Debug.Log("blur/wrong");
+                BecomeBlur.Play();
             }
 
             else if (finalls < rightfinalcheckfloat)
             {
                 //leftTooClear.Play();
                 Debug.Log("clear! (power too high rn)");
+                StillClear.Play();
             }
             else
                 Debug.Log("unclear! (power way too high rn)");
