@@ -32,5 +32,8 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/FYP Project/Scenes/phoropterscenes/Jeron Final maybe.unity
     guid: 5cca7eeaa04b2b044b3c394adc9104d2
+  - enabled: 1
+    path: Assets/FYP Project/Scenes/phoropterscenes/Jeremy5.unity
+    guid: a050b5835aa44c24a92ba58fae7fa233
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: 9e7be553448fa2546aea5752021cbcf7, type: 2}
