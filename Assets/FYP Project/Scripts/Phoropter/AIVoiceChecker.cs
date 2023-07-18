@@ -230,7 +230,7 @@ public class AIVoiceChecker : MonoBehaviour
 
         pd = paper.pd;
 
-        int randomChangeRS = Random.Range(0, 13);
+        int randomChangeRS = Random.Range(0, 5);
 
         float adjustedRsTake = paper.rsTake;
         PRS = RoundToQuarter(paper.rsTake);
@@ -251,38 +251,6 @@ public class AIVoiceChecker : MonoBehaviour
 
             case 3:
                 adjustedRsTake = Mathf.Min(adjustedRsTake + MeasurementChanges * 2, 0.00f);
-                break;
-
-            case 4:
-                adjustedRsTake = Mathf.Max(adjustedRsTake - MeasurementChanges * 3, -19.00f);
-                break;
-
-            case 5:
-                adjustedRsTake = Mathf.Min(adjustedRsTake + MeasurementChanges * 3, 0.00f);
-                break;
-
-            case 6:
-                adjustedRsTake = Mathf.Max(adjustedRsTake - MeasurementChanges * 4, -19.00f);
-                break;
-
-            case 7:
-                adjustedRsTake = Mathf.Min(adjustedRsTake + MeasurementChanges * 4, 0.00f);
-                break;
-
-            case 8:
-                adjustedRsTake = Mathf.Max(adjustedRsTake - MeasurementChanges * 5, -19.00f);
-                break;
-
-            case 9:
-                adjustedRsTake = Mathf.Min(adjustedRsTake + MeasurementChanges * 5, 0.00f);
-                break;
-
-            case 10:
-                adjustedRsTake = Mathf.Max(adjustedRsTake - MeasurementChanges * 6, -19.00f);
-                break;
-
-            case 11:
-                adjustedRsTake = Mathf.Min(adjustedRsTake + MeasurementChanges * 6, 0.00f);
                 break;
 
             default:
@@ -388,7 +356,7 @@ public class AIVoiceChecker : MonoBehaviour
 
         /***********************************************  LEFT  *******************************************************/
 
-        int randomChangeLS = Random.Range(0, 13);
+        int randomChangeLS = Random.Range(0, 5);
 
         float adjustedLsTake = paper.lsTake;
         PLS = RoundToQuarter(paper.lsTake);
@@ -409,38 +377,6 @@ public class AIVoiceChecker : MonoBehaviour
 
             case 3:
                 adjustedLsTake = Mathf.Min(adjustedLsTake + MeasurementChanges * 2, 0.00f);
-                break;
-
-            case 4:
-                adjustedLsTake = Mathf.Max(adjustedLsTake - MeasurementChanges * 3, -19.00f);
-                break;
-
-            case 5:
-                adjustedLsTake = Mathf.Min(adjustedLsTake + MeasurementChanges * 3, 0.00f);
-                break;
-
-            case 6:
-                adjustedLsTake = Mathf.Max(adjustedLsTake - MeasurementChanges * 4, -19.00f);
-                break;
-
-            case 7:
-                adjustedLsTake = Mathf.Min(adjustedLsTake + MeasurementChanges * 4, 0.00f);
-                break;
-
-            case 8:
-                adjustedLsTake = Mathf.Max(adjustedLsTake - MeasurementChanges * 5, -19.00f);
-                break;
-
-            case 9:
-                adjustedLsTake = Mathf.Min(adjustedLsTake + MeasurementChanges * 5, 0.00f);
-                break;
-
-            case 10:
-                adjustedLsTake = Mathf.Max(adjustedLsTake - MeasurementChanges * 6, -19.00f);
-                break;
-
-            case 11:
-                adjustedLsTake = Mathf.Min(adjustedLsTake + MeasurementChanges * 6, 0.00f);
                 break;
 
             default:
