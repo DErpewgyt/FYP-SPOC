@@ -204,7 +204,7 @@ GameObject:
   - component: {fileID: 233846806}
   m_Layer: 5
   m_Name: Text
-  m_TagString: Untagged
+  m_TagString: CursorChangeOnly
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -539,7 +539,7 @@ GameObject:
   - component: {fileID: 329319202}
   m_Layer: 5
   m_Name: Normal
-  m_TagString: Untagged
+  m_TagString: CursorChangeOnly
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -840,7 +840,7 @@ GameObject:
   - component: {fileID: 501232102}
   m_Layer: 5
   m_Name: Ripple
-  m_TagString: Untagged
+  m_TagString: CursorChangeOnly
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -929,7 +929,7 @@ GameObject:
   - component: {fileID: 636184238}
   m_Layer: 5
   m_Name: Background
-  m_TagString: Untagged
+  m_TagString: CursorChangeOnly
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1005,7 +1005,7 @@ GameObject:
   - component: {fileID: 639456325}
   m_Layer: 5
   m_Name: Background (1)
-  m_TagString: Untagged
+  m_TagString: CursorChangeOnly
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1081,7 +1081,7 @@ GameObject:
   - component: {fileID: 642029262}
   m_Layer: 5
   m_Name: Highlighted
-  m_TagString: Untagged
+  m_TagString: CursorChangeOnly
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1226,7 +1226,7 @@ GameObject:
   - component: {fileID: 693206620}
   m_Layer: 5
   m_Name: Ripple
-  m_TagString: Untagged
+  m_TagString: CursorChangeOnly
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1315,7 +1315,7 @@ GameObject:
   - component: {fileID: 698136222}
   m_Layer: 5
   m_Name: Background (1)
-  m_TagString: Untagged
+  m_TagString: CursorChangeOnly
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1506,7 +1506,7 @@ GameObject:
   - component: {fileID: 713740092}
   m_Layer: 5
   m_Name: Background
-  m_TagString: Untagged
+  m_TagString: CursorChangeOnly
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1778,7 +1778,7 @@ GameObject:
   - component: {fileID: 905095499}
   m_Layer: 5
   m_Name: Background
-  m_TagString: Untagged
+  m_TagString: CursorChangeOnly
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1929,6 +1929,7 @@ GameObject:
   - component: {fileID: 963194227}
   - component: {fileID: 963194226}
   - component: {fileID: 963194229}
+  - component: {fileID: 963194230}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -2036,6 +2037,27 @@ MonoBehaviour:
   m_RequiresDepthTexture: 0
   m_RequiresColorTexture: 0
   m_Version: 2
+--- !u!114 &963194230
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 963194225}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6fa9c3411984571438ad7c04ce9955c9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  highlightMaterial: {fileID: 2100000, guid: 13733c3dbd182fa4ca488880c244e428, type: 2}
+  linkCursorTexture: {fileID: 2800000, guid: 9b06c0d8b4e8fa6448f481781b52a3ba, type: 3}
+  parent: {fileID: 0}
+  KeratometerMovement: {fileID: 0}
+  zoom: 0
+  Blur: {fileID: 0}
+  Blur2: {fileID: 0}
+  helpController: {fileID: 0}
+  ExitIcon: {fileID: 0}
 --- !u!1 &979392365
 GameObject:
   m_ObjectHideFlags: 0
@@ -2049,7 +2071,7 @@ GameObject:
   - component: {fileID: 979392367}
   m_Layer: 5
   m_Name: Background (1)
-  m_TagString: Untagged
+  m_TagString: CursorChangeOnly
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2125,7 +2147,7 @@ GameObject:
   - component: {fileID: 985136371}
   m_Layer: 5
   m_Name: Text
-  m_TagString: Untagged
+  m_TagString: CursorChangeOnly
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2396,7 +2418,7 @@ GameObject:
   - component: {fileID: 1067475819}
   m_Layer: 5
   m_Name: Text
-  m_TagString: Untagged
+  m_TagString: CursorChangeOnly
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2531,7 +2553,7 @@ GameObject:
   - component: {fileID: 1075828199}
   m_Layer: 5
   m_Name: Background
-  m_TagString: Untagged
+  m_TagString: CursorChangeOnly
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2607,7 +2629,7 @@ GameObject:
   - component: {fileID: 1100174298}
   m_Layer: 5
   m_Name: Highlighted
-  m_TagString: Untagged
+  m_TagString: CursorChangeOnly
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2684,6 +2706,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 362af9e9d0cb84647b7921f93fdd7e65, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerName: 
+  adminNo: 
 --- !u!4 &1189443807
 Transform:
   m_ObjectHideFlags: 0
@@ -2919,7 +2943,7 @@ GameObject:
   - component: {fileID: 1215799073}
   m_Layer: 5
   m_Name: QuitButton
-  m_TagString: Untagged
+  m_TagString: CursorChangeOnly2
   m_Icon: {fileID: 2800000, guid: 98d001ce6b3b53242911dcc3d1415f59, type: 3}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3154,7 +3178,7 @@ GameObject:
   - component: {fileID: 1296047608}
   m_Layer: 5
   m_Name: Background
-  m_TagString: Untagged
+  m_TagString: CursorChangeOnly
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3231,7 +3255,7 @@ GameObject:
   - component: {fileID: 1405100444}
   m_Layer: 5
   m_Name: Ripple
-  m_TagString: Untagged
+  m_TagString: CursorChangeOnly
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3320,7 +3344,7 @@ GameObject:
   - component: {fileID: 1411035022}
   m_Layer: 5
   m_Name: Background
-  m_TagString: Untagged
+  m_TagString: CursorChangeOnly
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3504,7 +3528,7 @@ GameObject:
   - component: {fileID: 1602398318}
   m_Layer: 5
   m_Name: Background
-  m_TagString: Untagged
+  m_TagString: CursorChangeOnly
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3580,7 +3604,7 @@ GameObject:
   - component: {fileID: 1662146080}
   m_Layer: 5
   m_Name: Text
-  m_TagString: Untagged
+  m_TagString: CursorChangeOnly
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3796,7 +3820,7 @@ GameObject:
   - component: {fileID: 1711178298}
   m_Layer: 5
   m_Name: Background (1)
-  m_TagString: Untagged
+  m_TagString: CursorChangeOnly
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4024,7 +4048,7 @@ GameObject:
   - component: {fileID: 1825489892}
   m_Layer: 5
   m_Name: Text
-  m_TagString: Untagged
+  m_TagString: CursorChangeOnly
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4159,7 +4183,7 @@ GameObject:
   - component: {fileID: 1832801191}
   m_Layer: 5
   m_Name: Highlighted
-  m_TagString: Untagged
+  m_TagString: CursorChangeOnly
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4358,7 +4382,7 @@ GameObject:
   - component: {fileID: 1873736434}
   m_Layer: 5
   m_Name: Background
-  m_TagString: Untagged
+  m_TagString: CursorChangeOnly
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4503,7 +4527,7 @@ GameObject:
   - component: {fileID: 1876982711}
   m_Layer: 5
   m_Name: Normal
-  m_TagString: Untagged
+  m_TagString: CursorChangeOnly
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4565,7 +4589,7 @@ GameObject:
   - component: {fileID: 1893510809}
   m_Layer: 5
   m_Name: StartButton
-  m_TagString: Untagged
+  m_TagString: CursorChangeOnly2
   m_Icon: {fileID: 2800000, guid: 98d001ce6b3b53242911dcc3d1415f59, type: 3}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4801,7 +4825,7 @@ GameObject:
   - component: {fileID: 1899905815}
   m_Layer: 5
   m_Name: OptionButton
-  m_TagString: Untagged
+  m_TagString: CursorChangeOnly2
   m_Icon: {fileID: 2800000, guid: 98d001ce6b3b53242911dcc3d1415f59, type: 3}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5080,7 +5104,7 @@ GameObject:
   - component: {fileID: 1934514504}
   m_Layer: 5
   m_Name: Normal
-  m_TagString: Untagged
+  m_TagString: CursorChangeOnly
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5141,7 +5165,7 @@ GameObject:
   - component: {fileID: 2037505593}
   m_Layer: 5
   m_Name: Text
-  m_TagString: Untagged
+  m_TagString: CursorChangeOnly
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
