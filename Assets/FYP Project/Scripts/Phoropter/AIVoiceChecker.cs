@@ -889,7 +889,7 @@ public class AIVoiceChecker : MonoBehaviour
                 //leftClear.Play();
                 Debug.Log("still clear!(anymore and ill be wrong)");
                 StillClear.Play();
-                isLeftSideFinalComplete = true;
+                //isLeftSideFinalComplete = true;
             }
             else if (finalrs > leftfinalcheckfloat)//6.75>6.5
             {
@@ -924,7 +924,7 @@ public class AIVoiceChecker : MonoBehaviour
             {
                 //leftClear.Play();
                 Debug.Log("still clear!(anymore and ill be wrong)");
-                isRightSideFinalComplete = true;
+                //isRightSideFinalComplete = true;
                 StillClear.Play();
             }
             else if (finalls > rightfinalcheckfloat)//6.75>6.5
@@ -943,6 +943,32 @@ public class AIVoiceChecker : MonoBehaviour
             else
                 Debug.Log("unclear! (power way too high rn)");
         }
+    }
+
+    public void leftfinalsubmit()
+    {
+        if (finalrs == leftfinalcheckfloat)//6.5=6.5
+        {
+            //leftClear.Play();
+            Debug.Log("still clear!(anymore and ill be wrong)");
+            //StillClear.Play();
+            isLeftSideFinalComplete = true;
+        }
+        else
+            Debug.Log("thanks");
+    }
+
+    public void rightfinalsubmit()
+    {
+        if (finalls == rightfinalcheckfloat)//6.5=6.5
+        {
+            //leftClear.Play(); 
+            Debug.Log("still clear!(anymore and ill be wrong)");
+            isRightSideFinalComplete = true;
+            //StillClear.Play();
+        }
+        else
+            Debug.Log("thanksright");
     }
 
     /*private string RoundToQuarter(float value)

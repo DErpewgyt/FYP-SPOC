@@ -624,8 +624,9 @@ public class ShortLongSightMovement : MonoBehaviour
     public AIVoiceChecker Checker;
 
     public GameObject leftSideFinalBtn; //patients right
-
+    public GameObject leftSideFinalSubmitBtn;
     public GameObject rightSideFinalBtn; //patients left
+    public GameObject rightSideFinalSubmitBtn;
 
     private void Start()
     {
@@ -658,6 +659,7 @@ public class ShortLongSightMovement : MonoBehaviour
             else if (Checker.isSetupComplete == true && Checker.isRightSideAstigAxisComplete == true)
             {
                 leftSideFinalBtn.SetActive(true);
+                leftSideFinalSubmitBtn.SetActive(true);
             }
 
             if (scrollInput != 0f)
@@ -688,6 +690,7 @@ public class ShortLongSightMovement : MonoBehaviour
             else if (Checker.isRightSideFinalComplete == true && Checker.isLeftSideAstigAxisComplete == true)
             {
                 rightSideFinalBtn.SetActive(true);
+                rightSideFinalSubmitBtn.SetActive(true);
             }
 
             if (scrollInput != 0f)

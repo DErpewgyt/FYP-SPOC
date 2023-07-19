@@ -25,6 +25,8 @@ public class PhoropterController : MonoBehaviour
     public GameObject rightAxisBtn;
     public GameObject leftFinalBtn;
     public GameObject rightFinalBtn;
+    public GameObject leftFinalSubmitBtn;
+    public GameObject rightFinalSubmitBtn;
     public GameObject leftFlipBtn;
     public GameObject rightFlipBtn;
     public ShortLongSightMovement ShortLongSightScript;
@@ -255,6 +257,8 @@ private void Update()
                 PDManager.SetActive(true);
                 Ruler.SetActive(true);
                 RulerController.SetActive(true);
+                leftFlipBtn.SetActive(false);
+                rightFlipBtn.SetActive(false);
                 break;
 
             // Handle functionality for PupillaryDistanceKnobRight
@@ -264,17 +268,23 @@ private void Update()
                 PDManager.SetActive(true);
                 Ruler.SetActive(true);
                 RulerController.SetActive(true);
+                leftFlipBtn.SetActive(false);
+                rightFlipBtn.SetActive(false);
                 break;
 
             // Handle functionality for OpenAndCloseKnobLeft
             case "OpenAndCloseKnobLeft":
                 print("OpenAndCloseKnobLeft clicked");
+                leftFlipBtn.SetActive(false);
+                rightFlipBtn.SetActive(false);
                 //OpenCloseManager.SetActive(true);
                 break;
 
             // Handle functionality for OpenAndCloseKnobRight
             case "OpenAndCloseKnobRight":
                 print("OpenAndCloseKnobRight clicked");
+                leftFlipBtn.SetActive(false);
+                rightFlipBtn.SetActive(false);
                 //OpenCloseManager.SetActive(true);
                 break;
 
@@ -283,6 +293,8 @@ private void Update()
                 ShortLongSightScript.LeftLSSightBool = true;
                 print("ShortAndLongSightedGearLeft clicked");
                 ShortSightLeftManager.SetActive(true);
+                leftFlipBtn.SetActive(false);
+                rightFlipBtn.SetActive(false);
                 break;
 
             // Handle functionality for ShortAndLongSightedGearRight
@@ -290,6 +302,8 @@ private void Update()
                 ShortLongSightScript.RightLSSightBool = true;
                 print("ShortAndLongSightedGearRight clicked");
                 ShortSightRightManager.SetActive(true);
+                leftFlipBtn.SetActive(false);
+                rightFlipBtn.SetActive(false);
                 break;
 
             // Handle functionality for AstigmatismLensLeft
@@ -358,9 +372,9 @@ private void Update()
         leftAxisBtn.SetActive(false);
         rightAxisBtn.SetActive(false);
         leftFinalBtn.SetActive(false);
-        //rightFinalBtn.SetActive(false);
-        //leftFlipBtn.SetActive(false);
-        rightFlipBtn.SetActive(false);
+        rightFinalBtn.SetActive(false);
+        leftFinalSubmitBtn.SetActive(false);
+        rightFinalSubmitBtn.SetActive(false);
         LensController.leftFlippedOnce = false;
         LensController.leftFlippedTwice = false;
         LensController.rightFlippedOnce = false;
