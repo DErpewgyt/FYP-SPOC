@@ -753,14 +753,12 @@ public class AIVoiceChecker : MonoBehaviour
             }
             else if (LeftMag < LC)
             {
-                print("1 is more clear, (decrease Magnitude right)");
-                ClearerSideis1.Play();
+                ClearerSideis2.Play();
                 //isLeftSideAstigMagComplete = false;
             }
             else if (LeftMag > LC)
             {
-                print("2 is more clear, (increase Magnitude right)");
-                ClearerSideis2.Play();
+                ClearerSideis1.Play();
                 //isLeftSideAstigMagComplete = false;
             }
         }
@@ -790,14 +788,12 @@ public class AIVoiceChecker : MonoBehaviour
             }
             else if (RightMag < RC)
             {
-                print("1 is more clear, (decrease Magnitude left)");
-                ClearerSideis1.Play();
+                ClearerSideis2.Play();
                 //isRightSideAstigMagComplete = false;
             }
             else if (RightMag > RC)
             {
-                print("2 is more clear, (increase Magnitude left)");
-                ClearerSideis2.Play();
+                ClearerSideis1.Play();
                //isRightSideAstigMagComplete = false;
             }
         }

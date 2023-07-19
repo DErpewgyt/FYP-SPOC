@@ -76,8 +76,8 @@ public class LensFlip : MonoBehaviour
             LeftLensFlipController.SetBool("Flipped", true);
             leftLensFlipped = true;
             leftFlippedOnce = true;
-            LeftTMP1.text = "Flip to 2";
-            LeftTMP2.text = "Flip to 2";
+            LeftTMP1.text = "This is 2";
+            LeftTMP2.text = "This is 2";
         }
         else if (leftLensFlipped == true)
         {
@@ -85,8 +85,8 @@ public class LensFlip : MonoBehaviour
             LeftLensFlipController.SetBool("Flipped", false);
             leftLensFlipped = false;
             leftFlippedTwice = true;
-            LeftTMP1.text = "Flip to 1";
-            LeftTMP2.text = "Flip to 1";
+            LeftTMP1.text = "This is 1";
+            LeftTMP2.text = "This is 1";
         }
     }
 
@@ -97,16 +97,16 @@ public class LensFlip : MonoBehaviour
             RightLensFlipController.SetBool("Flipped", true);
             rightLensFlipped = true;
             rightFlippedOnce = true;
-            RightTMP1.text = "Flip to 2";
-            RightTMP2.text = "Flip to 2";
+            RightTMP1.text = "This is 2";
+            RightTMP2.text = "This is 2";
         }
         else if (rightLensFlipped == true)
         {
             RightLensFlipController.SetBool("Flipped", false);
             rightLensFlipped = false;
             rightFlippedTwice = true;
-            RightTMP1.text = "Flip to 1";
-            RightTMP2.text = "Flip to 1";
+            RightTMP1.text = "This is 1";
+            RightTMP2.text = "This is 1";
         }
     }
 }
