@@ -21,7 +21,7 @@ public class FINALSceneHandler : MonoBehaviour
         if (string.IsNullOrEmpty(server) || string.IsNullOrEmpty(database) || string.IsNullOrEmpty(uid) || string.IsNullOrEmpty(pwd))
         {
             // Load credentials from config.json if environment variables are not set
-            string configPath = Path.Combine(Application.dataPath, "./config.json");
+            string configPath = Path.Combine(Application.dataPath, "./StreamingAssets/config.json");
 
             if (File.Exists(configPath))
             {
