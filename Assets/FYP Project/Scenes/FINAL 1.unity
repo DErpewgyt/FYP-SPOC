@@ -19147,7 +19147,7 @@ PrefabInstance:
       objectReference: {fileID: 793013046}
     - target: {fileID: 1975354752746917772, guid: abd6b35fe403bbb46b6edcd6dad39833, type: 3}
       propertyPath: sceneToLoad
-      value: NEWgameScene
+      value: JeremyNewGameScene
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: abd6b35fe403bbb46b6edcd6dad39833, type: 3}
