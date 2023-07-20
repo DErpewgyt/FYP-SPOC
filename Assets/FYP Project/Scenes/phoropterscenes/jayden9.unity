@@ -2643,6 +2643,7 @@ MonoBehaviour:
   RightKnob: {fileID: 1537817263}
   LeftsideButtons: {fileID: 1010471919}
   RightSideButtons: {fileID: 1414450589}
+  PaperBtn: {fileID: 319823372}
   LeftsideShortCutKnob: {fileID: 941061889}
   RightSideShortCutKnob: {fileID: 1168440067}
   rotationSpeed: 100
@@ -40506,7 +40507,9 @@ MonoBehaviour:
   blur: {fileID: 278266780}
   helpButton: {fileID: 1098943378}
   Guide: {fileID: 1051694115}
-  ObjectiveChecker: {fileID: 319823376}
+  one: 0
+  two: 0
+  three: 0
 --- !u!114 &554794671
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -40527,7 +40530,6 @@ MonoBehaviour:
   Readings: {fileID: 1994804065}
   Resets: {fileID: 81728125}
   Guide: {fileID: 1051694115}
-  ObjectiveChecker: {fileID: 319823376}
 --- !u!1 &555048195
 GameObject:
   m_ObjectHideFlags: 0
@@ -54509,7 +54511,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &764879716
 RectTransform:
   m_ObjectHideFlags: 0
@@ -61583,7 +61585,6 @@ MonoBehaviour:
   Readings: {fileID: 1994804065}
   Resets: {fileID: 81728125}
   GraphicButton: {fileID: 1098943378}
-  ObjectiveChecker: {fileID: 319823376}
 --- !u!114 &867228820
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -61604,7 +61605,6 @@ MonoBehaviour:
   blur: {fileID: 610783030}
   helpButton: {fileID: 1255645527}
   GraphicButton: {fileID: 1098943378}
-  ObjectiveChecker: {fileID: 319823376}
 --- !u!1 &867274288
 GameObject:
   m_ObjectHideFlags: 0
@@ -72299,7 +72299,7 @@ MonoBehaviour:
   ShortSightRightManager: {fileID: 465116676}
   RulerController: {fileID: 1974065380}
   Ruler: {fileID: 2057180825}
-  PdBtn: {fileID: 0}
+  PdBtn: {fileID: 319823372}
   LSBtn: {fileID: 261477711}
   RSBtn: {fileID: 446325082}
   leftMagBtn: {fileID: 1412038831}
@@ -77580,7 +77580,9 @@ MonoBehaviour:
   blur: {fileID: 278266780}
   helpButton: {fileID: 1098943378}
   Guide: {fileID: 1051694115}
-  ObjectiveChecker: {fileID: 319823376}
+  one: 0
+  two: 0
+  three: 0
 --- !u!114 &1098943378
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -88659,7 +88661,6 @@ MonoBehaviour:
   blur: {fileID: 610783030}
   helpButton: {fileID: 1255645527}
   GraphicButton: {fileID: 0}
-  ObjectiveChecker: {fileID: 0}
 --- !u!114 &1255645527
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -92008,6 +92009,7 @@ MonoBehaviour:
   axisController: {fileID: 1012159152}
   openCloseController: {fileID: 865494913}
   LensFlip: {fileID: 172869743}
+  GraphicController: {fileID: 554794670}
   perfect: {fileID: 935113430}
   tooNear: {fileID: 1643785160}
   tooFar: {fileID: 1800719509}
@@ -92054,16 +92056,16 @@ MonoBehaviour:
   leftfinalcheckfloat: 0
   rightfinalcheckfloat: 0
   MeasurementChanges: 0.25
-  leftPdMesh: {fileID: 0}
-  rightPdMesh: {fileID: 0}
-  leftLsMesh: {fileID: 0}
-  rightLsMesh: {fileID: 0}
-  leftAxisMesh: {fileID: 0}
-  rightAxisMesh: {fileID: 0}
-  leftMagMesh: {fileID: 0}
-  rightMagMesh: {fileID: 0}
-  leftJcc: {fileID: 0}
-  rightJcc: {fileID: 0}
+  leftPdMesh: {fileID: 11562296}
+  rightPdMesh: {fileID: 691530365}
+  leftLsMesh: {fileID: 2063384282}
+  rightLsMesh: {fileID: 561855584}
+  leftAxisMesh: {fileID: 9093717609576376336}
+  rightAxisMesh: {fileID: 8431897405483584321}
+  leftMagMesh: {fileID: 8464978046670098047}
+  rightMagMesh: {fileID: 7740864507834544985}
+  leftJcc: {fileID: 1897683200}
+  rightJcc: {fileID: 819003336}
   CheckBtn: {fileID: 319823372}
   rsBtn: {fileID: 446325082}
   lsBtn: {fileID: 261477711}
@@ -92073,6 +92075,7 @@ MonoBehaviour:
   leftAxisBtn: {fileID: 1743862379}
   rightFinalBtn: {fileID: 1099252198}
   leftFinalBtn: {fileID: 1892638559}
+  graphicBtn: {fileID: 764879715}
   isSetupComplete: 0
   IsRighteyeOpen: 0
   isRightSideLSComplete: 0

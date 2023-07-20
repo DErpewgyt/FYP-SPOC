@@ -1,8 +1,5 @@
-using Mono.Cecil;
 using TMPro;
-using UnityEditor.UI;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class Readings : MonoBehaviour
 {

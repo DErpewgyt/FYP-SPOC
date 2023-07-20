@@ -615,6 +615,8 @@ public class ShortLongSightMovement : MonoBehaviour
     public GameObject LeftsideButtons;
     public GameObject RightSideButtons;
 
+    public GameObject PaperBtn;
+
     public GameObject LeftsideShortCutKnob;
     public GameObject RightSideShortCutKnob;
 

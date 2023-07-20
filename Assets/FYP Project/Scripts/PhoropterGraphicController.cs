@@ -11,22 +11,30 @@ public class PhoropterGraphicController : MonoBehaviour
     public GameObject blur;
     public Button helpButton;
     public Canvas Guide;
-    public Button ObjectiveChecker;
 
+    public bool one = false;
+    public bool two = false;
+    public bool three = false;
 
     public void OnHelpButtonClick()
     {
-        bool isHelpImageActive = !graphic1.gameObject.activeInHierarchy;
-        
-        graphic1.gameObject.SetActive(isHelpImageActive);
-        graphic2.gameObject.SetActive(isHelpImageActive);
-        graphic3.gameObject.SetActive(isHelpImageActive);
-        blur.SetActive(isHelpImageActive);
-        helpButton.gameObject.SetActive(!isHelpImageActive);
-        Readings.gameObject.SetActive(!isHelpImageActive);
-        Resets.gameObject.SetActive(!isHelpImageActive);
-        Guide.gameObject.SetActive(!isHelpImageActive);
-        ObjectiveChecker.gameObject.SetActive(!isHelpImageActive);
-       
+        if (one == true)
+        {
+            graphic1.gameObject.SetActive(true);
+        }
+        if (two == true)
+        {
+            graphic2.gameObject.SetActive(true);
+        }
+        if (three == true)
+        {
+            graphic3.gameObject.SetActive(true);
+        }
+        blur.SetActive(true);
+        helpButton.gameObject.SetActive(!true);
+        Readings.gameObject.SetActive(!true);
+        Resets.gameObject.SetActive(!true);
+        Guide.gameObject.SetActive(!true);
+
     }
 }

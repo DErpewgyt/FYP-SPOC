@@ -17,7 +17,6 @@ public class ClickAwayController2 : MonoBehaviour
     public Canvas Readings;
     public Canvas Resets;
     public Button GraphicButton;
-    public Button ObjectiveChecker;
     void Update()
     {
         if (Input.GetMouseButtonDown(0) && !EventSystem.current.IsPointerOverGameObject())
@@ -41,7 +40,6 @@ public class ClickAwayController2 : MonoBehaviour
                     Readings.gameObject.SetActive(true);
                     Resets.gameObject.SetActive(true);
                     GraphicButton.gameObject.SetActive(true);
-                    ObjectiveChecker.gameObject.SetActive(true);
                 }
             }
             else
@@ -59,7 +57,6 @@ public class ClickAwayController2 : MonoBehaviour
                 Readings.gameObject.SetActive(true);
                 Resets.gameObject.SetActive(true);
                 GraphicButton.gameObject.SetActive(true);
-                ObjectiveChecker.gameObject.SetActive(true);
             }
         }
     }
