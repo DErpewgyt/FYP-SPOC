@@ -28,6 +28,8 @@ public class ObjectClicker : MonoBehaviour
     public KeratometerHelpController helpController;
     public GameObject ExitIcon;
     public static bool ExitActive;
+
+    public Readings reading;
     private void Start()
     {
         Cursor.lockState = CursorLockMode.None;
@@ -126,36 +128,41 @@ public class ObjectClicker : MonoBehaviour
                 DisableMovements();
             }
         }
-
-        if (Input.GetKeyDown(KeyCode.Alpha1))
+        if(!reading.isBottomFieldActive && !reading.isTopFieldActive)
         {
-            ZoomIn();
-            IdentifyInteractable("EyePiece");
+            if (Input.GetKeyDown(KeyCode.Alpha1))
+            {
+                ZoomIn();
+                IdentifyInteractable("EyePiece");
+            }
+
+            if (Input.GetKeyDown(KeyCode.Alpha2))
+            {
+                ZoomIn();
+                IdentifyInteractable("JoyStick");
+            }
+
+            if (Input.GetKeyDown(KeyCode.Alpha3))
+            {
+                ZoomIn();
+                IdentifyInteractable("LeftKnob");
+            }
+
+            /*
+            if (Input.GetKeyDown(KeyCode.Alpha4))
+            {
+                ZoomIn();
+                IdentifyInteractable("Gripper");
+            }
+            */
+
+            if (Input.GetKeyDown(KeyCode.Alpha4))
+            {
+                ZoomIn();
+                IdentifyInteractable("RightKnob");
+            }
         }
 
-        if (Input.GetKeyDown(KeyCode.Alpha2))
-        {
-            ZoomIn();
-            IdentifyInteractable("JoyStick");
-        }
-
-        if (Input.GetKeyDown(KeyCode.Alpha3))
-        {
-            ZoomIn();
-            IdentifyInteractable("LeftKnob");
-        }
-
-        if (Input.GetKeyDown(KeyCode.Alpha4))
-        {
-            ZoomIn();
-            IdentifyInteractable("Gripper");
-        }
-
-        if (Input.GetKeyDown(KeyCode.Alpha5))
-        {
-            ZoomIn();
-            IdentifyInteractable("RightKnob");
-        }
 
         CheckScrollWheelInput();
 
@@ -223,13 +230,13 @@ public class ObjectClicker : MonoBehaviour
                     KeratometerMovement.CircleMovement = true;
                 }
                 break;
-
+                /*
             case "Gripper": //tag 3
                 {
                     print("Gripper Chosen");
                 }
                 break;
-
+                */
             case "LeftKnob": //tag 4
                 {
                     print("LeftKnob Chosen");
