@@ -1,10 +1,50 @@
 using UnityEngine;
 using MySql.Data.MySqlClient;
 using System;
+using System.IO;
 public class MySQLHandler : MonoBehaviour
 {
-    private string connectionString = "Server=aws.connect.psdb.cloud;Database=spoc;Uid=ek5g4qg03uf2vzt45jza;Pwd=pscale_pw_okLlgZi2QrSCynilZyYm34zDM2BdlDY7hyusEPH6GDX";
+    private string connectionString;
 
+    private void Awake()
+    {
+        LoadConnectionString();
+    }
+
+    private void LoadConnectionString()
+    {
+        string server = Environment.GetEnvironmentVariable("MYSQL_SERVER");
+        string database = Environment.GetEnvironmentVariable("MYSQL_DATABASE");
+        string uid = Environment.GetEnvironmentVariable("MYSQL_UID");
+        string pwd = Environment.GetEnvironmentVariable("MYSQL_PWD");
+
+        if (string.IsNullOrEmpty(server) || string.IsNullOrEmpty(database) || string.IsNullOrEmpty(uid) || string.IsNullOrEmpty(pwd))
+        {
+            // Load credentials from config.json if environment variables are not set
+            string configPath = Path.Combine(Application.dataPath, "../config.json");
+
+            if (File.Exists(configPath))
+            {
+                string json = File.ReadAllText(configPath);
+                MySQLConfig config = JsonUtility.FromJson<MySQLConfig>(json);
+
+                if (config != null)
+                {
+                    server = config.Server;
+                    database = config.Database;
+                    uid = config.Uid;
+                    pwd = config.Pwd;
+                }
+            }
+            else
+            {
+                Debug.LogError("Config file not found! Make sure to create a config.json file.");
+            }
+        }
+
+        // Build the connection string
+        connectionString = $"Server={server};Database={database};Uid={uid};Pwd={pwd};";
+    }
    public void InsertStudentData(string studentName, string adminNo)
 {
     // Check if the data already exists in the database
@@ -49,5 +89,14 @@ private bool DataExistsInDatabase(string studentName, string adminNo)
             return count > 0;
         }
     }
+}
+
+[Serializable]
+public class MySQLConfig
+{
+    public string Server;
+    public string Database;
+    public string Uid;
+    public string Pwd;
 }
 }
