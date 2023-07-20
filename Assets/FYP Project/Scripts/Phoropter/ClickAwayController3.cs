@@ -41,12 +41,12 @@ public class ClickAwayController3 : MonoBehaviour
                     graphic1.gameObject.SetActive(false);
                     graphic2.gameObject.SetActive(false);
                     graphic3.gameObject.SetActive(false);
-                Guide.gameObject.SetActive(false); 
+                Guide.gameObject.SetActive(true); 
                 blur.SetActive(false);
                 helpButton.gameObject.SetActive(true);
                 Readings.gameObject.SetActive(true);
                 Resets.gameObject.SetActive(true);
-                ObjectiveChecker.gameObject.SetActive(false);
+                ObjectiveChecker.gameObject.SetActive(true);
             }
         }
     }
