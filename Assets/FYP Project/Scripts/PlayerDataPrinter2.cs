@@ -7,7 +7,7 @@ public class PlayerDataPrinter2 : MonoBehaviour
     public string adminNo;
     private KeraCompletedData keracompletehandler;
     public Button submitButton;
-
+    public Readings readingsScript;
     private bool hasSubmitted;
 
     private void Start()
@@ -44,13 +44,13 @@ public class PlayerDataPrinter2 : MonoBehaviour
 
     private void SubmitButtonClicked()
     {
-        if (!hasSubmitted)
+         if (!hasSubmitted)
+    {
+        if (readingsScript != null && readingsScript.IsBothCorrect) // Check if both answers are correct in Readings script
         {
-            if (keracompletehandler != null)
-            {
-                keracompletehandler.HandleCompleteKeratometerCount(playerName, adminNo);
-                hasSubmitted = true; // Set the flag to prevent further submission
-            }
+            keracompletehandler.HandleCompleteKeratometerCount(playerName, adminNo);
+            hasSubmitted = true; // Set the flag to prevent further submission
         }
+    }
     }
 }

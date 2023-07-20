@@ -5,8 +5,8 @@ using System;
 using System.IO;
 public class KeraCompletedData : MonoBehaviour
 {
-     private string connectionString;
-
+     private string connectionString;   
+     public Readings readingsScript;
     private void Awake()
     {
         LoadConnectionString();
@@ -74,14 +74,11 @@ public class KeraCompletedData : MonoBehaviour
 
     private void HandleSubmitButtonClick()
     {
-        if (!hasSubmitted)
-        {
-            // Execute the method to handle complete keratometer count
-            HandleCompleteKeratometerCount(playerName, adminNo);
-
-            // Set the hasSubmitted flag to true to prevent further updates
-            hasSubmitted = true;
-        }
+        if (readingsScript.IsBothCorrect) // Check if both answers are correct in Readings script
+    {
+        // Now update the database using KeraCompletedData script
+        HandleCompleteKeratometerCount(playerName, adminNo);
+    }
     }
 
     public void HandleCompleteKeratometerCount(string playerName, string adminNo)

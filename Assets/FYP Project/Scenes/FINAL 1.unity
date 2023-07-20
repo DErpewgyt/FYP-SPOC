@@ -53067,6 +53067,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aef354807932eda48bbba71185d7b0f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  readingsScript: {fileID: 1631702569}
   submitButton: {fileID: 1779813654}
 --- !u!4 &1252257711
 Transform:
@@ -53098,6 +53099,7 @@ MonoBehaviour:
   playerName: 
   adminNo: 
   submitButton: {fileID: 1779813654}
+  readingsScript: {fileID: 1631702569}
 --- !u!1 &1253916297
 GameObject:
   m_ObjectHideFlags: 0
