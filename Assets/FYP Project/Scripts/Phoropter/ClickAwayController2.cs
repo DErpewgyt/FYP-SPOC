@@ -17,6 +17,8 @@ public class ClickAwayController2 : MonoBehaviour
     public Canvas Readings;
     public Canvas Resets;
     public Button GraphicButton;
+    public Button objective;
+    public AIVoiceChecker checker;
     void Update()
     {
         if (Input.GetMouseButtonDown(0) && !EventSystem.current.IsPointerOverGameObject())
@@ -40,6 +42,11 @@ public class ClickAwayController2 : MonoBehaviour
                     Readings.gameObject.SetActive(true);
                     Resets.gameObject.SetActive(true);
                     GraphicButton.gameObject.SetActive(true);
+                     if(checker.isSetupComplete == false)
+                    {
+                         objective.gameObject.SetActive(true);
+                         Debug.Log("HELLO");
+                    }
                 }
             }
             else
@@ -57,6 +64,11 @@ public class ClickAwayController2 : MonoBehaviour
                 Readings.gameObject.SetActive(true);
                 Resets.gameObject.SetActive(true);
                 GraphicButton.gameObject.SetActive(true);
+                 if(checker.isSetupComplete == false)
+                    {
+                         objective.gameObject.SetActive(true);
+                        Debug.Log("HELLO");
+                    }
             }
         }
     }

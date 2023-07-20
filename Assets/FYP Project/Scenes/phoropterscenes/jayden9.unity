@@ -40530,6 +40530,8 @@ MonoBehaviour:
   Readings: {fileID: 1994804065}
   Resets: {fileID: 81728125}
   Guide: {fileID: 1051694115}
+  objective: {fileID: 319823376}
+  checker: {fileID: 1316446466}
 --- !u!1 &555048195
 GameObject:
   m_ObjectHideFlags: 0
@@ -61585,6 +61587,8 @@ MonoBehaviour:
   Readings: {fileID: 1994804065}
   Resets: {fileID: 81728125}
   GraphicButton: {fileID: 1098943378}
+  objective: {fileID: 319823376}
+  checker: {fileID: 1316446466}
 --- !u!114 &867228820
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -61605,6 +61609,8 @@ MonoBehaviour:
   blur: {fileID: 610783030}
   helpButton: {fileID: 1255645527}
   GraphicButton: {fileID: 1098943378}
+  objective: {fileID: 319823376}
+  checker: {fileID: 1316446466}
 --- !u!1 &867274288
 GameObject:
   m_ObjectHideFlags: 0
@@ -88661,6 +88667,8 @@ MonoBehaviour:
   blur: {fileID: 610783030}
   helpButton: {fileID: 1255645527}
   GraphicButton: {fileID: 0}
+  objective: {fileID: 319823376}
+  checker: {fileID: 1316446466}
 --- !u!114 &1255645527
 MonoBehaviour:
   m_ObjectHideFlags: 0

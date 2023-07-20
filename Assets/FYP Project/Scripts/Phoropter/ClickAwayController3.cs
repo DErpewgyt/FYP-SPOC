@@ -12,7 +12,8 @@ public class ClickAwayController3 : MonoBehaviour
     public Canvas Readings;
     public Canvas Resets;
     public Canvas Guide;
-   
+    public Button objective;
+    public AIVoiceChecker checker;
 
 
     void Update()
@@ -33,7 +34,12 @@ public class ClickAwayController3 : MonoBehaviour
                     Readings.gameObject.SetActive(true);
                     Resets.gameObject.SetActive(true);
                     Guide.gameObject.SetActive(true);
-                  
+                    if(checker.isSetupComplete == false)
+                    {
+                         objective.gameObject.SetActive(true);
+                    }
+                   
+                    
                 }
             }
             else
@@ -46,7 +52,11 @@ public class ClickAwayController3 : MonoBehaviour
                 helpButton.gameObject.SetActive(true);
                 Readings.gameObject.SetActive(true);
                 Resets.gameObject.SetActive(true);
-                
+                if(checker.isSetupComplete == false)
+                    {
+                         objective.gameObject.SetActive(true);
+                    }
+
             }
         }
     }
