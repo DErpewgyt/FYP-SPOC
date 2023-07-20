@@ -11,8 +11,6 @@ public class RulerController : MonoBehaviour
     public float rulerScroll;
     public float miniRulerScroll;
 
-    public GameObject CheckBtn;
-
     private void Start()
     {
         rulerDist = 0;
@@ -29,7 +27,6 @@ public class RulerController : MonoBehaviour
             ruler.anchoredPosition -= new Vector2(rulerScroll, 0f);
             miniRuler.anchoredPosition -= new Vector2(miniRulerScroll, 0f);
             rulerDist += 1;
-            CheckBtn.SetActive(true);
         }
         else if (scrollInput < 0 && rulerDist > 0)
         {
@@ -37,7 +34,6 @@ public class RulerController : MonoBehaviour
             ruler.anchoredPosition += new Vector2(rulerScroll, 0f);
             miniRuler.anchoredPosition += new Vector2(miniRulerScroll, 0f);
             rulerDist -= 1;
-            CheckBtn.SetActive(true);
         }
     }
 }
