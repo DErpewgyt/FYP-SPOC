@@ -72147,7 +72147,7 @@ MonoBehaviour:
   inputFieldBottom: {fileID: 1855552546}
   IsTopCorrect: 0
   IsBottomCorrect: 0
---- !u!114 &1631702571
+--- !u!114 &1631702570
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -72156,14 +72156,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 418806269}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4cf51bb63b714d143981bde96e7d6b7d, type: 3}
+  m_Script: {fileID: 11500000, guid: f288116bfd167e448a7ce1be62d396c4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   guide: {fileID: 322620528}
   blur: {fileID: 823818940}
   helpButton: {fileID: 1169634005}
-  clipboard: {fileID: 836766086574530398}
-  returnClinic: {fileID: 1682191354}
 --- !u!1 &1632449529
 GameObject:
   m_ObjectHideFlags: 0
