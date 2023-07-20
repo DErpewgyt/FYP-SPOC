@@ -10,6 +10,7 @@ public class AIVoiceChecker : MonoBehaviour
     public AstigmatismAxisControl axisController;
     public OpenClose openCloseController;
     public LensFlip LensFlip;
+    public PhoropterGraphicController GraphicController;
 
     public AudioSource perfect;
     public AudioSource tooNear;
@@ -110,6 +111,7 @@ public class AIVoiceChecker : MonoBehaviour
     public GameObject leftAxisBtn; // check patients left side
     public GameObject rightFinalBtn; //do final check for each side
     public GameObject leftFinalBtn; //do final check for each side
+    public GameObject graphicBtn;
 
     public bool isSetupComplete = false;
 
@@ -621,7 +623,7 @@ public class AIVoiceChecker : MonoBehaviour
             perfect.Play();
             isSetupComplete = true;
             CheckBtn.SetActive(false);
-
+            graphicBtn.SetActive(true);
             leftPdMesh.enabled = false;
             rightPdMesh.enabled = false;
             leftLsMesh.enabled = false;
@@ -631,11 +633,13 @@ public class AIVoiceChecker : MonoBehaviour
             rightMagMesh.enabled = false;
             leftJcc.enabled = false;
             rightJcc.enabled = false;
+            GraphicController.one = true;
             print("correct calibrated readings");
         }
         else
         {
             print("wrong calibrated readings");
+            // wrong audio
         }
     }
 
@@ -676,6 +680,7 @@ public class AIVoiceChecker : MonoBehaviour
         if (isRightOpen == true)
         {
             print("cannot see anything");
+            // cannot see anything audio
         }
         else
         {
@@ -693,6 +698,8 @@ public class AIVoiceChecker : MonoBehaviour
                     rightLsMesh.enabled = false;
                     rightAxisMesh.enabled = true;
                     rightJcc.enabled = true;
+                    GraphicController.one = false;
+                    GraphicController.two = true;
                 }
                 else if (ls > RS)
                 {
@@ -718,6 +725,7 @@ public class AIVoiceChecker : MonoBehaviour
         if (isLeftOpen == true)
         {
             print("cannot see anything");
+            // cannot see anything audio
         }
         else
         {
@@ -735,6 +743,8 @@ public class AIVoiceChecker : MonoBehaviour
                     leftLsMesh.enabled = false;
                     leftAxisMesh.enabled = true;
                     leftJcc.enabled = true;
+                    GraphicController.one = false;
+                    GraphicController.two = true;
                 }
                 else if (rs > LS)
                 {
@@ -760,6 +770,7 @@ public class AIVoiceChecker : MonoBehaviour
         if (isLeftOpen == true)
         {
             print("cannot see anything");
+            // cannot see anything audio
         }
         else
         {
@@ -773,8 +784,10 @@ public class AIVoiceChecker : MonoBehaviour
                 print("Both are the same");
                 isLeftSideAstigMagComplete = true;
                 leftMagMesh.enabled = false;
-                rightJcc.enabled = false;
+                leftJcc.enabled = false;
                 leftLsMesh.enabled = true;
+                GraphicController.two = false;
+                GraphicController.three = true;
             }
             else if (LeftMag < LC)
             {
@@ -798,6 +811,7 @@ public class AIVoiceChecker : MonoBehaviour
         if (isRightOpen == true)
         {
             print("cannot see anything");
+            // cannot see anything audio
         }
         else
         {
@@ -810,9 +824,11 @@ public class AIVoiceChecker : MonoBehaviour
                 BothAreClear.Play();
                 print("Both are the same");
                 isRightSideAstigMagComplete = true;
-                leftMagMesh.enabled = false;
-                leftJcc.enabled = false;
+                rightMagMesh.enabled = false;
+                rightJcc.enabled = false;
                 rightLsMesh.enabled = true;
+                GraphicController.two = false;
+                GraphicController.three = true;
             }
             else if (RightMag < RC)
             {
@@ -836,6 +852,7 @@ public class AIVoiceChecker : MonoBehaviour
         if (isLeftOpen == true)
         {
             print("cannot see anything");
+            // cannot see anything audio
         }
         else
         {
@@ -848,7 +865,7 @@ public class AIVoiceChecker : MonoBehaviour
                 BothAreClear.Play();
                 isLeftSideAstigAxisComplete = true;
                 leftAxisMesh.enabled = false;
-                rightMagMesh.enabled = true;
+                leftMagMesh.enabled = true;
             }
             else if (leftAxis < LA)
             {
@@ -874,6 +891,7 @@ public class AIVoiceChecker : MonoBehaviour
         if (isRightOpen == true)
         {
             print("cannot see anything");
+            // cannot see anything audio
         }
         else
         {
@@ -887,7 +905,7 @@ public class AIVoiceChecker : MonoBehaviour
                 print("They are both the same");
                 isRightSideAstigAxisComplete = true;
                 rightAxisMesh.enabled = false;
-                leftMagMesh.enabled = true;
+                rightMagMesh.enabled = true;
             }
             else if (rightAxis < RA)
             {
@@ -913,6 +931,7 @@ public class AIVoiceChecker : MonoBehaviour
         if (isLeftOpen == true)
         {
             print("cannot see anything");
+            // cannot see anything audio
         }
         else
         {
@@ -948,6 +967,7 @@ public class AIVoiceChecker : MonoBehaviour
         if (isRightOpen == true)
         {
             print("cannot see anything");
+            // cannot see anything audio
         }
         else
         {
@@ -957,6 +977,8 @@ public class AIVoiceChecker : MonoBehaviour
                 Debug.Log("still clear!(anymore and ill be wrong)");
                 //isRightSideFinalComplete = true;
                 StillClear.Play();
+                GraphicController.three = false;
+                GraphicController.one = true;
             }
             else if (finalls > rightfinalcheckfloat)//6.75>6.5
             {
