@@ -47,6 +47,10 @@ public class AIVoiceChecker : MonoBehaviour
     public AudioSource StillClear;
     public AudioSource BecomeBlur;
 
+    public AudioSource wrongAnswer;
+
+    public AudioSource cannotSee;
+
     public bool isLeftOpen; // cover on patient's left
     public bool isRightOpen; // cover on patient's right
 
@@ -639,7 +643,7 @@ public class AIVoiceChecker : MonoBehaviour
         else
         {
             print("wrong calibrated readings");
-            // wrong audio
+            wrongAnswer.Play();
         }
     }
 
@@ -681,6 +685,7 @@ public class AIVoiceChecker : MonoBehaviour
         {
             print("cannot see anything");
             // cannot see anything audio
+            cannotSee.Play();
         }
         else
         {
@@ -726,6 +731,7 @@ public class AIVoiceChecker : MonoBehaviour
         {
             print("cannot see anything");
             // cannot see anything audio
+            cannotSee.Play();
         }
         else
         {
@@ -1007,7 +1013,7 @@ public class AIVoiceChecker : MonoBehaviour
             isLeftSideFinalComplete = true;
         }
         else
-            Debug.Log("thanks");
+            wrongAnswer.Play();
     }
 
     public void rightfinalsubmit()
@@ -1022,7 +1028,7 @@ public class AIVoiceChecker : MonoBehaviour
             //StillClear.Play();
         }
         else
-            Debug.Log("thanksright");
+            wrongAnswer.Play();
     }
 
     /*private string RoundToQuarter(float value)
