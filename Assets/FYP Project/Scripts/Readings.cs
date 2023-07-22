@@ -95,7 +95,7 @@ public class Readings : MonoBehaviour
 
             case 3:
                 object3.SetActive(true);
-                SetAnswers(object3, Answer4);
+                SetAnswers(object3, Answer3);
                 break;
 
             case 4:
