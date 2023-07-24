@@ -18893,6 +18893,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 238070142}
     - target: {fileID: 1975354752746916982, guid: abd6b35fe403bbb46b6edcd6dad39833, type: 3}
+      propertyPath: reading
+      value: 
+      objectReference: {fileID: 1631702569}
+    - target: {fileID: 1975354752746916982, guid: abd6b35fe403bbb46b6edcd6dad39833, type: 3}
       propertyPath: ResetBtn
       value: 
       objectReference: {fileID: 6217763896265535606}
@@ -72106,6 +72110,7 @@ MonoBehaviour:
   IsBothCorrect: 0
   isTopFieldActive: 0
   isBottomFieldActive: 0
+  IsTextInField: 0
 --- !u!114 &1631702573
 MonoBehaviour:
   m_ObjectHideFlags: 0
