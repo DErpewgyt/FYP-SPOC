@@ -39,6 +39,8 @@ public class MoveTest : MonoBehaviour
     public float speed = .05f;
     public float CirlcesSpeed = .02f;
 
+    public Readings reading;
+
     private void Start()
     {
         startingPos = ThreeCirclesIdealTransform.transform.position;
@@ -116,6 +118,14 @@ public class MoveTest : MonoBehaviour
                 targetPosxyz.z = Mathf.Clamp(targetPosxyz.z, BlurStartingPosCircles.z - maxDistZ, BlurStartingPosCircles.z + maxDistZ);
                 CircleGroupBlur.transform.position = targetPosxyz;
             }
+        }
+
+        if (reading.isTopFieldActive || reading.isBottomFieldActive)
+        {
+            BlurCircle = false;
+            VerticalCircle = false;
+            HorizontalCircle = false;
+            CircleMovement = false;
         }
 
 

@@ -11,6 +11,8 @@ public class PhoropterHelpController : MonoBehaviour
     public GameObject blur;
     public Button helpButton;
     public Button GraphicButton;
+    public Button objective;
+    public AIVoiceChecker checker;
 
 
     public void OnHelpButtonClick()
@@ -25,6 +27,11 @@ public class PhoropterHelpController : MonoBehaviour
         Readings.gameObject.SetActive(!isHelpImageActive);
         Resets.gameObject.SetActive(!isHelpImageActive);
         GraphicButton.gameObject.SetActive(!isHelpImageActive);
+        if(checker.isSetupComplete == false)
+        {
+            objective.gameObject.SetActive(false);
+             Debug.Log("HELLOTEST");
+        }
        
     }
 }
