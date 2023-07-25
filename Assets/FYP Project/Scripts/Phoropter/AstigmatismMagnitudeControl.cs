@@ -25,6 +25,7 @@ public class AstigmatismMagnitudeControl : MonoBehaviour
     public float AstigMagLeft;
     public float AstigMagRight;
 
+
     public bool AstigMagLeftBool;
     public bool AstigMagRightBool;
 

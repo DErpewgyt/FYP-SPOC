@@ -13832,8 +13832,10 @@ MonoBehaviour:
   rightLensFlipped: 0
   leftFlippedOnce: 0
   leftFlippedTwice: 0
+  leftFlippedThrice: 0
   rightFlippedOnce: 0
   rightFlippedTwice: 0
+  rightFlippedThrice: 0
   LeftFlipBtn: {fileID: 1524436809}
   RightFlipBtn: {fileID: 5106064}
   LeftTMP1: {fileID: 446739421}
@@ -71690,8 +71692,8 @@ MonoBehaviour:
   AstigMagRight: 0
   AstigMagLeftBool: 0
   AstigMagRightBool: 0
-  isLeftChanged: 0
-  isRightChanged: 0
+  isLeftChanged: 1
+  isRightChanged: 1
   LeftAnimator: {fileID: 318185904}
   RightAnimator: {fileID: 1578212078}
   lensFlip: {fileID: 172869743}
@@ -71717,8 +71719,8 @@ MonoBehaviour:
   AstigmatismRightKnob: {fileID: 1702232544775274239}
   isRotatingLeft: 0
   isRotatingRight: 0
-  isLeftChanged: 0
-  isRightChanged: 0
+  isLeftChanged: 1
+  isRightChanged: 1
   LeftDegree: 0
   RightDegree: 0
   LeftDegreeWholeNumber: 0
