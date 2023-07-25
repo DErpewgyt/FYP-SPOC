@@ -53881,61 +53881,73 @@ MonoBehaviour:
   ObjectiveRefraction: {fileID: 458228203}
   ObjectiveRefractionLine: {fileID: 1657129306}
   ObjectiveRefractionLineBool: 0
+  Obj1: {fileID: 1877426907}
   OBJIndicator2: 2
   LineObjective2: {fileID: 1107163722}
   CloseLeftEye: {fileID: 959542011}
   CloseLeftEyeLine: {fileID: 1107163723}
   CloseLeftEyeLineBool: 0
+  Obj2: {fileID: 438101936}
   OBJIndicator3: 3
   LineObjective3: {fileID: 1692538058}
   LSRight: {fileID: 1704002221}
   LSRightLine: {fileID: 1692538057}
   LSRightLineBool: 0
+  Obj3: {fileID: 241034792}
   OBJIndicator4: 4
   LineObjective4: {fileID: 1411601148}
   AstigAxisTMPright: {fileID: 847842965}
   AstigAxisLineright: {fileID: 1411601147}
   isAstigAxisAnimationPlayedright: 0
+  Obj4: {fileID: 714618879}
   OBJIndicator5: 5
   LineObjective5: {fileID: 1711036320}
   AstigMagTMPright: {fileID: 1687666602}
   AstigMagLineright: {fileID: 1711036321}
   isAstigMagAnimationPlayedright: 0
+  Obj5: {fileID: 15423900}
   OBJIndicator6: 6
   LineObjective6: {fileID: 233089512}
   RightEyeFinal: {fileID: 1448422585}
   RightEyeFinalLine: {fileID: 233089511}
   RightEyeFinalLineBool: 0
+  Obj6: {fileID: 288714703}
   OBJIndicator7: 7
   LineObjective7: {fileID: 18637310}
   SwitchEyes: {fileID: 670290422}
   SwitchEyesLine: {fileID: 18637309}
   SwitchEyesLineBool: 0
+  Obj7: {fileID: 1872037469}
   OBJIndicator8: 8
   LineObjective8: {fileID: 472460407}
   LSLeft: {fileID: 618592147}
   LSLeftLine: {fileID: 472460406}
   LSLeftLineBool: 0
+  Obj8: {fileID: 1417909677}
   OBJIndicator9: 9
   LineObjective9: {fileID: 1032330705}
   AstigAxisTMPleft: {fileID: 550734734}
   AstigAxisLineleft: {fileID: 1032330704}
   isAstigAxisAnimationPlayedleft: 0
+  Obj9: {fileID: 1630675949}
   OBJIndicator10: 10
   LineObjective10: {fileID: 1367778596}
   AstigMagTMPleft: {fileID: 1783799971}
   AstigMagLineleft: {fileID: 1367778595}
   isAstigMagAnimationPlayedleft: 0
+  Obj10: {fileID: 1497570400}
   OBJIndicator11: 11
   LineObjective11: {fileID: 1539141164}
   LeftEyeFinal: {fileID: 1694190649}
   LeftEyeFinalLine: {fileID: 1539141163}
   LeftEyeFinalLineBool: 0
+  Obj11: {fileID: 1643797273}
   OBJIndicator12: 12
   LineObjective12: {fileID: 1172217321}
   Congrats: {fileID: 736871675}
   CongratsLine: {fileID: 1172217320}
   CongratsLineBool: 0
+  Obj12: {fileID: 1790830383}
   alphaChangeSpeed: 2
   alphaChangeDelay: 3
   Checker: {fileID: 1316446466}
