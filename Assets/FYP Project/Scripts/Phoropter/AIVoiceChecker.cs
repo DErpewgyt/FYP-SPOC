@@ -47,6 +47,10 @@ public class AIVoiceChecker : MonoBehaviour
     public AudioSource StillClear;
     public AudioSource BecomeBlur;
 
+    public AudioSource wrongAnswer;
+
+    public AudioSource cannotSee;
+
     public bool isLeftOpen; // cover on patient's left
     public bool isRightOpen; // cover on patient's right
 
@@ -273,7 +277,7 @@ public class AIVoiceChecker : MonoBehaviour
 
         RS = RoundToQuarter(adjustedRsTake);
 
-        int randomChangeRC = Random.Range(0, 9);
+        int randomChangeRC = Random.Range(0, 5);
 
         float adjustedRcTake = paper.rcTake;
         PRC = RoundToQuarter(paper.rcTake);
@@ -296,71 +300,47 @@ public class AIVoiceChecker : MonoBehaviour
                 adjustedRcTake = Mathf.Min(adjustedRcTake + MeasurementChanges * 2, 0.00f);
                 break;
 
-            case 4:
-                adjustedRcTake = Mathf.Max(adjustedRcTake - MeasurementChanges * 3, -6.00f);
-                break;
-
-            case 5:
-                adjustedRcTake = Mathf.Min(adjustedRcTake + MeasurementChanges * 3, 0.00f);
-                break;
-
-            case 6:
-                adjustedRcTake = Mathf.Max(adjustedRcTake - MeasurementChanges * 4, -6.00f);
-                break;
-
-            case 7:
-                adjustedRcTake = Mathf.Min(adjustedRcTake + MeasurementChanges * 4, 0.00f);
-                break;
-
             default:
                 break;
         }
 
         RC = RoundToQuarter(adjustedRcTake);
 
-        int randomChangeRA = Random.Range(0, 11);
+        int randomChangeRA = Random.Range(0, 9);
         PRA = paper.raTake;
 
         switch (randomChangeRA)
         {
             case 0:
-                RA = Mathf.Min(paper.raTake + 1, 180);
+                RA = Mathf.Min(paper.raTake + 8, 180);
                 break;
 
             case 1:
-                RA = Mathf.Max(paper.raTake - 1, 0);
+                RA = Mathf.Max(paper.raTake - 8, 0);
                 break;
 
             case 2:
-                RA = Mathf.Min(paper.raTake + 2, 180);
+                RA = Mathf.Min(paper.raTake + 9, 180);
                 break;
 
             case 3:
-                RA = Mathf.Max(paper.raTake - 2, 0);
+                RA = Mathf.Max(paper.raTake - 9, 0);
                 break;
 
             case 4:
-                RA = Mathf.Min(paper.raTake + 3, 180);
+                RA = Mathf.Min(paper.raTake + 10, 180);
                 break;
 
             case 5:
-                RA = Mathf.Max(paper.raTake - 3, 0);
+                RA = Mathf.Max(paper.raTake - 10, 0);
                 break;
 
             case 6:
-                RA = Mathf.Min(paper.raTake + 4, 180);
+                RA = Mathf.Min(paper.raTake + 11, 180);
                 break;
 
             case 7:
-                RA = Mathf.Max(paper.raTake - 4, 0);
-                break;
-
-            case 8:
-                RA = Mathf.Min(paper.raTake + 5, 180);
-                break;
-
-            case 9:
-                RA = Mathf.Max(paper.raTake - 5, 0);
+                RA = Mathf.Max(paper.raTake - 11, 0);
                 break;
 
             default:
@@ -399,7 +379,7 @@ public class AIVoiceChecker : MonoBehaviour
 
         LS = RoundToQuarter(adjustedLsTake);
 
-        int randomChangeLC = Random.Range(0, 9);
+        int randomChangeLC = Random.Range(0, 5);
 
         float adjustedLcTake = paper.lcTake;
         PLC = RoundToQuarter(paper.lcTake);
@@ -422,22 +402,6 @@ public class AIVoiceChecker : MonoBehaviour
                 adjustedLcTake = Mathf.Min(adjustedLcTake + MeasurementChanges * 2, 0.00f);
                 break;
 
-            case 4:
-                adjustedLcTake = Mathf.Max(adjustedLcTake - MeasurementChanges * 3, -6.00f);
-                break;
-
-            case 5:
-                adjustedLcTake = Mathf.Min(adjustedLcTake + MeasurementChanges * 3, 0.00f);
-                break;
-
-            case 6:
-                adjustedLcTake = Mathf.Max(adjustedLcTake - MeasurementChanges * 4, -6.00f);
-                break;
-
-            case 7:
-                adjustedLcTake = Mathf.Min(adjustedLcTake + MeasurementChanges * 4, 0.00f);
-                break;
-
             default:
                 break;
         }
@@ -452,43 +416,35 @@ public class AIVoiceChecker : MonoBehaviour
         switch (randomChangeLA)
         {
             case 0:
-                LA = Mathf.Min(paper.laTake + 1, 180);
+                LA = Mathf.Min(paper.laTake + 8, 180);
                 break;
 
             case 1:
-                LA = Mathf.Max(paper.laTake - 1, 0);
+                LA = Mathf.Max(paper.laTake - 8, 0);
                 break;
 
             case 2:
-                LA = Mathf.Min(paper.laTake + 2, 180);
+                LA = Mathf.Min(paper.laTake + 9, 180);
                 break;
 
             case 3:
-                LA = Mathf.Max(paper.laTake - 2, 0);
+                LA = Mathf.Max(paper.laTake - 9, 0);
                 break;
 
             case 4:
-                LA = Mathf.Min(paper.laTake + 3, 180);
+                LA = Mathf.Min(paper.laTake + 10, 180);
                 break;
 
             case 5:
-                LA = Mathf.Max(paper.laTake - 3, 0);
+                LA = Mathf.Max(paper.laTake - 10, 0);
                 break;
 
             case 6:
-                LA = Mathf.Min(paper.laTake + 4, 180);
+                LA = Mathf.Min(paper.laTake + 11, 180);
                 break;
 
             case 7:
-                LA = Mathf.Max(paper.laTake - 4, 0);
-                break;
-
-            case 8:
-                LA = Mathf.Min(paper.laTake + 5, 180);
-                break;
-
-            case 9:
-                LA = Mathf.Max(paper.laTake - 5, 0);
+                LA = Mathf.Max(paper.laTake - 11, 0);
                 break;
 
             default:
@@ -639,7 +595,7 @@ public class AIVoiceChecker : MonoBehaviour
         else
         {
             print("wrong calibrated readings");
-            // wrong audio
+            wrongAnswer.Play();
         }
     }
 
@@ -681,6 +637,7 @@ public class AIVoiceChecker : MonoBehaviour
         {
             print("cannot see anything");
             // cannot see anything audio
+            cannotSee.Play();
         }
         else
         {
@@ -726,6 +683,7 @@ public class AIVoiceChecker : MonoBehaviour
         {
             print("cannot see anything");
             // cannot see anything audio
+            cannotSee.Play();
         }
         else
         {
@@ -1007,7 +965,7 @@ public class AIVoiceChecker : MonoBehaviour
             isLeftSideFinalComplete = true;
         }
         else
-            Debug.Log("thanks");
+            wrongAnswer.Play();
     }
 
     public void rightfinalsubmit()
@@ -1022,7 +980,7 @@ public class AIVoiceChecker : MonoBehaviour
             //StillClear.Play();
         }
         else
-            Debug.Log("thanksright");
+            wrongAnswer.Play();
     }
 
     /*private string RoundToQuarter(float value)

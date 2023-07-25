@@ -50,6 +50,8 @@ public class Readings : MonoBehaviour
     public bool isTopFieldActive;
     public bool isBottomFieldActive;
 
+    public bool IsTextInField;
+
     private void Start()
     {
         // Set all game objects to inactive initially
@@ -73,7 +75,13 @@ public class Readings : MonoBehaviour
 
     private void Update()
     {
-
+        if(inputFieldTop.text == "" || inputFieldBottom.text == "")
+        {
+            IsTextInField = false;
+        } else
+        {
+            IsTextInField = true;
+        }
     }
 
 
@@ -95,7 +103,7 @@ public class Readings : MonoBehaviour
 
             case 3:
                 object3.SetActive(true);
-                SetAnswers(object3, Answer4);
+                SetAnswers(object3, Answer3);
                 break;
 
             case 4:
@@ -143,34 +151,38 @@ public class Readings : MonoBehaviour
 
     public void CheckAns()
     {
-        string topInput = inputFieldTop.text;
-        string bottomInput = inputFieldBottom.text;
-
-        // Convert the input strings to floats
-        float topValue, bottomValue;
-
-        float.TryParse(topInput, out topValue);
-        float.TryParse(bottomInput, out bottomValue);
-
-        print(topValue + 1.23);
-        print(bottomValue + 18);
-
-        if(topValue == V)
+        if (IsTextInField)
         {
-            print("yay");
-            IsTopCorrect = true;
+            string topInput = inputFieldTop.text;
+            string bottomInput = inputFieldBottom.text;
+
+            // Convert the input strings to floats
+            float topValue, bottomValue;
+
+            float.TryParse(topInput, out topValue);
+            float.TryParse(bottomInput, out bottomValue);
+
+            print(topValue + 1.23);
+            print(bottomValue + 18);
+
+            if(topValue == V)
+            {
+                print("yay");
+                IsTopCorrect = true;
+            }
+
+            if(bottomValue == H)
+            {
+                print("yay2");
+                IsBottomCorrect = true;
+            }
+
+            if(topValue == V && bottomValue == H) {
+                print("Yay3");
+                IsBothCorrect = true;
+            }
         }
 
-        if(bottomValue == H)
-        {
-            print("yay2");
-            IsBottomCorrect = true;
-        }
-
-        if(topValue == V && bottomValue == H) {
-            print("Yay3");
-            IsBothCorrect = true;
-        }
     }
 
     public void TopIsActive()
@@ -196,57 +208,3 @@ public class Readings : MonoBehaviour
 
 
 }
-
-
-/*using UnityEngine;
-using TMPro;
-
-public class Readings : MonoBehaviour
-{
-    public TextMeshProUGUI vtopreadings1;
-    public TextMeshProUGUI vtopreadings2;
-    public TextMeshProUGUI vbottomreadings1;
-    public TextMeshProUGUI vbottomreadings2;
-    public TextMeshProUGUI vbottomreadings3;
-
-    public TextMeshProUGUI htopreadings1;
-    public TextMeshProUGUI htopreadings2;
-    public TextMeshProUGUI htopreadings3;
-    public TextMeshProUGUI hbottomreadings1;
-    public TextMeshProUGUI hbottomreadings2;
-
-    void Start()
-    {
-        float vtopreadings = Random.Range(60f, 28f);
-        float vtopreadingstwo = vtopreadings - 1f;
-
-        float vbottomreadings = Random.Range(12f, 5.5f);
-        float vbottomreadingstwo = vbottomreadings + 0.1f;
-        float vbottomreadingsthree = vbottomreadings + 0.2f;
-
-        float htopreadings = Random.Range(12f, 5.5f);
-        float htopreadingsDecimal = htopreadings - Mathf.Floor(htopreadings); // Extract the decimal only
-        float htopreadingstwo = htopreadings + 0.1f;
-        float htopreadingsthree = htopreadings + 0.2f;
-
-        float hbottomreadings = Random.Range(60f, 28f);
-        float hbottomreadingstwo = hbottomreadings - 1f;
-
-
-        vtopreadings1.text = vtopreadings.ToString("F0"); //no dp
-        vtopreadings2.text = vtopreadingstwo.ToString("F0");
-
-        vbottomreadings1.text = vbottomreadings.ToString("F1");
-        vbottomreadings2.text = vbottomreadingstwo.ToString("F1");
-        vbottomreadings3.text = vbottomreadingsthree.ToString("F0");
-
-
-        htopreadings1.text = htopreadingsDecimal.ToString(".0");
-        htopreadings2.text = htopreadingstwo.ToString("F1");
-        htopreadings3.text = htopreadingsthree.ToString("F1");
-
-        hbottomreadings1.text = hbottomreadings.ToString("F0");
-        hbottomreadings2.text = hbottomreadingstwo.ToString("F0");
-    }
-}
-*/

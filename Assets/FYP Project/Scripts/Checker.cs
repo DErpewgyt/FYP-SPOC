@@ -52,6 +52,11 @@ public class Checker : MonoBehaviour
     public GameObject readings;
     public GameObject checklist;
     public GameObject images;
+
+    public ObjectClicker ObjClicker;
+    public GameObject inputsV;
+    public GameObject inputsH;
+    public GameObject InputText;
     private void Start()
     {
         FocusBlackCircle.isOn = false;
@@ -76,6 +81,24 @@ public class Checker : MonoBehaviour
               submit.SetActive(true);
             // readings.SetActive(true);/
         }
+
+        if (objextive1 && objextive2 && objextive3 && objextive4 && ObjClicker.zoom)
+        {
+            // timerScript.CompleteConditions();/
+            inputsV.SetActive(true);
+            inputsH.SetActive(true);
+            InputText.SetActive(true);
+            // saved = true;/
+
+            // readings.SetActive(true);/
+        } else
+        {
+            inputsV.SetActive(false);
+            inputsH.SetActive(false);
+            InputText.SetActive(false);
+        }
+
+
 
         if (objextive1 && objextive2 && objextive3 && objextive4)
         {

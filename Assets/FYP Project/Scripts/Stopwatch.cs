@@ -24,6 +24,8 @@ public class Stopwatch : MonoBehaviour
 
     private string filePath; // directory of save file
 
+    public Readings reading;
+
     private void Start()
     {
         bestTimes = new List<float>();
@@ -60,9 +62,13 @@ public class Stopwatch : MonoBehaviour
 
     public void CompleteConditions() // set conditionsCompleted
     {
-        Debug.Log("Best time byutr");
-        conditionsCompleted = true; 
-        print("conditions completed:" + conditionsCompleted);
+        if (reading.IsTextInField)
+        {
+            Debug.Log("Best time byutr");
+            conditionsCompleted = true; 
+            print("conditions completed:" + conditionsCompleted);
+        }
+
     }
 
     private void SaveBestTimes() // save times to file
