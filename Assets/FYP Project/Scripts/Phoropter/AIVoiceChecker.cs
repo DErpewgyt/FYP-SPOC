@@ -736,8 +736,9 @@ public class AIVoiceChecker : MonoBehaviour
         }
         else
         {
-            LensFlip.leftFlippedOnce = false;
-            LensFlip.leftFlippedTwice = false;
+            LensFlip.rightFlippedOnce = false;
+            LensFlip.rightFlippedTwice = false;
+            LensFlip.rightFlippedThrice = false;
             MagnitudeController.isRightChanged = false;
             if (LeftMag == LC)
             {
@@ -780,6 +781,7 @@ public class AIVoiceChecker : MonoBehaviour
         {
             LensFlip.leftFlippedOnce = false;
             LensFlip.leftFlippedTwice = false;
+            LensFlip.leftFlippedThrice=false;
             MagnitudeController.isLeftChanged = false;
             if (RightMag == RC)
             {
@@ -822,6 +824,7 @@ public class AIVoiceChecker : MonoBehaviour
         {
             LensFlip.rightFlippedOnce = false;
             LensFlip.rightFlippedTwice = false;
+            LensFlip.rightFlippedThrice = false;
             axisController.isRightChanged = false;
             if (leftAxis == LA)
             {
@@ -862,6 +865,7 @@ public class AIVoiceChecker : MonoBehaviour
         {
             LensFlip.leftFlippedOnce = false;
             LensFlip.leftFlippedTwice = false;
+            LensFlip.leftFlippedThrice=false;
             axisController.isLeftChanged = false;
             if (rightAxis == RA)
             {

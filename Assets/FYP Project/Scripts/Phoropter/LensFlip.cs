@@ -10,9 +10,12 @@ public class LensFlip : MonoBehaviour
 
     public bool leftFlippedOnce;
     public bool leftFlippedTwice;
+    public bool leftFlippedThrice;
 
     public bool rightFlippedOnce;
     public bool rightFlippedTwice;
+    public bool rightFlippedThrice;
+
 
     public GameObject LeftFlipBtn;
     public GameObject RightFlipBtn;
@@ -72,15 +75,24 @@ public class LensFlip : MonoBehaviour
     {
         if (leftLensFlipped == false)
         {
-            print("1");
+            if (leftFlippedOnce && leftFlippedTwice)
+            {
+                leftFlippedThrice = true;
+            }
+                print("1");
             LeftLensFlipController.SetBool("Flipped", true);
             leftLensFlipped = true;
             leftFlippedOnce = true;
             LeftTMP1.text = "This is 2";
             LeftTMP2.text = "This is 2";
+
         }
         else if (leftLensFlipped == true)
         {
+            if (leftFlippedOnce && leftFlippedTwice)
+            {
+                leftFlippedThrice = true;
+            }
             print("2");
             LeftLensFlipController.SetBool("Flipped", false);
             leftLensFlipped = false;
@@ -94,6 +106,10 @@ public class LensFlip : MonoBehaviour
     {
         if (rightLensFlipped == false)
         {
+            if (rightFlippedOnce && rightFlippedTwice)
+            {
+                rightFlippedThrice = true;
+            }
             RightLensFlipController.SetBool("Flipped", true);
             rightLensFlipped = true;
             rightFlippedOnce = true;
@@ -102,6 +118,10 @@ public class LensFlip : MonoBehaviour
         }
         else if (rightLensFlipped == true)
         {
+            if (rightFlippedOnce && rightFlippedTwice)
+            {
+                rightFlippedThrice = true;
+            }
             RightLensFlipController.SetBool("Flipped", false);
             rightLensFlipped = false;
             rightFlippedTwice = true;
