@@ -15,8 +15,8 @@ public class AstigmatismAxisControl : MonoBehaviour
     public bool isRotatingLeft = false;
     public bool isRotatingRight = false;
 
-    public bool isLeftChanged = false;
-    public bool isRightChanged = false;
+    public bool isLeftChanged = true;
+    public bool isRightChanged = true;
 
     public float LeftDegree;
     public float RightDegree;

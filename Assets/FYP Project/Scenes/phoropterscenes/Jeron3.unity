@@ -13832,8 +13832,10 @@ MonoBehaviour:
   rightLensFlipped: 0
   leftFlippedOnce: 0
   leftFlippedTwice: 0
+  leftFlippedThrice: 0
   rightFlippedOnce: 0
   rightFlippedTwice: 0
+  rightFlippedThrice: 0
   LeftFlipBtn: {fileID: 1524436809}
   RightFlipBtn: {fileID: 5106064}
   LeftTMP1: {fileID: 446739421}
@@ -91948,7 +91950,7 @@ MonoBehaviour:
   openCloseController: {fileID: 865494913}
   LensFlip: {fileID: 172869743}
   GraphicController: {fileID: 554794670}
-  PhoropterController: {fileID: 0}
+  PhoropterController: {fileID: 1023291010}
   perfect: {fileID: 935113430}
   tooNear: {fileID: 1643785160}
   tooFar: {fileID: 1800719509}
@@ -91965,8 +91967,8 @@ MonoBehaviour:
   BothAreClear: {fileID: 2087082832}
   StillClear: {fileID: 1109757987}
   BecomeBlur: {fileID: 927020794}
-  wrongAnswer: {fileID: 0}
-  cannotSee: {fileID: 0}
+  wrongAnswer: {fileID: 935113430}
+  cannotSee: {fileID: 935113430}
   isLeftOpen: 0
   isRightOpen: 0
   pd: 0

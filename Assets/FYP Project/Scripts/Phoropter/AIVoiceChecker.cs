@@ -739,7 +739,7 @@ public class AIVoiceChecker : MonoBehaviour
             LensFlip.rightFlippedOnce = false;
             LensFlip.rightFlippedTwice = false;
             LensFlip.rightFlippedThrice = false;
-            MagnitudeController.isRightChanged = false;
+            //MagnitudeController.isRightChanged = false;
             if (LeftMag == LC)
             {
                 //perfect.Play();
@@ -782,7 +782,7 @@ public class AIVoiceChecker : MonoBehaviour
             LensFlip.leftFlippedOnce = false;
             LensFlip.leftFlippedTwice = false;
             LensFlip.leftFlippedThrice=false;
-            MagnitudeController.isLeftChanged = false;
+            //MagnitudeController.isLeftChanged = false;
             if (RightMag == RC)
             {
                 //perfect.Play();
@@ -825,7 +825,7 @@ public class AIVoiceChecker : MonoBehaviour
             LensFlip.rightFlippedOnce = false;
             LensFlip.rightFlippedTwice = false;
             LensFlip.rightFlippedThrice = false;
-            axisController.isRightChanged = false;
+            //axisController.isRightChanged = false;
             if (leftAxis == LA)
             {
                 //perfect.Play();
@@ -866,7 +866,7 @@ public class AIVoiceChecker : MonoBehaviour
             LensFlip.leftFlippedOnce = false;
             LensFlip.leftFlippedTwice = false;
             LensFlip.leftFlippedThrice=false;
-            axisController.isLeftChanged = false;
+            //axisController.isLeftChanged = false;
             if (rightAxis == RA)
             {
                 //perfect.Play();

@@ -28,8 +28,8 @@ public class AstigmatismMagnitudeControl : MonoBehaviour
     public bool AstigMagLeftBool;
     public bool AstigMagRightBool;
 
-    public bool isLeftChanged = false;
-    public bool isRightChanged = false;
+    public bool isLeftChanged = true;
+    public bool isRightChanged = true;
 
     public Animator LeftAnimator;
     public Animator RightAnimator;
