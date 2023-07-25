@@ -11,6 +11,7 @@ public class AIVoiceChecker : MonoBehaviour
     public OpenClose openCloseController;
     public LensFlip LensFlip;
     public PhoropterGraphicController GraphicController;
+    public PhoropterController PhoropterController;
 
     public AudioSource perfect;
     public AudioSource tooNear;
@@ -590,6 +591,7 @@ public class AIVoiceChecker : MonoBehaviour
             leftJcc.enabled = false;
             rightJcc.enabled = false;
             GraphicController.one = true;
+            PhoropterController.DisableAll();
             print("correct calibrated readings");
         }
         else
@@ -651,6 +653,7 @@ public class AIVoiceChecker : MonoBehaviour
                 {
                     //rightClear.Play();
                     BothAreClear.Play();
+                    PhoropterController.DisableAll();
                     isRightSideLSComplete = true;
                     rightLsMesh.enabled = false;
                     rightAxisMesh.enabled = true;
@@ -697,6 +700,7 @@ public class AIVoiceChecker : MonoBehaviour
                 {
                     //leftClear.Play();
                     BothAreClear.Play();
+                    PhoropterController.DisableAll();
                     isLeftSideLSComplete = true;
                     leftLsMesh.enabled = false;
                     leftAxisMesh.enabled = true;
@@ -739,13 +743,14 @@ public class AIVoiceChecker : MonoBehaviour
             {
                 //perfect.Play();
                 BothAreClear.Play();
+                PhoropterController.DisableAll();
                 print("Both are the same");
                 isLeftSideAstigMagComplete = true;
                 leftMagMesh.enabled = false;
-                leftJcc.enabled = false;
+                /*leftJcc.enabled = false;
                 leftLsMesh.enabled = true;
                 GraphicController.two = false;
-                GraphicController.three = true;
+                GraphicController.three = true;*/
             }
             else if (LeftMag < LC)
             {
@@ -781,12 +786,13 @@ public class AIVoiceChecker : MonoBehaviour
                 //perfect.Play();
                 BothAreClear.Play();
                 print("Both are the same");
+                PhoropterController.DisableAll();
                 isRightSideAstigMagComplete = true;
                 rightMagMesh.enabled = false;
-                rightJcc.enabled = false;
+                /*rightJcc.enabled = false;
                 rightLsMesh.enabled = true;
                 GraphicController.two = false;
-                GraphicController.three = true;
+                GraphicController.three = true;*/
             }
             else if (RightMag < RC)
             {
@@ -821,6 +827,7 @@ public class AIVoiceChecker : MonoBehaviour
             {
                 //perfect.Play();
                 BothAreClear.Play();
+                PhoropterController.DisableAll();
                 isLeftSideAstigAxisComplete = true;
                 leftAxisMesh.enabled = false;
                 leftMagMesh.enabled = true;
@@ -860,6 +867,7 @@ public class AIVoiceChecker : MonoBehaviour
             {
                 //perfect.Play();
                 BothAreClear.Play();
+                PhoropterController.DisableAll();
                 print("They are both the same");
                 isRightSideAstigAxisComplete = true;
                 rightAxisMesh.enabled = false;
@@ -963,6 +971,7 @@ public class AIVoiceChecker : MonoBehaviour
             Debug.Log("still clear!(anymore and ill be wrong)");
             //StillClear.Play();
             isLeftSideFinalComplete = true;
+            PhoropterController.DisableAll();
         }
         else
             wrongAnswer.Play();
@@ -977,6 +986,7 @@ public class AIVoiceChecker : MonoBehaviour
             isRightSideFinalComplete = true;
             rightLsMesh.enabled = false;
             leftLsMesh.enabled = true;
+            PhoropterController.DisableAll();
             //StillClear.Play();
         }
         else

@@ -349,8 +349,9 @@ private void Update()
         }
     }
 
-    private void DisableAll()
+    public void DisableAll()
     {
+        Debug.Log("disabled");
         PDLeftManager.SetActive(false);
         PDRightManager.SetActive(false);
         ShortSightRightManager.SetActive(false);
