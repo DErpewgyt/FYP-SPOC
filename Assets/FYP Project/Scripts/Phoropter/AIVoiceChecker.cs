@@ -52,6 +52,8 @@ public class AIVoiceChecker : MonoBehaviour
 
     public AudioSource cannotSee;
 
+    public AudioSource whichEyeAreYouTalkingAbout;
+
     public bool isLeftOpen; // cover on patient's left
     public bool isRightOpen; // cover on patient's right
 
@@ -577,6 +579,7 @@ public class AIVoiceChecker : MonoBehaviour
         rightAxis = axisController.LeftDegreeWholeNumber;
         if (rulerDist == correctDist && ls == PRS && rs == PLS && LeftMag == PLC && RightMag == PRC && leftAxis == PLA && rightAxis == PRA)
         {
+            //change audio
             perfect.Play();
             isSetupComplete = true;
             CheckBtn.SetActive(false);
@@ -646,6 +649,7 @@ public class AIVoiceChecker : MonoBehaviour
             if (isLeftOpen == false)
             {
                 print("pls close the patient's left cover first");
+                whichEyeAreYouTalkingAbout.Play();
             }
             else
             {
@@ -693,6 +697,7 @@ public class AIVoiceChecker : MonoBehaviour
             if (isRightOpen == false)
             {
                 print("pls close the patient's right cover first");
+                whichEyeAreYouTalkingAbout.Play();
             }
             else
             {
