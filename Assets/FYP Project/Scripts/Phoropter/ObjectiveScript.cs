@@ -104,10 +104,25 @@ public class ObjectiveScript : MonoBehaviour
     public bool CongratsLineBool = false;
     public GameObject Obj12;
 
+    public int OBJIndicatorleftJCC = 13;
+    public Animator LineObjectiveleftJCC;
+    public TextMeshProUGUI leftJCCTMP;
+    public RawImage leftJCCIMG;
+    public bool leftJCCBool = false;
+    public GameObject leftJCC;
+
+    public int OBJIndicatorrightJCC = 14;
+    public Animator LineObjectiverightJCC;
+    public TextMeshProUGUI rightJCCTMP;
+    public RawImage rightJCCIMG;
+    public bool rightJCCBool = false;
+    public GameObject rightJCC;
+
 
 
     public float alphaChangeSpeed = 2f; // Speed of alpha change
     public float alphaChangeDelay = 2f; // Delay before alpha change
+    public AstigmatismLensMovement AstigmatismLensMove;
 
     private Coroutine whiteBGAlphaChangeCoroutine; // Coroutine reference for whiteBG alpha change
     private Coroutine textAlphaChangeCoroutine; // Coroutine reference for Text alpha change
@@ -133,6 +148,9 @@ public class ObjectiveScript : MonoBehaviour
         MakeAlpha0(LeftEyeFinal, LeftEyeFinalLine);
         MakeAlpha0(Congrats, CongratsLine);
 
+        MakeAlpha0(leftJCCTMP, leftJCCIMG);
+        MakeAlpha0(rightJCCTMP, rightJCCIMG);
+
         Submit.SetActive(false);
 
 
@@ -153,7 +171,8 @@ public class ObjectiveScript : MonoBehaviour
     }
     void Update()
     {
-
+        //between 5 and 6
+        //between 10 and 11
         QuestItems(Checker.isSetupComplete, ObjectiveRefractionLineBool, LineObjective, ObjectiveRefraction, CloseLeftEye, ObjectiveRefractionLine, CloseLeftEyeLine, OBJIndicator1, Obj1);
 
         QuestItems(Checker.IsRighteyeOpen, CloseLeftEyeLineBool, LineObjective2, CloseLeftEye, LSRight, CloseLeftEyeLine, LSRightLine, OBJIndicator2, Obj2);
@@ -162,7 +181,13 @@ public class ObjectiveScript : MonoBehaviour
 
         QuestItems(Checker.isRightSideAstigAxisComplete, isAstigAxisAnimationPlayedright, LineObjective4, AstigAxisTMPright, AstigMagTMPright, AstigAxisLineright, AstigMagLineright, OBJIndicator4, Obj4);
 
-        QuestItems(Checker.isRightSideAstigMagComplete, isAstigMagAnimationPlayedright, LineObjective5, AstigMagTMPright, RightEyeFinal, AstigMagLineright, RightEyeFinalLine, OBJIndicator5, Obj5);
+        QuestItems(Checker.isRightSideAstigMagComplete, isAstigMagAnimationPlayedright, LineObjective5, AstigMagTMPright, leftJCCTMP, AstigMagLineright, leftJCCIMG, OBJIndicator5, Obj5);
+
+
+
+        QuestItems(AstigmatismLensMove.isLeftJccFlippedBack, leftJCCBool, LineObjectiveleftJCC, leftJCCTMP, RightEyeFinal, leftJCCIMG, RightEyeFinalLine, OBJIndicatorleftJCC, leftJCC);
+
+
 
         QuestItems(Checker.isRightSideFinalComplete, RightEyeFinalLineBool, LineObjective6, RightEyeFinal, SwitchEyes, RightEyeFinalLine, SwitchEyesLine, OBJIndicator6, Obj6);
 
@@ -172,7 +197,11 @@ public class ObjectiveScript : MonoBehaviour
 
         QuestItems(Checker.isLeftSideAstigAxisComplete, isAstigAxisAnimationPlayedleft, LineObjective9, AstigAxisTMPleft, AstigMagTMPleft, AstigAxisLineleft, AstigMagLineleft, OBJIndicator9, Obj9);
 
-        QuestItems(Checker.isLeftSideAstigMagComplete, isAstigMagAnimationPlayedleft, LineObjective10, AstigMagTMPleft , LeftEyeFinal, AstigMagLineleft , LeftEyeFinalLine, OBJIndicator10, Obj10);
+        QuestItems(Checker.isLeftSideAstigMagComplete, isAstigMagAnimationPlayedleft, LineObjective10, AstigMagTMPleft , rightJCCTMP, AstigMagLineleft , rightJCCIMG, OBJIndicator10, Obj10);
+
+
+
+        QuestItems(AstigmatismLensMove.isRightJccFlippedBack, rightJCCBool, LineObjectiverightJCC, rightJCCTMP, LeftEyeFinal, rightJCCIMG, LeftEyeFinalLine, OBJIndicatorrightJCC, rightJCC);
 
         QuestItems(Checker.isLeftSideFinalComplete, LeftEyeFinalLineBool, LineObjective11, LeftEyeFinal, Congrats, LeftEyeFinalLine, CongratsLine, OBJIndicator11, Obj11);
     }
@@ -267,6 +296,18 @@ public class ObjectiveScript : MonoBehaviour
                 CongratsLineBool = true;
 
                 break;
+
+            case 13:
+                leftJCCBool = true;
+
+                break;
+
+            case 14:
+                rightJCCBool = true;
+
+                break;
+
+
 
             default:
                 print("Ono :( its a logical error");
