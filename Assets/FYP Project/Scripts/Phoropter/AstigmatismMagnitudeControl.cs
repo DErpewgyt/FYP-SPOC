@@ -25,11 +25,12 @@ public class AstigmatismMagnitudeControl : MonoBehaviour
     public float AstigMagLeft;
     public float AstigMagRight;
 
+
     public bool AstigMagLeftBool;
     public bool AstigMagRightBool;
 
-    public bool isLeftChanged = false;
-    public bool isRightChanged = false;
+    public bool isLeftChanged = true;
+    public bool isRightChanged = true;
 
     public Animator LeftAnimator;
     public Animator RightAnimator;
@@ -73,9 +74,10 @@ public class AstigmatismMagnitudeControl : MonoBehaviour
                 isLeftChanged = true;
                 lensFlip.leftFlippedOnce = false;
                 lensFlip.leftFlippedTwice = false;
+                lensFlip.leftFlippedThrice = false;
             }
 
-            if (lensFlip.leftFlippedOnce && lensFlip.leftFlippedTwice && isLeftChanged && lensFlip.leftLens && Checker.isRightSideAstigAxisComplete)
+            if (lensFlip.leftFlippedOnce && lensFlip.leftFlippedTwice && lensFlip.leftFlippedThrice && isLeftChanged && lensFlip.leftLens && Checker.isRightSideAstigAxisComplete)
             {
                 rightMagBtn.SetActive(true);
             } else
@@ -108,9 +110,10 @@ public class AstigmatismMagnitudeControl : MonoBehaviour
                 isRightChanged = true;
                 lensFlip.rightFlippedOnce = false;
                 lensFlip.rightFlippedTwice = false;
+                lensFlip.rightFlippedThrice = false;
             }
 
-            if(lensFlip.rightFlippedOnce && lensFlip.rightFlippedTwice && isRightChanged && lensFlip.rightLens && Checker.isLeftSideAstigAxisComplete)
+            if(lensFlip.rightFlippedOnce && lensFlip.rightFlippedTwice && lensFlip.rightFlippedThrice && isRightChanged && lensFlip.rightLens && Checker.isLeftSideAstigAxisComplete)
             {
                 leftMagBtn.SetActive(true);
             } else

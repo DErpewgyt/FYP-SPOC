@@ -15,8 +15,8 @@ public class AstigmatismAxisControl : MonoBehaviour
     public bool isRotatingLeft = false;
     public bool isRotatingRight = false;
 
-    public bool isLeftChanged = false;
-    public bool isRightChanged = false;
+    public bool isLeftChanged = true;
+    public bool isRightChanged = true;
 
     public float LeftDegree;
     public float RightDegree;
@@ -71,6 +71,7 @@ public class AstigmatismAxisControl : MonoBehaviour
                 isLeftChanged = true;
                 lensFlip.leftFlippedOnce = false;
                 lensFlip.leftFlippedTwice = false;
+                lensFlip.leftFlippedThrice = false;
             }
             else if (scrollInput > 0f)
             {
@@ -85,9 +86,10 @@ public class AstigmatismAxisControl : MonoBehaviour
                 isLeftChanged = true;
                 lensFlip.leftFlippedOnce = false;
                 lensFlip.leftFlippedTwice = false;
+                lensFlip.leftFlippedThrice= false;
             }
 
-            if (lensFlip.leftFlippedOnce && lensFlip.leftFlippedTwice && isLeftChanged && lensFlip.leftLens && Checker.isRightSideLSComplete)
+            if (lensFlip.leftFlippedOnce && lensFlip.leftFlippedTwice && lensFlip.leftFlippedThrice && isLeftChanged && lensFlip.leftLens && Checker.isRightSideLSComplete)
             {
                 rightAxisBtn.SetActive(true);
             }
@@ -117,6 +119,7 @@ public class AstigmatismAxisControl : MonoBehaviour
                 isRightChanged = true;
                 lensFlip.rightFlippedOnce = false;
                 lensFlip.rightFlippedTwice=false;
+                lensFlip.rightFlippedThrice = false;
             } 
             else if(scrollInput > 0f)
             {
@@ -131,9 +134,10 @@ public class AstigmatismAxisControl : MonoBehaviour
                 isRightChanged = true;
                 lensFlip.rightFlippedOnce = false;
                 lensFlip.rightFlippedTwice = false;
+                lensFlip.rightFlippedThrice=false;
             }
 
-            if (lensFlip.rightFlippedOnce && lensFlip.rightFlippedTwice && isRightChanged && lensFlip.rightLens && Checker.isLeftSideLSComplete)
+            if (lensFlip.rightFlippedOnce && lensFlip.rightFlippedTwice && lensFlip.rightFlippedThrice && isRightChanged && lensFlip.rightLens && Checker.isLeftSideLSComplete)
             {
                 leftAxisBtn.SetActive(true);
             } else

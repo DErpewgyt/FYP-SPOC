@@ -349,8 +349,9 @@ private void Update()
         }
     }
 
-    private void DisableAll()
+    public void DisableAll()
     {
+        Debug.Log("disabled");
         PDLeftManager.SetActive(false);
         PDRightManager.SetActive(false);
         ShortSightRightManager.SetActive(false);
@@ -377,7 +378,9 @@ private void Update()
         rightFinalSubmitBtn.SetActive(false);
         LensController.leftFlippedOnce = false;
         LensController.leftFlippedTwice = false;
+        LensController.leftFlippedThrice = false;
         LensController.rightFlippedOnce = false;
         LensController.rightFlippedTwice = false;
+        LensController.rightFlippedThrice = false;
     }
 }
