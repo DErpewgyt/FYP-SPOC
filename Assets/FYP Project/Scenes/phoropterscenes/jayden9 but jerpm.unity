@@ -4542,7 +4542,7 @@ Transform:
   - {fileID: 1952565770}
   - {fileID: 1530919357}
   m_Father: {fileID: 1687596877}
-  m_RootOrder: 3
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &39386300
 GameObject:
@@ -13916,8 +13916,10 @@ MonoBehaviour:
   rightLensFlipped: 0
   leftFlippedOnce: 0
   leftFlippedTwice: 0
+  leftFlippedThrice: 0
   rightFlippedOnce: 0
   rightFlippedTwice: 0
+  rightFlippedThrice: 0
   LeftFlipBtn: {fileID: 1524436809}
   RightFlipBtn: {fileID: 5106064}
   LeftTMP1: {fileID: 446739421}
@@ -32519,7 +32521,7 @@ RectTransform:
   - {fileID: 949976535}
   - {fileID: 319823373}
   m_Father: {fileID: 1687596877}
-  m_RootOrder: 4
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -34883,7 +34885,7 @@ RectTransform:
   - {fileID: 1010471920}
   - {fileID: 1414450590}
   m_Father: {fileID: 1687596877}
-  m_RootOrder: 5
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -42282,7 +42284,7 @@ Transform:
   - {fileID: 1241716584}
   - {fileID: 1537955493}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &577100770
 GameObject:
@@ -53966,63 +53968,88 @@ MonoBehaviour:
   ObjectiveRefraction: {fileID: 458228203}
   ObjectiveRefractionLine: {fileID: 1657129306}
   ObjectiveRefractionLineBool: 0
+  Obj1: {fileID: 0}
   OBJIndicator2: 2
   LineObjective2: {fileID: 1107163722}
   CloseLeftEye: {fileID: 959542011}
   CloseLeftEyeLine: {fileID: 1107163723}
   CloseLeftEyeLineBool: 0
+  Obj2: {fileID: 0}
   OBJIndicator3: 3
   LineObjective3: {fileID: 1692538058}
   LSRight: {fileID: 1704002221}
   LSRightLine: {fileID: 1692538057}
   LSRightLineBool: 0
+  Obj3: {fileID: 0}
   OBJIndicator4: 4
   LineObjective4: {fileID: 1411601148}
   AstigAxisTMPright: {fileID: 847842965}
   AstigAxisLineright: {fileID: 1411601147}
   isAstigAxisAnimationPlayedright: 0
+  Obj4: {fileID: 0}
   OBJIndicator5: 5
   LineObjective5: {fileID: 1711036320}
   AstigMagTMPright: {fileID: 1687666602}
   AstigMagLineright: {fileID: 1711036321}
   isAstigMagAnimationPlayedright: 0
+  Obj5: {fileID: 0}
   OBJIndicator6: 6
   LineObjective6: {fileID: 233089512}
   RightEyeFinal: {fileID: 1448422585}
   RightEyeFinalLine: {fileID: 233089511}
   RightEyeFinalLineBool: 0
+  Obj6: {fileID: 0}
   OBJIndicator7: 7
   LineObjective7: {fileID: 18637310}
   SwitchEyes: {fileID: 670290422}
   SwitchEyesLine: {fileID: 18637309}
   SwitchEyesLineBool: 0
+  Obj7: {fileID: 0}
   OBJIndicator8: 8
   LineObjective8: {fileID: 472460407}
   LSLeft: {fileID: 618592147}
   LSLeftLine: {fileID: 472460406}
   LSLeftLineBool: 0
+  Obj8: {fileID: 0}
   OBJIndicator9: 9
   LineObjective9: {fileID: 1032330705}
   AstigAxisTMPleft: {fileID: 550734734}
   AstigAxisLineleft: {fileID: 1032330704}
   isAstigAxisAnimationPlayedleft: 0
+  Obj9: {fileID: 0}
   OBJIndicator10: 10
   LineObjective10: {fileID: 1367778596}
   AstigMagTMPleft: {fileID: 1783799971}
   AstigMagLineleft: {fileID: 1367778595}
   isAstigMagAnimationPlayedleft: 0
+  Obj10: {fileID: 0}
   OBJIndicator11: 11
   LineObjective11: {fileID: 1539141164}
   LeftEyeFinal: {fileID: 1694190649}
   LeftEyeFinalLine: {fileID: 1539141163}
   LeftEyeFinalLineBool: 0
+  Obj11: {fileID: 0}
   OBJIndicator12: 12
   LineObjective12: {fileID: 1172217321}
   Congrats: {fileID: 736871675}
   CongratsLine: {fileID: 1172217320}
   CongratsLineBool: 0
+  Obj12: {fileID: 0}
+  OBJIndicatorleftJCC: 13
+  LineObjectiveleftJCC: {fileID: 0}
+  leftJCCTMP: {fileID: 0}
+  leftJCCIMG: {fileID: 0}
+  leftJCCBool: 0
+  leftJCC: {fileID: 0}
+  OBJIndicatorrightJCC: 14
+  LineObjectiverightJCC: {fileID: 0}
+  rightJCCTMP: {fileID: 0}
+  rightJCCIMG: {fileID: 0}
+  rightJCCBool: 0
+  rightJCC: {fileID: 0}
   alphaChangeSpeed: 2
   alphaChangeDelay: 3
+  AstigmatismLensMove: {fileID: 0}
   Checker: {fileID: 1316446466}
   Submit: {fileID: 1726300197}
 --- !u!1 &752219652
@@ -65525,7 +65552,7 @@ Transform:
   - {fileID: 1715354593}
   - {fileID: 970876017}
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &924109919
 GameObject:
@@ -71714,8 +71741,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3b7b844b9eb374843be018ce7fb63585, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  checker: {fileID: 0}
   LeftLensController: {fileID: 934162590}
   RightLensController: {fileID: 1856694439}
+  isLeftJccFlippedBack: 0
+  isRightJccFlippedBack: 0
   LeftLensActive: 0
   RightLensActive: 0
 --- !u!4 &1012159150
@@ -74883,7 +74913,7 @@ Transform:
   - {fileID: 2055467742}
   - {fileID: 2087082833}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1060455068
 GameObject:
@@ -85343,7 +85373,7 @@ Transform:
   - {fileID: 1087989219}
   - {fileID: 554794669}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1213953880
 GameObject:
@@ -92018,6 +92048,7 @@ MonoBehaviour:
   openCloseController: {fileID: 865494913}
   LensFlip: {fileID: 172869743}
   GraphicController: {fileID: 554794670}
+  PhoropterController: {fileID: 0}
   perfect: {fileID: 935113430}
   tooNear: {fileID: 1643785160}
   tooFar: {fileID: 1800719509}
@@ -92034,6 +92065,9 @@ MonoBehaviour:
   BothAreClear: {fileID: 2087082832}
   StillClear: {fileID: 1109757987}
   BecomeBlur: {fileID: 927020794}
+  wrongAnswer: {fileID: 0}
+  cannotSee: {fileID: 0}
+  whichEyeAreYouTalkingAbout: {fileID: 0}
   isLeftOpen: 0
   isRightOpen: 0
   pd: 0
@@ -100975,7 +101009,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1437512607
 GameObject:
@@ -115686,11 +115720,11 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 81728126}
-  - {fileID: 1994804066}
   - {fileID: 1920482942}
-  - {fileID: 36679649}
   - {fileID: 447283728}
   - {fileID: 475494208}
+  - {fileID: 1994804066}
+  - {fileID: 36679649}
   - {fileID: 343007735}
   m_Father: {fileID: 576382341}
   m_RootOrder: 0
@@ -130928,7 +130962,7 @@ RectTransform:
   - {fileID: 1524436814}
   - {fileID: 5106065}
   m_Father: {fileID: 1687596877}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -135001,7 +135035,7 @@ RectTransform:
   - {fileID: 926611841}
   - {fileID: 892324092}
   m_Father: {fileID: 1687596877}
-  m_RootOrder: 1
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
