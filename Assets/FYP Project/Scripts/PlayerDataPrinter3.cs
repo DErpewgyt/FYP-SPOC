@@ -46,10 +46,17 @@ public class PlayerDataPrinter3 : MonoBehaviour
     {
         if (!hasSubmitted)
         {
+            // Check if the phorocompletehandler is not null
             if (phorocompletehandler != null)
             {
+                // Execute the method to handle complete phoropter count
                 phorocompletehandler.HandleCompletePhoropterCount(playerName, adminNo);
-                hasSubmitted = true; // Set the flag to prevent further submission
+
+                // Update the LastAttemptTimestamp
+                phorocompletehandler.UpdateLastAttemptTimestamp(playerName, adminNo);
+
+                // Set the hasSubmitted flag to true to prevent further updates
+                hasSubmitted = true;
             }
         }
     }

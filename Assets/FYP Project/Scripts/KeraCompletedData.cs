@@ -142,7 +142,27 @@ public class KeraCompletedData : MonoBehaviour
             }
         }
     }
+ public void UpdateLastAttemptTimestamp(string playerName, string adminNo)
+    {
+        using (MySqlConnection connection = new MySqlConnection(connectionString))
+        {
+            connection.Open();
 
+            // Use the current datetime as the timestamp
+            DateTime timestamp = DateTime.Now;
+
+            string query = "UPDATE student SET LastAttempt = @timestamp WHERE AdminNo = @adminNo AND StudentName = @studentName";
+
+            using (MySqlCommand command = new MySqlCommand(query, connection))
+            {
+                command.Parameters.AddWithValue("@timestamp", timestamp);
+                command.Parameters.AddWithValue("@adminNo", adminNo);
+                command.Parameters.AddWithValue("@studentName", playerName);
+
+                command.ExecuteNonQuery();
+            }
+        }
+    }
     private void SaveCompletedKeratometerCount(int completedKeratometerCount)
     {
         PlayerPrefs.SetInt(CompletedKeratometerCountKey, completedKeratometerCount);

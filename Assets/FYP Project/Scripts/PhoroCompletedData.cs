@@ -47,7 +47,7 @@ public class PhoroCompletedData : MonoBehaviour
         connectionString = $"Server={server};Database={database};Uid={uid};Pwd={pwd};";
     }
     private const string CompletedPhoropterCountKey = "CompletePhoropterCount";
-
+    private const string LastAttemptTimestampKey = "LastAttemptTimestamp";
     public Button submitButton; // Assign the submit button GameObject in the Unity Editor
 
     private string playerName;
@@ -84,19 +84,22 @@ public class PhoroCompletedData : MonoBehaviour
         }
     }
 
-    public void HandleCompletePhoropterCount(string playerName, string adminNo)
+     public void HandleCompletePhoropterCount(string playerName, string adminNo)
     {
-        // Load CompletedKeratometerCount from the database
+        // Load CompletedPhoropterCount from the database
         int completedPhoropterCount = LoadCompletedPhoropterCount(playerName, adminNo);
 
-        // Increment the CompletedKeratometerCount
+        // Increment the CompletedPhoropterCount
         completedPhoropterCount++;
 
-        // Update the CompletedKeratometerCount in the database
+        // Update the CompletedPhoropterCount in the database
         UpdateCompletedPhoropterCount(playerName, adminNo, completedPhoropterCount);
 
-        // Save the updated CompletedKeratometerCount to PlayerPrefs
+        // Save the updated CompletedPhoropterCount to PlayerPrefs
         SaveCompletedPhoropterCount(completedPhoropterCount);
+
+        // Update the LastAttemptTimestamp
+        UpdateLastAttemptTimestamp(playerName, adminNo);
     }
 
     private int LoadCompletedPhoropterCount(string playerName, string adminNo)
@@ -145,7 +148,24 @@ public class PhoroCompletedData : MonoBehaviour
             }
         }
     }
+public void UpdateLastAttemptTimestamp(string playerName, string adminNo)
+    {
+        using (MySqlConnection connection = new MySqlConnection(connectionString))
+        {
+            connection.Open();
 
+            string query = "UPDATE student SET LastAttempt= @timestamp WHERE AdminNo = @adminNo AND StudentName = @studentName";
+
+            using (MySqlCommand command = new MySqlCommand(query, connection))
+            {
+                command.Parameters.AddWithValue("@timestamp", DateTime.Now);
+                command.Parameters.AddWithValue("@adminNo", adminNo);
+                command.Parameters.AddWithValue("@studentName", playerName);
+
+                command.ExecuteNonQuery();
+            }
+        }
+    }
     private void SaveCompletedPhoropterCount(int completedPhoropterCount)
     {
         PlayerPrefs.SetInt(CompletedPhoropterCountKey, completedPhoropterCount);
