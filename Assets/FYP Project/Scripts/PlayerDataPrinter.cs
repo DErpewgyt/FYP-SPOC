@@ -1,4 +1,5 @@
 using UnityEngine;
+using System;
 
 public class PlayerDataPrinter : MonoBehaviour
 {
@@ -29,11 +30,18 @@ public class PlayerDataPrinter : MonoBehaviour
             if (finalSceneHandler != null)
             {
                 finalSceneHandler.HandleAttemptKeratometerCount(playerName, adminNo);
+
+                // Check if data exists in the database before updating FirstAttempt
+                bool dataExists = finalSceneHandler.CheckDataExists(playerName, adminNo);
+                if (!dataExists)
+                {
+                    // Get the current timestamp
+                    DateTime currentTimestamp = DateTime.Now;
+
+                    // Call the UpdateFirstAttemptData method with the current timestamp
+                    finalSceneHandler.UpdateFirstAttemptData(playerName, adminNo, currentTimestamp);
+                }
             }
-        }
-        else
-        {
-            Debug.Log("Player data not found.");
         }
     }
 }

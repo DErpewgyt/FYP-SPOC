@@ -107,6 +107,52 @@ public class FINALSceneHandler : MonoBehaviour
         }
     }
 }
+   public bool CheckDataExists(string playerName, string adminNo)
+    {
+        bool dataExists = false;
+
+        using (MySqlConnection connection = new MySqlConnection(connectionString))
+        {
+            connection.Open();
+
+            string query = "SELECT FirstAttempt FROM student WHERE AdminNo = @adminNo AND StudentName = @studentName";
+
+            using (MySqlCommand command = new MySqlCommand(query, connection))
+            {
+                command.Parameters.AddWithValue("@adminNo", adminNo);
+                command.Parameters.AddWithValue("@studentName", playerName);
+
+                object result = command.ExecuteScalar();
+
+                // Check if the FirstAttempt is NULL or has a value
+                dataExists = (result != null && result != DBNull.Value);
+
+                // Add debug logs
+                Debug.Log($"CheckDataExists - FirstAttempt exists: {dataExists}");
+            }
+        }
+
+        return dataExists;
+    }
+
+    public void UpdateFirstAttemptData(string playerName, string adminNo, DateTime timestamp)
+    {
+        using (MySqlConnection connection = new MySqlConnection(connectionString))
+        {
+            connection.Open();
+
+            string query = "UPDATE student SET FirstAttempt = @timestamp WHERE AdminNo = @adminNo AND StudentName = @studentName";
+
+            using (MySqlCommand command = new MySqlCommand(query, connection))
+            {
+                command.Parameters.AddWithValue("@timestamp", timestamp);
+                command.Parameters.AddWithValue("@adminNo", adminNo);
+                command.Parameters.AddWithValue("@studentName", playerName);
+
+                command.ExecuteNonQuery();
+            }
+        }
+    }
 
 
     private void SaveAttemptKeratometerCount(int attemptKeratometerCount)

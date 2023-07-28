@@ -44,13 +44,20 @@ public class PlayerDataPrinter2 : MonoBehaviour
 
     private void SubmitButtonClicked()
     {
-         if (!hasSubmitted)
-    {
-        if (readingsScript != null && readingsScript.IsBothCorrect) // Check if both answers are correct in Readings script
+        if (!hasSubmitted)
         {
-            keracompletehandler.HandleCompleteKeratometerCount(playerName, adminNo);
+            // Check if the readingsScript is both correct
+            if (readingsScript != null && readingsScript.IsBothCorrect)
+            {
+                // Increment the completed keratometer count and update the database
+                keracompletehandler.HandleCompleteKeratometerCount(playerName, adminNo);
+                keracompletehandler.UpdateLastAttemptTimestamp(playerName, adminNo);
+            }
+
+            // Update the LastAttemptTimestamp regardless of the correctness of the readings
+            keracompletehandler.UpdateLastAttemptTimestamp(playerName, adminNo);
+
             hasSubmitted = true; // Set the flag to prevent further submission
         }
-    }
     }
 }
