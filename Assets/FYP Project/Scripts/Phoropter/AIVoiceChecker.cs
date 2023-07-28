@@ -118,6 +118,10 @@ public class AIVoiceChecker : MonoBehaviour
     public GameObject leftAxisBtn; // check patients left side
     public GameObject rightFinalBtn; //do final check for each side
     public GameObject leftFinalBtn; //do final check for each side
+    public GameObject leftFinalBtnSubmit;
+    public GameObject rightFinalBtnSubmit;
+    public GameObject leftReadLineBtn;
+    public GameObject rightReadLineBtn;
     public GameObject graphicBtn;
 
     public bool isSetupComplete = false;
@@ -1000,6 +1004,33 @@ public class AIVoiceChecker : MonoBehaviour
         }
         else
             wrongAnswer.Play();
+    }
+
+    //left is right n right is left
+    public void leftreadsmallestline()
+    {
+        Debug.Log("read left smallest line");
+        //voiceline
+        //smallestbuttonsetactive false
+        //set 2 other buttons true
+        leftFinalBtn.SetActive(true);
+        leftFinalBtnSubmit.SetActive(true);
+        leftReadLineBtn.SetActive(false);
+        //rightReadLineBtn.SetActive(false);
+
+
+    }
+
+    public void rightreadsmallestline()
+    {
+        Debug.Log("read right smallest line");
+        //voiceline
+        //smallestbuttonsetactive false
+        //set 2 other buttons true
+        rightFinalBtn.SetActive(true);
+        rightFinalBtnSubmit.SetActive(true);
+        rightReadLineBtn.SetActive(false);
+        //leftReadLineBtn.SetActive(false);
     }
 
     /*private string RoundToQuarter(float value)

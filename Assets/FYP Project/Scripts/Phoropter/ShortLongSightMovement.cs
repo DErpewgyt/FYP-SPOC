@@ -629,6 +629,8 @@ public class ShortLongSightMovement : MonoBehaviour
     public GameObject leftSideFinalSubmitBtn;
     public GameObject rightSideFinalBtn; //patients left
     public GameObject rightSideFinalSubmitBtn;
+    public GameObject leftReadLineBtn;
+    public GameObject rightReadLineBtn;
 
     private void Start()
     {
@@ -660,8 +662,10 @@ public class ShortLongSightMovement : MonoBehaviour
             }
             else if (Checker.isSetupComplete == true && Checker.isRightSideAstigAxisComplete == true)
             {
-                leftSideFinalBtn.SetActive(true);
-                leftSideFinalSubmitBtn.SetActive(true);
+                /*                leftSideFinalBtn.SetActive(true);
+                                leftSideFinalSubmitBtn.SetActive(true);*/
+                //set is line button to true
+                rightReadLineBtn.SetActive(true);
             }
 
             if (scrollInput != 0f)
