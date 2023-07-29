@@ -632,6 +632,9 @@ public class ShortLongSightMovement : MonoBehaviour
     public GameObject leftReadLineBtn;
     public GameObject rightReadLineBtn;
 
+    public bool leftReadLineBtnBool = false;
+    public bool rightReadLineBtnBool = false;
+
     private void Start()
     {
         LeftLSSightBool = false;
@@ -660,7 +663,7 @@ public class ShortLongSightMovement : MonoBehaviour
             {
                 LeftCheck.SetActive(true);
             }
-            else if (Checker.isSetupComplete == true && Checker.isRightSideAstigAxisComplete == true)
+            else if (Checker.isSetupComplete == true && Checker.isRightSideAstigAxisComplete == true && leftReadLineBtnBool == false)
             {
                 /*                leftSideFinalBtn.SetActive(true);
                                 leftSideFinalSubmitBtn.SetActive(true);*/
@@ -693,10 +696,12 @@ public class ShortLongSightMovement : MonoBehaviour
             {
                 RightCheck.SetActive(true);
             }
-            else if (Checker.isRightSideFinalComplete == true && Checker.isLeftSideAstigAxisComplete == true)
+            else if (Checker.isRightSideFinalComplete == true && Checker.isLeftSideAstigAxisComplete == true && rightReadLineBtnBool == false)
             {
-                rightSideFinalBtn.SetActive(true);
-                rightSideFinalSubmitBtn.SetActive(true);
+                /*                rightSideFinalBtn.SetActive(true);
+                                rightSideFinalSubmitBtn.SetActive(true);*/
+                leftReadLineBtn.SetActive(true);
+
             }
 
             if (scrollInput != 0f)

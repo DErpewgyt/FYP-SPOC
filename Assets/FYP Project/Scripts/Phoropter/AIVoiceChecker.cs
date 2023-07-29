@@ -978,6 +978,7 @@ public class AIVoiceChecker : MonoBehaviour
 
     public void leftfinalsubmit()
     {
+        finalrs = LSController.LSRight;
         if (finalrs == leftfinalcheckfloat)//6.5=6.5
         {
             //leftClear.Play();
@@ -992,6 +993,7 @@ public class AIVoiceChecker : MonoBehaviour
 
     public void rightfinalsubmit()
     {
+        finalls = LSController.LSLeft;
         if (finalls == rightfinalcheckfloat)//6.5=6.5
         {
             //leftClear.Play();
@@ -1016,6 +1018,7 @@ public class AIVoiceChecker : MonoBehaviour
         leftFinalBtn.SetActive(true);
         leftFinalBtnSubmit.SetActive(true);
         leftReadLineBtn.SetActive(false);
+        LSController.rightReadLineBtnBool = true;
         //rightReadLineBtn.SetActive(false);
 
 
@@ -1030,6 +1033,7 @@ public class AIVoiceChecker : MonoBehaviour
         rightFinalBtn.SetActive(true);
         rightFinalBtnSubmit.SetActive(true);
         rightReadLineBtn.SetActive(false);
+        LSController.leftReadLineBtnBool = true;
         //leftReadLineBtn.SetActive(false);
     }
 
