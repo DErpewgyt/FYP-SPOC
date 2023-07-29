@@ -14,6 +14,10 @@ public class PauseMenu : MonoBehaviour
     public GameObject optionMenuUI;
     public GameObject quitPromptPanel;
     public GameObject menuPromptPanel;
+    public GameObject WASDquest;
+    public GameObject mouseQuest;
+    public GameObject examQuest;
+    public GameObject chooseQuest;
     public GameObject canvasFader;
 
     private FirstPersonController firstPersonController;
@@ -21,7 +25,6 @@ public class PauseMenu : MonoBehaviour
     void Awake()
     {
         Cursor.visible = false;
-        Resume();
     }
 
     void Start()
@@ -51,6 +54,10 @@ public class PauseMenu : MonoBehaviour
         optionMenuUI.SetActive(false);
         quitPromptPanel.SetActive(false);
         menuPromptPanel.SetActive(false);
+        WASDquest.SetActive(true);
+        examQuest.SetActive(true);
+        /*mouseQuest.SetActive(true);
+        chooseQuest.SetActive(true);*/
         canvasFader.SetActive(true);
         Time.timeScale = 1f;
         GameIsPaused = false;
@@ -70,6 +77,10 @@ public class PauseMenu : MonoBehaviour
         optionMenuUI.SetActive(false);
         quitPromptPanel.SetActive(false);
         menuPromptPanel.SetActive(false);
+        WASDquest.SetActive(false);
+        examQuest.SetActive(false);
+        mouseQuest.SetActive(false);
+        chooseQuest.SetActive(false);
         canvasFader.SetActive(false);
         Time.timeScale = 0f;
         GameIsPaused = true;
