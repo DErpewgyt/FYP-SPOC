@@ -54,6 +54,8 @@ public class AIVoiceChecker : MonoBehaviour
 
     public AudioSource whichEyeAreYouTalkingAbout;
 
+    public AudioSource VEOTB;
+
     public bool isLeftOpen; // cover on patient's left
     public bool isRightOpen; // cover on patient's right
 
@@ -1013,28 +1015,52 @@ public class AIVoiceChecker : MonoBehaviour
     {
         Debug.Log("read left smallest line");
         //voiceline
-        //smallestbuttonsetactive false
-        //set 2 other buttons true
+        VEOTB.Play();
+        /*leftFinalBtn.SetActive(true);
+        leftFinalBtnSubmit.SetActive(true);
+        leftReadLineBtn.SetActive(false);
+        LSController.rightReadLineBtnBool = true;*/
+        StartCoroutine(leftreadsmallestlinebuttonactivation());
+    }
+
+    private IEnumerator leftreadsmallestlinebuttonactivation()
+    {
+        while (VEOTB.isPlaying)
+        {
+            yield return null;
+        }
+
+        // Audio clip has finished playing, activate the conditions
         leftFinalBtn.SetActive(true);
         leftFinalBtnSubmit.SetActive(true);
         leftReadLineBtn.SetActive(false);
         LSController.rightReadLineBtnBool = true;
-        //rightReadLineBtn.SetActive(false);
-
-
     }
 
     public void rightreadsmallestline()
     {
         Debug.Log("read right smallest line");
         //voiceline
-        //smallestbuttonsetactive false
-        //set 2 other buttons true
+        VEOTB.Play();
+        /*rightFinalBtn.SetActive(true);
+        rightFinalBtnSubmit.SetActive(true);
+        rightReadLineBtn.SetActive(false);
+        LSController.leftReadLineBtnBool = true;*/
+        StartCoroutine(rightreadsmallestlinebuttonactivation());
+    }
+
+    private IEnumerator rightreadsmallestlinebuttonactivation()
+    {
+        while (VEOTB.isPlaying)
+        {
+            yield return null;
+        }
+
+        // Audio clip has finished playing, activate the conditions
         rightFinalBtn.SetActive(true);
         rightFinalBtnSubmit.SetActive(true);
         rightReadLineBtn.SetActive(false);
         LSController.leftReadLineBtnBool = true;
-        //leftReadLineBtn.SetActive(false);
     }
 
     /*private string RoundToQuarter(float value)
