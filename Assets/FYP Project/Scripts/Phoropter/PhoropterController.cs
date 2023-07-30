@@ -82,120 +82,120 @@ public class PhoropterController : MonoBehaviour
 
     private bool isCursorSet = false;
 
-private void Update()
-{
-    Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-    bool wasOverObject = isOverObject;
-
-    if (Physics.Raycast(ray, out RaycastHit hit))
+    private void Update()
     {
-        isOverObject = IsComponentTag(hit.collider.gameObject.tag);
+        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        bool wasOverObject = isOverObject;
 
-        if (isOverObject)
+        if (Physics.Raycast(ray, out RaycastHit hit))
         {
-            if (hit.collider.gameObject != highlightedObject)
+            isOverObject = IsComponentTag(hit.collider.gameObject.tag);
+
+            if (isOverObject)
             {
-                if (highlightedObject != null)
+                if (hit.collider.gameObject != highlightedObject)
                 {
-                    if (activeTag != hit.collider.gameObject.tag && highlightedObject.tag != activeTag)
+                    if (highlightedObject != null)
                     {
-                        highlightedObject.layer = LayerMask.NameToLayer("Default");
-                    }
-                }
-
-                highlightedObject = hit.collider.gameObject;
-
-                if (activeTag != hit.collider.gameObject.tag)
-                {
-                    highlightedObject.layer = LayerMask.NameToLayer("Outline Objects");
-                }
-
-                // Set cursor only if it hasn't been set yet
-                if (!isCursorSet)
-                {
-                    SetCursor(linkCursorTexture);
-                    isCursorSet = true;
-                }
-            }
-
-            if (Input.GetMouseButtonDown(0))
-            {
-                string tag = highlightedObject.tag;
-                IdentifyInteractable(tag);
-                activeTag = tag;
-
-                foreach (string i in allowedTags)
-                {
-                    if (i == tag)
-                    {
-                        highlightedObject.layer = LayerMask.NameToLayer("Outline Objects Active");
-                    }
-                    else
-                    {
-                        GameObject ge = GameObject.FindGameObjectWithTag(i);
-                        if (ge != null)
+                        if (activeTag != hit.collider.gameObject.tag && highlightedObject.tag != activeTag)
                         {
-                            ge.layer = LayerMask.NameToLayer("Default");
+                            highlightedObject.layer = LayerMask.NameToLayer("Default");
+                        }
+                    }
+
+                    highlightedObject = hit.collider.gameObject;
+
+                    if (activeTag != hit.collider.gameObject.tag)
+                    {
+                        highlightedObject.layer = LayerMask.NameToLayer("Outline Objects");
+                    }
+
+                    // Set cursor only if it hasn't been set yet
+                    if (!isCursorSet)
+                    {
+                        SetCursor(linkCursorTexture);
+                        isCursorSet = true;
+                    }
+                }
+
+                if (Input.GetMouseButtonDown(0))
+                {
+                    string tag = highlightedObject.tag;
+                    IdentifyInteractable(tag);
+                    activeTag = tag;
+
+                    foreach (string i in allowedTags)
+                    {
+                        if (i == tag)
+                        {
+                            highlightedObject.layer = LayerMask.NameToLayer("Outline Objects Active");
+                        }
+                        else
+                        {
+                            GameObject ge = GameObject.FindGameObjectWithTag(i);
+                            if (ge != null)
+                            {
+                                ge.layer = LayerMask.NameToLayer("Default");
+                            }
                         }
                     }
                 }
             }
         }
-    }
-    else
-    {
-        isOverObject = false;
-        if (highlightedObject != null && !Input.GetMouseButton(0))
+        else
         {
-            if (activeTag != highlightedObject.tag)
+            isOverObject = false;
+            if (highlightedObject != null && !Input.GetMouseButton(0))
             {
-                highlightedObject.layer = LayerMask.NameToLayer("Default");
+                if (activeTag != highlightedObject.tag)
+                {
+                    highlightedObject.layer = LayerMask.NameToLayer("Default");
+                }
+                else
+                {
+                    highlightedObject.layer = LayerMask.NameToLayer("Outline Objects Active");
+                }
+                highlightedObject = null;
             }
-            else
+        }
+
+        // Check if the cursor is over the "CursorChangeOnly" tagged object
+        if (IsPointerOverGameObjectWithTag("CursorChangeOnly"))
+        {
+            if (highlightedObject != null)
             {
-                highlightedObject.layer = LayerMask.NameToLayer("Outline Objects Active");
+                if (activeTag != highlightedObject.tag)
+                {
+                    highlightedObject.layer = LayerMask.NameToLayer("Default");
+                }
+                else
+                {
+                    highlightedObject.layer = LayerMask.NameToLayer("Outline Objects Active");
+                }
             }
             highlightedObject = null;
-        }
-    }
 
-    // Check if the cursor is over the "CursorChangeOnly" tagged object
-    if (IsPointerOverGameObjectWithTag("CursorChangeOnly"))
-    {
-        if (highlightedObject != null)
-        {
-            if (activeTag != highlightedObject.tag)
+            // Set cursor only if it hasn't been set yet
+            if (!isCursorSet)
             {
-                highlightedObject.layer = LayerMask.NameToLayer("Default");
-            }
-            else
-            {
-                highlightedObject.layer = LayerMask.NameToLayer("Outline Objects Active");
+                SetCursor(linkCursorTexture);
+                isCursorSet = true;
             }
         }
-        highlightedObject = null;
 
-        // Set cursor only if it hasn't been set yet
-        if (!isCursorSet)
+        // Reset cursor if no longer over an object or the "CursorChangeOnly" object
+        if (!isOverObject && !IsPointerOverGameObjectWithTag("CursorChangeOnly"))
         {
-            SetCursor(linkCursorTexture);
-            isCursorSet = true;
+            if (wasOverObject || isCursorSet)
+            {
+                ResetCursor();
+                isCursorSet = false;
+            }
         }
     }
 
-    // Reset cursor if no longer over an object or the "CursorChangeOnly" object
-    if (!isOverObject && !IsPointerOverGameObjectWithTag("CursorChangeOnly"))
-    {
-        if (wasOverObject || isCursorSet)
-        {
-            ResetCursor();
-            isCursorSet = false;
-        }
-    }
-}
 
-
-     private bool IsPointerOverGameObjectWithTag(string tag)
+    private bool IsPointerOverGameObjectWithTag(string tag)
     {
         PointerEventData eventDataCurrentPosition = new PointerEventData(EventSystem.current);
         eventDataCurrentPosition.position = new Vector2(Input.mousePosition.x, Input.mousePosition.y);
@@ -365,8 +365,8 @@ private void Update()
         AstigmatismMagnitudeControl.AstigMagLeftBool = false;
         AstigmatismAxisControl.isRotatingLeft = false;
         AstigmatismAxisControl.isRotatingRight = false;
-        /*PdBtn.SetActive(false);*/
-        LSBtn.SetActive(false);
+         PdBtn.SetActive(false);
+         LSBtn.SetActive(false);
         RSBtn.SetActive(false);
         leftMagBtn.SetActive(false);
         rightMagBtn.SetActive(false);
