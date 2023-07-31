@@ -3,6 +3,8 @@ using UnityEngine;
 
 public class Readings : MonoBehaviour
 {
+    public TextMeshProUGUI LvlComplete;
+    public TextMeshProUGUI LvlCompleteDesc;
     public int randomIndex;
 
     public GameObject object1;
@@ -42,6 +44,8 @@ public class Readings : MonoBehaviour
     public TMP_InputField inputFieldTop;
     public TMP_InputField inputFieldBottom;
 
+    public GameObject textgrp;
+    public GameObject inputgrp;
 
     public bool IsTopCorrect = false;
     public bool IsBottomCorrect = false;
@@ -81,6 +85,16 @@ public class Readings : MonoBehaviour
         } else
         {
             IsTextInField = true;
+        }
+
+        if (!IsBothCorrect)
+        {
+            LvlComplete.text = "Level Failed";
+            LvlCompleteDesc.text = "Level Failed, you can retry or go back to the main menu.\r\n";
+        } else
+        {
+            LvlComplete.text = "Level Completed";
+            LvlCompleteDesc.text = "Level Completed, you can retry or go back to the main menu.\r\n";
         }
     }
 
@@ -153,6 +167,10 @@ public class Readings : MonoBehaviour
     {
         if (IsTextInField)
         {
+
+            inputgrp.SetActive(false);
+            textgrp.SetActive(false);
+
             string topInput = inputFieldTop.text;
             string bottomInput = inputFieldBottom.text;
 
