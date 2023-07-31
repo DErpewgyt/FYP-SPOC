@@ -365,8 +365,8 @@ public class PhoropterController : MonoBehaviour
         AstigmatismMagnitudeControl.AstigMagLeftBool = false;
         AstigmatismAxisControl.isRotatingLeft = false;
         AstigmatismAxisControl.isRotatingRight = false;
-         PdBtn.SetActive(false);
-         LSBtn.SetActive(false);
+        /*PdBtn.SetActive(false);*/
+        LSBtn.SetActive(false);
         RSBtn.SetActive(false);
         leftMagBtn.SetActive(false);
         rightMagBtn.SetActive(false);

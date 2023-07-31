@@ -166,20 +166,20 @@ public class AstigmatismAxisControl : MonoBehaviour
 
         if (obj == AstigmatismLeftKnob)
         {
-            LeftDegree = (LeftDegree + rotationAmount) % 180;
+            LeftDegree = (LeftDegree + rotationAmount) % 181;
             if (LeftDegree < 0)
             {
-                LeftDegree += 180;
+                LeftDegree += 181;
             }
             LeftDegreeWholeNumber = Mathf.Round(LeftDegree);
             UpdateValue(LeftAxisTMP, LeftDegree);
         }
         else if (obj == AstigmatismRightKnob)
         {
-            RightDegree = (RightDegree + rotationAmount) % 180;
+            RightDegree = (RightDegree + rotationAmount) % 181;
             if (RightDegree < 0)
             {
-                RightDegree += 180;
+                RightDegree += 181;
             }
             RightDegreeWholeNumber = Mathf.Round(RightDegree);
             UpdateValue(RightAxisTMP, RightDegree);
