@@ -1,13 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.EventSystems;
 
 public class PhoropterController : MonoBehaviour
 {
-    public Texture2D linkCursorTexture;
-    private bool isOverObject = false;
-    private float multiplier = 0.25f;
     private GameObject highlightedObject;
     public GameObject PDManager;
     public GameObject PDLeftManager;
@@ -34,21 +30,9 @@ public class PhoropterController : MonoBehaviour
     public AstigmatismMagnitudeControl AstigmatismMagnitudeControl;
     public AstigmatismAxisControl AstigmatismAxisControl;
     public LensFlip LensController;
-    private string[] allowedTags = { "PupillaryDistanceKnobLeft",
-                                     "PupillaryDistanceKnobRight",
-                                     "OpenAndCloseKnobLeft",
-                                     "OpenAndCloseKnobRight",
-                                     "ShortAndLongSightedGearLeft",
-                                     "ShortAndLongSightedGearRight",
-                                     "AstigmatismLensLeft",
-                                     "AstigmatismLensRight",
-                                     "AstigmatismMagnitudeKnobLeft",
-                                     "AstigmatismMagnitudeKnobRight",
-                                     "AstigmatismAxisKnobLeft",
-                                     "AstigmatismAxisKnobRight"
-                                   };
-    private string activeTag;
+
     public Dictionary<string, GameObject> imageDictionary;
+
     private void Start()
     {
         Cursor.visible = true;
@@ -56,6 +40,7 @@ public class PhoropterController : MonoBehaviour
 
         AstigmatismLensMovement = FindObjectOfType<AstigmatismLensMovement>();
         AstigmatismAxisControl = FindObjectOfType<AstigmatismAxisControl>();
+
         // Initialize the image dictionary and add the corresponding images for each component
         imageDictionary = new Dictionary<string, GameObject>()
         {
@@ -80,152 +65,41 @@ public class PhoropterController : MonoBehaviour
         }
     }
 
-    private bool isCursorSet = false;
-
     private void Update()
     {
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-        bool wasOverObject = isOverObject;
 
         if (Physics.Raycast(ray, out RaycastHit hit))
         {
-            isOverObject = IsComponentTag(hit.collider.gameObject.tag);
-
-            if (isOverObject)
+            if (IsComponentTag(hit.collider.gameObject.tag))
             {
-                if (hit.collider.gameObject != highlightedObject)
-                {
-                    if (highlightedObject != null)
-                    {
-                        if (activeTag != hit.collider.gameObject.tag && highlightedObject.tag != activeTag)
-                        {
-                            highlightedObject.layer = LayerMask.NameToLayer("Default");
-                        }
-                    }
-
-                    highlightedObject = hit.collider.gameObject;
-
-                    if (activeTag != hit.collider.gameObject.tag)
-                    {
-                        highlightedObject.layer = LayerMask.NameToLayer("Outline Objects");
-                    }
-
-                    // Set cursor only if it hasn't been set yet
-                    if (!isCursorSet)
-                    {
-                        SetCursor(linkCursorTexture);
-                        isCursorSet = true;
-                    }
-                }
+                highlightedObject = hit.collider.gameObject;
 
                 if (Input.GetMouseButtonDown(0))
                 {
                     string tag = highlightedObject.tag;
                     IdentifyInteractable(tag);
-                    activeTag = tag;
-
-                    foreach (string i in allowedTags)
-                    {
-                        if (i == tag)
-                        {
-                            highlightedObject.layer = LayerMask.NameToLayer("Outline Objects Active");
-                        }
-                        else
-                        {
-                            GameObject ge = GameObject.FindGameObjectWithTag(i);
-                            if (ge != null)
-                            {
-                                ge.layer = LayerMask.NameToLayer("Default");
-                            }
-                        }
-                    }
                 }
             }
         }
-        else
-        {
-            isOverObject = false;
-            if (highlightedObject != null && !Input.GetMouseButton(0))
-            {
-                if (activeTag != highlightedObject.tag)
-                {
-                    highlightedObject.layer = LayerMask.NameToLayer("Default");
-                }
-                else
-                {
-                    highlightedObject.layer = LayerMask.NameToLayer("Outline Objects Active");
-                }
-                highlightedObject = null;
-            }
-        }
-
-        // Check if the cursor is over the "CursorChangeOnly" tagged object
-        if (IsPointerOverGameObjectWithTag("CursorChangeOnly"))
-        {
-            if (highlightedObject != null)
-            {
-                if (activeTag != highlightedObject.tag)
-                {
-                    highlightedObject.layer = LayerMask.NameToLayer("Default");
-                }
-                else
-                {
-                    highlightedObject.layer = LayerMask.NameToLayer("Outline Objects Active");
-                }
-            }
-            highlightedObject = null;
-
-            // Set cursor only if it hasn't been set yet
-            if (!isCursorSet)
-            {
-                SetCursor(linkCursorTexture);
-                isCursorSet = true;
-            }
-        }
-
-        // Reset cursor if no longer over an object or the "CursorChangeOnly" object
-        if (!isOverObject && !IsPointerOverGameObjectWithTag("CursorChangeOnly"))
-        {
-            if (wasOverObject || isCursorSet)
-            {
-                ResetCursor();
-                isCursorSet = false;
-            }
-        }
-    }
-
-
-    private bool IsPointerOverGameObjectWithTag(string tag)
-    {
-        PointerEventData eventDataCurrentPosition = new PointerEventData(EventSystem.current);
-        eventDataCurrentPosition.position = new Vector2(Input.mousePosition.x, Input.mousePosition.y);
-
-        List<RaycastResult> results = new List<RaycastResult>();
-        EventSystem.current.RaycastAll(eventDataCurrentPosition, results);
-
-        foreach (RaycastResult result in results)
-        {
-            if (result.gameObject.CompareTag(tag))
-            {
-                return true;
-            }
-        }
-
-        return false;
-    }
-
-    private void SetCursor(Texture2D cursorTexture)
-    {
-        Cursor.SetCursor(cursorTexture, new Vector2(cursorTexture.width * multiplier, cursorTexture.height * multiplier), CursorMode.Auto);
-    }
-
-    private void ResetCursor()
-    {
-        Cursor.SetCursor(null, Vector2.zero, CursorMode.Auto);
     }
 
     private bool IsComponentTag(string tag)
     {
+        string[] allowedTags = { "PupillaryDistanceKnobLeft",
+                                 "PupillaryDistanceKnobRight",
+                                 "OpenAndCloseKnobLeft",
+                                 "OpenAndCloseKnobRight",
+                                 "ShortAndLongSightedGearLeft",
+                                 "ShortAndLongSightedGearRight",
+                                 "AstigmatismLensLeft",
+                                 "AstigmatismLensRight",
+                                 "AstigmatismMagnitudeKnobLeft",
+                                 "AstigmatismMagnitudeKnobRight",
+                                 "AstigmatismAxisKnobLeft",
+                                 "AstigmatismAxisKnobRight"
+                               };
+
         foreach (string i in allowedTags)
         {
             if (i == tag)
@@ -351,6 +225,7 @@ public class PhoropterController : MonoBehaviour
 
     public void DisableAll()
     {
+
         Debug.Log("disabled");
         PDLeftManager.SetActive(false);
         PDRightManager.SetActive(false);
