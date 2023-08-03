@@ -6,8 +6,8 @@ using UnityEngine.EventSystems;
 public class PhoropterHighlightController : MonoBehaviour
 {
     public Texture2D customCursorTexture;
-    private GameObject highlightedObject;
-    private GameObject activeObject;
+    public GameObject highlightedObject;
+    public GameObject activeObject;
 
     private void Start()
     {

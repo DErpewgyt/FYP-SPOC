@@ -125,6 +125,9 @@ public class AIVoiceChecker : MonoBehaviour
     public GameObject leftReadLineBtn;
     public GameObject rightReadLineBtn;
     public GameObject graphicBtn;
+    public GameObject leftJccGo; // jcc on the left
+    public GameObject rightJccGo; // jcc on the right
+
 
     public bool isSetupComplete = false;
 
@@ -144,6 +147,7 @@ public class AIVoiceChecker : MonoBehaviour
     public bool isLeftSideComplete = false;//for patients left
 
     public OpenClose OpenCloseController;
+    public PhoropterHighlightController highlightController;
 
     // Start is called before the first frame update
     private void Start()
@@ -586,8 +590,14 @@ public class AIVoiceChecker : MonoBehaviour
         if (rulerDist == correctDist && ls == PRS && rs == PLS && LeftMag == PLC && RightMag == PRC && leftAxis == PLA && rightAxis == PRA)
         {
             //change audio
+            SphereCollider[] leftJccColliders = leftJccGo.GetComponents<SphereCollider>();
+            SphereCollider[] rightJccColliders = rightJccGo.GetComponents<SphereCollider>();
+
             perfect.Play();
             isSetupComplete = true;
+            Debug.Log("highlightedObject: " + highlightController.highlightedObject);
+            highlightController.activeObject.layer = LayerMask.NameToLayer("Default");
+            highlightController.activeObject = null;
             CheckBtn.SetActive(false);
             graphicBtn.SetActive(true);
             leftPdMesh.enabled = false;
@@ -600,6 +610,16 @@ public class AIVoiceChecker : MonoBehaviour
             leftJcc.enabled = false;
             rightJcc.enabled = false;
             GraphicController.one = true;
+
+            foreach (SphereCollider collider in leftJccColliders)
+            {
+                collider.enabled = false;
+            }
+
+            foreach (SphereCollider collider in rightJccColliders)
+            {
+                collider.enabled = false;
+            }
             PhoropterController.DisableAll();
             print("correct calibrated readings");
         }
@@ -663,6 +683,8 @@ public class AIVoiceChecker : MonoBehaviour
                 {
                     //rightClear.Play();
                     BothAreClear.Play();
+                    highlightController.activeObject.layer = LayerMask.NameToLayer("Default");
+                    highlightController.activeObject = null;
                     PhoropterController.DisableAll();
                     isRightSideLSComplete = true;
                     rightLsMesh.enabled = false;
@@ -670,6 +692,11 @@ public class AIVoiceChecker : MonoBehaviour
                     rightJcc.enabled = true;
                     GraphicController.one = false;
                     GraphicController.two = true;
+                    SphereCollider[] leftJccColliders = leftJccGo.GetComponents<SphereCollider>();
+                    foreach (SphereCollider collider in leftJccColliders)
+                    {
+                        collider.enabled = true;
+                    }
                 }
                 else if (ls > RS)
                 {
@@ -711,6 +738,8 @@ public class AIVoiceChecker : MonoBehaviour
                 {
                     //leftClear.Play();
                     BothAreClear.Play();
+                    highlightController.activeObject.layer = LayerMask.NameToLayer("Default");
+                    highlightController.activeObject = null;
                     PhoropterController.DisableAll();
                     isLeftSideLSComplete = true;
                     leftLsMesh.enabled = false;
@@ -718,6 +747,11 @@ public class AIVoiceChecker : MonoBehaviour
                     leftJcc.enabled = true;
                     GraphicController.one = false;
                     GraphicController.two = true;
+                    SphereCollider[] rightJccColliders = rightJccGo.GetComponents<SphereCollider>();
+                    foreach (SphereCollider collider in rightJccColliders)
+                    {
+                        collider.enabled = true;
+                    }
                 }
                 else if (rs > LS)
                 {
@@ -755,6 +789,8 @@ public class AIVoiceChecker : MonoBehaviour
             {
                 //perfect.Play();
                 BothAreClear.Play();
+                highlightController.activeObject.layer = LayerMask.NameToLayer("Default");
+                highlightController.activeObject = null;
                 PhoropterController.DisableAll();
                 print("Both are the same");
                 isLeftSideAstigMagComplete = true;
@@ -798,6 +834,8 @@ public class AIVoiceChecker : MonoBehaviour
             {
                 //perfect.Play();
                 BothAreClear.Play();
+                highlightController.activeObject.layer = LayerMask.NameToLayer("Default");
+                highlightController.activeObject = null;
                 print("Both are the same");
                 PhoropterController.DisableAll();
                 isRightSideAstigMagComplete = true;
@@ -841,6 +879,8 @@ public class AIVoiceChecker : MonoBehaviour
             {
                 //perfect.Play();
                 BothAreClear.Play();
+                highlightController.activeObject.layer = LayerMask.NameToLayer("Default");
+                highlightController.activeObject = null;
                 PhoropterController.DisableAll();
                 isLeftSideAstigAxisComplete = true;
                 leftAxisMesh.enabled = false;
@@ -882,6 +922,8 @@ public class AIVoiceChecker : MonoBehaviour
             {
                 //perfect.Play();
                 BothAreClear.Play();
+                highlightController.activeObject.layer = LayerMask.NameToLayer("Default");
+                highlightController.activeObject = null;
                 PhoropterController.DisableAll();
                 print("They are both the same");
                 isRightSideAstigAxisComplete = true;
@@ -986,6 +1028,8 @@ public class AIVoiceChecker : MonoBehaviour
             //leftClear.Play();
             Debug.Log("still clear!(anymore and ill be wrong)");
             //StillClear.Play();
+            highlightController.activeObject.layer = LayerMask.NameToLayer("Default");
+            highlightController.activeObject = null;
             isLeftSideFinalComplete = true;
             PhoropterController.DisableAll();
         }
@@ -1001,6 +1045,8 @@ public class AIVoiceChecker : MonoBehaviour
             //leftClear.Play();
             Debug.Log("still clear!(anymore and ill be wrong)");
             isRightSideFinalComplete = true;
+            highlightController.activeObject.layer = LayerMask.NameToLayer("Default");
+            highlightController.activeObject = null;
             rightLsMesh.enabled = false;
             leftLsMesh.enabled = true;
             PhoropterController.DisableAll();
