@@ -5,6 +5,11 @@ using TMPro;
 
 public class MeasureReadings : MonoBehaviour
 {
+    public GameObject smallPD;
+    public GameObject mediumPD;
+    public GameObject largePD;
+
+
     /*RIGHT*/
 
     public TextMeshProUGUI RS1;
@@ -66,7 +71,7 @@ public class MeasureReadings : MonoBehaviour
         float serialNumber = Random.Range(1000f, 600000f);
         float number = Random.Range(0f, 6000f);
         float vd = 12f;
-        pd = Random.Range(60, 75);
+        pd = Random.Range(55, 71);
 
         /******************************************************************************************/
 
@@ -115,6 +120,19 @@ public class MeasureReadings : MonoBehaviour
         float seLeft = ls1 + (lc1 / 2f);
 
         /******************************************************************************************/
+
+        if (pd <= 59)
+        {
+            smallPD.SetActive(true);
+        } 
+        if (pd >= 60 && pd <= 64)
+        {
+            mediumPD.SetActive(true);
+        }
+        else if (pd >= 65 && pd <= 70)
+        {
+            largePD.SetActive(true);
+        }
 
         // Display Measurements
 

@@ -477,6 +477,26 @@ public class AIVoiceChecker : MonoBehaviour
         print("/*****************************************************************/");
 
         // Checker for PD
+        if (pd == 55)
+        {
+            correctDist = 19;
+        }
+        if (pd == 56)
+        {
+            correctDist = 22;
+        }
+        if (pd == 57)
+        {
+            correctDist = 25;
+        }
+        if (pd == 58)
+        {
+            correctDist = 28;
+        }
+        if (pd == 59)
+        {
+            correctDist = 31;
+        }
         if (pd == 60)
         {
             correctDist = 34;
@@ -521,22 +541,7 @@ public class AIVoiceChecker : MonoBehaviour
         {
             correctDist = 64;
         }
-        if (pd == 71)
-        {
-            correctDist = 67;
-        }
-        if (pd == 72)
-        {
-            correctDist = 70;
-        }
-        if (pd == 73)
-        {
-            correctDist = 73;
-        }
-        if (pd == 74)
-        {
-            correctDist = 76;
-        }
+
 
         leftfinalcheckint = Random.Range(0, 2);
         rightfinalcheckint = Random.Range(0, 2);
