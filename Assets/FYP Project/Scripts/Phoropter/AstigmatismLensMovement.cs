@@ -13,6 +13,9 @@ public class AstigmatismLensMovement : MonoBehaviour
     public bool LeftLensActive;
     public bool RightLensActive;
 
+    public GameObject leftJccGo;
+    public GameObject rightJccGo;
+
     private void Start()
     {
         LeftLensActive = false;
@@ -37,6 +40,11 @@ public class AstigmatismLensMovement : MonoBehaviour
                 checker.GraphicController.two = false;
                 checker.GraphicController.three = true;
                 isLeftJccFlippedBack = true;
+                SphereCollider[] leftJccColliders = leftJccGo.GetComponents<SphereCollider>();
+                foreach (SphereCollider collider in leftJccColliders)
+                {
+                    collider.enabled = false;
+                }
             }
         }
     }
@@ -59,6 +67,11 @@ public class AstigmatismLensMovement : MonoBehaviour
                 checker.GraphicController.two = false;
                 checker.GraphicController.three = true;
                 isRightJccFlippedBack = true;
+                SphereCollider[] rightJccColliders = rightJccGo.GetComponents<SphereCollider>();
+                foreach (SphereCollider collider in rightJccColliders)
+                {
+                    collider.enabled = false;
+                }
             }
         }
     }
