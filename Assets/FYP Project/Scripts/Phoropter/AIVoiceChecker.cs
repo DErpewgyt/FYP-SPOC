@@ -1005,8 +1005,6 @@ public class AIVoiceChecker : MonoBehaviour
                 Debug.Log("still clear!(anymore and ill be wrong)");
                 //isRightSideFinalComplete = true;
                 StillClear.Play();
-                GraphicController.three = false;
-                GraphicController.one = true;
             }
             else if (finalls > rightfinalcheckfloat)//6.75>6.5
             {
@@ -1054,6 +1052,8 @@ public class AIVoiceChecker : MonoBehaviour
             highlightController.activeObject = null;
             rightLsMesh.enabled = false;
             leftLsMesh.enabled = true;
+            GraphicController.three = false;
+            GraphicController.one = true;
             PhoropterController.DisableAll();
             //StillClear.Play();
         }
