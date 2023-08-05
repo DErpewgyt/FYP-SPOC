@@ -89,8 +89,8 @@ public class MeasureReadings : MonoBehaviour
 
         // Right Axis-Astigmatism (A)
         int ra1 = Random.Range(0, 180);
-        int ra2 = ra1 - 1;
-        int ra3 = ra1 - 3;
+        int ra2 = Mathf.Max(ra1 - 1, 0); 
+        int ra3 = Mathf.Max(ra1 - 3, 0);
         raTake = Mathf.RoundToInt(Mathf.Ceil((ra1 + ra2 + ra3) / 3));
 
         // Right Spherical Equivalent (SE)
@@ -112,8 +112,8 @@ public class MeasureReadings : MonoBehaviour
 
         // Left Axis-Astigmatism (A)
         float la1 = Random.Range(0f, 180f);
-        float la2 = la1 - 1;
-        float la3 = la1 - 3;
+        float la2 = Mathf.Max(la1 - 1, 0);
+        float la3 = Mathf.Max(la1 - 3, 0);
         laTake = Mathf.RoundToInt(Mathf.Ceil((la1 + la2 + la3) / 3));
 
         // Left Spherical Equivalent (SE)
