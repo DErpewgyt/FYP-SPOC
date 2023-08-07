@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
 public class PhoropterHighlightController : MonoBehaviour
 {
@@ -18,6 +19,7 @@ public class PhoropterHighlightController : MonoBehaviour
     private void Update()
     {
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        bool isOverUI = EventSystem.current.IsPointerOverGameObject();
 
         if (Physics.Raycast(ray, out RaycastHit hit))
         {
@@ -40,6 +42,10 @@ public class PhoropterHighlightController : MonoBehaviour
                         highlightedObject.layer = LayerMask.NameToLayer("Outline Objects");
                 }
             }
+            else if (isOverUI)
+            {
+                Cursor.SetCursor(customCursorTexture, Vector2.zero, CursorMode.Auto);
+            }
             else
             {
                 // Reset highlighted object to default when raycast hits object that doesn't have valid tag
@@ -53,7 +59,7 @@ public class PhoropterHighlightController : MonoBehaviour
                 Cursor.SetCursor(null, Vector2.zero, CursorMode.Auto);
             }
         }
-        else
+        else if (!isOverUI)
         {
             Debug.Log("I am not hitting any collider.");
             // Reset highlighted object to default when raycast hits nothing
@@ -79,6 +85,10 @@ public class PhoropterHighlightController : MonoBehaviour
         }
     }
 
+    public void onHoverBtn()
+    {
+        Cursor.SetCursor(customCursorTexture, Vector2.zero, CursorMode.Auto);
+    }
 
     private bool IsComponentTag(string tag)
     {
