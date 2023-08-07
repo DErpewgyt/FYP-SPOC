@@ -2422,6 +2422,7 @@ MonoBehaviour:
   RightKnob: {fileID: 1537817263}
   LeftsideButtons: {fileID: 1010471919}
   RightSideButtons: {fileID: 1414450589}
+  PaperBtn: {fileID: 0}
   LeftsideShortCutKnob: {fileID: 941061889}
   RightSideShortCutKnob: {fileID: 1168440067}
   rotationSpeed: 100
@@ -2431,6 +2432,10 @@ MonoBehaviour:
   leftSideFinalSubmitBtn: {fileID: 0}
   rightSideFinalBtn: {fileID: 1892638559}
   rightSideFinalSubmitBtn: {fileID: 0}
+  leftReadLineBtn: {fileID: 0}
+  rightReadLineBtn: {fileID: 0}
+  leftReadLineBtnBool: 0
+  rightReadLineBtnBool: 0
 --- !u!4 &18230740
 Transform:
   m_ObjectHideFlags: 0
@@ -13613,8 +13618,10 @@ MonoBehaviour:
   rightLensFlipped: 0
   leftFlippedOnce: 0
   leftFlippedTwice: 0
+  leftFlippedThrice: 0
   rightFlippedOnce: 0
   rightFlippedTwice: 0
+  rightFlippedThrice: 0
   LeftFlipBtn: {fileID: 1524436809}
   RightFlipBtn: {fileID: 5106064}
   LeftTMP1: {fileID: 446739421}
@@ -23541,6 +23548,7 @@ GameObject:
   - component: {fileID: 323143330}
   - component: {fileID: 323143329}
   - component: {fileID: 323143328}
+  - component: {fileID: 323143332}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -23647,6 +23655,28 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: -0.004, z: -0.266}
+--- !u!114 &323143332
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 323143327}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6fa9c3411984571438ad7c04ce9955c9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  highlightMaterial: {fileID: 0}
+  linkCursorTexture: {fileID: 2800000, guid: 9b06c0d8b4e8fa6448f481781b52a3ba, type: 3}
+  parent: {fileID: 0}
+  KeratometerMovement: {fileID: 0}
+  zoom: 0
+  Blur: {fileID: 0}
+  Blur2: {fileID: 0}
+  helpController: {fileID: 0}
+  ExitIcon: {fileID: 0}
+  reading: {fileID: 0}
 --- !u!1 &325709079
 GameObject:
   m_ObjectHideFlags: 0
@@ -47033,7 +47063,9 @@ MonoBehaviour:
   blur: {fileID: 1995354502}
   helpButton: {fileID: 657975263}
   Guide: {fileID: 1051694115}
-  ObjectiveChecker: {fileID: 319823376}
+  one: 0
+  two: 0
+  three: 0
 --- !u!1 &659305117
 GameObject:
   m_ObjectHideFlags: 0
@@ -52596,63 +52628,88 @@ MonoBehaviour:
   ObjectiveRefraction: {fileID: 458228203}
   ObjectiveRefractionLine: {fileID: 1657129306}
   ObjectiveRefractionLineBool: 0
+  Obj1: {fileID: 0}
   OBJIndicator2: 2
   LineObjective2: {fileID: 1107163722}
   CloseLeftEye: {fileID: 959542011}
   CloseLeftEyeLine: {fileID: 1107163723}
   CloseLeftEyeLineBool: 0
+  Obj2: {fileID: 0}
   OBJIndicator3: 3
   LineObjective3: {fileID: 1692538058}
   LSRight: {fileID: 1704002221}
   LSRightLine: {fileID: 1692538057}
   LSRightLineBool: 0
+  Obj3: {fileID: 0}
   OBJIndicator4: 4
   LineObjective4: {fileID: 1411601148}
   AstigAxisTMPright: {fileID: 847842965}
   AstigAxisLineright: {fileID: 1411601147}
   isAstigAxisAnimationPlayedright: 0
+  Obj4: {fileID: 0}
   OBJIndicator5: 5
   LineObjective5: {fileID: 1711036320}
   AstigMagTMPright: {fileID: 1687666602}
   AstigMagLineright: {fileID: 1711036321}
   isAstigMagAnimationPlayedright: 0
+  Obj5: {fileID: 0}
   OBJIndicator6: 6
   LineObjective6: {fileID: 233089512}
   RightEyeFinal: {fileID: 1448422585}
   RightEyeFinalLine: {fileID: 233089511}
   RightEyeFinalLineBool: 0
+  Obj6: {fileID: 0}
   OBJIndicator7: 7
   LineObjective7: {fileID: 18637310}
   SwitchEyes: {fileID: 670290422}
   SwitchEyesLine: {fileID: 18637309}
   SwitchEyesLineBool: 0
+  Obj7: {fileID: 0}
   OBJIndicator8: 8
   LineObjective8: {fileID: 472460407}
   LSLeft: {fileID: 618592147}
   LSLeftLine: {fileID: 472460406}
   LSLeftLineBool: 0
+  Obj8: {fileID: 0}
   OBJIndicator9: 9
   LineObjective9: {fileID: 1032330705}
   AstigAxisTMPleft: {fileID: 550734734}
   AstigAxisLineleft: {fileID: 1032330704}
   isAstigAxisAnimationPlayedleft: 0
+  Obj9: {fileID: 0}
   OBJIndicator10: 10
   LineObjective10: {fileID: 1367778596}
   AstigMagTMPleft: {fileID: 1783799971}
   AstigMagLineleft: {fileID: 1367778595}
   isAstigMagAnimationPlayedleft: 0
+  Obj10: {fileID: 0}
   OBJIndicator11: 11
   LineObjective11: {fileID: 1539141164}
   LeftEyeFinal: {fileID: 1694190649}
   LeftEyeFinalLine: {fileID: 1539141163}
   LeftEyeFinalLineBool: 0
+  Obj11: {fileID: 0}
   OBJIndicator12: 12
   LineObjective12: {fileID: 1172217321}
   Congrats: {fileID: 736871675}
   CongratsLine: {fileID: 1172217320}
   CongratsLineBool: 0
+  Obj12: {fileID: 0}
+  OBJIndicatorleftJCC: 13
+  LineObjectiveleftJCC: {fileID: 0}
+  leftJCCTMP: {fileID: 0}
+  leftJCCIMG: {fileID: 0}
+  leftJCCBool: 0
+  leftJCC: {fileID: 0}
+  OBJIndicatorrightJCC: 14
+  LineObjectiverightJCC: {fileID: 0}
+  rightJCCTMP: {fileID: 0}
+  rightJCCIMG: {fileID: 0}
+  rightJCCBool: 0
+  rightJCC: {fileID: 0}
   alphaChangeSpeed: 2
   alphaChangeDelay: 3
+  AstigmatismLensMove: {fileID: 0}
   Checker: {fileID: 1316446466}
   Submit: {fileID: 1726300197}
 --- !u!1 &751939745
@@ -59462,7 +59519,7 @@ MonoBehaviour:
   Readings: {fileID: 1994804065}
   Resets: {fileID: 81728125}
   GraphicButton: {fileID: 657975263}
-  ObjectiveChecker: {fileID: 319823376}
+  objective: {fileID: 0}
 --- !u!114 &867228820
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -59483,7 +59540,7 @@ MonoBehaviour:
   blur: {fileID: 610783030}
   helpButton: {fileID: 1255645527}
   GraphicButton: {fileID: 657975263}
-  ObjectiveChecker: {fileID: 319823376}
+  objective: {fileID: 0}
 --- !u!1 &868145074
 GameObject:
   m_ObjectHideFlags: 0
@@ -67831,10 +67888,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3b7b844b9eb374843be018ce7fb63585, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  checker: {fileID: 0}
   LeftLensController: {fileID: 934162590}
   RightLensController: {fileID: 1856694439}
+  isLeftJccFlippedBack: 0
+  isRightJccFlippedBack: 0
   LeftLensActive: 0
   RightLensActive: 0
+  leftJccGo: {fileID: 0}
+  rightJccGo: {fileID: 0}
 --- !u!4 &1012159150
 Transform:
   m_ObjectHideFlags: 0
@@ -68645,7 +68707,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6598177d92c692940b03a912d995b8d4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  linkCursorTexture: {fileID: 2800000, guid: 9b06c0d8b4e8fa6448f481781b52a3ba, type: 3}
   PDManager: {fileID: 6805733}
   PDLeftManager: {fileID: 1980818772}
   PDRightManager: {fileID: 588049308}
@@ -70758,7 +70819,7 @@ BoxCollider:
   m_GameObject: {fileID: 1051694110}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Size: {x: 29.850327, y: 30.868582, z: 1}
   m_Center: {x: -0.27446872, y: -0.4598868, z: 0}
@@ -83555,7 +83616,7 @@ MonoBehaviour:
   blur: {fileID: 610783030}
   helpButton: {fileID: 1255645527}
   GraphicButton: {fileID: 657975263}
-  ObjectiveChecker: {fileID: 319823376}
+  objective: {fileID: 0}
 --- !u!114 &1255645527
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -87406,6 +87467,8 @@ MonoBehaviour:
   axisController: {fileID: 1012159152}
   openCloseController: {fileID: 865494913}
   LensFlip: {fileID: 172869743}
+  GraphicController: {fileID: 0}
+  PhoropterController: {fileID: 0}
   perfect: {fileID: 935113430}
   tooNear: {fileID: 1643785160}
   tooFar: {fileID: 1800719509}
@@ -87422,6 +87485,10 @@ MonoBehaviour:
   BothAreClear: {fileID: 2087082832}
   StillClear: {fileID: 1109757987}
   BecomeBlur: {fileID: 927020794}
+  wrongAnswer: {fileID: 0}
+  cannotSee: {fileID: 0}
+  whichEyeAreYouTalkingAbout: {fileID: 0}
+  VEOTB: {fileID: 0}
   isLeftOpen: 0
   isRightOpen: 0
   pd: 0
@@ -87452,6 +87519,16 @@ MonoBehaviour:
   leftfinalcheckfloat: 0
   rightfinalcheckfloat: 0
   MeasurementChanges: 0.25
+  leftPdMesh: {fileID: 0}
+  rightPdMesh: {fileID: 0}
+  leftLsMesh: {fileID: 0}
+  rightLsMesh: {fileID: 0}
+  leftAxisMesh: {fileID: 0}
+  rightAxisMesh: {fileID: 0}
+  leftMagMesh: {fileID: 0}
+  rightMagMesh: {fileID: 0}
+  leftJcc: {fileID: 0}
+  rightJcc: {fileID: 0}
   CheckBtn: {fileID: 319823372}
   rsBtn: {fileID: 446325082}
   lsBtn: {fileID: 261477711}
@@ -87461,6 +87538,13 @@ MonoBehaviour:
   leftAxisBtn: {fileID: 1743862379}
   rightFinalBtn: {fileID: 1099252198}
   leftFinalBtn: {fileID: 1892638559}
+  leftFinalBtnSubmit: {fileID: 0}
+  rightFinalBtnSubmit: {fileID: 0}
+  leftReadLineBtn: {fileID: 0}
+  rightReadLineBtn: {fileID: 0}
+  graphicBtn: {fileID: 0}
+  leftJccGo: {fileID: 0}
+  rightJccGo: {fileID: 0}
   isSetupComplete: 0
   IsRighteyeOpen: 0
   isRightSideLSComplete: 0
@@ -87475,6 +87559,7 @@ MonoBehaviour:
   isRightSideComplete: 0
   isLeftSideComplete: 0
   OpenCloseController: {fileID: 865494913}
+  highlightController: {fileID: 0}
 --- !u!1 &1317695588
 GameObject:
   m_ObjectHideFlags: 0
@@ -129334,7 +129419,6 @@ MonoBehaviour:
   rulerLimit: 82
   rulerScroll: 0.0169
   miniRulerScroll: 0.0369
-  CheckBtn: {fileID: 0}
 --- !u!4 &1974065382
 Transform:
   m_ObjectHideFlags: 0
@@ -130866,6 +130950,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: caa845dd1a5b9754eb618095d58cbb1d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  smallPD: {fileID: 0}
+  mediumPD: {fileID: 0}
+  largePD: {fileID: 0}
   RS1: {fileID: 1862920597}
   RS2: {fileID: 1407113475}
   RS3: {fileID: 62770506}
@@ -136896,7 +136983,7 @@ MonoBehaviour:
   Readings: {fileID: 1994804065}
   Resets: {fileID: 81728125}
   Guide: {fileID: 1051694115}
-  ObjectiveChecker: {fileID: 319823376}
+  objective: {fileID: 0}
 --- !u!114 &2096076263
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -136917,7 +137004,9 @@ MonoBehaviour:
   blur: {fileID: 1995354502}
   helpButton: {fileID: 657975263}
   Guide: {fileID: 1051694115}
-  ObjectiveChecker: {fileID: 319823376}
+  one: 0
+  two: 0
+  three: 0
 --- !u!1 &2097157000
 GameObject:
   m_ObjectHideFlags: 0
