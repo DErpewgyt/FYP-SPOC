@@ -109,13 +109,13 @@ public class AstigmatismAxisControl : MonoBehaviour
             if (scrollInput < 0f)
             {
                 // Rotate the first object
-                RotateObject(AstigmatismLensRightFrame, rotation);
+                RotateObject(AstigmatismLensRightFrame, -rotation);
 
                 // Rotate the second object
-                RotateObject(AstigmatismMiddleLensRight, rotation);
+                RotateObject(AstigmatismMiddleLensRight, -rotation);
 
                 // Rotate the third object
-                RotateObject(AstigmatismRightKnob, rotation);
+                RotateObject(AstigmatismRightKnob, -rotation);
                 isRightChanged = true;
                 lensFlip.rightFlippedOnce = false;
                 lensFlip.rightFlippedTwice=false;
@@ -124,13 +124,13 @@ public class AstigmatismAxisControl : MonoBehaviour
             else if(scrollInput > 0f)
             {
                 // Rotate the first object
-                RotateObject(AstigmatismLensRightFrame, -rotation);
+                RotateObject(AstigmatismLensRightFrame, rotation);
 
                 // Rotate the second object
-                RotateObject(AstigmatismMiddleLensRight, -rotation);
+                RotateObject(AstigmatismMiddleLensRight, rotation);
 
                 // Rotate the third object
-                RotateObject(AstigmatismRightKnob, -rotation);
+                RotateObject(AstigmatismRightKnob, rotation);
                 isRightChanged = true;
                 lensFlip.rightFlippedOnce = false;
                 lensFlip.rightFlippedTwice = false;

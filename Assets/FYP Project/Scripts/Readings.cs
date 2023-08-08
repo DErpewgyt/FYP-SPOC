@@ -89,12 +89,12 @@ public class Readings : MonoBehaviour
 
         if (!IsBothCorrect)
         {
-            LvlComplete.text = "Level Failed";
-            LvlCompleteDesc.text = "Level Failed, you can retry or go back to the main menu.\r\n";
+            LvlComplete.text = "Measurements are Incorrect";
+            LvlCompleteDesc.text = "You can retry or go back to the main menu.\r\n";
         } else
         {
-            LvlComplete.text = "Level Completed";
-            LvlCompleteDesc.text = "Level Completed, you can retry or go back to the main menu.\r\n";
+            LvlComplete.text = "Measurements are Correct";
+            LvlCompleteDesc.text = "You can retry or go back to the main menu.\r\n";
         }
     }
 
