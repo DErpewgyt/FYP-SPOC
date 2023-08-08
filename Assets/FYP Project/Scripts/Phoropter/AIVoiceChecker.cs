@@ -786,6 +786,7 @@ public class AIVoiceChecker : MonoBehaviour
         {
             print("cannot see anything");
             // cannot see anything audio
+            cannotSee.Play();
         }
         else
         {
@@ -831,6 +832,7 @@ public class AIVoiceChecker : MonoBehaviour
         {
             print("cannot see anything");
             // cannot see anything audio
+            cannotSee.Play();
         }
         else
         {
@@ -876,6 +878,7 @@ public class AIVoiceChecker : MonoBehaviour
         {
             print("cannot see anything");
             // cannot see anything audio
+            cannotSee.Play();
         }
         else
         {
@@ -919,6 +922,7 @@ public class AIVoiceChecker : MonoBehaviour
         {
             print("cannot see anything");
             // cannot see anything audio
+            cannotSee.Play();
         }
         else
         {
@@ -963,6 +967,7 @@ public class AIVoiceChecker : MonoBehaviour
         {
             print("cannot see anything");
             // cannot see anything audio
+            cannotSee.Play();
         }
         else
         {
@@ -999,6 +1004,7 @@ public class AIVoiceChecker : MonoBehaviour
         {
             print("cannot see anything");
             // cannot see anything audio
+            cannotSee.Play();
         }
         else
         {
