@@ -15,6 +15,8 @@ public class MenuPause : MonoBehaviour
     public GameObject menuPromptPanel;
     public GameObject Timers;
     public GameObject returnClinic;
+
+    public GameObject scriptManager;
     /*private ObjectClicker objectClicker;*/
 
 
@@ -56,6 +58,7 @@ public class MenuPause : MonoBehaviour
         menuPromptPanel.SetActive(false);
         Timers.SetActive(true);
         returnClinic.SetActive(true);
+        scriptManager.SetActive(true);
         Time.timeScale = 1f;
         GameIsPaused = false;
         /*objectClicker.ExitIcon.SetActive(!objectClicker.zoomedIn);*/
@@ -71,6 +74,7 @@ public class MenuPause : MonoBehaviour
         menuPromptPanel.SetActive(false);
         Timers.SetActive(false);
         returnClinic.SetActive(false);
+        scriptManager.SetActive(false);
         Time.timeScale = 0f;
         GameIsPaused = true;
     }

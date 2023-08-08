@@ -96655,6 +96655,7 @@ MonoBehaviour:
   menuPromptPanel: {fileID: 431803302539624766}
   Timers: {fileID: 6217763896265812668}
   returnClinic: {fileID: 1334708156}
+  scriptManager: {fileID: 418806269}
 --- !u!1 &4839396770374264204 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2205293382015157697, guid: edcbb83b4f37ef3489b11ceec015ba87, type: 3}
