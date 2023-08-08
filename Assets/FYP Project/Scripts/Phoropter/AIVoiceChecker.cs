@@ -50,6 +50,8 @@ public class AIVoiceChecker : MonoBehaviour
 
     public AudioSource wrongAnswer;
 
+    public AudioSource correctAnswer;
+
     public AudioSource cannotSee;
 
     public AudioSource whichEyeAreYouTalkingAbout;
@@ -598,7 +600,7 @@ public class AIVoiceChecker : MonoBehaviour
             SphereCollider[] leftJccColliders = leftJccGo.GetComponents<SphereCollider>();
             SphereCollider[] rightJccColliders = rightJccGo.GetComponents<SphereCollider>();
 
-            perfect.Play();
+            //perfect.Play();
             isSetupComplete = true;
             Debug.Log("highlightedObject: " + highlightController.highlightedObject);
             highlightController.activeObject.layer = LayerMask.NameToLayer("Default");
@@ -627,6 +629,7 @@ public class AIVoiceChecker : MonoBehaviour
             }
             PhoropterController.DisableAll();
             print("correct calibrated readings");
+            correctAnswer.Play();
         }
         else
         {
@@ -783,6 +786,7 @@ public class AIVoiceChecker : MonoBehaviour
         {
             print("cannot see anything");
             // cannot see anything audio
+            cannotSee.Play();
         }
         else
         {
@@ -828,6 +832,7 @@ public class AIVoiceChecker : MonoBehaviour
         {
             print("cannot see anything");
             // cannot see anything audio
+            cannotSee.Play();
         }
         else
         {
@@ -873,6 +878,7 @@ public class AIVoiceChecker : MonoBehaviour
         {
             print("cannot see anything");
             // cannot see anything audio
+            cannotSee.Play();
         }
         else
         {
@@ -916,6 +922,7 @@ public class AIVoiceChecker : MonoBehaviour
         {
             print("cannot see anything");
             // cannot see anything audio
+            cannotSee.Play();
         }
         else
         {
@@ -960,6 +967,7 @@ public class AIVoiceChecker : MonoBehaviour
         {
             print("cannot see anything");
             // cannot see anything audio
+            cannotSee.Play();
         }
         else
         {
@@ -996,6 +1004,7 @@ public class AIVoiceChecker : MonoBehaviour
         {
             print("cannot see anything");
             // cannot see anything audio
+            cannotSee.Play();
         }
         else
         {
@@ -1035,6 +1044,7 @@ public class AIVoiceChecker : MonoBehaviour
             highlightController.activeObject = null;
             isLeftSideFinalComplete = true;
             PhoropterController.DisableAll();
+            correctAnswer.Play();
         }
         else
             wrongAnswer.Play();
@@ -1056,6 +1066,7 @@ public class AIVoiceChecker : MonoBehaviour
             GraphicController.one = true;
             PhoropterController.DisableAll();
             //StillClear.Play();
+            correctAnswer.Play();
         }
         else
             wrongAnswer.Play();
