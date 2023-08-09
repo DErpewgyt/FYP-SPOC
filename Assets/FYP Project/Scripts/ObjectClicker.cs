@@ -28,6 +28,7 @@ public class ObjectClicker : MonoBehaviour
     public KeratometerHelpController helpController;
     public GameObject ExitIcon;
     public static bool ExitActive;
+    public MenuPause PauseManager;
 
     public Readings reading;
     private void Start()
@@ -69,7 +70,7 @@ public class ObjectClicker : MonoBehaviour
         }
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         //if (Cursor.visible && !EventSystem.current.IsPointerOverGameObject() && Physics.Raycast(ray, out raycastHit))
-        if (Cursor.visible && !IsPointerOverGameObjectWithTag("CursorChangeOnly") && Physics.Raycast(ray, out raycastHit))
+        if (Cursor.visible && !IsPointerOverGameObjectWithTag("CursorChangeOnly") && Physics.Raycast(ray, out raycastHit) && !PauseManager.test1)
         {
             highlight = raycastHit.transform;
             if (highlight.CompareTag("Selectable") || highlight.CompareTag("EyePiece") || highlight.CompareTag("Gripper") || highlight.CompareTag("JoyStick") || highlight.CompareTag("LeftKnob") || highlight.CompareTag("RightKnob"))
@@ -128,7 +129,7 @@ public class ObjectClicker : MonoBehaviour
                 DisableMovements();
             }
         }
-        if(!reading.isBottomFieldActive && !reading.isTopFieldActive)
+        if(!reading.isBottomFieldActive && !reading.isTopFieldActive && !PauseManager.test1)
         {
             if (Input.GetKeyDown(KeyCode.Alpha1))
             {

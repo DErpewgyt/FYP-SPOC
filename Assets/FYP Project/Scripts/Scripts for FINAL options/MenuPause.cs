@@ -7,6 +7,7 @@ using UnityEditor;
 public class MenuPause : MonoBehaviour
 {
     public static bool GameIsPaused = false;
+    public bool test1;
 
     public GameObject pauseMenuUI;
     public GameObject pauseMenuBtn;
@@ -26,6 +27,7 @@ public class MenuPause : MonoBehaviour
 
     void Update()
     {
+        test1 = GameIsPaused;
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             if (GameIsPaused)
