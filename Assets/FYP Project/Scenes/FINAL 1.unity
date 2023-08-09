@@ -11919,6 +11919,7 @@ MonoBehaviour:
   Blur2: {fileID: 430333947}
   helpController: {fileID: 0}
   ExitIcon: {fileID: 1334708156}
+  PauseManager: {fileID: 4839396770246659816}
   reading: {fileID: 1631702569}
 --- !u!1 &258004530
 GameObject:
@@ -96648,6 +96649,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cf58b1b7e37538d4fa48a7ae88530fd1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  test1: 0
   pauseMenuUI: {fileID: 4839396770374264204}
   pauseMenuBtn: {fileID: 4839396770438599398}
   optionMenuUI: {fileID: 794354636}
