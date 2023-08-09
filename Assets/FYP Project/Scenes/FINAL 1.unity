@@ -64081,6 +64081,7 @@ MonoBehaviour:
   speed: 0.05
   CirlcesSpeed: 0.02
   reading: {fileID: 1631702569}
+  pauseMenu: {fileID: 4839396770246659816}
 --- !u!1 &1476860637
 GameObject:
   m_ObjectHideFlags: 0
@@ -96649,7 +96650,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cf58b1b7e37538d4fa48a7ae88530fd1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  test1: 0
+  isPaused: 0
   pauseMenuUI: {fileID: 4839396770374264204}
   pauseMenuBtn: {fileID: 4839396770438599398}
   optionMenuUI: {fileID: 794354636}

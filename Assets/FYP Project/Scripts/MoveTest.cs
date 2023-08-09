@@ -40,6 +40,7 @@ public class MoveTest : MonoBehaviour
     public float CirlcesSpeed = .02f;
 
     public Readings reading;
+    public MenuPause pauseMenu;
 
     private void Start()
     {
@@ -132,7 +133,7 @@ public class MoveTest : MonoBehaviour
 
 
         float xDirection = Input.GetAxisRaw("Mouse ScrollWheel");
-        if (HorizontalCircle && Mathf.Abs(xDirection) > 0.05f)
+        if (HorizontalCircle && Mathf.Abs(xDirection) > 0.05f && !pauseMenu.isPaused)
         {
             BoxVolumeBlurryCircle.SetActive(false);
             BoxVolumeCircleGroupBlur.SetActive(true);
@@ -145,7 +146,7 @@ public class MoveTest : MonoBehaviour
         }
 
         float yDirection = Input.GetAxisRaw("Mouse ScrollWheel");
-        if (VerticalCircle && Mathf.Abs(yDirection) > 0.05f)
+        if (VerticalCircle && Mathf.Abs(yDirection) > 0.05f && !pauseMenu.isPaused)
         {
             BoxVolumeBlurryCircle.SetActive(false);
             BoxVolumeCircleGroupBlur.SetActive(true);
@@ -158,7 +159,7 @@ public class MoveTest : MonoBehaviour
         }
 
         float zDirection = Input.GetAxis("Mouse ScrollWheel");
-        if (BlurCircle)
+        if (BlurCircle && !pauseMenu.isPaused)
         {
             BoxVolumeBlurryCircle.SetActive(true);
             BoxVolumeCircleGroupBlur.SetActive(false);

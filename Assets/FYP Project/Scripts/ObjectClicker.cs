@@ -70,7 +70,7 @@ public class ObjectClicker : MonoBehaviour
         }
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         //if (Cursor.visible && !EventSystem.current.IsPointerOverGameObject() && Physics.Raycast(ray, out raycastHit))
-        if (Cursor.visible && !IsPointerOverGameObjectWithTag("CursorChangeOnly") && Physics.Raycast(ray, out raycastHit) && !PauseManager.test1)
+        if (Cursor.visible && !IsPointerOverGameObjectWithTag("CursorChangeOnly") && Physics.Raycast(ray, out raycastHit) && !PauseManager.isPaused)
         {
             highlight = raycastHit.transform;
             if (highlight.CompareTag("Selectable") || highlight.CompareTag("EyePiece") || highlight.CompareTag("Gripper") || highlight.CompareTag("JoyStick") || highlight.CompareTag("LeftKnob") || highlight.CompareTag("RightKnob"))
@@ -121,7 +121,7 @@ public class ObjectClicker : MonoBehaviour
             }
         }
 
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space) && !PauseManager.isPaused)
         {
             if (!animationInProgress)
             {
@@ -129,7 +129,7 @@ public class ObjectClicker : MonoBehaviour
                 DisableMovements();
             }
         }
-        if(!reading.isBottomFieldActive && !reading.isTopFieldActive && !PauseManager.test1)
+        if(!reading.isBottomFieldActive && !reading.isTopFieldActive && !PauseManager.isPaused)
         {
             if (Input.GetKeyDown(KeyCode.Alpha1))
             {
