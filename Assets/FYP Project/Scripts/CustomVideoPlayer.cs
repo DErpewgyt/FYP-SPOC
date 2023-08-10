@@ -30,4 +30,10 @@ public class CustomVideoPlayer : MonoBehaviour
             button.image.sprite = startSprite;
         }
     }
+
+    private void OnDisable()
+    {
+        // Set the sprite to startSprite when the GameObject is disabled
+        button.image.sprite = startSprite;
+    }
 }

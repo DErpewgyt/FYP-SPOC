@@ -19,7 +19,8 @@ public class PauseMenu : MonoBehaviour
     public GameObject examQuest;
     public GameObject chooseQuest;
     public GameObject canvasFader;
-
+    public GameObject VideoPlayer;
+    public GameObject VideoPlayer2;
     private FirstPersonController firstPersonController;
 
     void Awake()
@@ -62,6 +63,8 @@ public class PauseMenu : MonoBehaviour
         Time.timeScale = 1f;
         GameIsPaused = false;
         Cursor.visible = false;
+        VideoPlayer.SetActive(false);
+        VideoPlayer2.SetActive(false);
 
         if (firstPersonController != null)
         {
@@ -86,6 +89,8 @@ public class PauseMenu : MonoBehaviour
         GameIsPaused = true;
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
+        VideoPlayer.SetActive(false);
+        VideoPlayer2.SetActive(false);
 
         if (firstPersonController != null)
         {
@@ -97,12 +102,16 @@ public class PauseMenu : MonoBehaviour
     {
         optionMenuUI.SetActive(true);
         pauseMenuBtn.SetActive(false);
+        VideoPlayer.SetActive(true);
+        VideoPlayer2.SetActive(true);
     }
 
     public void OptionClose()
     {
         optionMenuUI.SetActive(false);
         pauseMenuBtn.SetActive(true);
+        VideoPlayer.SetActive(false);
+        VideoPlayer2.SetActive(false);
     }
 
     // --------------------------------------------------- Main Menu Controller-------------------------------------------------

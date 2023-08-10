@@ -16,6 +16,8 @@ public class MenuPause : MonoBehaviour
     public GameObject menuPromptPanel;
     public GameObject Timers;
     public GameObject returnClinic;
+    public GameObject VideoPlayer;
+    public GameObject VideoPlayer2;
     /*private ObjectClicker objectClicker;*/
 
 
@@ -60,6 +62,8 @@ public class MenuPause : MonoBehaviour
         returnClinic.SetActive(true);
         Time.timeScale = 1f;
         GameIsPaused = false;
+        VideoPlayer.SetActive(false);
+        VideoPlayer2.SetActive(false);
         /*objectClicker.ExitIcon.SetActive(!objectClicker.zoomedIn);*/
     }
 
@@ -75,18 +79,24 @@ public class MenuPause : MonoBehaviour
         returnClinic.SetActive(false);
         Time.timeScale = 0f;
         GameIsPaused = true;
+        VideoPlayer.SetActive(false);
+        VideoPlayer2.SetActive(false);
     }
 
     public void OptionBtn()
     {
         optionMenuUI.SetActive(true);
         pauseMenuBtn.SetActive(false);
+        VideoPlayer.SetActive(true);
+        VideoPlayer2.SetActive(true);
     }
 
     public void OptionClose()
     {
         optionMenuUI.SetActive(false);
         pauseMenuBtn.SetActive(true);
+        VideoPlayer.SetActive(false);
+        VideoPlayer2.SetActive(false);
     }
 
     // --------------------------------------------------- Main Menu Controller-------------------------------------------------

@@ -13,6 +13,12 @@ public class PhoropPause : MonoBehaviour
     public GameObject optionMenuUI;
     public GameObject quitPromptPanel;
     public GameObject menuPromptPanel;
+
+    public GameObject OnScreenElements;
+    public GameObject Managers;
+    public GameObject VideoPlayer;
+    public GameObject VideoPlayer2;
+
     /*public GameObject returnClinic;*/
     /*private ObjectClicker objectClicker;*/
 
@@ -40,48 +46,60 @@ public class PhoropPause : MonoBehaviour
 
     public void Resume()
     {
-        if (ObjectClicker.zoomedIn == true)
+        /*if (ObjectClicker.zoomedIn == true)
         {
             ObjectClicker.ExitActive = false;
         }
         else
         {
             ObjectClicker.ExitActive = true;
-        }
+        }*/
         pauseMenuUI.SetActive(false);
         pauseMenuBtn.SetActive(false);
         optionMenuUI.SetActive(false);
         quitPromptPanel.SetActive(false);
         menuPromptPanel.SetActive(false);
+        OnScreenElements.SetActive(true);
+        Managers.SetActive(true);
         /*returnClinic.SetActive(true);*/
         Time.timeScale = 1f;
         GameIsPaused = false;
         /*objectClicker.ExitIcon.SetActive(!objectClicker.zoomedIn);*/
+        VideoPlayer.SetActive(false);
+        VideoPlayer2.SetActive(false);
     }
 
     void Pause()
     {
-        ObjectClicker.ExitActive = false;
+/*        ObjectClicker.ExitActive = false;*/
         pauseMenuUI.SetActive(true);
         pauseMenuBtn.SetActive(true);
         optionMenuUI.SetActive(false);
         quitPromptPanel.SetActive(false);
         menuPromptPanel.SetActive(false);
+        OnScreenElements.SetActive(false);
+        Managers.SetActive(false);
         /*returnClinic.SetActive(false);*/
         Time.timeScale = 0f;
         GameIsPaused = true;
+        VideoPlayer.SetActive(false);
+        VideoPlayer2.SetActive(false);
     }
 
     public void OptionBtn()
     {
         optionMenuUI.SetActive(true);
         pauseMenuBtn.SetActive(false);
+        VideoPlayer.SetActive(true);
+        VideoPlayer2.SetActive(true);
     }
 
     public void OptionClose()
     {
         optionMenuUI.SetActive(false);
         pauseMenuBtn.SetActive(true);
+        VideoPlayer.SetActive(false);
+        VideoPlayer2.SetActive(false);
     }
 
     // --------------------------------------------------- Main Menu Controller-------------------------------------------------
