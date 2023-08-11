@@ -10,7 +10,10 @@ public class CustomVideoPlayer : MonoBehaviour
     public Button button;
     public Sprite startSprite;
     public Sprite stopSprite;
-    public RawImage rawImage; // Reference to the specific RawImage for this video
+    public RawImage rawImage;
+    public GameObject objectToDeactivate; // Reference to the GameObject to deactivate
+
+    private static CustomVideoPlayer activeVideoPlayer; // Static reference to the currently active video player
 
     void Start()
     {
@@ -21,13 +24,27 @@ public class CustomVideoPlayer : MonoBehaviour
     {
         if (player.isPlaying == false)
         {
+            if (activeVideoPlayer != null && activeVideoPlayer != this)
+            {
+                activeVideoPlayer.PauseVideo(); // Pause the video playback
+                activeVideoPlayer.objectToDeactivate.SetActive(true); // Activate the object of the paused player
+            }
+
+            activeVideoPlayer = this;
+
             player.Play();
             button.image.sprite = stopSprite;
+
+            // Deactivate the GameObject when the video is played
+            objectToDeactivate.SetActive(false);
         }
         else
         {
             player.Pause();
             button.image.sprite = startSprite;
+
+            // Activate the GameObject when the video is paused
+            objectToDeactivate.SetActive(true);
         }
     }
 
@@ -35,5 +52,18 @@ public class CustomVideoPlayer : MonoBehaviour
     {
         // Set the sprite to startSprite when the GameObject is disabled
         button.image.sprite = startSprite;
+
+        if (activeVideoPlayer == this)
+        {
+            activeVideoPlayer = null;
+        }
+    }
+
+    private void PauseVideo()
+    {
+        if (player != null)
+        {
+            player.Pause();
+        }
     }
 }

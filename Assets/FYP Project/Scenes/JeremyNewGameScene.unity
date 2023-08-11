@@ -768,6 +768,7 @@ MonoBehaviour:
   startSprite: {fileID: 21300000, guid: 2f2ed1a167dc67349a42cb44a3d9b115, type: 3}
   stopSprite: {fileID: 21300000, guid: 80694812942b91b42bc4aad99071ba7e, type: 3}
   rawImage: {fileID: 567604225}
+  objectToDeactivate: {fileID: 429490509}
 --- !u!114 &35057180
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1962,6 +1963,7 @@ MonoBehaviour:
   startSprite: {fileID: 21300000, guid: 2f2ed1a167dc67349a42cb44a3d9b115, type: 3}
   stopSprite: {fileID: 21300000, guid: 80694812942b91b42bc4aad99071ba7e, type: 3}
   rawImage: {fileID: 567604227}
+  objectToDeactivate: {fileID: 429490509}
 --- !u!328 &73117307
 VideoPlayer:
   m_ObjectHideFlags: 0
@@ -10137,6 +10139,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 515ce7c910b207b43901c5a718ab790e, type: 3}
+--- !u!1 &429490509 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5835233050213604403, guid: 515ce7c910b207b43901c5a718ab790e, type: 3}
+  m_PrefabInstance: {fileID: 429490508}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &430038948
 GameObject:
   m_ObjectHideFlags: 0

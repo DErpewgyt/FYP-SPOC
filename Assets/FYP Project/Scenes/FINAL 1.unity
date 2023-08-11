@@ -31220,6 +31220,7 @@ MonoBehaviour:
   startSprite: {fileID: 21300000, guid: 2f2ed1a167dc67349a42cb44a3d9b115, type: 3}
   stopSprite: {fileID: 21300000, guid: 80694812942b91b42bc4aad99071ba7e, type: 3}
   rawImage: {fileID: 225632539}
+  objectToDeactivate: {fileID: 1117991688}
 --- !u!328 &710731484
 VideoPlayer:
   m_ObjectHideFlags: 0
@@ -48541,6 +48542,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 515ce7c910b207b43901c5a718ab790e, type: 3}
+--- !u!1 &1117991688 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5835233050213604403, guid: 515ce7c910b207b43901c5a718ab790e, type: 3}
+  m_PrefabInstance: {fileID: 1117991687}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1118740638
 GameObject:
   m_ObjectHideFlags: 0
@@ -95051,6 +95057,7 @@ MonoBehaviour:
   startSprite: {fileID: 21300000, guid: 2f2ed1a167dc67349a42cb44a3d9b115, type: 3}
   stopSprite: {fileID: 21300000, guid: 80694812942b91b42bc4aad99071ba7e, type: 3}
   rawImage: {fileID: 995816934}
+  objectToDeactivate: {fileID: 1117991688}
 --- !u!328 &2142527368
 VideoPlayer:
   m_ObjectHideFlags: 0

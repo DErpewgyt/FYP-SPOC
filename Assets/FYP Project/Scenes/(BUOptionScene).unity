@@ -2046,6 +2046,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 543258790}
   m_CullTransparentMesh: 1
+--- !u!1 &548169957 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5835233050213604403, guid: 515ce7c910b207b43901c5a718ab790e, type: 3}
+  m_PrefabInstance: {fileID: 6098444}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &559820932
 GameObject:
   m_ObjectHideFlags: 0
@@ -6063,6 +6068,7 @@ MonoBehaviour:
   startSprite: {fileID: 21300000, guid: 2f2ed1a167dc67349a42cb44a3d9b115, type: 3}
   stopSprite: {fileID: 21300000, guid: 80694812942b91b42bc4aad99071ba7e, type: 3}
   rawImage: {fileID: 396539550}
+  objectToDeactivate: {fileID: 548169957}
 --- !u!114 &1774695860
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6681,6 +6687,7 @@ MonoBehaviour:
   startSprite: {fileID: 21300000, guid: 2f2ed1a167dc67349a42cb44a3d9b115, type: 3}
   stopSprite: {fileID: 21300000, guid: 80694812942b91b42bc4aad99071ba7e, type: 3}
   rawImage: {fileID: 707019816}
+  objectToDeactivate: {fileID: 548169957}
 --- !u!328 &1974793702
 VideoPlayer:
   m_ObjectHideFlags: 0
