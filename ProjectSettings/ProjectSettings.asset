@@ -12,7 +12,7 @@ PlayerSettings:
   targetDevice: 2
   useOnDemandResources: 0
   accelerometerFrequency: 60
-  companyName: IS-010 SPOC
+  companyName: SAP 3A80 IS-010 SPOC
   productName: SPOC Simulator
   defaultCursor: {fileID: 2800000, guid: 8aa229f07461f714a91f80c0980d6699, type: 3}
   cursorHotspot: {x: 0, y: 0}
@@ -134,7 +134,7 @@ PlayerSettings:
     16:10: 1
     16:9: 1
     Others: 1
-  bundleVersion: 1.0
+  bundleVersion: 2.0
   preloadedAssets:
   - {fileID: 11400000, guid: 9e7be553448fa2546aea5752021cbcf7, type: 2}
   metroInputSource: 0
@@ -156,7 +156,7 @@ PlayerSettings:
   androidSupportedAspectRatio: 1
   androidMaxAspectRatio: 2.1
   applicationIdentifier:
-    Standalone: com.IS-010-SPOC.SPOC-Simulator
+    Standalone: com.SAP-3A80-IS-010-SPOC.SPOC-Simulator
   buildNumber:
     Standalone: 0
     iPhone: 0
