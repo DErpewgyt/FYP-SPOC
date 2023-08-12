@@ -36,7 +36,7 @@ public class CustomVideoPlayer : MonoBehaviour
             button.image.sprite = stopSprite;
 
             // Deactivate the GameObject when the video is played
-            objectToDeactivate.SetActive(false);
+            DeactivateObjectToDeactivate();
         }
         else
         {
@@ -64,6 +64,14 @@ public class CustomVideoPlayer : MonoBehaviour
         if (player != null)
         {
             player.Pause();
+        }
+    }
+
+    private void DeactivateObjectToDeactivate()
+    {
+        if (objectToDeactivate != null)
+        {
+            objectToDeactivate.SetActive(false);
         }
     }
 }
