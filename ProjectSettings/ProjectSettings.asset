@@ -136,6 +136,7 @@ PlayerSettings:
     Others: 1
   bundleVersion: 2.0
   preloadedAssets:
+  - {fileID: -2334232788622863107, guid: 7ef70a625a30c284681c37b387ba72df, type: 2}
   - {fileID: 11400000, guid: 9e7be553448fa2546aea5752021cbcf7, type: 2}
   metroInputSource: 0
   wsaTransparentSwapchain: 0
@@ -732,7 +733,8 @@ PlayerSettings:
     tvOS: UNITY_POST_PROCESSING_STACK_V2
   additionalCompilerArguments: {}
   platformArchitecture: {}
-  scriptingBackend: {}
+  scriptingBackend:
+    Standalone: 0
   il2cppCompilerConfiguration: {}
   managedStrippingLevel:
     EmbeddedLinux: 1

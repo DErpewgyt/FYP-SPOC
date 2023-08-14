@@ -225,5 +225,5 @@ QualitySettings:
   m_PerPlatformDefaultQuality:
     Android: 2
     Server: 2
-    Standalone: 2
+    Standalone: 5
     Windows Store Apps: 0
