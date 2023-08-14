@@ -2,6 +2,7 @@
   "dependencies": {
     "com.replicastudios.link": "file:replica-unity-link-v0.0.1.tgz",
     "com.unity.2d.sprite": "1.0.0",
+    "com.unity.adaptiveperformance": "5.0.1",
     "com.unity.cinemachine": "2.9.5",
     "com.unity.ide.visualstudio": "2.0.18",
     "com.unity.inputsystem": "1.5.1",
