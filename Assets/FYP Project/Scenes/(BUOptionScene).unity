@@ -811,6 +811,101 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 208089252}
   m_CullTransparentMesh: 1
+--- !u!1 &209864758
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 209864759}
+  - component: {fileID: 209864762}
+  - component: {fileID: 209864761}
+  - component: {fileID: 209864760}
+  m_Layer: 5
+  m_Name: w drleung
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &209864759
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 209864758}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 9.040837, y: 6.402584, z: 3.201292}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2104872303}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 74, y: -2182}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!95 &209864760
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 209864758}
+  m_Enabled: 0
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 7191a0b89522b954388747a1594055de, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &209864761
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 209864758}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1344c3c82d62a2a41a3576d8abb8e3ea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Texture: {fileID: 2800000, guid: 56c03718cfcfc5141a4019716d6c77f8, type: 3}
+  m_UVRect:
+    serializedVersion: 2
+    x: 0
+    y: 0
+    width: 1
+    height: 1
+--- !u!222 &209864762
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 209864758}
+  m_CullTransparentMesh: 1
 --- !u!1 &244046624
 GameObject:
   m_ObjectHideFlags: 0
@@ -1969,8 +2064,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\n\n\n\n\n\n\n\n  \n\nSpecial thanks to our supervisor, Mr Siah Peih Wee\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nAnd
-    our client, Dr Ivan Leung\n\n\n\n"
+  m_text: "\n\n\n\n\n\n\n\n  \n\nSpecial thanks to our supervisor, Mr Siah Peih Wee\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nOur
+    Immersive Simulation teacher, Mr Vincent Goh\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nAnd
+    our client, Dr Ivan Leung\n\n"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: f02fe0a80d801604da74c32973654929, type: 2}
   m_sharedMaterial: {fileID: 8554351414307161554, guid: f02fe0a80d801604da74c32973654929, type: 2}
@@ -4136,7 +4232,7 @@ GameObject:
   - component: {fileID: 1034707988}
   - component: {fileID: 1034707987}
   m_Layer: 5
-  m_Name: w drleung
+  m_Name: w mrvincent
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4151,7 +4247,7 @@ RectTransform:
   m_GameObject: {fileID: 1034707985}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 9.040837, y: 6.402584, z: 3.201292}
+  m_LocalScale: {x: 9.485816, y: 6.402584, z: 3.201292}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2104872303}
@@ -4203,7 +4299,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Texture: {fileID: 2800000, guid: 56c03718cfcfc5141a4019716d6c77f8, type: 3}
+  m_Texture: {fileID: 2800000, guid: dcbec57c52f0bcc41a7442889afc00b7, type: 3}
   m_UVRect:
     serializedVersion: 2
     x: 0
@@ -6964,6 +7060,7 @@ RectTransform:
   - {fileID: 482620009}
   - {fileID: 874688631}
   - {fileID: 1034707986}
+  - {fileID: 209864759}
   m_Father: {fileID: 1858419092}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
